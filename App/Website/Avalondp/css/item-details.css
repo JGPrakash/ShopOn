@@ -1,0 +1,236 @@
+﻿[controlid=pnlDetailsTitle]{
+    background: #f4f5f7;
+    padding-top: 10px;
+    padding-bottom: 5px;
+}
+[controlid=pnlDetailsTitle] > span{
+    font-size:18px;
+}
+.title-active{
+    font-size:20px;
+    font-weight:bold;
+    color:#3c4a65;
+}
+.title-direction{
+    padding-left:10px;
+    padding-right:10px;
+}
+[controlid=pnlDetailsHeading]{
+    background: #f4f5f7;
+    padding-bottom:10px;
+}
+[controlid=pnlDetailsHeading] > span{
+    font-size:34px;
+    font-weight:bold;
+    color:#3c4a65;
+    border-bottom:5px solid #3c4a65;
+}
+
+[controlid=pnlDetailsCategory]{
+        padding-top: 10px;
+    padding-bottom: 20px;
+}
+[controlid=pnlDetailsCategory] > h4{
+    font-size:28px;
+        font-weight: bold;
+    line-height: 30px;
+    letter-spacing: 1px;
+}
+[controlid=pnlDetailsCategory] > h5{
+    font-size:20px;
+        font-weight: bold;
+    line-height: 24px;
+    letter-spacing: 1px;
+}
+[controlid=pnlDetailsCategory] > span{
+    font-size:18px;
+        line-height: 42px;
+        letter-spacing: 1px;
+}
+[controlid=pnlDetailsCategory] > input{
+    width:35%;
+}
+[controlid=pnlDetailsCategory] > button{
+    background: #eeeeee;
+    border: none;
+    font-size: 22px;
+}
+/*[controlid=pnlDetailsItems]{
+    border-left:1px solid #00000042;
+}*/
+[controlid=pnlDetailsItems] > div{
+        padding: 20px 10px 20px 10px;
+    border-bottom: 1px solid #ded6d6;
+    border-top: 1px solid #ded6d6;
+}
+[controlid=pnlDetailsItems] > div > span{
+    font-size: 22px;
+    letter-spacing: 1px;
+}
+.sort-panel{
+    text-align:right;
+}
+.manufacture-details{
+    border:1px solid #00000042;
+    padding-top:15px;
+    padding-bottom:10px;
+}
+.collection-heading{
+    padding-top:20px;
+    padding-bottom:20px;
+}
+.manufacture-details > img{
+    height:200px;
+}
+.manufacture-details > h3{
+    text-align:center;
+}
+
+[controlid=lblItemName]{
+        font-size: 24px;
+    letter-spacing: 1px;
+    line-height: 24px;
+}
+[controlid=pnlCategoryDetails] > h5{
+        font-size: 20px;
+    letter-spacing: 1px;
+}
+[controlid=pnlCategoryDetails] > i{
+        font-size: 20px;
+    letter-spacing: 1px;
+    color:blue;
+}
+[controlid=pnlCategoryDetails] > span{
+    font-size: 18px;
+    padding-left: 20px;
+}
+.space-style-3{
+    height:50px;
+}
+[controlid=pnlFeatures] > h4{
+    font-size: 26px;
+    letter-spacing: 1px;
+    line-height: 28px;
+}
+[controlid=pnlFeatures] > div{
+    border: 1px solid #00000042;
+    padding: 10px;
+}
+[controlid=pnlFeatures] > div > span{
+    font-size: 18px;
+    letter-spacing: 1px;
+}
+[controlid=pnlSupportSearch]{
+    border-left: 1px solid #00000042;
+}
+[controlid=pnlSupportSearch] > h5{
+    font-size:18px;
+    letter-spacing:1px;
+}
+[controlid=pnlSupportSearch] > div > span{
+        font-size: 14px;
+    letter-spacing: 1px;
+    line-height: 15px;
+    font-weight: 600;
+}
+
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {
+    
+}
+
+/* Small devices (portrait and landscape tablets) */
+@media only screen 
+  and (min-device-width: 650px) 
+  and (max-device-width: 1020px) 
+  and (-webkit-min-device-pixel-ratio: 1) {
+    
+}
+
+/* Medium devices (landscape tablets, 768px and up) */
+/*@media only screen and (min-width: 768px) {
+   .home-carosal{
+        height:200px !important;
+    }
+}*/
+
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 992px) {
+
+}
+
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+@media only screen and (min-width: 1200px) {
+
+}
+
+
+
+.item-name{
+        font-size: 24px;
+    letter-spacing: 1px;
+}
+.sku-name{
+    line-height:30px;
+    float: right;
+}
+.model-name{
+    line-height:30px;
+}
+.man-name{
+        font-size: 22px;
+    line-height: 30px;
+    letter-spacing:1px;
+}
+.store-info{
+    font-size: 16px;
+    line-height: 16px;
+    letter-spacing:1px;
+}
+.stock-info{
+    font-size: 16px;
+    line-height: 16px;
+    letter-spacing:1px;
+}
+.cart-button{
+    background: #ff7600;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    padding: 5px;
+    letter-spacing: 1px;
+    color: white;
+}
+
+
+figure.zoom {
+  background-position: 50% 50%;
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  cursor: zoom-in;
+}
+/*figure.zoom img:hover {
+  opacity: 0;
+}*/
+figure.zoom img {
+  transition: opacity .5s;
+  display: block;
+  width: 100%;
+}
+[controlid=pnlImage]{
+    overflow-x:scroll;
+}
+.image{
+        padding: 10px;
+    border: 1px solid #d2cccc;
+        margin-right: 10px;
+}
+.price-title{
+    padding: 0px;
+    color: blue;
+    font-size: 16px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    line-height: 35px;
+}

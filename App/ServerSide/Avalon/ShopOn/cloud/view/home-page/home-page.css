@@ -1,0 +1,191 @@
+﻿.login-form {
+    height: 220px;
+    left: 50%;
+    position: fixed;
+    top: 30%;
+    width: 400px;
+}
+
+.login-form-input>div {
+    margin: 20px;
+}
+
+.login-form-header {
+    background-color: gray;
+    border-bottom: 1px solid black;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+    margin: 0;
+    padding: 10px;
+}
+
+.login-form-input {
+    background-color: whitesmoke;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    display: inline-block;
+    width: 100%;
+}
+
+.login-form-input>div:last-of-type {
+    float: right;
+    margin-top: 0;
+    width: auto;
+}
+
+.login-form-input .label {
+    display: inline-block;
+    font-size: 16px;
+    font-weight: bold;
+    text-align: right;
+    width: 120px;
+}
+
+.login-form-input input {
+    font-size: 16px;
+    margin-left: 20px;
+    width: 180px;
+}
+
+.login-form-input>div:last-of-type input {
+    font-size: 16px;
+    margin-right: 30px;
+    width: 80px;
+}
+
+.big-menu {
+    margin-bottom: 40px;
+    margin-left: 50px;
+    margin-top: 10px;
+}
+
+.detail-basic {
+    border: 1px solid lightgray;
+    box-shadow: 2px 2px 2px lightgray;
+    margin-left: 50px;
+    padding: 5px;
+}
+
+.detail-basic .label {
+    background-color: whitesmoke;
+    color: dimgray;
+    font-weight: normal;
+    width: 130px;
+}
+
+.big-menu>a {
+    -moz-border-bottom-colors: none;
+    -moz-border-left-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-top-colors: none;
+    background-color: whitesmoke;
+    border-bottom: medium none gray;
+    border-image: none;
+    border-left: medium none gray;
+    border-radius: 3px;
+    border-top: medium none gray;
+    box-shadow: 2px 2px 2px lightgray;
+    color: dimgray;
+    display: inline-block;
+    font-size: 15px;
+    font-weight: bold;
+    line-height: 55px;
+    margin-right: 20px;
+    padding-left: 10px;
+    padding-right: 20px;
+    text-align: center;
+    text-decoration: none;
+    vertical-align: middle;
+}
+
+.big-menu>a:hover {
+    border: 1px solid powderblue;
+}
+
+
+
+
+div[controlId=grdMyCompany] .grid_data > div ,div[controlId=grdMyProduct] .grid_data > div{
+    background-color: white;
+    width:200px;
+    height:auto;
+    overflow-y:auto;
+    margin-left:3%;
+}
+
+div[controlId=grdMyCompany] .grid_data, div[controlId=grdMyProduct] .grid_data {
+overflow-y:auto;
+}
+div[controlId=grdMyCompany] .grid_data > div > div[datafield],div[controlId=grdMyProduct] .grid_data > div > div[datafield]{
+   width: 180px;margin: 10px;
+}
+
+
+
+
+
+div[controlId=grdMyCompany] .grid_data,div[controlId=grdMyProduct] .grid_data {
+    background-color: transparent;
+}
+div[controlId=grdMyCompany] .grid_header,div[controlId=grdMyProduct] .grid_header{
+   /*border-bottom:0px;*/
+   /*background-color: black;
+   font:bold;
+   font-size:18px;
+   font-weight: bold;*/
+   display:none;
+}
+div[controlId=grdMyCompany] .footer,div[controlId=grdMyProduct] .footer{
+   display:none;
+}
+div[controlId=grdMyCompany],div[controlId=grdMyProduct]{
+     border:0px;
+     background-color: white;
+}
+div[controlId=grdMyCompany] .grid_header .total_record ,div[controlId=grdMyProduct] .grid_header .total_record{
+   color:aqua;
+   display:none;
+}
+#lbltext{
+    font-size:18px;
+    float:left;
+}
+.icon-image {
+    margin: 5px;
+    padding: 5px;
+}
+/*input[value="Save"]{
+    margin-top:20px;
+    font-size:14px;
+}*/
+.margin-save {
+    margin-top: 20px;
+    padding-right: 20px;
+}
+.margin-top {
+    margin-top: 10px;
+    padding: 0px;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+.home-input, span.label {
+    font-size: 14px;
+    font-family: Calibri;
+}
+input[control="homePage.textBox"] {
+    font-size: 14px;
+    font-family: Calibri;
+}
+select[control="homePage.dropDownList"] {
+    font-size: 14px;
+    font-family: Calibri;
+}
+.head{
+    font-weight:bold;
+}
+input[type=button] {
+    font-family: Calibri;
+}

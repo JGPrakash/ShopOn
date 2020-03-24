@@ -1,0 +1,64 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <script src="/config/config.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        document.write('<script src="/' + appConfig.greentivity_root + '/core/master.js" type="text/javascript" > <\/script> ');
+        document.write('<link href="../css/index.css" rel="stylesheet" />');
+        document.write('<link href="../css/business-member.css" rel="stylesheet" />');
+        document.write('<script src="../js/view/business-member.js"><\/script>');
+        document.write('<script src="../js/view/business-products.js"><\/script>');
+
+    </script>
+
+</head>
+
+
+<body control="page.businessMemberPage" controlId="businessMemberPage">
+    <div control="businessMemberPage.masterPage" controlId="masterPage"></div>
+    <div class="business-top-space"><span class="col-xs-12">&nbsp;</span></div>
+    <div class="action-panel">
+        <div class="col-xs-12 action-button-div">
+            <button control="businessMemberPage.htmlControl" controlId="btnOrders" event="click:btnOrders_click" class="active">
+                <i class="fa fa-first-order"></i>&nbsp;Orders
+            </button>
+            <button control="businessMemberPage.htmlControl" controlId="btnProducts" event="click:btnProducts_click">
+                <i class="fa fa-file"></i>&nbsp;Products
+            </button>
+            <button control="businessMemberPage.htmlControl" controlId="btnSalesReport" event="click:btnSalesReport_click">
+                <i class="fa fa-folder-open-o"></i>&nbsp;Sales Report
+            </button>
+            <button control="businessMemberPage.htmlControl" controlId="btnStockReport" event="click:btnStockReport_click">
+                <i class="fa fa-folder-open-o"></i>&nbsp;Stock Report
+            </button>
+        </div>
+    </div>
+
+    <span class="col-xs-12 space">&nbsp;</span>
+    
+    <div class="col-sm-12" style="overflow-x:hidden;" controlid="pnlContainerPage" control="businessMemberPage.htmlControl">
+        <div>
+        </div>
+    </div>
+
+    <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4"><span>&nbsp;</span></div>
+    
+    <span class="col-xs-12 space">&nbsp;</span>
+    <div class="col-xs-12 footer">
+    </div>
+
+    <div control="businessMemberPage.popup" controlid="pnlAlert" style="display:none">
+        <div class="col-xs-4">
+            <img src="../image/alert.png" width="100%" />
+        </div>
+        <div class="col-xs-8">
+            <span class="col-xs-12" control="businessMemberPage.htmlControl" controlid="lblAlertContent"></span>
+            <hr class="col-xs-12" />
+            <button class="cart-button" control="businessMemberPage.htmlControl" controlid="btnCloseAlert" event="click:btnCloseAlert_click">Ok</button>
+        </div>
+    </div>
+
+
+
+</body>
+</html>

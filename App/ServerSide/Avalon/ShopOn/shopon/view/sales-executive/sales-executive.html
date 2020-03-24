@@ -1,0 +1,378 @@
+<!doctype html>
+<html>
+
+<head>
+
+    <script src="/config/config.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        document.write('<script src="/' + appConfig.root + '/core/master.js" type="text/javascript" > <\/script> ');
+
+        document.write('<script src="/' + appConfig.root + '/shopon/service/sales/sales-executive-service.js"><\/script>');
+        document.write('<script src="/' + appConfig.root + '/shopon/service/sales/sales-executive-api.js"><\/script>');
+        document.write('<script src="/' + appConfig.root + '/shopon/service/sales/sales-executive-reward-api.js"><\/script>');
+        document.write('<script src="/' + appConfig.root + '/shopon/service/Reward/sales-executive-reward-plan-api.js"><\/script>');
+
+        document.write('<link href="/' + appConfig.root + '/shopon/view/sales-executive/sales-executive.css" rel="stylesheet" />');
+        document.write('<script src="/' + appConfig.root + '/shopon/view/sales-executive/sales-executive.js"><\/script>');
+        document.write('<script src="/' + appConfig.root + '/shopon/service/Reward/sales-executive-reward-service.js"><\/script>');
+
+        document.write('<script src="/' + appConfig.root + '/shopon/service/upload/upload-api.js"><\/script>');
+        document.write('<script src="/' + appConfig.root + '/login/service/user-api.js"><\/script>');
+        document.write('<script src="/' + appConfig.root + '/cloud/service/user-group-api.js"><\/script>');
+        //Tamil Font
+        document.write('<script src="/' + appConfig.root + '/core/tamil-common.js" type="text/javascript" > <\/script> ');
+        document.write('<script src="/' + appConfig.root + '/core/tamil.js" type="text/javascript" > <\/script> ');
+        document.write('<script src="/' + appConfig.root + '/shopon/service/sales/customer-service.js"><\/script>');
+        document.write('<script src="/' + appConfig.root + '/shopon/service/sales/city-api.js"><\/script>');
+        document.write('<script src="/' + appConfig.root + '/shopon/service/sales/citystate-api.js"><\/script>');
+    </script>
+
+
+</head>
+
+
+<body control="page.manageSalesExecutive" controlId="manageSalesExecutive">
+
+    <div control="manageSalesExecutive.masterPage" controlId="masterPage"></div>
+
+    <div style="margin-top:40px">
+        <!--Load Content Area-->
+        <div class="container-fluid">
+            <div class="content-area row">
+                <div control="manageSalesExecutive.messagePanel" controlid="msgPanel" class="message-panel" style="display:none"></div>
+                <div class="search-panel col-sm-4" default-button="btnSearch">
+
+                    <div class="search-action">
+                        <hr>
+                        <input type="button" tabindex="20" value="Search" rlabel="Search" control="manageSalesExecutive.primaryReadButton" controlId="btnSearch" event="click:btnSearch_click" class="" role="button">
+                    </div>
+                    
+                     <div class="search-filter">
+                        <div>
+                            <input type="text" placeholder="Enter Executive Name, No, Mobile no"  tabindex="19" controlId="txtSalesExecutiveSearch" rlabel="Enter Executive Name, No, Mobile no" control="manageSalesExecutive.textBox">
+                        </div>
+                    </div>
+                    <div class="search-result">
+                        <div control="manageSalesExecutive.grid" controlid="grdCustomer"></div>
+                    </div>
+                    <div class="col-sm-12 padding-left-zero" style="">
+                        <span class="label" rlabel="F1 - New"> F1 - New </span>
+                        <span class="label" rlabel="F2 - Save"> F2 - Save </span>
+                        <span class="label" rlabel="Ctrl + R - Remove"> Ctrl + R - Remove </span>
+                        <span class="label" rlabel="Ctrl + P - Print"> Ctrl + P - Print </span>
+                    </div>
+                </div>
+                <div class="detail-panel  col-sm-8">
+
+                    <div class="detail-action">
+                        <input value="New" rlabel="New" tabindex="16" control="manageSalesExecutive.primaryWriteButton" controlid="btnNewCustomer" event="click:btnNewCustomer_click">
+                        <input value="Save" rlabel="Save" tabindex="17" control="manageSalesExecutive.primaryWriteButton" controlid="btnSave" event="click:btnSave_click">
+                        <input value="Remove" rlabel="Remove" tabindex="18" control="manageSalesExecutive.secondaryButton" controlid="btnRemove" event="click:btnBeforeRemove_click" style="margin-right:0px;">
+                        <span style="padding-left: 5px;padding-right: 5px; margin-top: 5px;float:left" class="credeem"> |</span>
+                        <input type="button" tabindex="30" value="Reward Transaction" rlabel="Reward Transaction" control="manageSalesExecutive.secondaryButton" controlid="btnRewardTransaction" event="click:btnRewardTransaction_click" style="margin-right:0px;">
+                        <span style="padding-left: 5px;padding-right: 5px; margin-top: 5px;float:left" class="credeem"> |</span>
+                        <input type="button" tabindex="31" value="Redeem Reward" rlabel="Redeem Reward" control="manageSalesExecutive.secondaryButton" controlid="btnRedeemReward" event="click:btnRedeemReward_click" style="margin-right:0px;">
+                        <span style="padding-left: 5px;padding-right: 5px; margin-top: 5px;float:left" class="crepending"> |</span>
+                        <input type="button" tabindex="31" value="Print Barcode" rlabel="Print Barcode" control="manageSalesExecutive.secondaryButton" controlid="btnPrintBarcode" event="click:btnPrintBarcode_click" style="margin-right:0px;">
+                        <span style="padding-left: 5px;padding-right: 5px; margin-top: 5px;float:left" id="iupdate"> |</span>
+                        <input value="Upload From Excel" rlabel="Upload From Excel" control="manageSalesExecutive.secondaryButton" controlId="btnUpdateExcel" event="click:btnUpdateExcel_click" style="margin-right:0px;">
+                        <span style="padding-left: 5px;padding-right: 5px; margin-top: 5px;float:left" id="rewardsRedeems"> |</span>
+                        <input value="Reward Payment" rlabel="Reward Payment" control="manageSalesExecutive.secondaryButton" controlId="btnRewardPayment" event="click:btnRewardPayment_click" style="margin-right:0px;">
+                        
+                    </div>
+                    <div class="detail-info basic-info">
+                        
+                        <div class="row">
+                            <div class="col-xs-12">
+                                <span class="label col-xs-12 header-style-1" rlabel="Details"><b><u>Details</u></b></span>
+                            </div>
+                            <div class="col-xs-12" style="padding:0px;">
+                                <div class="col-xs-12 col-lg-6">
+                                    <span class="label  col-xs-12 col-lg-5" rlabel="Name">Name<span style="color:red;">*</span></span>
+                                    <input type="hidden" controlId="hdnCustNo" control="manageSalesExecutive.htmlControl" />
+                                    <input class="col-xs-12 col-lg-7" rlabel="Enter Name" tabindex="1" controlId="txtFirstName" control="manageSalesExecutive.textBox" />
+                                </div>
+                                <div class="col-xs-12 col-lg-6">
+                                    <span class="label  col-xs-12 col-lg-5" rlabel="Company Name">Company Name</span>
+                                    <input class="col-xs-12 col-lg-7" rlabel="Company Name" tabindex="2" controlId="txtCompanyName" control="manageSalesExecutive.textBox" />
+                                </div>
+                                <div class="col-xs-12 col-lg-6 margin-top">
+                                    <span class="label  col-xs-12 col-lg-5" rlabel="Company Id">Company Id</span>
+                                    <input class="col-xs-12 col-lg-7" rlabel="Company Id" tabindex="3" controlId="txtCompany" control="manageSalesExecutive.textBox" />
+                                </div>
+                                <div class="col-xs-12 col-lg-6 margin-top">
+                                    <span class="label  col-xs-12 col-lg-5"  rlabel="Date Of Birth">Date Of Birth</span>
+                                    <input class="col-xs-12 col-lg-7" rlabel="Date Of Birth" tabindex="4" controlId="txtDOB" control="manageSalesExecutive.dateSelector" />
+                                </div>
+                                <div class="col-xs-12 col-lg-6 margin-top">
+                                    <span class="label  col-xs-12 col-lg-5" rlabel="Mobile no">Mobile no</span>
+                                    <input class="col-xs-12 col-lg-7" rlabel="Mobile no" tabindex="5" controlId="txtPhone" maxlength="10" control="manageSalesExecutive.textBox" />
+                                </div>
+                                <div class="col-xs-12 col-lg-6 margin-top">
+                                    <span class="label  col-xs-12 col-lg-5" rlabel="Email">Email</span>
+                                    <input class="col-xs-12 col-lg-7" rlabel="Email" tabindex="6" controlId="txtEmail" control="manageSalesExecutive.textBox" />
+                                </div>
+                                <div class="col-xs-12  col-lg-6 margin-top">
+                                    <span class="label col-xs-12 col-lg-5" rlabel="Status">Status</span>
+                                    <span class="col-xs-12 col-lg-4"><input type="checkbox" tabindex="7" controlId="chkActive" control="manageSalesExecutive.chkBox" name="cus_active"><span class="label" rlabel="Active" style="margin-top:-22px;margin-left:5px;">Active</span></span>
+                                </div>
+                                <div class="col-xs-12 col-lg-6 margin-top" control="manageSalesExecutive.htmlControl" controlid="pnlRewardPlans">
+                                    <span class="label col-xs-12 col-lg-5" rlabel="Reward Plans">Reward Plans</span>
+                                    <select class="col-xs-12 col-lg-7" tabindex="11" control="manageSalesExecutive.dropDownList" controlid="ddlmyrewardplans"></select>
+                                </div>
+                                <div class="col-xs-12"><span>&nbsp;</span></div>
+                                <div class="col-xs-12 col-lg-6" control="manageSalesExecutive.htmlControl" controlid="pnlRewardPoints">
+                                    <span class="label col-xs-12 col-lg-5" rlabel="Total Reward Points">Total Reward Points</span>
+                                    <span class="label-value col-xs-12 col-lg-7" controlId="lblrewardpoint" control="manageSalesExecutive.labelValue"></span>
+                                </div>
+                                <div class="col-xs-12">
+                                    <span class="label col-xs-12 header-style-1" style="margin-bottom: 5px" rlabel="Address"><b>Address</b></span>
+                                </div>
+                                <div class="col-xs-12 col-lg-6 margin-top">
+                                    <span class="label  col-xs-12 col-lg-5" rlabel="Address Line">Address Line</span>
+                                    <input class="col-xs-12 col-lg-7" rlabel="Address Line" tabindex="12" controlId="txtAddressLine1" control="manageSalesExecutive.textBox" />
+                                </div>
+                                <div class="col-xs-12 col-lg-6 margin-top">
+                                    <span class="label  col-xs-12 col-lg-5" rlabel="Street">Street</span>
+                                    <input class="col-xs-12 col-lg-7" rlabel="Street" tabindex="13" controlId="txtStreet" control="manageSalesExecutive.textBox" />
+                                </div>
+                                <div class="col-xs-12 col-lg-6 margin-top">
+                                    <span class="label  col-xs-12 col-lg-5" rlabel="Pincode">Pincode</span>
+                                    <input class="col-xs-12 col-lg-7" rlabel="Pincode" tabindex="14" controlId="txtPincode" control="manageSalesExecutive.autoCompleteList" />
+                                </div>
+                                <div class="col-xs-12 col-lg-6 margin-top">
+                                    <span class="label  col-xs-12 col-lg-5" rlabel="City">City</span>
+                                    <input class="col-xs-12 col-lg-7" rlabel="City" tabindex="15" controlId="txtCity" control="manageSalesExecutive.autoCompleteList" spellcheck="true" />
+                                </div>
+                                <div class="col-xs-12 col-lg-6 margin-top">
+                                    <span class="label  col-xs-12 col-lg-5" rlabel="State">State</span>
+                                    <input class="col-xs-12 col-lg-7" rlabel="State" tabindex="16" controlId="txtState" control="manageSalesExecutive.autoCompleteList" />
+                                </div>
+                            <div class="col-xs-12 col-lg-6 " style="display:none;">
+                                <span class="label  col-xs-12 col-lg-5" rlabel="Address">Address</span>
+                                <input class="col-xs-12 col-lg-7" rlabel="Address" tabindex="8" controlId="txtAddressLine2" control="manageSalesExecutive.textBox" />
+                            </div>
+                            
+                            <div class="col-xs-12 col-lg-6 margin-top">
+                                <span class="label  col-xs-12 col-lg-5" rlabel="Area">Area</span>
+                                <input class="col-xs-12 col-lg-7" rlabel="Area" tabindex="17" controlId="txtArea" control="manageSalesExecutive.textBox" />
+                            </div>
+                            <div controlId="pnlBankDetails" control="manageSalesExecutive.htmlControl">
+                                <div class="col-xs-12 margin-top">
+                                    <span class="label col-xs-12" style="margin-bottom: 5px" rlabel="Bank Details"><b>Bank Details</b></span>
+                                </div>
+                                <div class="col-xs-12 col-lg-6 margin-top">
+                                    <span class="label  col-xs-12 col-lg-5" rlabel="Bank Name">Bank Name</span>
+                                    <input class="col-xs-12 col-lg-7" rlabel="Bank Name" tabindex="18" controlId="txtBankName" control="manageSalesExecutive.textBox" />
+                                </div>
+                                <div class="col-xs-12 col-lg-6 margin-top">
+                                    <span class="label  col-xs-12 col-lg-5" rlabel="Account Number">Account Number</span>
+                                    <input class="col-xs-12 col-lg-7" rlabel="Account Number" tabindex="19" controlId="txtAcntNo" maxlength="20" control="manageSalesExecutive.textBox" />
+                                </div>
+                                <div class="col-xs-12 col-lg-6 margin-top">
+                                    <span class="label  col-xs-12 col-lg-5" rlabel="IFSC Code">IFSC Code</span>
+                                    <input class="col-xs-12 col-lg-7" rlabel="IFSC Code" tabindex="20" controlId="txtifsccode" control="manageSalesExecutive.textBox" />
+                                </div>
+                                <div class="col-xs-12 col-lg-6 margin-top">
+                                    <span class="label  col-xs-12 col-lg-5" rlabel="D.LNo">D.LNo</span>
+                                    <input class="col-xs-12 col-lg-7" rlabel="D.LNo" tabindex="21" controlId="txtlicenseno" control="manageSalesExecutive.textBox" />
+                                </div>
+                                <div class="col-xs-12 col-lg-6 margin-top">
+                                    <span class="label  col-xs-12 col-lg-5" rlabel="PAN No">PAN No</span>
+                                    <input class="col-xs-12 col-lg-7" rlabel="PAN No" tabindex="22" controlId="txtPanNo" control="manageSalesExecutive.textBox" />
+                                </div>
+                                <div class="col-xs-12 col-lg-6 margin-top">
+                                    <span class="label  col-xs-12 col-lg-5" rlabel="Aadhaar No">Aadhaar No</span>
+                                    <input class="col-xs-12 col-lg-7" rlabel="Aadhaar No" tabindex="23" controlId="txtAadhaarNo" control="manageSalesExecutive.textBox" />
+                                </div>
+                            </div>
+                            
+                        </div>
+                        <div class="col-xs-12" controlId="pnlMoreAction" control="manageSalesExecutive.htmlControl">
+                            <span class="label col-xs-12" style="margin-bottom: 5px" rlabel="More Action"><b>More Actions</b></span>
+                            <div class="col-xs-12 col-lg-6 ">
+                                <span class="label  col-xs-12 col-lg-5" rlabel="User Id">User Id</span>
+                                <span class="col-xs-12 col-lg-7" rlabel="User Id" controlId="lblUserId" control="manageSalesExecutive.htmlControl"></span>
+                            </div>
+                            <div class="col-xs-12 col-lg-6 ">
+                                <span class="label  col-xs-12 col-lg-5" rlabel="User Name">User Name</span>
+                                <input class="col-xs-12 col-lg-7" rlabel="User Name" tabindex="28" controlId="txtUserName" control="manageSalesExecutive.textBox" />
+                            </div>
+                            <div class="col-xs-12 col-lg-6 ">
+                                <span class="label  col-xs-12 col-lg-5" rlabel="Password">Password</span>
+                                <input class="col-xs-12 col-lg-7" rlabel="Password" tabindex="29" controlId="txtPassword" control="manageSalesExecutive.textBox" />
+                            </div>
+                            <div class="col-xs-12 col-lg-6 ">
+                                <input value="Create" rlabel="Create" tabindex="30" control="manageSalesExecutive.secondaryButton" controlid="btnSaveUser" event="click:btnSaveUser_click">
+                            </div>
+                        </div>
+                        <div control="manageSalesExecutive.popup" controlid="pnlRedeemReward" style="display:none">
+                            <span class="label" rlabel="Redeem Reward"><b>Redeem Reward</b></span>
+                            <input type="button" rlabel="Save" value="Save" style="float:right" control="manageSalesExecutive.primaryWriteButton" controlid="btnSavePoints" event="click:btnSavePoints_click">
+                            <div class="col-xs-12">
+                                <div class="col-xs-6" style="padding-top:20px;">
+                                    <span class="label col-xs-12" rlabel="TotalRewardPoints">Total Reward Points</span><br><br>
+                                    <span class="label col-xs-12" rlabel="Set Points Amount">Set Points Amount</span><br><br>
+                                    <span class="label col-xs-12" rlabel="Points to Redeem">Points to Redeem</span><br><br>
+                                    <span class="label col-xs-12" rlabel="Description">Description</span><br><br>
+                                    <span class="label col-xs-12" rlabel="Amount">Amount</span>
+                                </div>
+                                <div class="col-xs-6" style="padding-top:20px;">
+                                    <span class="label-value col-xs-12" controlId="lbltotalpoints" control="manageSalesExecutive.labelValue"></span><br><br>
+                                    <input class="col-xs-12" rlabel="Set Points Amount" controlId="txtpointamount" control="manageSalesExecutive.textBox" /><br><br>
+                                    <input class="col-xs-12" rlabel="Points to Redeem" controlId="txtpointstoredeem" control="manageSalesExecutive.textBox" /><br><br>
+                                    <input class="col-xs-12" rlabel="Description" controlId="txtDescription" control="manageSalesExecutive.textBox" /><br><br>
+                                    <span class="label-value col-xs-12" controlId="lblamount" control="manageSalesExecutive.labelValue"></span><br><br>
+                                </div>
+
+                            </div><br><br>
+                            <div class="col-xs-12">
+                                <br>
+                                <span class="label label-value" rlabel="Note: 4 Points = 1Rupee"><b>Note: 4 Points = 1Rupee</b></span>
+                            </div>
+                        </div>
+            </div>
+            <div control="manageSalesExecutive.popup" controlid="pnlPointTransaction" style="display:none">
+                <input type="button" rlabel="Report" value="Report" style="float:right" control="manageSalesExecutive.primaryWriteButton" controlid="btnRewardTransactionReport" event="click:btnbtnRewardTransactionReport_click">
+                <div control="manageSalesExecutive.grid" controlid="grdPointTransaction" style="margin-top:10px;"></div>
+            </div>
+
+        </div>
+               </div>
+                <div id="dialog-form" style="display:none">
+                    <form>
+                        <label for="name">Enter the no of rows</label>
+                        <input type="number" name="manualcount" id="manualcount" class="text ui-widget-content ui-corner-all" />
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <!--Update Excel Panel-->
+        <div controlId="pnlUpdateExcelPopup" control="manageSalesExecutive.popup" style="display:none">
+            <div class="col-xs-12">
+                <span class="col-xs-12"><b>Notes</b></span>
+                <span class="col-xs-12">1. This Can Support .xls format file only</span>
+                <span class="col-xs-12" controlId="upload_path_variation" control="manageSalesExecutive.htmlControl">2. Your File Must Present C drive</span>
+            </div>
+            <div class="col-xs-12">
+                <span class="col-xs-12"><b>Condition</b></span>
+                <span class="col-xs-12">1. Data Presented In Sheet1</span>
+                <span class="col-xs-12">&nbsp;</span>
+                <span class="col-xs-6">Need Sample Document?</span>
+                <a class="col-xs-4" controlId="lblSampleDocument" control="manageSalesExecutive.htmlControl">Click Here</a>
+            </div>
+            <div class="col-xs-12" style="margin-top:3%;">
+                <span class="col-xs-12"><b>Settings</b></span><br />
+                <span class="col-xs-6">Delete Previous Item</span>
+                <select class="col-xs-6" controlId="ddlFormatVariation" control="manageSalesExecutive.dropDownList">
+                    <option>False</option>
+                    <option>True</option>
+                </select>
+            </div>
+            <dic class="col-xs-12" style="margin-top:2%;">
+                <span class="col-xs-6">Start Row</span>
+                <input type="number" class="col-xs-6" control="manageSalesExecutive.textBox" controlid="txtStartRow" />
+            </dic>
+            <dic class="col-xs-12" style="margin-top:2%;">
+                <span class="col-xs-6">End Row</span>
+                <input type="number" class="col-xs-6" control="manageSalesExecutive.textBox" controlid="txtEndRow" />
+            </dic>
+            <div class="col-xs-12" style="margin-top:5%;">
+                <label for="fileUpload">
+                    Select File to Upload:
+                </label>
+
+                <input type="file" id="fileUpload">
+                <br />
+                <input id="btnUploadFile" class="btn btn-sm btn-success" control="manageSalesExecutive.primaryReadButton" type="button" value="Upload Data" controlid="btnUploadFile" event="click:btnUploadFile_click" />
+
+            </div>
+        </div>
+
+        <!--Paymant Panel-->
+        <div controlId="pnlRewardPaymentPopup" control="manageSalesExecutive.popup" style="display:none">
+            <span class="label col-xs-12" style="text-align:center;font-size: 18px;font-weight: 550;">Reward Payment Panel</span>
+            <span class="col-xs-12" style="height:8px;">&nbsp;</span>
+            <div class="col-xs-12 col-lg-4">
+                <span class="label col-xs-12 col-lg-6" rlabel="Reward Plans">Reward Plans</span>
+                <select class="col-xs-12 col-lg-6" control="manageSalesExecutive.dropDownList" controlid="ddlredeemrewardplans"></select>
+            </div>
+            <div class="col-xs-12 col-sm-4">
+                <span class="label col-xs-12 col-sm-6" rlabel="Set Points Amount">Set Points Amount</span>
+                <input class="col-xs-12 col-sm-6" rlabel="Set Points Amount" controlId="txtallpointamount" control="manageSalesExecutive.textBox" />
+            </div>
+            <div class="col-xs-4">
+                <input value="Recalculate" rlabel="Recalculate" controlId="btnRewardRecalculate" control="manageSalesExecutive.secondaryButton" event="click:btnRewardRecalculate_click" />
+                <input style="float:right;" value="Report" rlabel="Report" controlId="btnRewardPaymentReport" control="manageSalesExecutive.primaryReadButton" event="click:btnRewardPaymentReport_click" />
+            </div>
+            <span class="col-xs-12" style="height:8px;">&nbsp;</span>
+            <div class="col-sm-4" style="margin-top:5px;">
+                <span class="label col-sm-6" rlabel="Start Date">Start Date</span>
+                <input class="col-sm-6" type="text" control="manageSalesExecutive.dateSelector" controlid="txtStartDate" />
+            </div>
+            <div class="col-sm-4" style="margin-top:5px;">
+                <span class="label col-sm-6" rlabel="End Date">End Date</span>
+                <input class="col-sm-6" type="text" control="manageSalesExecutive.dateSelector" controlid="txtEndDate" />
+            </div>
+            <div class="col-xs-4" style="float:right;margin-top:10px;">
+                <input value="Search" rlabel="Search" controlid="btnSearchReward" control="manageSalesExecutive.secondaryButton" event="click:btnSearchReward_click">
+                <input style="float:right;" value="Pay" rlabel="pay" controlId="btnPayReward" control="manageSalesExecutive.primaryReadButton" event="click:btnPayReward_click" />
+            </div>
+            <div class="col-xs-12" style="width:100%; overflow-x:auto; overflow-y:hidden;margin-top:10px">
+                <div class="itemGrid" controlId="grdRewardAmount" control="manageSalesExecutive.grid">
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <div controlId="pnlRewardTransactionPrintingPopup" control="manageSalesExecutive.popup" style="display:none">
+        <div class="row col-sm-12">
+            &nbsp;
+        </div>
+        <div class="row col-sm-12">
+            <span class="label col-sm-4" rlabel="Export Type">Export Type</span>
+            <select style="margin-left:15px;" class="col-sm-4" control="manageSalesExecutive.dropDownList" controlid="ddlRewardTransactionExportType">
+                <!--<option>PDF</option>
+                <option>EXCEL</option>
+                <option>WORD</option>
+                <option>PPT</option>
+                <option>CSV</option>
+                <option>HTML</option>-->
+            </select>
+            <input class="col-xs-12 col-lg-2" style="float:right;" value="Go" rlabel="Go" controlId="btnPrintRewardTransaction" control="manageSalesExecutive.primaryWriteButton" event="click:btnPrintRewardTransaction_click" />
+        </div>
+    </div>
+    <div controlId="pnlRewardPaymentPrintingPopup" control="manageSalesExecutive.popup" style="display:none">
+        <div class="row col-sm-12">
+            &nbsp;
+        </div>
+        <div class="row col-sm-12">
+            <span class="label col-sm-4" rlabel="Export Type">Export Type</span>
+            <select style="margin-left:15px;" class="col-sm-4" control="manageSalesExecutive.dropDownList" controlid="ddlRewardPaymentExportType">
+                <!--<option>PDF</option>
+                <option>EXCEL</option>
+                <option>WORD</option>
+                <option>PPT</option>
+                <option>CSV</option>
+                <option>HTML</option>-->
+            </select>
+            <input class="col-xs-12 col-lg-2" style="float:right;" value="Go" rlabel="Go" controlId="btnPrintRewardPayment" control="manageSalesExecutive.primaryWriteButton" event="click:btnPrintRewardPayment_click" />
+        </div>
+    </div>
+
+    <div controlId="pnlRemoveConfirmPopup" control="manageSalesExecutive.popup" style="display:none">
+        <div class="row col-sm-12">
+            <input style="float:right;" value="Cancel" controlId="btnRemoveConfirmPopupClose" control="manageSalesExecutive.primaryReadButton" event="click:btnRemoveConfirmPopupClose_click" />
+            <input style="float:right;padding-right:10px;" value="Ok" controlId="btnRemoveAlertPopupSave" control="manageSalesExecutive.secondaryButton" event="click:btnRemove_click" />
+        </div>
+        <span class="col-xs-12">&nbsp;</span>
+        <div class="row col-sm-12">
+            <img src="../../../ui/ui/images/alert.png" width="100%" class="col-xs-3" style="margin-top: -13px;" />
+            <span class="label-value col-xs-9" style="background:transparent;border:none;">If You Delete This Sales Executive It Can Be Affected On Bill</span>
+        </div>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,343 @@
+﻿.search-panel hr {
+    display: inline-block;
+    float: left;
+    width: calc(100% - 80px);
+    margin-top: 10px;
+}
+.label-value {
+    background-color: lightgray
+}
+
+.search-action {
+    margin-top:10px;
+    display: inline-block;
+    width: 100%;
+}
+
+.search-action hr {
+    border: 1px solid lightgray;
+    display: inline-block;
+    float: left;
+    margin-top: 16px;
+    width: calc(100% - 220px);
+}
+.search-action > input {
+    float: right;
+ 
+    width: auto;
+}
+.search-action [value="Search"] {
+    margin-left:10px;
+}
+
+
+.search-filter  {
+    display:inline-block;
+    width: 100%;
+}
+
+ .search-filter  input {
+    display:inline-block;
+    float:left;
+    width: 100%;
+}
+
+.search-filter  select {
+    display:inline-block;
+    float:left;
+    width: 100%;
+}
+
+
+
+.detail-action {
+    display: inline-block;
+    margin-bottom: 10px;
+    margin-top: 10px;
+    width: 100%;
+}
+.detail-action > hr {
+    border: 1px solid lightgray;
+    display: inline-block;
+    float: left;
+    margin-left: 10px;
+    margin-top: 15px;
+    width: calc(100% - 224px);
+    margin-bottom: 0px;
+}
+ .detail-action > [value="New"] {
+    float: left;
+    margin-right: 10px;
+}
+.detail-action > [value="Save"] {
+    float: right;
+    margin-left: 10px;
+    margin-right: 0;
+}
+
+    .detail-action .secondaryButton {
+    margin-top:0px
+    }
+
+/*
+.search-panel {
+}
+
+@media  {
+     .search-panel {
+      }   
+}
+
+.search-panel > div{
+    margin-top: 10px;
+    display:inline-block;
+    float:left;
+    width:100%;
+}
+
+.search-panel > .search-action [control$=".primaryReadButton"]{
+    float:right;
+}
+
+
+.search-panel .search-filter > div {
+    margin-bottom: 5px;
+    display:inline-block;
+    width: 100%;
+}
+
+.search-panel .search-filter  span {
+    display:inline-block;
+    float:left;
+    width: 100%;
+}
+
+.search-panel .search-filter  input {
+    display:inline-block;
+    float:left;
+    width: 100%;
+}
+
+.search-panel .search-filter  select {
+    display:inline-block;
+    float:left;
+    width: 100%;
+}
+
+.search-panel .search-result {
+    margin-top: 15px;
+    width: 100%;
+}
+
+
+.search-panel hr{
+    display:inline-block;
+    float:left;
+    width : calc(100% - 80px);
+    margin-top:10px;;
+}
+
+
+.detail-panel {
+    background-color: var(--detail-color);
+}
+
+@media only screen and (min-width: 500px) {
+     .detail-panel {
+      }   
+}
+
+.detail-panel > div{
+    display:inline-block;
+    float:left;
+    width:100%;
+}
+
+
+.detail-action > input{
+    float: right;
+    margin-right:10px;
+    margin-bottom:10px;
+    margin-top: 0px;
+}
+
+
+
+
+
+.search-panel .search-result {
+    margin-top: 15px;
+    width: 100%;
+}
+.search-panel > div {
+}
+.search-panel > div .label {
+    display: inline-block;
+    width: 80px;
+}
+.search-panel .search-filter {
+    width: 100%;
+}
+.search-panel > div input {
+    width: calc(100% - 92px);
+}
+.detail-panel {
+}
+.detail-panel .detail-action {
+    display: inline-block;
+    margin-bottom: 10px;
+    margin-top: 10px;
+    width: 100%;
+}
+.detail-panel .detail-action > hr {
+    border: 1px solid lightgray;
+    display: inline-block;
+    float: left;
+    margin-left: 10px;
+    margin-top: 13px;
+    width: calc(100% - 224px);
+}
+
+
+
+.detail-panel .detail-action > [controlid="btnNewMember"] {
+    float: left;
+    margin-right: 10px;
+}
+.detail-panel .detail-action > [controlid="btnSaveMember"] {
+    float: right;
+    margin-left: 5px;
+    margin-right: 0;
+}
+.detail-panel .detail-edit {
+}
+.detail-panel .detail-edit .tab-panels {
+    border-bottom: 1px solid gray;
+    border-left: 1px solid gray;
+    border-right: 1px solid gray;
+    height: auto;
+    margin-bottom: 20px;
+}
+
+
+    */
+.detail-info {
+    width: 100%;
+    padding-top: 5px;
+}
+.detail-info  .row > div {
+   margin-top:10px;
+}
+.detail-info .detail-photo {
+    float: left;
+    display:none;
+}
+.detail-info .detail-photo > img {
+    width: 130px;
+}
+
+.detail-edit [controlid="btnAddAddress"] {
+    float: right;
+    margin-right: 20px;
+    margin-top: 13px;
+    padding: 0;
+}
+.detail-edit [controlid="btnAddRelation"] {
+    float: right;
+    margin-right: 20px;
+    margin-top: 13px;
+    padding: 0;
+}
+.detail-edit [controlid="btnRemRelation"] {
+    float: right;
+    margin-right: 10px;
+    margin-top: 13px;
+    padding: 0;
+}
+.detail-edit [controlid="btnRemAddress"] {
+    float: right;
+    margin-right: 10px;
+    margin-top: 13px;
+    padding: 0;
+}
+.addr-panel > div, .rel-panel > div {
+    display: inline-block;
+    width: 100%;
+}
+.addr-panel > div > span, .rel-panel > div > span {
+    display: inline-flex;
+    float: left;
+    margin-top: 15px;
+}
+.donation-panel {
+     padding: 10px;
+ }
+.congroup-basic > div {
+    display: inline-block;
+    width: 300px;
+}
+.donation-panel > div:first-child > input {
+    float: right;
+    padding: 0;
+}
+.donation-panel > div {
+    display: block;
+    float: left;
+    width: calc(100% - 20px);
+}
+.donation-panel [controlid="btnAddDonation"] {
+    float: right;
+    padding: 0;
+}
+.donation-panel [controlid="btnRemDonation"] {
+    float: right;
+    padding: 0;
+}
+.donation-panel span {
+    font-weight: bold;
+}
+.congroup-panel {
+    padding: 10px;
+}
+.congroup-panel input[controlid="btnAddGroupCon"] {
+    float: right;
+    padding: 0;
+}
+.congroup-panel > div {
+    display: block;
+    float: left;
+    width: calc(100% - 20px);
+}
+.congroup-basic > div > span {
+    display: inline-block;
+    width: 110px;
+}
+.congroup-basic > div > input {
+    background-color: whitesmoke;
+    width: 150px;
+}
+.congroup-basic > div {
+    margin: 5px;
+}
+.congroup-basic {
+    padding: 10px;
+}
+.donation-sch-panel {
+    margin-top: 10px;
+}
+.donation-his-panel {
+    margin-top: 20px;
+}
+[controlid="btnRemMember"] {
+    float: right;
+    margin-top: 4px;
+    padding: 0;
+}
+
+
+.congroup-panel input[controlid=btnRemGroupcon] {
+    float: right;
+    padding: 0;
+}
+
+

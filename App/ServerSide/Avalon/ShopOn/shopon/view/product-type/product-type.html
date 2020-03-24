@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+
+    <script src="/config/config.js" type="text/javascript"></script>
+    <script type="text/javascript">
+
+
+        document.write('<script src="/'+ appConfig.root + '/core/master.js" type="text/javascript" > <\/script> ');
+        document.write('<link href="/' + appConfig.root + '/shopon/view/product-type/product-type.css" rel="stylesheet" />');
+        document.write('<script src="/' + appConfig.root + '/shopon/view/product-type/product-type.js"><\/script>');
+        document.write('<script src="/' + appConfig.root + '/shopon/service/product/product-type-api.js"><\/script>');
+        document.write('<script src="/' + appConfig.root + '/shopon/service/product/main-product-type-api.js"><\/script>');
+
+
+        document.write('<script src="/' + appConfig.root + '/shopon/service/w3data/w3data.js"><\/script>');
+        //Tamil Font
+        document.write('<script src="/' + appConfig.root + '/core/tamil-common.js" type="text/javascript" > <\/script> ');
+        document.write('<script src="/' + appConfig.root + '/core/tamil.js" type="text/javascript" > <\/script> ');
+
+        document.write('<script src="/' + appConfig.root + '/shopon/service/product/item-api.js"><\/script>');
+
+    </script>
+
+</head>
+
+
+<body control="page.productTypePage" controlId="productTypePage">
+
+
+
+    <div control="productTypePage.masterPage" controlId="masterPage"></div>
+    <div style="margin-top:40px">
+
+        <!--Load Content Area-->
+        <div class="container-fluid">
+
+
+            <div class="content-area row">
+                <div control="productTypePage.messagePanel" controlid="msgPanel" class="message-panel" style="display:none">
+                </div>
+                <div class="search-panel col-sm-4" default-button="btnSearch">
+                    <div class="search-action">
+                        <hr>
+                        <input type="button" value="Search" rlabel="Search" control="productTypePage.primaryReadButton" controlId="btnSearch" event="click:btnSearch_click" />
+                    </div>
+                    <div class="search-filter">
+                        <div>
+                           
+                            <input type="text" control="productTypePage.textBox" controlId="txtSearchInput" rlabel="Enter product type no or name" placeholder="Enter product type no or name">
+                        </div>
+
+
+
+                    </div>
+                    <div class="search-result">
+                        <div control="productTypePage.grid" controlId="grdSearchResult"> </div>
+                    </div>
+                    <div class="col-sm-12" style="padding-left:0px;">
+                        <span class="label" rlabel="F1 - New"> F1 - New </span>
+                        <span class="label" rlabel="F2 - Save"> F2 - Save </span>
+                        <span class="label" rlabel="Ctrl + R - Remove"> Ctrl + R - Remove </span>
+                    </div>
+                </div>
+                <div class="detail-panel  col-sm-8">
+
+                    <div class="detail-action">
+                        <input type="button" value="New" rlabel="New" control="productTypePage.primaryReadButton" controlId="btnNew" event="click:btnNew_click" />
+
+                        <input type="button" value="Save" rlabel="Save" control="productTypePage.primaryReadButton" controlId="btnSave" event="click:btnSave_click" />
+
+                        <input type="button" value="Remove" rlabel="Remove" control="productTypePage.secondaryButton" controlId="btnDelete" event="click:btnBeforeDelete_click" />
+
+                    </div>
+                    
+                    <div class="detail-info">
+                        <div class="detail-basic row">
+                            <div class="col-xs-12">
+                                <span class="label col-xs-12" style="margin-bottom: 5px;font-weight:bold;" rlabel="Product Type Details"><b>Product Type Details</b></span>
+                            </div>
+                            <div class="col-sm-6">
+                                <span class="label col-sm-4" rlabel="Product Type Name">Product Type Name<span style="color:red;">*</span></span>
+                                <input class="col-sm-6" type="text" control="productTypePage.textBox" controlId="txtProductTypeName" placeholder="Product Type Name">
+                            </div>
+                            <div class="col-sm-6">
+                                <span class="label col-sm-4"  rlabel="Main Product Name">Main Product Name<span style="color:red;">*</span></span>
+                                <select class="col-sm-6" control="productTypePage.dropDownList" controlid="ddlmymainproduct"></select>                            
+                            </div>
+                        </div>
+                        <div class="detail-basic row">
+                            <div class="col-xs-12">
+                                <span class="label col-xs-12" style="margin-bottom: 5px;font-weight:bold;" rlabel="Item Details"><b>Item Details</b></span>
+                            </div>
+                            <div class="col-xs-8">
+                                <div control="productTypePage.grid" controlId="grdItemResult"> </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div controlId="pnlRemoveConfirmPopup" control="productTypePage.popup" style="display:none">
+            <div class="row col-sm-12">
+                <input style="float:right;" value="Cancel" controlId="btnRemoveConfirmPopupClose" control="productTypePage.primaryReadButton" event="click:btnRemoveConfirmPopupClose_click" />
+                <input style="float:right;padding-right:10px;" value="Ok" controlId="btnRemoveAlertPopupSave" control="productTypePage.secondaryButton" event="click:btnDelete_click" />
+            </div>
+            <span class="col-xs-12">&nbsp;</span>
+            <div class="row col-sm-12">
+                <img src="../../../ui/ui/images/alert.png" width="100%" class="col-xs-3" style="margin-top: -13px;" />
+                <span class="label-value col-xs-9" style="background:transparent;border:none;">If You Delete This Product Type It Can Be Affected On Items</span>
+            </div>
+        </div>
+    </div><br />
+    <div id="dialog" title="Alert message" style="display: none">
+        <div class="ui-dialog-content ui-widget-content">
+            <p>
+                <span class="ui-icon ui-icon-info" style="float: left; margin: 0 7px 20px 0"></span>
+                <label id="lblMessage">
+                </label>
+            </p>
+        </div>
+    </div>
+
+</body>
+</html>

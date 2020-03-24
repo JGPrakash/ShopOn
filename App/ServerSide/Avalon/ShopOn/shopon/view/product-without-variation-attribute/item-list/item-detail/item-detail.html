@@ -1,0 +1,219 @@
+﻿<div control="itemDetail.messagePanel" controlid="msgPanel" class="message-panel" style="display:none">
+
+</div>
+
+    <div class="basic-info row">
+        <span class="label  col-xs-12" rlabel="General" control="itemDetail.label" controlId="GeneralLabel"><b>General</b></span>
+        <!--<div class="col-xs-12 col-sm-12 col-md-6 col-lg-4">-->
+            <div class="image-panel col-xs-12 col-lg-6 col-sm-12 col-md-6" align="center" controlId="pnlImg" control="itemDetail.htmlControl">
+                <div class="col-lg-12">
+                    <img id="output" style="max-width:150px; max-height:150px;" />
+                    <div class="col-md-10">
+                        <div>
+                            <label for="fileUpload" class="label" rlabel="Select File to Upload:">
+                                Select File to Upload:
+                            </label>
+
+                            <input type="file" id="fileUpload" accept="image/*" onchange="loadFile(event)">
+                            <br />
+                            <input id="btnUploadFile" class="btn btn-sm btn-success" control="itemDetail.primaryReadButton" type="button" value="Upload File" rlabel="Upload File" controlid="btnUploadImage" event="click:btnUploadImage_click" />
+
+                        </div>
+                        <script>
+                        var loadFile = function (event) {
+                            var output = document.getElementById('output');
+                            output.src = URL.createObjectURL(event.target.files[0]);
+                        };
+                        </script>
+                    </div>
+                </div>
+            </div>
+            <!--QR Code Scanner-->
+            <div class="col-xs-12 col-lg-6 col-sm-12 col-md-6" controlId="pnlQrCode" control="itemDetail.htmlControl">
+                <canvas id="qrcode-canvas" style="padding:1em; background-color:#E8E8E8"></canvas>
+                <svg id="qrcode-svg" style="width:30em; height:30em; padding:1em; background-color:#E8E8E8;display:none;">
+                    <rect width="100%" height="100%" fill="#FFFFFF" stroke-width="0"></rect>
+                    <path d="" fill="#000000" stroke-width="0"></path>
+                </svg>
+            </div>
+        <!--</div>-->
+        <!--<div class="">-->
+            <div class="col-xs-12 col-lg-6 ">
+                <span class="label  col-xs-12 col-lg-5" rlabel="Item No" control="itemDetail.label" controlId="item_no">Item No</span>
+                <span class="label-value col-xs-12 col-lg-7" controlId="lblItemNo" control="itemDetail.labelValue">I0003</span>
+            </div>
+            <div class="col-xs-12 col-lg-6" control="itemDetail.htmlControl" controlId="pnlItemCode" style="margin-top:5px;">
+                <span class="label  col-xs-12 col-lg-5" rlabel="Item Code" control="itemDetail.label" controlId="item_code">Item Code</span>
+                <span class="col-xs-12 col-lg-7" controlId="txtItemCode" control="itemDetail.labelValue">I0003</span>
+                <!--<input class="col-xs-12 col-lg-7" type="text" controlid="txtItemCode" control="itemDetail.textBox" contenteditable="false">-->
+            </div>
+            <div class="col-xs-12 col-lg-6 " style="margin-top:5px;">
+                <span class="label  col-xs-12 col-lg-5" rlabel="Item Name" control="itemDetail.label" controlId="item_name">Item Name</span>
+                <input class="col-xs-12 col-lg-7" type="text" class="label-value" controlid="txtItemName" control="itemDetail.textBox">
+            </div>
+            <div class="col-xs-12 col-lg-6 " control="itemDetail.htmlControl" controlId="pnlMainProductType" style="margin-top:5px;">
+                <span class="label  col-xs-12 col-lg-5" rlabel="Main Product Type" control="itemDetail.label" controlId="Main Product Type">Main Product Type </span>
+                <select class="col-xs-12 col-lg-7" controlId="ddlMainProductType" control="itemDetail.dropDownList" />
+            </div>
+            <div class="col-xs-12 col-lg-6 " control="itemDetail.htmlControl" controlId="pnlProductType" style="margin-top:5px;">
+                <span class="label  col-xs-12 col-lg-5" rlabel="Product Type" control="itemDetail.label" controlId="Product Type">Product Type </span>
+                <select class="col-xs-12 col-lg-7" controlId="ddlProductType" control="itemDetail.dropDownList" />
+            </div>
+
+            <div class="col-xs-12 col-lg-6 " view="max" style="margin-top:5px;">
+                <span class="label  col-xs-12 col-lg-5" rlabel="Category" control="itemDetail.label" controlId="Category">Category</span>
+                <select class="col-xs-12 col-lg-7" controlId="ddlCategory" control="itemDetail.dropDownList" />
+            </div>
+            <div class="col-xs-12 col-lg-6 " control="itemDetail.htmlControl" controlId="pnlManufacturer" style="margin-top:5px;">
+                <span class="label  col-xs-12 col-lg-5" rlabel="Manufacturer" control="itemDetail.label" controlId="Manufacturer">Manufacturer</span>
+                <select class="col-xs-12 col-lg-7" controlId="ddlManufacturer" control="itemDetail.dropDownList" />
+            </div>
+            <div class="col-xs-12 col-lg-6" control="itemDetail.htmlControl" controlId="pnlTray" style="margin-top:5px;">
+                <span class="label  col-xs-12 col-lg-5" rlabel="Tray" control="itemDetail.label" controlId="Tray">Tray</span>
+                <select class="col-xs-12 col-lg-7" controlId="ddlTray" control="itemDetail.dropDownList" />
+            </div>
+            <div class="col-xs-12 col-lg-6" control="itemDetail.htmlControl" controlId="pnlPacking" style="margin-top:5px;">
+                <span class="label  col-xs-12 col-lg-5" rlabel="Packing" control="itemDetail.label" controlId="Packing">Packing</span>
+                <input class="label-value col-xs-12 col-lg-7" type="text" controlid="txtPacking" control="itemDetail.textBox">
+            </div>
+            <div class="col-xs-12 col-lg-6" control="itemDetail.htmlControl" controlId="pnlExpiryAlert" style="margin-top:5px;">
+                <span class="label  col-xs-12 col-lg-5" rlabel="Expiry Alert Days" control="itemDetail.label" controlId="Expiry Alert Days">Expiry Alert Days</span>
+                <input class="label-value col-xs-12 col-lg-7" type="text" controlid="txtExpiryAlert" control="itemDetail.textBox">
+            </div>
+            <div class="col-xs-12 col-lg-6" style="margin-top:5px;">
+                <span class="label  col-xs-12 col-lg-5" rlabel="Quantity Type" control="itemDetail.label" controlId="Quantity Type">Quantity Type</span>
+                <select class="col-xs-12 col-lg-7" control="itemDetail.dropDownList" controlid="qty_type">
+                    <option>Integer</option>
+                    <option>Decimal</option>
+                </select>
+            </div>
+            <div class="col-xs-12 col-lg-6" style="margin-top:5px;">
+                <span class="label  col-xs-12 col-lg-5" rlabel="Unit" control="itemDetail.label" controlId="Unit">Unit</span>
+                <select class="col-xs-12 col-lg-7" control="itemDetail.dropDownList" controlid="itemUnit">
+                    <option>No unit</option>
+                    <option>KGs</option>
+                    <option>gm</option>
+                    <option>Lt</option>
+                    <option>ml</option>
+                    <option>M</option>
+                    <option>Mm</option>
+                    <option>Pcs</option>
+                    <option>No</option>
+                    <option>Tray</option>
+                    <option>Box</option>
+                    <option>Pack</option>
+                    <option>Period</option>
+                    <option>Others</option>
+                </select>
+            </div>
+            <div class="col-xs-12 col-lg-6" control="itemDetail.htmlControl" controlId="pnlAlternativeUnit" style="margin-top:5px;">
+                <span class="label  col-xs-12 col-lg-5" rlabel="Alternate Unit" control="itemDetail.label" controlId="Alternate Unit">Alternate Unit</span>
+                <input type="text" class="col-xs-12 col-lg-7" controlid="txtAlterUnit" control="itemDetail.textBox">
+            </div>
+            <div class="col-xs-12 col-lg-6" control="itemDetail.htmlControl" controlId="pnlAlternativeUnitFactor" style="margin-top:5px;">
+                <span class="label  col-xs-12 col-lg-5" rlabel="Alternate Unit Factor" control="itemDetail.label" controlId="Alternate Unit Factor">Alternate Unit Factor</span>
+                <input type="text" class="col-xs-12 col-lg-7" controlid="txtAlterUnitFact" control="itemDetail.textBox">
+            </div>
+            <div class="col-xs-12 col-lg-6" control="itemDetail.htmlControl" controlId="pnlRack" style="margin-top:5px;">
+                <span class="label  col-xs-12 col-lg-5" rlabel="Rack No" control="itemDetail.label" controlId="Rack No">Rack No</span>
+                <input type="text" class="col-xs-12 col-lg-7" controlid="txtRackNo" control="itemDetail.textBox">
+            </div>
+            <div view="max" class="col-xs-12 col-lg-6" style="margin-top:5px;">
+                <span class="label  col-xs-12 col-lg-5" rlabel="Tags">Tags</span>
+                <input type="text" class="lcol-xs-12 col-lg-7" controlid="txtTags" control="itemDetail.textBox">
+            </div>
+
+            <span class="label  col-xs-12 col-lg-6" view="max">  Identification</span>
+            <div view="max" class="col-xs-12 col-lg-12 " style="margin-top:5px;">
+                <span class="label  col-xs-12 col-lg-5" rlabel="Tags">UPC</span>
+                <input type="text" class="col-xs-12 col-lg-7" controlid="txtUPC" control="itemDetail.textBox">
+            </div>
+            <div view="max" class="col-xs-12 col-lg-6 " style="margin-top:5px;">
+                <span class="label  col-xs-12 col-lg-5">EAN</span>
+                <input type="text" class="col-xs-12 col-lg-7" controlid="txtEAN" control="itemDetail.textBox">
+            </div>
+            <div class="col-xs-12 col-lg-6" control="itemDetail.htmlControl" controlId="pnlBarCode" style="margin-top:5px;">
+                <span class="label  col-xs-12 col-lg-5"><input value="G" control="itemDetail.primaryWriteButton" controlId="btnGenBarCode" event="click:btnGenBarCode_click"/><span rlabel="Barcode"  control="itemDetail.label" controlId="Barcode">Barcode</span></span>
+                <input type="text" class="col-xs-12 col-lg-7" controlid="txtBarcode" control="itemDetail.textBox">
+                <span class="label  col-xs-12 col-lg-7">  </span>
+            </div>
+            <div class="col-xs-12 col-lg-6" control="itemDetail.htmlControl" controlId="pnlExpiryDays" style="margin-top:5px;">
+                <span class="label  col-xs-12 col-lg-5" rlabel="Expiry Days" control="itemDetail.label" controlId="Expiry Days">Expiry Days</span>
+                <input type="text" class="col-xs-12 col-lg-7" controlid="txtExpiryDays" control="itemDetail.textBox">
+            </div>
+            <div class="col-xs-12 col-lg-6" control="itemDetail.htmlControl" controlId="pnlKeyword" style="margin-top:5px;">
+                <span class="label  col-xs-12 col-lg-5" rlabel="Key Word" control="itemDetail.label" controlId="Key Word">Key Word</span>
+                <!-- <input type="text" class="col-xs-12 col-lg-7" controlid="txtKeyWord" control="itemDetail.textBox">-->
+                <textarea rows="2" cols="50" class="col-xs-12 col-lg-7" control="itemDetail.textBox" controlId="txtKeyWord"></textarea>
+            </div>
+            <div class="col-xs-12 col-lg-6" control="itemDetail.htmlControl" controlId="pnlItemDescription" style="float:inherit;margin-top:5px;">
+                <span class="label  col-xs-12 col-lg-5" rlabel="Description" control="itemDetail.label" controlId="Description">Description</span>
+                <textarea rows="2" cols="50" class="col-xs-12 col-lg-7" control="itemDetail.textBox" controlId="txtItemDescription"></textarea>
+            </div>
+            
+            <!--<div class="col-xs-12 col-lg-6"></div>-->
+
+            <div view="max" class="col-xs-12 col-lg-6">
+                <span class="label  col-xs-12 col-lg-5">SKU</span>
+                <input type="text" class="col-xs-12 col-lg-7" controlid="txtSKU" control="itemDetail.textBox">
+            </div>
+            <div view="max" class="col-xs-12 col-lg-6">
+                <span class="label  col-xs-12 col-lg-5">MAN SKU</span>
+                <input type="text" class="col-xs-12 col-lg-7" controlid="txtManSKU" control="itemDetail.textBox">
+            </div>
+        <!--</div>-->
+       
+        
+        
+
+            <span class="label  col-xs-12" style="margin-top:0px;" rlabel="Price" control="itemDetail.label" controlId="Price"> <b> Price</b></span>
+            <div class="col-xs-12 col-lg-6 ">
+                <span class="label  col-xs-12 col-lg-5" rlabel="Tax" control="itemDetail.label" controlId="Tax">Tax</span>
+                <select class="col-xs-12 col-lg-7" controlId="ddlTax" control="itemDetail.dropDownList" />
+            </div>
+            <div class="col-xs-12 col-lg-6"  control="itemDetail.htmlControl" controlId="pnlTaxInclusive">
+                <span class="label  col-xs-12 col-lg-5" rlabel="Tax Apply Mode" control="itemDetail.label" controlId="Tax Apply Mode">Tax Apply Mode</span>
+                <span class="label col-xs-12 col-lg-7" style="margin-top:-8px;"><input type="checkbox" tabindex="10" controlId="chkInclusive" control="itemDetail.chkBox" name="tax_inclusive"><span class="label col-xs-11" style="float:right;margin-top:6px;" rlabel="Tax Inclusive" control="itemDetail.label" controlId="Tax Inclusive">Tax Inclusive</span></span>
+            </div>
+            <div class="col-xs-12 col-lg-6" control="itemDetail.htmlControl" controlId="pnlDiscountInclusive">
+                <span class="label  col-xs-12 col-lg-5" rlabel="Discount(%) Apply Mode" control="itemDetail.label" controlId="Discount">Discount(%) Apply Mode</span>
+                <span class="label col-xs-12 col-lg-7" style="margin-top:-8px;"><input type="checkbox" tabindex="10" controlId="chkDiscountInclusive" control="itemDetail.chkBox" name="discount_inclusive"><span class="label col-xs-11" style="float:right;margin-top:6px;"rlabel="Discount Inclusive" control="itemDetail.label" controlId="Discount Inclusive">Discount Inclusive</span></span>
+            </div>
+            <div class="col-xs-12 col-lg-6 ">
+
+                <span class="label  col-xs-12 col-lg-5" rlabel="Price" control="itemDetail.label" controlId="PriceLabel">Price</span>
+                <textarea rows="2" cols="50" class="col-xs-12 col-lg-7" control="itemDetail.textBox" controlId="txtPrice" style="color:green;"></textarea>
+                <!--<span class="col-xs-12 col-lg-7 label-value" controlId="lblPrice" control="itemDetail.labelValue"></span>-->
+            </div>
+
+            <div class="col-xs-12 col-lg-6 " control="itemDetail.htmlControl" controlId="pnlMrp">
+
+                <span class="label  col-xs-12 col-lg-5" rlabel="MRP Rate" control="itemDetail.label" controlId="MRP Rate">MRP Rate</span>
+                <!-- <input class="col-xs-12 col-lg-7" type="label" controlid="lblMrpRate" control="itemDetail.labelValue">-->
+                <textarea rows="2" cols="50" class="col-xs-12 col-lg-7" control="itemDetail.textBox" controlId="txtMrpRate" style="color:green;"></textarea>
+                <!--<span class="col-xs-12 col-lg-7 label-value" controlId="lblMrpRate" control="itemDetail.labelValue"></span>-->
+
+            </div>
+            <span class="label  col-xs-12" rlabel="Stock" control="itemDetail.label" controlId="Stock"><b>Stock</b> </span>
+            <div class="col-xs-12 col-lg-6 ">
+                <span class="label  col-xs-12 col-lg-5" rlabel="Stock In Hand" control="itemDetail.label" controlId="Stock In Hand">Stock In Hand</span>
+                <span class="col-xs-12 col-lg-7 label-value" controlid="lblInStock" control="itemDetail.labelValue" />
+            </div>
+        <div class="col-xs-12 col-lg-6 ">
+            <span class="label  col-xs-12 col-lg-5" rlabel="Stock In Amount" control="itemDetail.label" controlId="Stock In Amount">Stock In Amount</span>
+            <span class="col-xs-12 col-lg-7 label-value" controlid="lblInStockAmount" control="itemDetail.labelValue" />
+        </div>
+            <div class="col-xs-12 col-lg-6 "   control="itemDetail.htmlControl" controlId="pnlReorderLevel">
+                <span class="label  col-xs-12 col-lg-5" rlabel="Re-Order Level" control="itemDetail.label" controlId="Re-Order Level">Re-Order Level</span>
+                <input class="col-xs-12 col-lg-7" type="text" controlid="txtReOrderLevel" control="itemDetail.textBox">
+            </div>
+            <div class="col-xs-12 col-lg-6 "   control="itemDetail.htmlControl" controlId="pnlReorderQty">
+                <span class="label  col-xs-12 col-lg-5" rlabel="Re-Order Quantity" control="itemDetail.label" controlId="Re-Order Quantity">Re-Order Quantity</span>
+                <input class="col-xs-12 col-lg-7" type="text" controlid="txtReOrderQty" control="itemDetail.textBox">
+            </div>
+            <div class="col-xs-12 col-lg-6 ">
+                <span class="label  col-xs-12 col-lg-5" rlabel="Default Supplier" control="itemDetail.label" controlId="Default Supplier">Default Supplier</span>
+                <select class="col-xs-12 col-lg-7" controlId="ddlVendor" control="itemDetail.dropDownList" />
+            </div>
+        </div>
+

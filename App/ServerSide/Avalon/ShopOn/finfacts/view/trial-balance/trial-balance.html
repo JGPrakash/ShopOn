@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+<head>
+    <script src="/config/config.js" type="text/javascript"></script>
+    <script type="text/javascript">
+
+
+        document.write('<script src="/' + appConfig.root + '/core/master.js" type="text/javascript" > <\/script> ');
+        document.write('<script src="/' + appConfig.root + '/login/service/user/user-service.js"><\/script>');
+
+        document.write('<link href="/' + appConfig.root + '/finfacts/view/trial-balance/trial-balance.css" rel="stylesheet" />');
+        document.write('<script src="/' + appConfig.root + '/finfacts/view/trial-balance/trial-balance.js"><\/script>');
+
+        document.write('<script src="/' + appConfig.root + '/finfacts/service/accaccount-service.js"><\/script>');
+        document.write('<script src="/' + appConfig.root + '/finfacts/service/account/accounting-service.js"><\/script>');
+        document.write('<script src="/' + appConfig.root + '/finfacts/service/revenue-service.js"><\/script>');
+        document.write('<script src="/' + appConfig.root + '/finfacts/service/user/company-service.js"><\/script>');
+    </script>
+
+
+
+</head>
+<body control="page.triaBalance" controlId="triaBalance">
+    <div control="triaBalance.masterPage" controlId="masterPage"></div>
+    <div control="triaBalance.messagePanel" controlid="msgPanel" class="message-panel" style="display:none;margin-top:40px"> </div>
+    <div class="container-fluid">
+        <div class="content-area row">
+
+            <div class="top-panel">
+                <div class="col-xs-12 col-sm-4">
+                    <span class="label col-lg-3 col-xs-12 col-md-3 col-sm-12">Company Name</span>
+                    <select class="label col-lg-6 col-xs-12 col-md-6 col-sm-12" control="triaBalance.dropDownList" controlid="ddlCompanyName" autofocus></select>
+                </div>
+                <div class="col-xs-12 col-sm-3">
+                    <span class="label col-lg-3 col-xs-12 col-md-3 col-sm-12">Period1</span>
+                    <select class="col-lg-6 col-xs-12 col-md-6 col-sm-12" control="triaBalance.dropDownList" controlid="ddlPeriod1"></select>
+                </div>
+
+                <div class="col-xs-12 col-sm-3">
+                    <span class="label col-lg-3 col-xs-12 col-md-3 col-sm-12">Period2</span>
+                    <select class="col-lg-6 col-xs-12 col-md-6 col-sm-12" control="triaBalance.dropDownList" id="ddlPeriod2" controlid="ddlPeriod2"></select>
+                </div>
+                <div class="col-xs-12 col-sm-2">
+                    <input type="button" value="Move to Closing" control="triaBalance.primaryReadButton" controlid="btnMoveClosing" event="click:btnMoveClosing_click" style="float:right;" />
+                </div>
+            </div>
+            <span class="col-xs-12">&nbsp;</span>
+            <div class="col-xs-12">
+                <div control="triaBalance.grid" controlid="grdTrialBalance"></div>
+            </div>
+            
+
+        </div>
+    </div>
+</body>
+</html>

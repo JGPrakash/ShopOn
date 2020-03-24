@@ -1,0 +1,91 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+
+
+    <script src="/config/config.js" type="text/javascript"></script>
+    <script type="text/javascript">
+
+
+        document.write('<script src="/'+ appConfig.root + '/core/master.js" type="text/javascript" > <\/script> ');
+        document.write('<link href="/' + appConfig.root + '/shopon/view/attribute/attribute.css" rel="stylesheet" />');
+        document.write('<script src="/' + appConfig.root + '/shopon/view/attribute/attribute.js"><\/script>');
+        document.write('<script src="/' + appConfig.root + '/shopon/service/item-hierarchy/itemAttributeAPI.js"><\/script>');
+
+
+       document.write('<script src="/' + appConfig.root + '/shopon/service/w3data/w3data.js"><\/script>');
+       //Tamil Font
+       document.write('<script src="/' + appConfig.root + '/core/tamil-common.js" type="text/javascript" > <\/script> ');
+       document.write('<script src="/' + appConfig.root + '/core/tamil.js" type="text/javascript" > <\/script> ');
+    </script>
+
+</head>
+
+
+<body control="page.attributePage" controlId="attributePage">
+
+
+
+    <div control="attributePage.masterPage" controlId="masterPage"></div>
+    <div style="margin-top:40px">
+
+        <!--Load Content Area-->
+        <div class="container-fluid">
+
+
+            <div class="content-area row">
+                <div control="attributePage.messagePanel" controlid="msgPanel" class="message-panel" style="display:none">
+                </div>
+                <div class="search-panel col-sm-4" default-button="btnSearch">
+
+                    <div class="search-action">
+                        <hr>
+                        <input type="button" tabindex="2" value="Search" rlabel="Search"  control="attributePage.primaryReadButton" controlId="btnSearch" event="click:btnSearch_click" />
+                    </div>
+                    
+                    <div class="search-filter">
+                        <div>
+                            <input type="text" tabindex="1" rlabel="Enter no or name" placeholder="Enter no or name" control="attributePage.textBox" controlId="txtSearchInput">
+                        </div>
+                    </div>
+                    <div class="search-result">
+                        <div control="attributePage.grid" tabindex="3" controlId="grdSearchResult"> </div>
+                    </div>
+                    <div class="col-sm-12">
+                        <span class="label" rlabel="F1 - New"> F1 - New </span>
+                        <span class="label" rlabel="F2 - Save"> F2 - Save </span>
+                        <span class="label" rlabel="Ctrl + R - Remove"> Ctrl + R - Remove </span>
+                    </div>
+                </div>
+                <div class="detail-panel  col-sm-8">
+                    <div class="detail-action">
+                        <input type="button" value="New" tabindex="4" rlabel="New" control="attributePage.primaryReadButton" controlId="btnNew" event="click:btnNew_click" />
+                        <input type="button" value="Save" tabindex="8" rlabel="Save" control="attributePage.primaryReadButton" controlId="btnSave" event="click:btnSave_click" />
+                        <input type="button" value="Remove" tabindex="9" rlabel="Remove" control="attributePage.secondaryButton" controlId="btnDelete" event="click:btnDelete_click" />
+                    </div>
+                    <div class="detail-info container-fluid">
+                        <div class="detail-basic row">
+                            <span class="label col-xs-12" rlabel="Attribute Details"><b>Attribute Details</b></span>
+                            <div class="col-sm-6">
+                                <span class="label col-sm-4" rlabel="Attribute No">Attribute No<span style="color:red;" rlabel="*">*</span></span>
+                                <span class="label-value col-xs-12 col-lg-8" tabindex="5" controlId="lblAttributeNo" control="attributePage.labelValue"></span>
+                            </div>
+                            <div class="col-sm-6">
+                                <span class="label col-sm-4" rlabel="Attribute Name">Attribute Name<span style="color:red;">*</span></span>
+                                <input class="col-sm-8" type="text" tabindex="6" control="attributePage.textBox" controlId="txtAttributeName">
+                            </div>
+                            <div class="col-sm-12"></div>
+                            <div class="col-sm-6">
+                                <span class="label col-sm-4" rlabel="Attribute Type">Attribute Type</span>
+                                <input class="col-sm-8" type="text" tabindex="7" control="attributePage.textBox" controlId="txtAttributeType">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div><br />
+
+
+</body>
+</html>

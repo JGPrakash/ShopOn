@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+<head>
+    <script src="/config/config.js" type="text/javascript"></script>
+    <script type="text/javascript">
+
+
+        document.write('<script src="/'+ appConfig.root + '/core/master.js" type="text/javascript" > <\/script> ');
+        document.write('<script src="/' + appConfig.root + '/login/service/user/user-service.js"><\/script>');
+
+        document.write('<link href="/' + appConfig.root + '/finfacts/view/lookup/lookup.css" rel="stylesheet" />');
+        document.write('<script src="/' + appConfig.root + '/finfacts/view/lookup/lookup.js"><\/script>');
+
+        document.write('<script src="/' + appConfig.root + '/finfacts/service/accaccount-service.js"><\/script>');
+        document.write('<script src="/' + appConfig.root + '/finfacts/service/user/lookup-service.js"><\/script>');
+    </script>
+
+</head>
+<body control="page.lookupPage" controlId="lookupPage">
+    <div control="lookupPage.masterPage" controlId="masterPage"></div>
+    <div style="margin-top:40px">
+
+        <!--Load Content Area-->
+        <div class="container-fluid">
+
+            <div class="content-area row">
+                <div control="lookupPage.messagePanel" controlid="msgPanel" class="message-panel" style="display:none">
+                </div>
+                <div class="search-panel col-sm-4" default-button="btnSearch">
+                    <div class="search-action">
+                        <hr>
+                        <input type="button" value="Search" control="lookupPage.primaryReadButton" controlid="btnSearch" event="click:btnSearch_click" />
+                    </div>
+                    <div class="search-filter">
+                        <input type="text" control="lookupPage.textBox" controlid="txtSearch" placeholder="Enter Lookup Id" />
+                    </div>
+                    <div class="search-result">
+                        <div control="lookupPage.grid" controlid="grdLookupResult"></div>
+                    </div>
+                    <div class="col-sm-12" style="height:50px;">
+                        <span class="label"> F1 - New </span>
+                        <span class="label"> F2 - Save </span>
+                        <span class="label"> Ctrl + R - Remove </span>
+                    </div>
+                </div>
+                <div class="detail-panel col-sm-8">
+                    <div class="detail-action">
+                        <input type="button" value="New" control="lookupPage.primaryWriteButton" controlid="btnNew" event="click:btnNew_click" />
+                        <input type="button" value="Save" control="lookupPage.primaryWriteButton" controlid="btnSave" event="click:btnSave_click" />
+                        <input type="button" value="Remove" control="lookupPage.secondaryButton" controlid="btnDelete" event="click:btnDelete_click" />
+                    </div>
+                    <br /><br />
+                    <div class="detail-info container-fluid" control="lookupPage.htmlControl" controlid="pnlDetail">
+                        <div class="detail-basic row">
+                            <div class="col-xs-12 col-sm-6 col-lg-6 col-md-6">
+                                <span class="label col-xs-12 col-sm-6 col-lg-4 col-md-4">Lookup Id</span>
+                                <input class="col-xs-12 col-sm-6 col-lg-6 col-md-6" type="text" control="lookupPage.textBox" controlId="txtLookupId">
+                            </div>
+                            <div class="col-xs-12 col-sm-6 col-lg-6 col-md-6">
+                                <span class="label col-xs-12 col-sm-6 col-lg-4 col-md-4">Lookup Name<span style="color:red;">*</span></span>
+                                <input class="col-xs-12 col-sm-6 col-lg-6 col-md-6" type="text" control="lookupPage.textBox" controlId="txtLookupName">
+                            </div>
+                            <div class="col-xs-12 col-sm-6 col-lg-6 col-md-6">
+                                <span class="label col-xs-12 col-sm-6 col-lg-4 col-md-4">Description</span>
+                                <input class="col-xs-12 col-sm-6 col-lg-6 col-md-6" type="text" control="lookupPage.textBox" controlId="txtLookupDescription">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="lookupvalue-panel" control="lookupPage.htmlControl" controlid="pnlLookupValue">
+                        <div>
+                            <span><b>Key Value</b></span>
+                            <input type="button" value="Remove" control="lookupPage.secondaryButton" controlId="btnRemLookupValue" event="click:btnRemLookupValue_click" />
+                            <input type="button" value="Add" control="lookupPage.secondaryButton" controlId="btnAddLookupValue" event="click:btnAddLookupValue_click" />
+                        </div>
+                        <div control="lookupPage.grid" controlid="grdLookupValue"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+           
+
+
+            <div control="lookupPage.popup" controlid="pnlAddLookupValuePopup" style="display:none">
+                <div style="width:100%;display: inline-block; margin: 5px;">
+                    <input type="button" value="Save" control="lookupPage.primaryWriteButton" controlid="btnSaveLookupValue" event="click:btnSaveLookupValue_click" style="float: right" />
+                </div>
+                <div class="detail-basic">
+                    <div>
+                        <span class="label">Key Value<span style="color:red;">*</span></span>
+                        <input type="text" control="lookupPage.textBox" controlid="txtLookupValueName" />
+                    </div>
+                </div>
+            </div>
+</body>
+</html>

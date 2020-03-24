@@ -1,0 +1,505 @@
+:root{
+    --detail-color: white;
+    --action-color:#f1f1f1;
+    --search-color: white;
+}
+
+
+
+.footer{
+   
+bottom: 0;
+   
+text-align:center;
+   
+width: 100%;
+   
+z-index: 1;
+   
+text-align: center;
+   
+padding-top: 4px;
+   
+height: 2em;
+   
+background-color: black;
+   
+color: white;
+   
+font-size: 12px;
+/*display:inline-block*/
+position:fixed;
+margin-top:5%;
+}
+
+
+
+
+.footer a{
+ color: white;
+}
+
+
+/* Header Section which has menu icon , name, logout etc*/
+.header-area {
+    background-color: black;
+    font-size: 9px;
+    height: 40px;
+    left: 0;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 99999;
+}
+.header-area .menu-shopon-icon {
+    background: black none repeat scroll 0 0;
+    cursor: pointer;
+    display: inline-block;
+    height: 30px;
+    margin-left: 5px;
+    margin-top: 5px;
+    width: 30px;
+    float:left;
+}
+
+.header-area .menu-shopon-icon img {
+    height: 20px;
+    margin-left: 4px;
+    margin-top: 5px;
+}
+
+
+/* Menu Design Panel*/
+.menu-shopon {
+    background-color: rgb(51, 51, 51);
+    border-right: 1px solid gray;
+    height: auto;
+    left: 0;
+    position: fixed;
+    top: 40px;
+    width: 100%;
+    z-index: 999999999; 
+    overflow: hidden;
+     border-right: 1px solid gray; 
+    padding: 5px;
+}
+
+.menu-shopon [controlid=pnlMenuPlaceHolder] > div {
+    display:inline-block;
+    float:left;
+    width:200px;
+}
+.menu-shopon [controlid=pnlMenuPlaceHolder] > div > div {
+    margin-left : 30px;
+}
+
+.menu-shopon [controlid="pnlMenuPlaceHolder"] > div > span:first-of-type {
+    font-size: 16px;
+}
+.menu-shopon [controlid="pnlMenuPlaceHolder"] span {
+    color: white;
+    display: inline-block;
+    font-family: fontawesome;
+    font-size: 14px;
+    margin: 4px;
+}
+
+    .menu-shopon [controlid="pnlMenuPlaceHolder"] span:hover {
+        text-decoration:underline;
+        cursor:pointer;
+    }
+
+.menu-shopon [controlid="pnlMenuPlaceHolder"]  {
+    margin-left: 20px;
+    margin-top: 5px;
+}
+
+
+
+
+/* Content Area to work*/
+.content-area {}
+
+
+
+.search-panel {
+    float: left;
+    min-height: 400px;
+    background-color: var(--search-color);
+}
+
+@media only screen and (min-width: 500px) {
+     .search-panel {
+      }   
+}
+
+.search-panel > div{
+    margin-top: 10px;
+    display:inline-block;
+    float:left;
+    width:100%;
+}
+
+.search-panel > .search-action [control$=".primaryReadButton"]{
+    float:right;
+    width: 80px;
+}
+
+
+.search-panel .search-filter > div {
+    margin-bottom: 5px;
+    display:inline-block;
+    width: 100%;
+}
+
+.search-panel .search-filter  span {
+    display:inline-block;
+    float:left;
+    width: 100%;
+}
+
+.search-panel .search-filter  input {
+    display:inline-block;
+    float:left;
+    width: 100%;
+}
+
+.search-panel .search-filter  select {
+    display:inline-block;
+    float:left;
+    width: 100%;
+}
+
+.search-panel .search-result {
+    width: 100%;
+}
+
+
+.search-panel hr{
+    display:inline-block;
+    float:left;
+    width : calc(100% - 80px);
+    margin-top:10px;
+}
+
+
+.detail-panel {
+    float: left;
+    background-color: var(--detail-color);
+}
+
+@media only screen and (min-width: 500px) {
+     .detail-panel {
+      }   
+}
+
+.detail-panel > div{width: 100%;float: left;}
+
+.detail-action > input:hover{
+}
+
+.detail-action  input{
+    float:left;
+    margin-right: 10px;
+}
+
+
+.action-panel {
+    background-color: var(--action-color);
+    border-bottom: 1px solid lightgray;
+    padding: 5px 10px;  
+    width: 100%;
+}
+
+.action-panel input{
+    margin-right : 10px;
+}
+
+.detail-basic {}
+.detail-basic > div {
+    margin-bottom: 5px;
+}
+.detail-basic .label {
+}
+
+
+.detail-basic .label-value {
+}
+.detail-basic input {
+   min-height:20px;
+}
+input[type="text"]:focus {
+    border: 1px solid lightblue;
+    box-shadow: 1px 1px 1px whitesmoke;
+}
+.detail-basic select {
+}
+
+.detail-info > span {
+   width: 100%;
+   display: inline-block;
+   margin-top:20px;
+}
+
+.detail-basic > span.label,.detail-info> span.label {}
+
+.detail-panel{
+
+    padding-top:40px;
+} 
+
+@media only screen and (min-width: 500px) {
+    .detail-panel{
+
+    padding-top:0px;
+} 
+    .detail-panel{
+        margin-top:10px;
+    }
+    .detail-basic .label {
+    }
+
+    .detail-basic input {
+    }
+    .detail-basic .label-value {
+    }
+
+     .detail-basic select {
+    }
+
+    .detail-basic {
+    }
+    .detail-basic > span.label {
+    }
+
+    .detail-full {
+        width: 100%;
+    }
+
+      .detail-full .label {      
+        width: 100%;
+    }
+
+    .detail-full input {
+         width: 100%;
+    }
+    .detail-full .label-value {
+         width: 100%;
+    }
+
+     .detail-full select {
+        width: 100%;
+    }
+
+
+
+}
+
+
+/* Footer Area*/
+.footer-area {
+
+}
+
+
+
+
+
+
+
+.basic-info {
+    padding: 15px;
+}
+
+.basic-info > span {
+    display:inline-block;
+    margin-top:10px;
+}
+
+.basic-info > span:first-of-type {
+    margin-top:0px;
+}
+
+.basic-info > div {
+    float: left;
+    margin-bottom: 5px;
+    min-height: 35px;
+}
+.basic-info > div > input {
+    float: left;
+}
+.basic-info > div > select {
+    float: left;
+}
+.basic-info > div > .label {
+    display: inline-block;
+    float: left;
+}
+
+
+
+/*body {
+    font-family: Verdana;
+    margin: 0;color: #4f4f51;
+    font-size:11px;
+}
+
+
+.current-academic > span {
+    width : 120px;
+    display : inline-block;
+}
+.current-academic > select {
+    width : 180px;
+   
+}
+
+.content-panel {
+    margin-top: 40px;
+}
+
+
+.ui-widget input, .ui-widget select, .ui-widget textarea, .ui-widget button {
+font-size : 11px;
+}
+
+<<<<<<< HEAD
+=======
+.panel-header .menu-shopon-icon img {
+    height: 20px;
+    margin-left: 4px;
+    margin-top: 5px;
+}
+.menu-shopon {
+    background-color: rgb(51, 51, 51);
+    border-right: 1px solid gray;
+    height: 100%;
+    left: 0;
+    position: fixed;
+    top: 40px;
+    width: 40px;
+}
+
+>>>>>>> 41c26a21525650717b0d011fd576213fd3498703
+
+.filter-panel {
+    background: rgb(247, 247, 247) none repeat scroll 0 0;
+    border: 1px solid rgb(204, 204, 204);
+    box-shadow: 0 1px 4px 0 rgba(153, 153, 153, 0.6);
+    display: block;
+    margin-top: 10px;
+    padding: 10px;
+}
+    .filter-panel > div {
+           background-color: white;
+    border: 1px solid rgb(204, 204, 204);
+    display: inline-block;
+    padding: 10px;
+    width: calc(100% - 20px);
+    }
+    
+.filter-panel > div > span {
+    display: inline-block;
+    float: left;
+    margin-right: 10px;
+    margin-top: 6px;
+}
+
+
+.action-panel {
+    margin: 10px;
+    width: calc(100% - 20px);
+}
+    .action-panel > input {
+        margin-right: 10px;
+        float:left;
+    }
+
+.action-panel > hr {
+    display: inline-block;
+    float: left;
+    margin-right: 10px;
+    margin-top: 13px;
+    width: calc(100% - 85px);
+}
+
+
+<<<<<<< HEAD
+
+=======
+.content-area {
+    display: inline-block;
+    margin: 50px 20px 20px;
+    width: calc(100% - 40px);
+}
+>>>>>>> 41c26a21525650717b0d011fd576213fd3498703
+
+.sales-area {
+    width: 100%;
+
+}
+
+.drop-down {
+
+}
+
+
+
+
+
+
+.label {
+    font-size: 11px;
+    line-height: 20px;
+    vertical-align: middle;font-weight: 500;
+}
+
+
+
+.label-value {
+    font-size: 11px;
+    line-height: 20px;
+    vertical-align: middle;font-weight: normal;
+    color:dimgray;
+}
+
+
+
+.buttonSecondary {
+    background: transparent none repeat scroll 0 0;
+    border: medium none;
+    cursor: pointer;
+    display: inline-block;
+    font-family: verdana;
+    font-size: 12px;
+    font-weight: normal;
+    padding: 7px 10px;
+    text-align: center;
+}
+    .buttonSecondary:hover {
+        text-decoration:underline
+    }
+    
+
+
+.buttonSearch {
+    background-color: gray;
+    border: medium none;
+    border-radius: 5px;
+    box-shadow: 2px 2px 2px lightgray;
+    color: white;
+    display: inline-block;
+    font-family: verdana;
+    font-size: 12px;
+    font-weight: normal;
+    padding: 4px 10px;
+    text-align: center;
+    cursor:pointer;
+}
+
+
+
+
+.ui-dialog .ui-dialog-title {
+    font-size:12px;
+}*/

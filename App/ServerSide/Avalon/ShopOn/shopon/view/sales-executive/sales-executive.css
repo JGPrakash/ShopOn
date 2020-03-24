@@ -1,0 +1,16 @@
+.search-panel hr {
+    display: inline-block;
+    float: left;
+    width: calc(100% - 80px);
+    margin-top: 10px;
+}
+.label-value {
+    background-color: lightgray
+}
+.search-action
+{
+    margin-top:100px;
+}
+.margin-top{
+    margin-top:10px;
+}

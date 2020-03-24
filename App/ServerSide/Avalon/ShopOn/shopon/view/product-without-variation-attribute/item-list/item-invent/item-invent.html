@@ -1,0 +1,200 @@
+﻿<div control="itemInventory.messagePanel" controlid="msgPanel" class="message-panel" style="display:none">
+</div>
+<div class="row" style="margin-top:10px;">
+    <!--<div class="col-xs-4">
+        <span class="header-label" rlabel="Variation With" controlId="Variation With" control="itemInventory.label">Variation With</span>
+    </div>
+    <div class="col-xs-8">
+        <input style="float:right;margin-right:10px;margin-top:2px" type="button" event="click:btnItemVariationSave_click" control="itemInventory.secondaryButton" controlid="btnItemVariationSave" value="Save" rlabel="Save">
+    </div>
+    <div class="col-xs-12">
+        <span class="label col-xs-4"><input type="checkbox" controlId="chkItemVariationSupplierNo" control="itemInventory.chkBox" name="Supplier No"><span class="label col-xs-11" style="float:right;margin-top:5px;" rlabel="Supplier No" control="itemInventory.label" controlId="Supplier No">Supplier No</span></span>
+        <span class="label col-xs-4"><input type="checkbox" controlId="chkItemVariationBuyingCost" control="itemInventory.chkBox" name="Buying Cost"><span class="label col-xs-11" style="float:right;margin-top:5px;" rlabel="Buying Cost" control="itemInventory.label" controlId="Buying Cost">Buying Cost</span></span>
+        <span class="label col-xs-4"><input type="checkbox" controlId="chkItemVariationMRP" control="itemInventory.chkBox" name="MRP"><span class="label col-xs-11" style="float:right;margin-top:5px;" rlabel="MRP" control="itemInventory.label" controlId="MRP">MRP</span></span>
+        <span class="label col-xs-4"><input type="checkbox" controlId="chkItemVariationBatchNo" control="itemInventory.chkBox" name="Batch No"><span class="label col-xs-11" style="float:right;margin-top:5px;" rlabel="Batch No" control="itemInventory.label" controlId="Batch No">Batch No</span></span>
+        <span class="label col-xs-4"><input type="checkbox" controlId="chkItemVariationManDate" control="itemInventory.chkBox" name="Man Date"><span class="label col-xs-11" style="float:right;margin-top:5px;" rlabel="Man Date" control="itemInventory.label" controlId="Man Date">Manufacture Date</span></span>
+        <span class="label col-xs-4"><input type="checkbox" controlId="chkItemVariationExpiryDate" control="itemInventory.chkBox" name="Expiry Date"><span class="label col-xs-11" style="float:right;margin-top:5px;" rlabel="Expiry Date" control="itemInventory.label" controlId="Expiry Date">Expiry Date</span></span>
+    </div>-->
+
+    <div class="col-xs-4">
+        <span class="header-label" rlabel="Stock Variations"  controlId="Stock Variations" control="itemInventory.label">Stock Variations</span>
+    </div>
+
+    <div class="col-xs-8">
+        <input style="float:right;margin-top:2px" type="button" event="click:btnAddInvent_click" control="itemInventory.secondaryButton" controlid="btnAddInventory" value="Add to Inventory" rlabel="Add to Inventory">
+        <span style="padding-left: 5px;padding-right: 5px; margin-top: 6px;float:right" id="line1"> |</span>
+        <input style="float:right;margin-right:10px;margin-top:2px" type="button" event="click:btnRemoveVariation_click" control="itemInventory.secondaryButton" controlid="btnRemoveVariation" value="Remove" rlabel="Remove">
+        <span style="padding-left: 5px;padding-right: 5px; margin-top: 6px;float:right" id="line2"> |</span>
+        <input style="float:right;margin-right:10px;margin-top:2px" type="button" event="click:btnActiveVariation_click" control="itemInventory.secondaryButton" controlid="btnActiveVariation" value="Active Variation" rlabel="Active Variation">
+        <span style="padding-left: 5px;padding-right: 5px; margin-top: 6px;float:right"  id="line3"> |</span>
+        <input style="float:right;margin-right:10px;margin-top:2px" type="button" event="click:btnStopVariation_click" control="itemInventory.secondaryButton" controlid="btnStopVariation" value="Stop Variation" rlabel="Stop Variation">
+        <span style="padding-left: 5px;padding-right: 5px; margin-top: 6px;float:right"  id="line4"> |</span>
+        <input style="float:right;margin-right:10px;margin-top:2px" type="button" event="click:btnNewVariation_click" control="itemInventory.secondaryButton" controlid="btnNewVariation" value="New Variation" rlabel="New Variation">
+        <span style="padding-left: 5px;padding-right: 5px; margin-top: 6px;float:right" id="line5"> |</span>
+        <input style="float:right;margin-right:10px;margin-top:2px" type="button" event="click:btnSetVariation_click" control="itemInventory.secondaryButton" controlid="btnSetVariation" value="Set Variation" rlabel="Set Variation">
+    </div>
+</div>
+
+<div class="row" style="margin-top:10px;">
+    <div class="col-xs-12" style="overflow-x:auto; overflow-y:hidden;">
+        <div  style="width:100%;overflow-x:auto; overflow-y:hidden;">
+            <div controlId="grdItemVariations" control="itemInventory.grid"> </div>
+       </div>
+    </div>
+</div>
+
+<div class="row" style="margin-top:20px;">
+    <div class="col-xs-6">
+        <span class="header-label"rlabel="Stock Transactions"  controlId="Stock Transactions" control="itemInventory.label">Stock Transactions</span>
+    </div>
+    
+    <div class="col-xs-6">
+        <div control="itemInventory.htmlControl" controlid="pnlSTShowFilter">
+            <input style="float:right;margin-right:10px;margin-top:2px" type="button" event="click:btnSTHideFilter_click" control="itemInventory.secondaryButton" controlid="btnSTHideFilter" value="Hide Filter" rlabel="Hide Filter">
+            <span style="padding-left: 5px;padding-right: 5px; margin-top: 6px;float:right"> |</span>
+        </div>
+        <input style="float:right;margin-right:10px;margin-top:2px" type="button" event="click:btnSTShowFilter_click" control="itemInventory.secondaryButton" controlid="btnSTShowFilter" value="Show Filter" rlabel="Show Filter">
+        <span style="padding-left: 5px;padding-right: 5px; margin-top: 6px;float:right"> |</span>
+        <input style="float:right;margin-right:10px;margin-top:2px" type="button" event="click:btnRemoveInventory_click" control="itemInventory.secondaryButton" controlid="btnRemoveInventory" value="Remove Transaction" rlabel="Remove Transaction">
+</div>
+
+    <div class="col-xs-12" style="margin-top:10px;">
+        <div style="width:100%;overflow-x:auto; overflow-y:hidden;">
+            <div controlId="grdItemInventory" control="itemInventory.grid"> </div>
+        </div>
+    </div>
+    <div class="col-xs-12" style="height:50px;">
+        <span>&nbsp;</span>
+    </div>
+</div>
+
+
+<div class="basic-info" style="display:none" controlId="pnlNewVariation" control="itemInventory.popup">
+    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12" style="margin-top:20px;">
+        <input style="float:right" type="button" event="click:btnAddVariation_click" control="itemInventory.primaryWriteButton" controlid="btnAddVariation" value="Add" rlabel="Add">
+    </div>
+    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12" control="itemInventory.htmlControl" controlId="pnlVariation">
+        <span class="label  col-xs-12 col-lg-5" rlabel="Variation Name" control="itemInventory.label" controlid="New Variation">New Variation</span>
+        <input class="col-xs-12 col-lg-7" type="text" controlid="txtNewVariation" control="itemInventory.textBox">
+    </div>
+    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12" control="itemInventory.htmlControl" controlid="pnlVariationCost">
+        <span class="label  col-xs-12 col-lg-5" rlabel="Cost" control="itemInventory.label" controlid="Cost">Cost</span>
+        <input class="col-xs-12 col-lg-7" type="text" controlid="txtAddInventCost" control="itemInventory.textBox">
+    </div>
+    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12" control="itemInventory.htmlControl" controlid="pnlVariationSupplier">
+        <span class="label  col-xs-12 col-lg-5"  rlabel="Supplier" control="itemInventory.label" controlid="Supplier">Supplier</span>
+        <select class="col-xs-12 col-lg-7" control="itemInventory.dropDownList" controlid="ddlAddInventVendor"></select>
+    </div>
+    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12" control="itemInventory.htmlControl" controlId="pnlMrp">
+        <span class="label  col-xs-12 col-lg-5" rlabel="MRP" control="itemInventory.label" controlid="MRP">MRP</span>
+        <input class="col-xs-12 col-lg-7" type="text" controlid="txtAddMrp" control="itemInventory.textBox">
+    </div>
+    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12" control="itemInventory.htmlControl" controlId="pnlBatchNo">
+        <span class="label  col-xs-12 col-lg-5" rlabel="Batch No" control="itemInventory.label" controlid="Batch No">Batch No</span>
+        <input class="col-xs-12 col-lg-7" type="text" controlid="txtAddBatchNo" control="itemInventory.textBox">
+    </div>
+    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12" control="itemInventory.htmlControl" controlId="pnlManDate">
+        <span class="label  col-xs-12 col-lg-5" rlabel="Manufacture Date" control="itemInventory.label" controlid="Manufacture Date">Manufacture Date</span>
+        <input type="text" class="col-xs-12 col-lg-7" controlid="dsAddManDate" control="itemInventory.dateSelector">
+    </div>
+    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12" control="itemInventory.htmlControl" controlId="pnlExpiryDate">
+        <span class="label  col-xs-12 col-lg-5" rlabel="Expiry Date" control="itemInventory.label" controlid="Expiry Date">Expiry Date</span>
+        <input type="text" class="col-xs-12 col-lg-7" controlid="dsAddExpiryDate" control="itemInventory.dateSelector">
+    </div>
+</div>
+
+<div class="basic-info" style="display:none" controlId="pnlAddInventory" control="itemInventory.popup">
+    <div class="col-xs-12">
+        <input type="button" value="Add" rlabel="Add" controlId="btnAddInvent" control="itemInventory.primaryWriteButton" event="click:btnAddInventory_click" style="float:right;margin-top:20px;" />
+    </div>
+    <div class="col-xs-12 col-sm-6 margin-top">
+        <span class="col-xs-12 col-sm-12 col-md-4 col-lg-6" rlabel="Quantity" control="itemInventory.label" controlid="Quantity">Quantity<span style="color:red">*</span></span>
+        <input class="col-xs-12 col-sm-12 col-md-8 col-lg-6" type="text" controlId="txtAddInventoryQty" control="itemInventory.textBox" />
+    </div>
+    <div class="col-xs-12 col-sm-6 margin-top">
+        <span class="col-xs-12 col-sm-12 col-md-4 col-lg-6" rlabel="Trans Type" control="itemInventory.label" controlid="Trans Type">Trans Type</span>
+        <select class="col-xs-12 col-sm-12 col-md-8 col-lg-6" controlId="ddlAddTransType" control="itemInventory.htmlControl" >
+            <option>Purchase</option>
+            <option>PurchaseReturn</option>
+            <option>Sale</option>
+            <option>SaleReturn</option>
+            <option>Damage</option>
+        </select>
+    </div>
+    <div class="col-xs-12 col-sm-6 margin-top">
+        <span class="col-xs-12 col-sm-12 col-md-4 col-lg-6" rlabel="Bill No" control="itemInventory.label" controlid="Bill No">Bill No</span>
+        <input class="col-xs-12 col-sm-12 col-md-8 col-lg-6" type="number" controlId="txtkey1Inventory" control="itemInventory.textBox" />
+    </div>
+    <div class="col-xs-12 col-sm-6 key margin-top">
+        <span class="col-xs-12 col-sm-12 col-md-4 col-lg-6" rlabel="Item No" control="itemInventory.label" controlid="Item No">Item No</span>
+        <input class="col-xs-12 col-sm-12 col-md-8 col-lg-6" type="text" controlId="txtkey2Inventory" control="itemInventory.textBox" />
+    </div>
+    <div class="col-xs-12 col-sm-6 key margin-top">
+        <span class="col-xs-12 col-sm-12 col-md-4 col-lg-6" style="word-wrap: break-word;" rlabel="Customer/Supplier No" control="itemInventory.label" controlid="Customer/Supplier No">Customer/Supplier No</span>
+        <input class="col-xs-12 col-sm-12 col-md-8 col-lg-6" type="text" controlId="txtkey3Inventory" control="itemInventory.textBox" />
+    </div>
+    <div class="col-xs-12 col-sm-6 key margin-top">
+        <span class="col-xs-12 col-sm-12 col-md-4 col-lg-6" rlabel="Comments" control="itemInventory.label" controlid="Comments">Comments</span>
+        <input class="col-xs-12 col-sm-12 col-md-8 col-lg-6" type="text" controlId="txtCommentsInventory" control="itemInventory.textBox" />
+    </div>
+    <div class="col-xs-12 col-sm-6 key margin-top">
+        <span class="col-xs-12 col-sm-12 col-md-4 col-lg-6" rlabel="Cost" control="itemInventory.label" controlid="StockCost">Cost</span>
+        <input class="col-xs-12 col-sm-12 col-md-8 col-lg-6" type="text" controlid="txtAddStockCost" control="itemInventory.textBox">
+    </div>
+    <div class="col-xs-12 col-sm-6 key margin-top">
+        <span class="col-xs-12 col-sm-12 col-md-4 col-lg-6" rlabel="Supplier" control="itemInventory.label" controlid="StockSupplier">Supplier</span>
+        <select class="col-xs-12 col-sm-12 col-md-8 col-lg-6" control="itemInventory.dropDownList" controlid="ddlAddStockVendor"></select>
+    </div>
+    <div class="col-xs-12 col-sm-6 key margin-top" control="itemInventory.htmlControl" controlId="pnlStockMrp">
+        <span class="col-xs-12 col-sm-12 col-md-4 col-lg-6" rlabel="MRP" control="itemInventory.label" controlid="StockMRP">MRP</span>
+        <input class="col-xs-12 col-sm-12 col-md-8 col-lg-6" type="text" controlid="txtAddStockMrp" control="itemInventory.textBox">
+    </div>
+    <div class="col-xs-12 col-sm-6 key margin-top" control="itemInventory.htmlControl" controlId="pnlStockBatchNo">
+        <span class="col-xs-12 col-sm-12 col-md-4 col-lg-6" rlabel="Batch No" control="itemInventory.label" controlid="StockBatch No">Batch No</span>
+        <input class="col-xs-12 col-sm-12 col-md-8 col-lg-6" type="text" controlid="txtAddStockBatchNo" control="itemInventory.textBox">
+    </div>
+    <div class="col-xs-12 col-sm-6 key margin-top" control="itemInventory.htmlControl" controlId="pnlStockManDate">
+        <span class="col-xs-12 col-sm-12 col-md-4 col-lg-6" rlabel="Manufacture Date" control="itemInventory.label" controlid="StockManufacture Date">Manufacture Date</span>
+        <input type="text" class="col-xs-12 col-sm-12 col-md-8 col-lg-6" controlid="dsAddStockManDate" control="itemInventory.dateSelector">
+    </div>
+    <div class="col-xs-12 col-sm-6 key margin-top" control="itemInventory.htmlControl" controlId="pnlStockExpiryDate">
+        <span class="col-xs-12 col-sm-12 col-md-4 col-lg-6" rlabel="Expiry Date" control="itemInventory.label" controlid="StockExpiry Date">Expiry Date</span>
+        <input type="text" class="col-xs-12 col-sm-12 col-md-8 col-lg-6" controlid="dsAddStockExpiryDate" control="itemInventory.dateSelector">
+    </div>
+</div>
+
+
+<div class="basic-info" style="display:none" controlId="pnlUpdInventory" control="itemInventory.popup">
+    <div>
+        <span>Quantity</span>
+        <input type="text" controlId="txtUpdInventQty" control="itemInventory.textBox" />
+    </div>
+    <div>
+        <span>Cost</span>
+        <input type="text" controlId="txtUpdInventCost" control="itemInventory.textBox" />
+    </div>
+    <div>
+        <span>Vendor</span>
+        <select controlId="ddlUpdInventVendor" control="itemInventory.htmlControl" />
+    </div>
+    <input type="button" value="Update Inventory" controlId="btnUpdInventory" control="itemInventory.htmlControl" event="click:btnAddInventory_click" />
+</div>
+
+<div class="basic-info" style="display:none" controlId="pnlSetVariation" control="itemInventory.popup">
+    <div style="float:right;">
+        <input style="float:right;margin-top:2px" type="button" event="click:btnItemVariationSave_click" control="itemInventory.primaryReadButton" controlid="btnItemVariationSave" value="Save" rlabel="Save">
+    </div>
+    <div>
+        <span class="label col-xs-6"><input type="checkbox" controlId="chkItemVariationSupplierNo" control="itemInventory.chkBox" name="Supplier No"><span class="label col-xs-11" style="float:right;margin-top:5px;" rlabel="Supplier No" control="itemInventory.label" controlId="Supplier No">Supplier No</span></span>
+        <span class="label col-xs-6"><input type="checkbox" controlId="chkItemVariationBuyingCost" control="itemInventory.chkBox" name="Buying Cost"><span class="label col-xs-11" style="float:right;margin-top:5px;" rlabel="Buying Cost" control="itemInventory.label" controlId="Buying Cost">Buying Cost</span></span>
+        <span class="label col-xs-6"><input type="checkbox" controlId="chkItemVariationMRP" control="itemInventory.chkBox" name="MRP"><span class="label col-xs-11" style="float:right;margin-top:5px;" rlabel="MRP" control="itemInventory.label" controlId="MRP">MRP</span></span>
+        <span class="label col-xs-6"><input type="checkbox" controlId="chkItemVariationBatchNo" control="itemInventory.chkBox" name="Batch No"><span class="label col-xs-11" style="float:right;margin-top:5px;" rlabel="Batch No" control="itemInventory.label" controlId="Batch No">Batch No</span></span>
+        <span class="label col-xs-6"><input type="checkbox" controlId="chkItemVariationManDate" control="itemInventory.chkBox" name="Man Date"><span class="label col-xs-11" style="float:right;margin-top:5px;" rlabel="Man Date" control="itemInventory.label" controlId="Man Date">Manufacture Date</span></span>
+        <span class="label col-xs-6"><input type="checkbox" controlId="chkItemVariationExpiryDate" control="itemInventory.chkBox" name="Expiry Date"><span class="label col-xs-11" style="float:right;margin-top:5px;" rlabel="Expiry Date" control="itemInventory.label" controlId="Expiry Date">Expiry Date</span></span>
+        <span class="label col-xs-6"><input type="checkbox" controlId="chkItemVariationInvoiceNo" control="itemInventory.chkBox" name="Invoice No"><span class="label col-xs-11" style="float:right;margin-top:5px;" rlabel="Invoice No" control="itemInventory.label" controlId="Invoice No">Invoice No</span></span>
+        <span class="label col-xs-6"><input type="checkbox" controlId="chkItemVariationSize" control="itemInventory.chkBox" name="Size"><span class="label col-xs-11" style="float:right;margin-top:5px;" rlabel="Size" control="itemInventory.label" controlId="Size">Size</span></span>
+        <span class="label col-xs-6"><input type="checkbox" controlId="chkItemVariationColor" control="itemInventory.chkBox" name="Color"><span class="label col-xs-11" style="float:right;margin-top:5px;" rlabel="Color" control="itemInventory.label" controlId="Color">Color</span></span>
+        <span class="label col-xs-6"><input type="checkbox" controlId="chkItemVariationPattern" control="itemInventory.chkBox" name="Pattern"><span class="label col-xs-11" style="float:right;margin-top:5px;" rlabel="Pattern" control="itemInventory.label" controlId="Pattern">Pattern</span></span>
+        <span class="label col-xs-6"><input type="checkbox" controlId="chkItemVariationMaterial" control="itemInventory.chkBox" name="Material"><span class="label col-xs-11" style="float:right;margin-top:5px;" rlabel="Material" control="itemInventory.label" controlId="Material">Material</span></span>
+    </div>
+</div>

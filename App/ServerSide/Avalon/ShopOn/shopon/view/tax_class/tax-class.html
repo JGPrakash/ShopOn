@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+
+<html>
+
+<head>
+
+    <script src="/config/config.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        document.write('<script src="/' + appConfig.root + '/core/master.js" type="text/javascript" > <\/script> ');
+        document.write('<script src="/' + appConfig.root + '/shopon/service/tax/taxclass-api.js"><\/script>');
+
+        document.write('<link href="/' + appConfig.root + '/shopon/view/tax_class/tax-class.css" rel="stylesheet" />');
+        document.write('<script src="/' + appConfig.root + '/shopon/view/tax_class/tax-class.js"><\/script>');
+        document.write('<script src="/' + appConfig.root + '/shopon/service/w3data/w3data.js"><\/script>');
+    </script>
+
+
+</head>
+
+
+<body control="page.taxclassPage" controlId="taxclassPage">
+
+
+
+    <div control="taxclassPage.masterPage" controlId="masterPage"></div>
+
+    <div style="margin-top:40px">
+
+        <!--Load Content Area-->
+        <div class="container-fluid">
+            <div class="content-area row">
+                <div control="taxclassPage.messagePanel" controlid="msgPanel" class="message-panel col-sm-12" style="display:none">
+                </div>
+                <div class="search-panel col-sm-5" default-button="btnSearch">
+                    <div class="search-action">
+                        <hr>
+                        <input type="button" value="Search" rlabel="Search" control="taxclassPage.primaryReadButton" controlId="btnSearch" event="click:btnSearch_click">
+
+                    </div>
+                    <div class="search-filter">
+                        <div>
+                            <input type="text" control="taxclassPage.textBox" controlId="txtSearchInput" rlabel="Enter tax class no or name" placeholder="Enter tax class no or name" >
+                        </div>
+                    </div>
+                    <div class="search-result">
+                        <div control="taxclassPage.grid" controlId="grdSearchResult"> </div>
+                    </div>
+                    <div class="col-sm-12 padding-left-zero" style="height:50px;">
+                        <span class="label" rlabel="F1 - New"> F1 - New </span>
+                        <span class="label" rlabel="F2 - Save"> F2 - Save </span>
+                        <span class="label" rlabel="Ctrl + R - Remove"> Ctrl + R - Remove </span>
+                    </div>
+                </div>
+                <div class="detail-panel col-sm-7">
+                    <div class="detail-action col-sm-12">
+                        <input type="button" value="New" rlabel="New" control="taxclassPage.primaryReadButton" controlId="btnNew" event="click:btnNew_click" />
+
+                        <input type="button" value="Save" rlabel="Save" control="taxclassPage.primaryReadButton" controlId="btnSave" event="click:btnSave_click" />
+
+                        <input type="button" value="Remove" rlabel="Remove" control="taxclassPage.secondaryButton" controlId="btnDelete" event="click:btnBeforeDelete_click" />
+                    </div>
+                    
+                    <div class="detail-info container-fluid">
+
+                        <div class="detail-basic row">
+                            <span class="label col-xs-12 header-style-1" rlabel="Tax Details"><b>Tax Details</b></span>
+                            <div class="col-sm-6 padding-left-zero">
+                                <span class="col-sm-4 label"><span rlabel="Tax class Name">Tax class Name<span style="color:red;">*</span></span></span>
+                                <input class="col-sm-8" type="text" control="taxclassPage.textBox" controlId="txtTaxClassName" placeholder="Tax Class Name*"> 
+                            </div>
+                            <div class="col-sm-6 padding-left-zero">
+                                <span class="col-sm-4 label" rlabel="Tax class">Tax class</span>
+                                <span class="col-sm-8"><input type="checkbox" name="Active" control="taxclassPage.htmlControl" controlid="chkActive" /><span class="label" style="margin-top:-9%;margin-left:5px;" rlabel="Active">Active</span></span>
+                            </div>
+                            <div class="col-sm-6 padding-left-zero">
+                                <span class="label col-sm-4"><span rlabel="Class Type">Class Type <span style="color:red;">*</span></span></span>
+                                <select control="taxclassPage.dropDownList" controlId="ddlClassType" class="col-sm-8">
+                                    <option>Select</option>
+                                    <option>Goods</option>
+                                    <option>Service</option>
+                                </select>
+                            </div>
+                            <div class="col-sm-6 padding-left-zero" control="taxclassPage.htmlControl" controlId="pnlhsn">
+                                <span class="label col-sm-4"><span rlabel="HSN Code">HSN Code</span><span style="color:red;">*</span></span>
+                                <input controlId="txtHsnCode" control="taxclassPage.textBox" class="col-sm-8" placeholder="HSN Code*" />
+                            </div>
+                            <div class="col-sm-6 padding-left-zero" control="taxclassPage.htmlControl" controlId="pnlsac">
+                                <span class="label col-sm-4"><span rlabel="SAC Code">SAC Code</span><span style="color:red;">*</span></span>
+                                <input controlId="txtSacCode" control="taxclassPage.textBox" class="col-sm-8" placeholder="SAC Code*" />
+                            </div>
+                        </div>
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+
+        <div controlId="pnlRemoveConfirmPopup" control="taxclassPage.popup" style="display:none">
+            <div class="row col-sm-12">
+                <input style="float:right;" value="Cancel" controlId="btnRemoveConfirmPopupClose" control="taxclassPage.primaryReadButton" event="click:btnRemoveConfirmPopupClose_click" />
+                <input style="float:right;padding-right:10px;" value="Ok" controlId="btnRemoveAlertPopupSave" control="taxclassPage.secondaryButton" event="click:btnDelete_click" />
+            </div>
+            <span class="col-xs-12">&nbsp;</span>
+            <div class="row col-sm-12">
+                <img src="../../../ui/ui/images/alert.png" width="100%" class="col-xs-3" style="margin-top: -13px;" />
+                <span class="label-value col-xs-9" style="background:transparent;border:none;">If You Delete This Tax Class It Can Be Affected On Bill</span>
+            </div>
+        </div>
+
+    </div>
+
+</body>
+
+</html>

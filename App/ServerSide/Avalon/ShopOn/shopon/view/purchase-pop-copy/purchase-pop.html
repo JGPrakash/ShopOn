@@ -1,0 +1,495 @@
+﻿<!doctype html>
+<!--suppress ALL -->
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <!--Services Layyer-->
+    <!--sales-pos view-->
+
+    <script src="/config/config.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        document.write('<script src="/' + appConfig.root + '/core/master.js" type="text/javascript" > <\/script> ');
+        document.write('<script src="/' + appConfig.root + '/shopon/service/sales/customer-service.js"><\/script>');
+        document.write('<script src="/' + appConfig.root + '/shopon/service/product/item-service.js"><\/script>');
+        document.write('<script src="/' + appConfig.root + '/shopon/service/sales/bill-service.js"><\/script>');
+        document.write('<link href="/' + appConfig.root + '/shopon/view/purchase-pop/purchase-pop.css" rel="stylesheet" />');
+        document.write('<script src="/' + appConfig.root + '/shopon/view/purchase-pop/purchase-pop.js"><\/script>');
+        document.write('<script src="/' + appConfig.root + '/shopon/view/purchase-pop/purchase-return.js"><\/script>');
+        document.write('<script src="/' + appConfig.root + '/shopon/view/customer/customer-edit/customer-edit.js"><\/script>');
+        document.write('<script src="/' + appConfig.root + '/shopon/service/w3data/w3data.js"><\/script>');
+        document.write('<script src="/' + appConfig.root + '/finfacts/service/account/accounting-service.js"><\/script>');
+        document.write('<script src="/' + appConfig.root + '/shopon/view/sales-order/sales-order.js"><\/script>');
+        document.write('<script src="/' + appConfig.root + '/shopon/service/report/dynareport-service.js"><\/script>');
+
+        document.write('<script src="/' + appConfig.root + '/shopon/service/sales/sales-service.js"><\/script>');
+        document.write('<script src="/' + appConfig.root + '/shopon/service/purchase/purchase-service.js"><\/script>');
+        document.write('<script src="/' + appConfig.root + '/shopon/service/inventory/inventory-service.js"><\/script>');
+        document.write('<script src="/' + appConfig.root + '/shopon/service/sales/tray-service.js"><\/script>');
+        document.write('<script src="/' + appConfig.root + '/shopon/service/setting-service.js"><\/script>');
+        document.write('<script src="/' + appConfig.root + '/shopon/service/Reward/reward-service.js"><\/script>');
+        document.write('<script src="/' + appConfig.root + '/shopon/service/vendor/vendor-service.js"><\/script>');
+        document.write('<script src="/' + appConfig.root + '/shopon/service/report/report-service.js"><\/script>');
+
+        document.write('<script src="/' + appConfig.root + '/shopon/view/purchase-pop/purchase-bill.js"><\/script>');
+        document.write('<script src="/' + appConfig.root + '/shopon/view/purchase-pop/purchase-edit.js"><\/script>');
+        document.write('<script src="/' + appConfig.root + '/shopon/view/purchase-pop/purchase-adjustment.js"><\/script>');
+        document.write('<script src="/' + appConfig.root + '/shopon/service/purchase/purchase-bill-service.js"><\/script>');
+        document.write('<script src="/' + appConfig.root + '/shopon/view/vendor/vendor-edit/vendor-edit.js"><\/script>');
+        document.write('<script src="/' + appConfig.root + '/shopon/service/vendor/vendor-service.js"><\/script>');
+        document.write('<script src="/' + appConfig.root + '/finfacts/service/finfacts-service.js"><\/script>');
+        document.write('<script src="/' + appConfig.root + '/finfacts/service/account/finfacts-entry-service.js"><\/script>');
+        document.write('<script src="/' + appConfig.root + '/shopon/service/vendor/vendor-service.js"><\/script>');
+        document.write('<script src="/' + appConfig.root + '/shopon/service/inventory/stock-service.js"><\/script>');
+        document.write('<script src="/' + appConfig.root + '/shopon/service/tax/taxclass-service.js"><\/script>');
+        document.write('<script src="/' + appConfig.root + '/shopon/service/invoice-service.js"><\/script>');
+
+        document.write('<script src="/' + appConfig.root + '/shopon/service/stock-api.js"><\/script>');
+        //QR Code Scan
+        document.write('<script src="/' + appConfig.root + '/core/QRCode/instascan.min.js"><\/script>');
+
+        document.write('<script src="/' + appConfig.root + '/shopon/service/purchase/purchase-bill-api.js"><\/script>');
+        document.write('<script src="/' + appConfig.root + '/shopon/service/vendor/vendor-api.js"><\/script>');
+        document.write('<script src="/' + appConfig.root + '/shopon/service/product/purchase-item-api.js"><\/script>');
+        document.write('<script src="/' + appConfig.root + '/shopon/service/tax/taxclass-api.js"><\/script>');
+        document.write('<script src="/' + appConfig.root + '/shopon/service/tax/salestax-api.js"><\/script>');
+        document.write('<script src="/' + appConfig.root + '/shopon/service/tax/salestaxclass-api.js"><\/script>');
+        document.write('<script src="/' + appConfig.root + '/shopon/service/product/item-api.js"><\/script>');
+        document.write('<script src="/' + appConfig.root + '/shopon/service/sales/tray-transaction-api.js"><\/script>');
+        document.write('<script src="/' + appConfig.root + '/finfacts/service/account/finfacts-entry-rest-api.js"><\/script>');
+        document.write('<script src="/' + appConfig.root + '/shopon/service/purchase/purchase-bill-payment-api.js"><\/script>');
+        document.write('<script src="/' + appConfig.root + '/shopon/service/report/report-api.js"><\/script>');
+        document.write('<script src="/' + appConfig.root + '/shopon/service/vendor/vendor-api.js"><\/script>');
+
+        document.write('<script src="/' + appConfig.root + '/shopon/service/discount/discount-api.js"><\/script>');
+        document.write('<script src="/' + appConfig.root + '/shopon/view/barcode-print/barcode-print.js"><\/script>');
+        document.write('<script src="/' + appConfig.root + '/shopon/service/report/stock-report-api.js"><\/script>');
+        document.write('<script src="/' + appConfig.root + '/shopon/service/product/main-product-type-api.js"><\/script>');
+        document.write('<script src="/' + appConfig.root + '/shopon/service/product/product-type-api.js"><\/script>');
+        document.write('<script src="/' + appConfig.root + '/shopon/service/product/item-api.js"><\/script>');
+        document.write('<script src="/' + appConfig.root + '/shopon/service/inventory/variation-api.js"><\/script>');
+        document.write('<script src="/' + appConfig.root + '/shopon/service/item-hierarchy/itemAttributeAPI.js"><\/script>');
+
+        document.write('<script src="/' + appConfig.root + '/shopon/service/product/main-product-type-api.js"><\/script>');
+        document.write('<script src="/' + appConfig.root + '/shopon/service/product/product-type-api.js"><\/script>');
+        document.write('<script src="/' + appConfig.root + '/shopon/service/report/stock-report-api.js"><\/script>');
+    </script>
+
+
+
+</head>
+
+
+<body control="page.purchasePOP" controlId="purchasePOP">
+
+
+    <!--Load Master Page-->
+    <div control="purchasePOP.masterPage" controlId="masterPage"></div>
+
+    <div style="margin-top:25px">
+        <div control="purchasePOP.messagePanel" controlid="msgPanel" class="message-panel" style="display:none">
+
+        </div>
+        <!--Load Content Area-->
+        <div class="container-fluid">
+
+
+            <div controlId="pnlContentArea" control="purchasePOP.htmlControl" class="content-area row">
+
+                <!--Sales Tab-->
+                <div controlId="pnlSales" control="purchasePOP.htmlControl" class="sales-area col-sm-12" default-button="btnSearch">
+                    <div class="col-xs-12 col-lg-6">
+                        <input value="New Purchase" rlabel="New Purchase" controlid="btnNewBill" control="purchasePOP.primaryReadButton" event="click:btnNewBill_click">
+                        <span id="pending" style="">&nbsp;</span>
+                        <input value="Pending Payment" rlabel="Pending Payment" controlid="btnPendingPayment" control="purchasePOP.secondaryButton" event="click:btnPendingPayment_click">
+                        <span id="multiPrint" style="margin-left:5px;margin-right:5px;">|</span>
+                        <input type="button" value="Multi Print" rlabel="Multi Print" control="purchasePOP.secondaryButton" controlid="btnMore" event="click:btnMore_click" />
+                        <span id="barcodePrint" style="margin-left:5px;margin-right:5px;">|</span>
+                        <input type="button" value="Multi Print" rlabel="Print Barcode" control="purchasePOP.secondaryButton" controlid="btnPrintBarcode" event="click:btnPrintBarcode_click" style="display:none !important" />
+                        <input type="button" value="Multi Print" rlabel="Print Barcode" control="purchasePOP.secondaryButton" controlid="btnPrintNewBarcode" event="click:btnPrintNewBarcode_click" />
+                    </div>
+                    <div class="col-xs-12 col-lg-6" default-button="btnSearch">
+                        <input type="button" value="Search" rlabel="Search" control="purchasePOP.primaryReadButton" controlid="btnSearch" event="click:btnSearch_click" style="float:right;" />
+                        <input type="text" controlid="txtSearch" control="purchasePOP.textBox" placeholder="Bill No/Date(dd-mm-yyyy)/Supplier/Invoice No" style="width: 250px;float:right;margin-right:10px;" />
+                        <select control="purchasePOP.dropDownList" controlid="ddlSearchViews" style="float:right;margin-right: 10px;"></select>
+                    </div>
+                    <!--Sales Item Grid-->
+                    <div class="col-xs-12 col-lg-12" style="width:100%; overflow-x:auto; overflow-y:hidden; margin-top:10px;">
+                        <div control="purchasePOP.grid" controlId="grdSales"></div>
+                    </div>
+                    <div class="sales-area col-sm-12" style="height:50px;font-size:22px;margin-bottom:15px;">
+                        <span class="label" rlabel="F1 - New" style="font-weight:bold;"> F1 - New </span>
+                        <span class="label" rlabel="F2 - Bill List" style="font-weight:bold;"> F2 - Bill List </span>
+                        <span class="label" rlabel="F3,End - Payment" style="font-weight:bold;"> F3,End - Payment  </span>
+                        <span class="label" rlabel="F4 -  Save" style="font-weight:bold;"> F4 - Save</span>
+                        <span class="label" rlabel="F9 -  Focus Profit%" style="font-weight:bold;"> F9 -  Focus Profit%</span>
+                        <span class="label" rlabel="Alt + S - Focus On Supplier" style="font-weight:bold;"> Alt + C - Focus On Supplier</span>
+                        <span class="label" rlabel="Alt + I - Focus On Item Search" style="font-weight:bold;"> Alt + I - Focus On Item Search</span>
+                        <span class="label" rlabel="Alt + N - New Item / Supplier" style="font-weight:bold;"> Alt + N - New Item / Supplier</span>
+                    </div>
+                </div>
+
+                <div controlId="pnlBill" control="purchasePOP.htmlControl" class="col-sm-12" style="display:none">
+                    <input style="float:right;margin-top:5px;padding-left:10px;padding-right:10px;z-index: 999999;    position: relative;" value="<< Back" rlabel="<< Back" type="button" control="purchasePOP.secondaryButton" controlId="btnBack" event="click:btnBack_click">
+                    <ul class="tab" control="purchasePOP.tab" controlId="tabBills" style="display: block;margin-top: 15px;" event="selectionChanged:tabBills_selectionChanged">
+                        <!--<li ><a target="#bill1" class="tab tabSelected" style="padding-top: 1px;    padding-bottom: 0px;    height: auto;">New*</a><button style="background-color: transparent; border: none;"  >x</button></li>
+                        <li ><a  target="#bill2"  style="padding-top: 1px;    padding-bottom: 0px;    height: auto;">854*</a><button style="background-color: transparent; border: none;">x</button></li>
+                        <li ><a  target="#bill3"  style="padding-top: 1px;    padding-bottom: 0px;    height: auto;">143*</a><button style="background-color: transparent; border: none;" >x</button></li>-->
+                        <hr />
+                    </ul>
+                    <div control="purchasePOP.htmlControl" controlId="tabPanels">
+                    </div>
+
+                </div>
+
+                
+                
+                <div controlId="pnlPrintingPopup" control="purchasePOP.popup" style="display:none">
+                    <div class="row col-sm-12">
+                        &nbsp;
+                    </div>
+                    <div class="row col-sm-12">
+                        <span class="label col-sm-4" rlabel="Export Type">Export Type</span>
+                        <select style="margin-left:15px;" class="col-sm-4" control="purchasePOP.dropDownList" controlid="ddlExportType">
+                            <option>PDF</option>
+                            <option>EXCEL</option>
+                            <option>WORD</option>
+                            <option>PPT</option>
+                            <option>CSV</option>
+                            <option>HTML</option>
+                        </select>
+                        <input class="col-xs-12 col-lg-2" style="float:right;" value="Go" rlabel="Go" controlId="btnPrintJasperBill" control="purchasePOP.primaryReadButton" event="click:btnPrintJasperBill_click" />
+                    </div>
+                </div>
+                <div id="pnlReturnPOPPopup" controlId="pnlReturnPOPPopup" control="purchasePOP.popup" style="display:none">
+                    <div style="width:100%;margin-bottom:10px;display: inline-block;">
+                        <div class="col-xs-12">
+                            <input value="Return" rlabel="Return" style="float:right;" controlId="btnReturnPOPItemPopup" control="purchasePOP.primaryReadButton" event="click:btnReturnPOPItemPopup_click" />
+                            <span style="float:right;" id="chkPrintBill"><input type="checkbox" tabindex="7" controlId="chkPrintBill" control="purchasePOP.chkBox" name="print_bill"><span class="label" style="margin-top:-22px;margin-left:5px;" rlabel="Print">Print</span></span>
+                        </div><br />
+                        <div class="col-xs-12 col-lg-12 " style="margin-top:10px;">
+                            <div class="col-xs-12 col-lg-4 ">
+                                <span class="label  col-xs-12 col-lg-6" rlabel="Description">Description</span>
+                                <input class="col-xs-12 col-lg-6" type="text" controlId="txtReturnPayDesc" control="purchasePOP.textBox">
+                            </div>
+                            <div class="col-xs-12 col-lg-4 ">
+                                <span class="label  col-xs-12 col-lg-6" rlabel="Date">Date</span>
+                                <input class="col-xs-12 col-lg-6" controlId="dsReturnPayDate" control="purchasePOP.dateSelector" />
+                            </div>
+                            <div class="col-xs-12 col-lg-4  ">
+                                <span class="label  col-xs-12 col-lg-6" rlabel="Payment Type">Payment Type</span>
+                                <select class="col-xs-12 col-lg-6" control="purchasePOP.dropDownList" controlid="ddlReturnPayBillType">
+                                    <option>Cash</option>
+                                    <option>Bank</option>
+                                </select>
+                            </div>
+                            </div>
+                        <div class="col-xs-12 col-lg-12 " style="margin-top:10px;">
+                            <div class="col-xs-12 col-lg-4">
+                                <span class="label  col-xs-12 col-lg-6" rlabel="Return Payment">Return Payment</span>
+                                <input class="col-xs-12 col-lg-6" type="text" controlId="txtReturnAmount" control="purchasePOP.textBox">
+                            </div>
+                            <div class="col-xs-12 col-lg-4">
+                                <span class="label  col-xs-12 col-lg-6" rlabel="Actual Return Payment">Actual Return Payment</span>
+                                <span class="label  col-xs-12 col-lg-6" controlId="lblTempReturnAmount" control="purchasePOP.labelValue">0</span>
+                            </div>
+                            <div class="col-xs-12 col-lg-4" controlId="pnlExpenseName" control="purchasePOP.htmlControl">
+                                <span class="label  col-xs-12 col-lg-6" rlabel="Expense Name">Expense Name</span>
+                                <select class="col-xs-12 col-lg-6" controlId="ddlExpName" control="purchasePOP.dropDownList"></select>
+                            </div>
+                        </div>
+                        <div class="col-xs-12 col-lg-12 " style="margin-top:10px;">
+                            <div class="col-xs-12 col-lg-4" controlId="pnlExpenseAmount" control="purchasePOP.htmlControl">
+                                <span class="label  col-xs-12 col-lg-6" rlabel="Expense Amount">Expense Amount</span>
+                                <input class="col-xs-12 col-lg-6" type="text" controlId="txtExpAmount" control="purchasePOP.textBox">
+                            </div>
+                            <div class="col-xs-12 col-lg-4">
+                                <span class="label col-xs-6" rlabel="Invoice No:">Invoice No:</span>
+                                <input class="col-xs-6" type="text" controlId="txtInvoiceNo" control="purchasePOP.textBox" placeholder="Invoice No">
+                            </div>
+                            <div class="col-xs-12 col-lg-4">
+                                <span class="label col-lg-6" rlabel="Due Date"> Due Date</span>
+                                <input controlId="txtBillDueDate" control="purchasePOP.dateSelector" class="col-lg-6" />
+                            </div>
+                        </div>
+                        </div>
+                    <div class="col-xs-12">
+                        <div style="width:100%; overflow-x:auto; overflow-y:hidden;margin-top:10px">
+                            <div controlId="grdReturnPOPItems" control="purchasePOP.grid">
+                            </div>
+                        </div>
+                    </div>
+                    </div>
+                </div>
+
+                <div id="pnlPayPending" controlId="pnlPayPending" control="purchasePOP.popup" style="display:none">
+                    <div class="col-xs-12 col-lg-12">
+                        <input style="float:right;" value="Pay" rlabel="Pay" controlId="btnPayPending" control="purchasePOP.primaryReadButton" event="click:btnPayPending_click" />
+                    </div>
+                    <div class="col-xs-12 col-lg-12 " style="margin-top:10px;">
+                        <div class="col-xs-12 col-lg-4 ">
+                            <span class="label  col-xs-12 col-lg-6" rlabel="Supplier">Supplier</span>
+                            <select style="margin-left:0px;" class="col-sm-6" control="purchasePOP.dropDownList" controlid="ddlSuppName"></select>
+                        </div>
+                        <div class="col-xs-12 col-lg-4 ">
+                            <span class="label  col-xs-12 col-lg-6" style="margin-left:0px;" rlabel="Bill Type">Bill Type</span>
+                            <select style="margin-left:0px;" class="col-sm-6" control="purchasePOP.dropDownList" controlid="ddlPayBillType">
+                                <option>Select</option>
+                                <option>Purchase</option>
+                                <option>PurchaseReturn</option>
+                            </select>
+                        </div>
+                        <div class="col-xs-12 col-lg-4 ">
+                            <span class="label  col-xs-12 col-lg-6" rlabel="Pay Mode">Pay Mode</span>
+                            <select class="col-sm-6" control="purchasePOP.dropDownList" controlid="ddlPayMode">
+                                <option>Cash</option>
+                                <option>Card</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-xs-12 col-lg-12 " style="margin-top:10px;">
+                        <div class="col-xs-12 col-lg-4 " style="display:none">
+                            <span class="label  col-xs-12 col-lg-6" rlabel="Store">Store</span>
+                            <select style="margin-left:0px;" class="col-sm-6" control="purchasePOP.dropDownList" controlid="ddlStore"></select>
+                        </div>
+                        <div class="col-xs-12 col-lg-4 ">
+                            <span class="label  col-xs-12 col-lg-6" rlabel="Description">Description</span>
+                            <input class="col-xs-12 col-lg-6" type="text" controlId="txtPendingPayDesc" control="purchasePOP.textBox">
+                        </div>
+                        <div class="col-xs-12 col-lg-4 ">
+                            <span class="label  col-xs-12 col-lg-6" rlabel="Date">Date</span>
+                            <input class="col-xs-12 col-lg-6" controlId="dsPendingPayDate" control="purchasePOP.dateSelector" />
+                        </div>
+                    </div>
+                    <div class="col-xs-12" style="margin-top:10px;">
+                        <div class="col-xs-12 col-lg-4">
+                            <span class="label  col-xs-12 col-lg-6" rlabel="Bill Details"><b>Bill Details :</b></span>
+                            <select class="col-xs-12 col-lg-6" control="purchasePOP.dropDownList" controlid="ddlBillView">
+                                <option>Bill View</option>
+                                <option>Payment View</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-xs-12 col-lg-12 " style="margin-top:10px;">
+                        <div class="col-xs-12 col-lg-4 " controlId="pnlCardType" control="purchasePOP.htmlControl">
+                            <span class="label  col-xs-12 col-lg-6" rlabel="Card Type">Card Type</span>
+                            <select class="col-lg-6" control="purchasePOP.dropDownList" controlid="ddlCardType">
+                                <option>Credit</option>
+                                <option>Debit</option>
+                            </select>
+                        </div>
+                        <div class="col-xs-12 col-lg-4 " controlId="pnlCardNo" control="purchasePOP.htmlControl">
+                            <span class="label  col-xs-12 col-lg-6" rlabel="Card No">Card No <span style="color:red;">*</span></span>
+                            <input class="col-xs-12 col-lg-6" type="text" controlId="txtCardNo" control="purchasePOP.textBox" placeholder="Card No">
+                        </div>
+                        <div class="col-xs-12 col-lg-4 " controlId="pnlCouponNo" control="purchasePOP.htmlControl">
+                            <span class="label  col-xs-12 col-lg-6" rlabel="Coupon No">Coupon No <span style="color:red;">*</span></span>
+                            <input class="col-xs-12 col-lg-6" type="text" controlId="txtCouponNo" control="purchasePOP.textBox" placeholder="Coupon No ">
+                        </div>
+                    </div>
+                    
+                    <div controlId="grdPendingPayment" control="purchasePOP.grid" style="margin-top:10px;">
+                    </div>
+                </div>
+                <div id="dialog" title="Alert message" style="display: none">
+                    <div class="ui-dialog-content ui-widget-content">
+                        <p>
+                            <span class="ui-icon ui-icon-info" style="float: left; margin: 0 7px 20px 0"></span>
+                            <label id="lblMessage">
+                            </label>
+                        </p>
+                    </div>
+                </div>
+
+            <!--Return Tray PopUp-->
+            <div id="pnlReturnTrayPOSPopup" controlId="pnlReturnTrayPOSPopup" control="purchasePOP.popup" style="display:none">
+                <div style="width:100%;margin-bottom:10px;display: inline-block;">
+                    <div class="col-xs-12">
+                        <input value="Return" rlabel="Return" style="float:right;" controlId="btnReturnTrayPOPItemPopup" control="purchasePOP.primaryReadButton" event="click:btnReturnTrayPOPItemPopup_click" />
+                    </div>
+                </div>
+                <div class="col-xs-12">
+                    <div style="width:100%; overflow-x:auto; overflow-y:hidden;margin-top:10px">
+                        <div controlId="grdReturnTrayPOPItems" control="purchasePOP.grid">
+                        </div>
+                    </div>
+                </div>
+            </div>
+                <!--<div style="display:none">
+
+                    <div  class="col-sm-12" style="display:none">
+                        <div class="sales-item-panel ">
+
+                            <div controlId="pnlItemSearch" control="purchasePOP.htmlControl" class="sales-item-search col-sm-12" " default-button="btnSearchItem">
+                                <span class="label"> Item Search </span>
+                                <input controlId="txtItemSearch" control="purchasePOP.autoCompleteList" type="text" value="" placeholder="Search by Item No,Item Name or Scan.">
+                                <input value="Search" controlid="btnSearchItem" control="purchasePOP.primaryReadButton">
+                                <div style="float:right">
+                                    <input value="Close" type="button" style="width:80px" control="purchasePOP.htmlControl" controlId="btnClose" event="click:btnClose_click">
+                                    <input value="Save" type="button" style="width:80px" control="purchasePOP.htmlControl" controlId="btnSave" event="click:btnSave_click">
+                                    <input value="Back" type="button" style="width:80px" control="purchasePOP.htmlControl" controlId="btnBack" event="click:btnBack_click">
+                                    <input value="Return" control="purchasePOP.primaryReadButton" controlId="btnReturn" event="click:btnReturn_click">
+                                    <input value="Pay Now" control="purchasePOP.primaryReadButton" controlId="btnPayment" event="click:btnPayment_click">
+                                </div>
+                            </div>
+
+                            <div style="margin-bottom:1px" control="purchasePOP.grid" controlId="grdBillReturn"></div>
+                            <!--<input value="Select Return Item" controlid="btnSelectReturnItem" control="purchasePOP.primaryReadButton" event="click:btnSelectReturnItem_click">
+                            <div controlId="grdBill" control="purchasePOP.grid">
+                            </div>
+                            <div controlId="grdReturnItemSelection" control="purchasePOP.grid"> </div>
+                        </div>
+
+
+                        <div class="row">
+                            <!--Customer Address
+                            <div class="col-sm-4">
+                                <div class="sales-cust-panel ">
+                                    <div controlId="pnlBillNo" control="purchasePOP.htmlControl">
+                                        <span class="label"> Bill No </span>
+                                        <span controlId="lblBillNo" control="purchasePOP.label"> </span>
+                                    </div>
+                                    <div controlId="pnlBillDate" control="purchasePOP.htmlControl">
+                                        <span class="label"> Bill Date</span>
+                                        <span controlId="lblBillDate" control="purchasePOP.label"> </span>
+                                    </div>
+                                    <div>
+                                        <span class="label"> Customer</span>
+                                        <input controlId="txtCustomerName" control="purchasePOP.autoCompleteList" placeholder="No Customer Selected">
+                                        <input type="hidden" controlId="hdnCustomerNo" control="purchasePOP.htmlControl" value="">
+                                        <input value="+" controlId="btnAddCustomer" control="purchasePOP.primaryReadButton" event="click:btnAddCustomer_click" />
+
+                                    </div>
+                                    <div>
+                                        <span class="label"> Mobile No</span>
+                                        <span controlId="lblPhoneNo" control="purchasePOP.label"> </span>
+                                    </div>
+                                    <div>
+                                        <span class="label"> Address</span>
+                                        <span controlId="lblAddress" control="purchasePOP.label"> </span>
+                                    </div>
+
+                                </div>
+                            </div>
+                            <div class="col-sm-5"></div>
+                            <div class="col-sm-3">
+                                <div class="sales-summary-panel ">
+                                    <div>
+                                        <span class="label">Sub Total</span>
+                                        <span control="purchasePOP.labelValue" controlId="lblSubTotal">0</span>
+                                    </div><br>
+                                    <div>
+                                        <span control="purchasePOP.label" controlId="lblDiscountLabel" event="click:lblDiscountLabel_click">Discount</span>
+                                        <span control="purchasePOP.labelValue" controlId="lblDiscount">0</span>
+                                    </div><br>
+                                    <div>
+                                        <span control="purchasePOP.label" controlId="lblTaxLabel" event="click:lblTaxLabel_click">Tax</span>
+                                        <span control="purchasePOP.labelValue" controlId="lblTax">0</span>
+                                    </div><br>
+                                    <div>
+                                        <span class="label">Total</span>
+                                        <span control="purchasePOP.labelValue" controlId="lblTotal">0</span>
+                                    </div>
+                                    <br />
+                                    <!--<input type="button" value="Discount" style="font-size: 18px; padding: 10px; border-radius: 10px; float: right; margin-right: 10px; box-shadow: 1px 1px 1px green inset;">
+                                </div>
+                            </div>
+
+
+
+
+
+                        </div>
+
+                        <div style="margin-top: 10px;">
+
+
+
+
+                            <div controlId="pnlDiscountPopup" control="purchasePOP.popup" style="display:none">
+                                <span>Enter Discount Amount </span>
+                                <select controlId="ddlDiscount" control="purchasePOP.dropDownList" />
+                                <input value="Add Discount" controlId="btnDiscountOK" control="purchasePOP.primaryReadButton" event="click:btnDiscountOK_click" />
+                                <input value="Remove" controlId="btnDiscountRemove" control="purchasePOP.primaryReadButton" event="click:btnDiscountRemove_click" />
+                                <div controlId="grdDiscount" control="purchasePOP.grid"> </div>
+                            </div>
+                            <div controlId="pnlItemDiscountPopup" control="purchasePOP.popup" style="display:none">
+                                <span>Enter Discount Amount </span>
+                                <input controlId="txtItemDiscountValue" control="purchasePOP.textBox" />
+                                <input value="Add Discount" controlId="btnItemDiscountOK" control="purchasePOP.primaryReadButton" event="click:btnItemDiscountOK_click" />
+
+                                <div controlId="grdItemDiscount" control="purchasePOP.grid"> </div>
+                            </div>
+
+                            <div controlId="pnlTaxPopup" control="purchasePOP.popup" style="display:none">
+                                <span>Enter Tax  </span>
+                                <select controlId="ddlSalesTax" control="purchasePOP.dropDownList" />
+
+                                <input value="OK" controlId="btnTaxOK" control="purchasePOP.primaryReadButton" event="click:btnTaxOK_click" />
+                            </div>
+
+
+                            <div controlId="pnlReturnItemSelection" control="purchasePOP.popup" style="display:none">
+                                <span>Select Items to be returned  </span>
+                                <input value="OK" controlId="btnReturnItemOK" control="purchasePOP.primaryReadButton" event="click:btnReturnItemOK_click" />
+
+
+
+                            </div>
+
+
+                            <div controlId="pnlNewCustomer" control="purchasePOP.popup" style="display:none">
+
+                                <input value="Save" controlId="btnSaveCustomer" control="purchasePOP.primaryReadButton" event="click:btnSaveCustomer_click" />
+                                <div control="purchasePOP.customerEdit" controlid="ucCustomerEdit"> </div>
+
+
+                            </div>
+
+                        </div>
+                    </div>
+                </div>-->
+
+                <div controlId="pnlBillViewPopup" control="purchasePOP.popup" style="display:none">
+                    <iframe controlId="frmBillView" control="purchasePOP.htmlControl" src="data:application/pdf;base64,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H2Tge9XpzBryer2EyzRGSCxgGCfxKsHpH9GJWenkPIm/JJDjVbN8kn/NPNeaKJ/B6U8J3cTL4vmnFQzTWeYKFRCIuP64wtvc8NLuOIQwMiJ0d060POpoittgXTwiS+kqmZSxi4t8aXhJ3AD9DwWA1qoKZW5kc3RyZWFtCmVuZG9iagoxIDAgb2JqCjw8L1RhYnMvUy9Hcm91cDw8L1MvVHJhbnNwYXJlbmN5L1R5cGUvR3JvdXAvQ1MvRGV2aWNlUkdCPj4vQ29udGVudHMgNCAwIFIvVHlwZS9QYWdlL1Jlc291cmNlczw8L0NvbG9yU3BhY2U8PC9DUy9EZXZpY2VSR0I+Pi9Qcm9jU2V0IFsvUERGIC9UZXh0IC9JbWFnZUIgL0ltYWdlQyAvSW1hZ2VJXS9Gb250PDwvRjEgMiAwIFI+Pi9YT2JqZWN0PDwvaW1nMCAzIDAgUj4+Pj4vUGFyZW50IDUgMCBSL01lZGlhQm94WzAgMCA0MjEgNTk1XT4+CmVuZG9iago2IDAgb2JqClsxIDAgUi9YWVogMCA2MDUgMF0KZW5kb2JqCjIgMCBvYmoKPDwvU3VidHlwZS9UeXBlMS9UeXBlL0ZvbnQvQmFzZUZvbnQvSGVsdmV0aWNhL0VuY29kaW5nL1dpbkFuc2lFbmNvZGluZz4+CmVuZG9iago1IDAgb2JqCjw8L0tpZHNbMSAwIFJdL1R5cGUvUGFnZXMvQ291bnQgMS9JVFhUKDIuMS43KT4+CmVuZG9iago3IDAgb2JqCjw8L05hbWVzWyhKUl9QQUdFX0FOQ0hPUl8wXzEpIDYgMCBSXT4+CmVuZG9iago4IDAgb2JqCjw8L0Rlc3RzIDcgMCBSPj4KZW5kb2JqCjkgMCBvYmoKPDwvTmFtZXMgOCAwIFIvVHlwZS9DYXRhbG9nL1BhZ2VzIDUgMCBSL1ZpZXdlclByZWZlcmVuY2VzPDwvUHJpbnRTY2FsaW5nL0FwcERlZmF1bHQ+Pj4+CmVuZG9iagoxMCAwIG9iago8PC9Nb2REYXRlKEQ6MjAxNzA5MDQwMzI5MzhaKS9DcmVhdG9yKEphc3BlclJlcG9ydHMgTGlicmFyeSB2ZXJzaW9uIDYuNC4wKS9DcmVhdGlvbkRhdGUoRDoyMDE3MDkwNDAzMjkzOFopL1Byb2R1Y2VyKGlUZXh0IDIuMS43IGJ5IDFUM1hUKT4+CmVuZG9iagp4cmVmCjAgMTEKMDAwMDAwMDAwMCA2NTUzNSBmIAowMDAwMDA1NTMxIDAwMDAwIG4gCjAwMDAwMDU4MzAgMDAwMDAgbiAKMDAwMDAwMDAxNSAwMDAwMCBuIAowMDAwMDAzNzg4IDAwMDAwIG4gCjAwMDAwMDU5MTggMDAwMDAgbiAKMDAwMDAwNTc5NSAwMDAwMCBuIAowMDAwMDA1OTgxIDAwMDAwIG4gCjAwMDAwMDYwMzUgMDAwMDAgbiAKMDAwMDAwNjA2NyAwMDAwMCBuIAowMDAwMDA2MTcwIDAwMDAwIG4gCnRyYWlsZXIKPDwvSW5mbyAxMCAwIFIvSUQgWzw1MmMxNzJiZDZmM2RhYWRiMThjMjc1MzJiNGIxY2FhMT48OWM5YjFiMGM0ZDczY2Y1N2MwY2YwNTVhOTRiZmZlOGY+XS9Sb290IDkgMCBSL1NpemUgMTE+PgpzdGFydHhyZWYKNjMyNgolJUVPRgo=" height="100%" width="100%"></iframe>
+
+                </div>
+            </div>
+        </div>
+    <div controlId="pnlMorePopup" control="purchasePOP.popup" style="display:none">
+        <span class="header-label col-xs-12" style="text-align:center;" rlabel="Bill Printing Panel">Bill Printing Panel</span>
+        <div class="col-xs-6" style="float:right;margin-top:10px;">
+            <input style="float:right;" value="Print" rlabel="Print" controlId="btnPrintMultiBill" control="purchasePOP.primaryReadButton" event="click:btnPrintMultiBill_click" />
+            <span class="col-xs-1" style="float:right;">&nbsp;</span>
+            <select control="purchasePOP.dropDownList" controlid="ddlSearchPrintViews" class="col-xs-6" style="float:right;"></select>
+        </div>
+        <div class="col-xs-12" style="width:100%; overflow-x:auto; overflow-y:hidden;margin-top:10px">
+            <div class="itemGrid" controlId="grdBillPrint" control="purchasePOP.grid">
+            </div>
+        </div>
+    </div>
+    <div controlId="pnlPrintBarcodePopup" control="purchasePOP.popup" style="display:none">
+        <span class="header-label col-xs-12" style="text-align:center;" rlabel="Barcode Printing Panel">Barcode Printing Panel</span>
+        <div class="col-xs-6" style="float:right;margin-top:10px;">
+            <input  style="float:right;" value="Print" rlabel="Print" controlId="btnPrintMultiBarcode" control="purchasePOP.primaryReadButton" event="click:btnPrintMultiBarcode_click" />
+			<span class="col-xs-4">No Of Rows</span>
+            <select class="col-xs-12 col-lg-4" control="purchasePOP.dropDownList" controlid="ddlBillPrintCount">
+                <option>2</option><option>3</option><option>4</option>
+            </select>
+        </div>
+        <div class="col-xs-4" default-button="btnInvoiceBillSearch">
+            <span class="label col-xs-4" rlabel="Bill No:" controlId="InvoiceNo" control="purchasePOP.label">Bill No:</span>
+            <input class="col-xs-4" type="text" id="txtInvoiceNo" controlId="txtInvoiceNo" control="purchasePOP.textBox" placeholder="Invoice No">
+            <input style="margin-left:10px;" value="Search" rlabel="Search" controlId="btnInvoiceBillSearch" control="purchasePOP.secondaryButton" event="click:btnInvoiceBillSearch_click" />
+        </div>
+        <div class="col-xs-12" style="width:100%; overflow-x:auto; overflow-y:hidden;margin-top:10px">
+            <div class="itemGrid" controlId="grdBarcodePrint" control="purchasePOP.grid">
+            </div>
+        </div>
+    </div>
+    <div controlId="pnlPrintNewBarcodePopup" control="purchasePOP.popup" style="display:none">
+        <div control="purchasePOP.barcodePrint" controlid="ucBarcodePrint"> </div>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+
+<head>
+    <script src="/config/config.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        document.write('<script src="/' + appConfig.root + '/core/master.js" type="text/javascript" > <\/script> ');
+        document.write('<link href="/' + appConfig.root + '/shopon/view/sales_tax/sales-tax.css" rel="stylesheet" />');
+        document.write('<script src="/' + appConfig.root + '/shopon/view/sales_tax/sales-tax.js"><\/script>');
+        document.write('<script src="/' + appConfig.root + '/shopon/service/tax/salestaxclass-api.js"><\/script>');
+        document.write('<script src="/' + appConfig.root + '/shopon/service/tax/salestax-api.js"><\/script>');
+
+        document.write('<script src="/' + appConfig.root + '/shopon/service/tax/taxclass-api.js"><\/script>');
+        document.write('<script src="/' + appConfig.root + '/shopon/service/w3data/w3data.js"><\/script>');
+    </script>
+
+
+</head>
+
+
+<body control="page.salestaxPage" controlId="salestaxPage">
+
+
+    <div control="salestaxPage.masterPage" controlId="masterPage"></div>
+
+    <div style="margin-top:40px">
+
+        <!--Load Content Area-->
+        <div class="container-fluid">
+
+
+            <div class="content-area row">
+                <div control="salestaxPage.messagePanel" controlid="msgPanel" class="message-panel" style="display:none">
+                </div>
+                <div class="search-panel col-sm-4 col-xs-12 col-lg-4" default-button="btnSearch">
+                    <div class="search-action">
+                        <hr>
+                        <input type="button" value="Search" rlabel="Search" control="salestaxPage.primaryReadButton" controlId="btnSearch" event="click:btnSearch_click" >
+                    </div>
+                    <div class="search-filter">
+                        <div>
+                            <input type="text" control="salestaxPage.textBox" controlId="txtSearchInput" rlabel="Enter sales tax no or sales tax name" placeholder="Enter sales tax no or sales tax name" >
+                        </div>
+                    </div>
+                    <div class="search-result">
+                        <div control="salestaxPage.grid" controlId="grdSearchResult"> </div>
+                    </div>
+                    <div class="col-sm-12 padding-left-zero" style="height:50px;">
+                        <span class="label" rlabel="F1 - New"> F1 - New </span>
+                        <span class="label" rlabel="F2 - Save"> F2 - Save </span>
+                        <span class="label" rlabel="Ctrl + R - Remove"> Ctrl + R - Remove </span>
+                    </div>
+                </div>
+                <div class="detail-panel  col-sm-8 col-lg-8 col-xs-12">
+                    <div class="detail-action col-sm-12">
+                        <input type="button" value="New" rlabel="New" control="salestaxPage.primaryReadButton" controlId="btnNew" event="click:btnNew_click" />
+
+                        <input type="button" value="Save" rlabel="Save" control="salestaxPage.primaryReadButton" controlId="btnSave" event="click:btnSave_click" />
+
+                        <input type="button" value="Remove" rlabel="Remove" control="salestaxPage.secondaryButton" controlId="btnDelete" event="click:btnBeforeDelete_click" />
+                    </div>
+                    
+                    <div class="detail-info container-fluid" >
+
+                        <div class="detail-basic row">
+                            <div class="col-xs-12" style="padding:0px;">
+                                <div class="col-xs-12">
+                                    <span class="label col-xs-12 header-style-1" rlabel="Tax Details"><b>Tax Details</b></span>
+                                </div>
+                            </div>
+                            <div class="col-sm-12" style="padding:0px;">
+                                <div class="col-sm-6">
+                                    <span class="label col-sm-4" rlabel="Sales Tax Name">Sales Tax Name<span style="color:red;">*</span></span>
+                                    <input class="col-sm-7" type="text" control="salestaxPage.textBox" controlId="txtSalesTaxName">
+
+                                </div>
+                                <div class="col-sm-6" style="padding:0px;">
+                                    <span class="label col-sm-3" rlabel="Sales Tax">Sales Tax</span>
+                                    <span class="col-sm-8"><input type="checkbox" name="Active" control="salestaxPage.htmlControl" controlid="chkActive" /><span class="label" style="margin-top:-4%;margin-left:5px;" rlabel="Active">Active</span></span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="taxclass-panel">
+                            <div class="col-sm-12" style="padding:0px;">
+                                <span class="label col-sm-6 header-style-1" rlabel="Tax class"><b>Tax class</b></span>
+                                <div class="col-sm-6" style="text-align:right;padding:0px;">
+                                    <input type="button" value="Add" rlabel="Add" control="salestaxPage.secondaryButton" controlid="btnAdd" event="click:btnAdd_click" />
+                                    <span style="margin-left:2px;margin-right:2px;">|</span>
+                                    <input type="button" value="Update" rlabel="Update" control="salestaxPage.secondaryButton" controlid="btnUpdate" event="click:btnUpdate_click" />
+                                    <span style="margin-left:2px;margin-right:2px;">|</span>
+                                    <input type="button" value="Remove" rlabel="Remove" control="salestaxPage.secondaryButton" controlid="btnDelete1" event="click:btnBeforeDelete1_click" />
+                                </div>
+                            </div>
+                            <div class="col-sm-12" style="overflow-x:auto;overflow-y:hidden;padding:0px;">
+                                <div control="salestaxPage.grid" controlid="grdTaxResult"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                    </div>
+                    <div controlid="pnlTaxAddPopup" control="salestaxPage.popup" style="display:none">
+                        <div style="margin-bottom:10px;display: inline-block;" class="col-xs-12">
+                            <input value="Save" rlabel="Save" style="float:right;" controlId="btnSaveTax" control="salestaxPage.primaryWriteButton" event="click:btnSaveTax_click" />
+                        </div>
+                        <div class="detail-basic">
+                            <div class="col-lg-12">
+                                <span class="label col-lg-4" rlabel="Tax Name">Tax Name</span>
+                                <select control="salestaxPage.dropDownList" controlid="ddlTaxName" class="col-lg-8" autofocus></select>
+                            </div>
+                            <div class="col-lg-12">
+                                <span class="label col-lg-4" rlabel="Percentage">Percentage<span style="color:red;">*</span></span>
+                                <input controlId="txtTaxPer" control="salestaxPage.textBox" class="col-lg-8"/>
+                            </div>
+                            
+                            <div class="col-lg-12">
+                                <span class="label col-lg-4" rlabel="Central GST">Central GST</span>
+                                <input controlId="txtCentralGST" control="salestaxPage.textBox" class="col-lg-8" />
+                            </div>
+                            <div class="col-lg-12">
+                                <span class="label col-lg-4" rlabel="State GST">State GST</span>
+                                <input controlId="txtStateGST" control="salestaxPage.textBox" class="col-lg-8" />
+                            </div>
+                            <div class="col-lg-12">
+                                <span class="label col-lg-4" rlabel="Integrated GST">Integrated GST</span>
+                                <input controlId="txtItemGST" control="salestaxPage.textBox" class="col-lg-8" />
+                            </div>
+                            <div class="col-lg-12" controlId="pnlCessPer" control="salestaxPage.htmlControl">
+                                <span class="label col-lg-4" rlabel="Cess %">Cess %</span>
+                                <input controlId="txtCessPer" control="salestaxPage.textBox" class="col-lg-8" />
+                            </div>
+                            <div class="col-lg-12" controlId="pnlCessQty" control="salestaxPage.htmlControl">
+                                <span class="label col-lg-4" rlabel="Cess Qty">Cess Qty</span>
+                                <input controlId="txtCessQty" control="salestaxPage.textBox" class="col-lg-8" />
+                            </div>
+                            <div class="col-lg-12" controlId="pnlCessAmt" control="salestaxPage.htmlControl">
+                                <span class="label col-lg-4" rlabel="Cess Amount">Cess Amount</span>
+                                <input controlId="txtCessAmount" control="salestaxPage.textBox" class="col-lg-8" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+        <div controlId="pnlRemoveConfirmPopup" control="salestaxPage.popup" style="display:none">
+            <div class="row col-sm-12">
+                <input style="float:right;" value="Cancel" controlId="btnRemoveConfirmPopupClose" control="salestaxPage.primaryReadButton" event="click:btnRemoveConfirmPopupClose_click" />
+                <input style="float:right;padding-right:10px;" value="Ok" controlId="btnRemoveAlertPopupSave" control="salestaxPage.secondaryButton" event="click:btnDelete_click" />
+            </div>
+            <span class="col-xs-12">&nbsp;</span>
+            <div class="row col-sm-12">
+                <img src="../../../ui/ui/images/alert.png" width="100%" class="col-xs-3" style="margin-top: -13px;" />
+                <span class="label-value col-xs-9" style="background:transparent;border:none;">If You Delete This Tax It Can Be Affected On Bill And Items</span>
+            </div>
+        </div>
+        <div controlId="pnlRemove1ConfirmPopup" control="salestaxPage.popup" style="display:none">
+            <div class="row col-sm-12">
+                <input style="float:right;" value="Cancel" controlId="btnRemove1ConfirmPopupClose" control="salestaxPage.primaryReadButton" event="click:btnRemove1ConfirmPopupClose_click" />
+                <input style="float:right;padding-right:10px;" value="Ok" controlId="btnRemove1AlertPopupSave" control="salestaxPage.secondaryButton" event="click:btnDelete1_click" />
+            </div>
+            <span class="col-xs-12">&nbsp;</span>
+            <div class="row col-sm-12">
+                <img src="../../../ui/ui/images/alert.png" width="100%" class="col-xs-3" style="margin-top: -13px;" />
+                <span class="label-value col-xs-9" style="background:transparent;border:none;">If You Delete This Tax It Can Be Affected On Bill And Items</span>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>

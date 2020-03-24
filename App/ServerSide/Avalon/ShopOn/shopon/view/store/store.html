@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+
+<html>
+
+<head>
+
+    <script src="/config/config.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        document.write('<script src="/' + appConfig.root + '/core/master.js" type="text/javascript" > <\/script> ');
+        document.write('<script src="/' + appConfig.root + '/login/service/store-api.js"><\/script>');
+
+        document.write('<link href="/' + appConfig.root + '/shopon/view/store/store.css" rel="stylesheet" />');
+        document.write('<script src="/' + appConfig.root + '/shopon/view/store/store.js"><\/script>');
+        document.write('<script src="/' + appConfig.root + '/shopon/service/w3data/w3data.js"><\/script>');
+        document.write('<script src="/' + appConfig.root + '/login/service/register-api.js"><\/script>');
+        document.write('<script src="/' + appConfig.root + '/finfacts/service/revenue-service.js"><\/script>');
+    </script>
+
+
+</head>
+
+
+<body control="page.storePage" controlId="storePage">
+
+
+
+    <div control="storePage.masterPage" controlId="masterPage"></div>
+
+    <div style="margin-top:40px">
+
+        <!--Load Content Area-->
+        <div class="container-fluid">
+            <div class="content-area row">
+                <div control="storePage.messagePanel" controlid="msgPanel" class="message-panel col-sm-12" style="display:none">
+                </div>
+                <div class="search-panel col-sm-5" default-button="btnSearch">
+                    <div class="search-action">
+                        <hr>
+                        <input type="button" value="Search" rlabel="Search" control="storePage.primaryReadButton" controlId="btnSearch" event="click:btnSearch_click">
+
+                    </div>
+                    <div class="search-filter">
+                        <div>
+                            <input type="text" control="storePage.textBox" controlId="txtSearchInput" placeholder="Enter Store No or Name" >
+                        </div>
+                    </div>
+                    <div class="search-result">
+                        <div control="storePage.grid" controlId="grdSearchResult"> </div>
+                    </div>
+                    <div class="col-sm-12" style="height:50px;">
+                        <span class="label" rlabel="F1 - New"> F1 - New </span>
+                        <span class="label" rlabel="F2 - Save"> F2 - Save </span>
+                        <span class="label" rlabel="Ctrl + R - Remove"> Ctrl + R - Remove </span>
+                    </div>
+                </div>
+                <div class="detail-panel col-sm-7">
+                    <div class="detail-action col-sm-12">
+                        <input type="button" value="New" rlabel="New" control="storePage.primaryReadButton" controlId="btnNew" event="click:btnNew_click" />
+
+                        <input type="button" value="Save" rlabel="Save" control="storePage.primaryReadButton" controlId="btnSave" event="click:btnSave_click" />
+
+                        <input type="button" value="Remove" rlabel="Remove" control="storePage.secondaryButton" controlId="btnDelete" event="click:btnDelete_click" />
+                    </div>
+                    
+                    <div class="detail-info container-fluid">
+
+                        <div class="detail-basic row">
+                            <span class="label col-xs-12"><b>Store Details</b></span>
+                            <div class="col-sm-6">
+                                <span class="col-sm-4 label" rlabel="Store Name">Store Name<span style="color:red;">*</span></span>
+                                <input class="col-sm-8" type="text" control="storePage.textBox" controlId="txtStoreName"> 
+                            </div>
+                            <div class="col-sm-6">
+                                <span class="col-sm-4 label" rlabel="Current Period">Current Period<span style="color:red;">*</span></span>
+                                <select class="col-sm-6" controlId="ddlPeriod" control="storePage.dropDownList" ></select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="taxclass-panel row" control="storePage.htmlControl" controlid="pnlRegisterDetails">
+                        <div class="col-sm-12">
+                            <span class="label col-sm-6" rlabel="Register"><b>Register Details</b></span>
+                            <div class="col-sm-6" style="text-align:right">
+
+                                <input type="button" value="Add" rlabel="Add" control="storePage.secondaryButton" controlid="btnAdd" event="click:btnAdd_click" />
+                                <span style="margin-left:5px;margin-right:5px;">|</span>
+                                <input type="button" style="margin-right:10px;" value="Update" rlabel="Update" control="storePage.secondaryButton" controlid="btnUpdate" event="click:btnUpdateRegister_click" />
+                                <span style="margin-left:5px;margin-right:5px;">|</span>
+                                <input type="button" value="Remove" rlabel="Remove" control="storePage.secondaryButton" controlid="btnDelete1" event="click:btnDeleteRegister_click" />
+                            </div>
+                        </div>
+
+                        <div class="col-sm-12">
+                            <div control="storePage.grid" controlid="grdRegisterResult"></div>
+                        </div>
+                    </div>
+                </div>
+                <div controlid="pnlRegisterAddPopup" control="storePage.popup" style="display:none">
+                    <div style="width:100%;margin-bottom:10px;display: inline-block;">
+                        <input value="Save" rlabel="Save" style="float:right;" controlId="btnSaveRegister" control="storePage.primaryWriteButton" event="click:btnSaveRegister_click" />
+                    </div>
+                    <div class="detail-basic">
+                        <div class="col-lg-12">
+                            <span class="label col-lg-4" rlabel="Reg Name">Reg Name<span style="color:red;">*</span></span>
+                            <input controlId="txtRegName" control="storePage.textBox" class="col-lg-8" />
+                        </div>
+                        <div class="col-lg-12">
+                            <span class="label col-lg-4" rlabel="Reg Type">Reg Type</span>
+                            <input controlId="txtRegType" control="storePage.textBox" class="col-lg-8" />
+                        </div>
+                    </div>
+                </div>
+                <div controlid="pnlRegisterUpdatePopup" control="storePage.popup" style="display:none">
+                    <div style="width:100%;margin-bottom:10px;display: inline-block;">
+                        <input value="Save" rlabel="Save" style="float:right;" controlId="btnUpdateRegister" control="storePage.primaryWriteButton" event="click:btnUpdateSaveRegister_click" />
+                    </div>
+                    <div class="detail-basic">
+                        <div class="col-lg-12">
+                            <span class="label col-lg-4" rlabel="Reg Name">Reg Name<span style="color:red;">*</span></span>
+                            <input controlId="txtUpdateRegName" control="storePage.textBox" class="col-lg-8" />
+                        </div>
+                        <div class="col-lg-12">
+                            <span class="label col-lg-4" rlabel="Reg Type">Reg Type</span>
+                            <input controlId="txtUpdateRegType" control="storePage.textBox" class="col-lg-8" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>

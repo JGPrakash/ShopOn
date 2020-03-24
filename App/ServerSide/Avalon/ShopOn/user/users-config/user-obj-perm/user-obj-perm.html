@@ -1,0 +1,40 @@
+﻿<!doctype html>
+<html>
+
+<head>
+    <base href="/ShopOn/">
+    <script src="/config/config.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        document.write('<script src="/' + appConfig.root + '/core/master.js" type="text/javascript" > <\/script> ');
+        document.write('<script src="/' + appConfig.root + '/shopon/service/w3data/w3data.js"><\/script>');
+        document.write('<link href="/' + appConfig.root + '/user/users-config/user-obj-perm/user-obj-perm.css" rel="stylesheet" />');
+        document.write('<script src="/' + appConfig.root + '/user/users-config/user-obj-perm/user-obj-perm.js"><\/script>');
+        document.write('<script src="/' + appConfig.root + '/login/service/user/user-service.js"><\/script>');
+        document.write('<link href="/' + appConfig.root + '/shopon/view/simple-entity-manage/simple-entity-manage.css" rel="stylesheet" />');
+        document.write('<script src="/' + appConfig.root + '/shopon/view/simple-entity-manage/simple-entity-manage.js"><\/script>');
+    </script>
+
+</head>
+
+
+<body control="page.userObjPermPage" controlId="userObjPermPage">
+
+    <!--Master Page-->
+    <div control="userObjPermPage.masterPage" controlId="masterPage"></div>
+
+    <div class="content-panel" style="margin-top: 60px; margin-left: 70px; margin-right: 20px;">
+         <div style="margin-left: 70px; height: 30px">
+        <input type="button" value="User Management" controlid="btnUserManagement" control="userObjPermPage.primaryWriteButton" event="click:btnUserManagement_click"/> |
+        <input type="button" value="Group Management" controlid="btnGroupManagement" control="userObjPermPage.primaryWriteButton" event="click:btnGroupManagement_click"/> |
+        <input type="button" value="User-Group Configuration" controlid="btnUserGroupConfiguration" control="userObjPermPage.primaryWriteButton" event="click:btnUserGroupConfiguration_click"/> |
+        <input type="button" value="Permission Management" controlid="btnPermissionManagement" control="userObjPermPage.primaryWriteButton" event="click:btnPermissionManagement_click"/> |
+        <input type="button" value="Object Configuration" controlid="btnObjectConfiguration" control="userObjPermPage.primaryWriteButton" event="click:btnObjectConfiguration_click"/>
+        </div>
+        <span><b>User Object and Permission Configuration</b></span>
+        <div control="userObjPermPage.simpleEntityManage" controlId="ucSimpleEntityManage"></div>
+    </div>
+
+
+</body>
+
+</html>

@@ -1,0 +1,543 @@
+<!doctype html>
+<html>
+<head>
+
+    <script src="/config/config.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        document.write('<script src="/' + appConfig.root + '/core/master.js" type="text/javascript" > <\/script> ');
+
+        document.write('<script src="/' + appConfig.root + '/shopon/service/sales/customer-service.js"><\/script>');
+        document.write('<script src="/' + appConfig.root + '/shopon/service/product/item-service.js"><\/script>');
+        document.write('<script src="/' + appConfig.root + '/shopon/service/sales/bill-service.js"><\/script>');
+        document.write('<link href="/' + appConfig.root + '/shopon/view/dash-board/dash-board.css" rel="stylesheet" />');
+        document.write('<script src="/' + appConfig.root + '/shopon/view/dash-board/dash-board.js"><\/script>');
+        document.write('<script src="/' + appConfig.root + '/shopon/service/sales/sales-service.js"><\/script>');
+        document.write('<script src="/' + appConfig.root + '/shopon/service/purchase/purchase-service.js"><\/script>');
+        document.write('<script src="/' + appConfig.root + '/shopon/service/product/item-service.js"><\/script>');
+        document.write('<script src="/' + appConfig.root + '/finfacts/service/finfacts-service.js"><\/script>');
+        document.write('<script src="/' + appConfig.root + '/finfacts/service/revenue-service.js"><\/script>');
+        document.write('<script src="/' + appConfig.root + '/shopon/service/dashboard-service/dashboard-service.js"><\/script>');
+        document.write('<script src="/' + appConfig.root + '/shopon/service/dashboard-service/dashboard-api.js"><\/script>');
+        document.write('<script src="/' + appConfig.root + '/login/service/user-permission-api.js"><\/script>');
+        document.write('<script src="/' + appConfig.root + '/finfacts/service/accaccount-service.js"><\/script>');
+        document.write('<script src="/' + appConfig.root + '/finfacts/service/revenue-service.js"><\/script>');
+    </script>
+
+
+</head>
+<body control="page.dashBoard" controlId="dashBoard" >
+    <!-- Master Page-->
+    <div control="dashBoard.masterPage" controlId="masterPage"></div>
+    <div class="content-fluid" style="width: 100%;margin-top: 40px;">
+        <div class="content-area">
+            <div class="col-sm-12 col-md-12 col-lg-12" style="margin-top:1%;">
+                <input value="Refresh" id="btnRefresh" style="float:right" controlid="btnRefresh" control="dashBoard.primaryReadButton" event="click:btnRefresh_click">
+            </div>
+            <div class="col-sm-12 col-md-12 col-lg-12">
+                <h1 class="col-xs-12">Finfacts Summary(Today)</h1>
+            </div>
+            <div class="col-sm-12 col-md-12 col-lg-12">
+                <div class="col-xs-12 col-sm-4">
+                    <div class="card col-xs-12">
+                        <div class="card-block">
+                            <div class="col-xs-12 col-lg-4">
+                                <!--<img src="Images/dashboard.png" style="width:100px;" />-->
+                                <img src="Images/profit.png" style="width:100px;" />
+                            </div>
+                            <div class="col-xs-12 col-lg-8">
+                                <div class="div-head">Profit</div>
+                                <div class="div-body">
+                                    <span control="dashBoard.label" controlid="lblProfitToday"></span>
+                                </div>
+                                <small class="text-muted">&nbsp;</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-xs-12 col-sm-4">
+                    <div class="card col-xs-12">
+                        <div class="card-block">
+                        <div class="col-xs-12 col-lg-4">
+                            <!--<img src="Images/dashboard.png" style="width:100px;" />-->
+                            <img src="Images/cash_in_hand.jpg" style="width:100px;" />
+                        </div>
+                        <div class="col-xs-12 col-lg-8">
+                            <div class="div-head">Opening Cash In Counter</div>
+                            <div class="div-body">
+                                <span control="dashBoard.label" controlid="lblOpeningCash"></span>
+                            </div>
+                            <small class="text-muted">&nbsp;</small>
+                        </div>
+                      </div>
+                   </div>
+                </div>
+                <div class="col-sm-3 col-md-4">
+                    <div class="card col-xs-12">
+                        <div class="card-block">
+                            <div class="col-xs-12 col-lg-4">
+                                <!--<img src="Images/dashboard.png" style="width:100px;" />-->
+                                <img src="Images/cash_in_bank.png" style="width:100px;" />
+                            </div>
+                            <div class="col-xs-12 col-lg-8">
+                                <div class="div-head">Opening Cash in Bank</div>
+                                <div class="div-body">
+                                    <span control="dashBoard.label" controlid="lblOpeningBank"></span>
+                                </div>
+                                <small class="text-muted">&nbsp;</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-sm-3 col-md-4">
+                    <div class="card col-xs-12">
+                        <div class="card-block">
+                            <div class="col-xs-12 col-lg-4">
+                                <!--<img src="Images/dashboard.png" style="width:100px;" />-->
+                                <img src="Images/expense.png" style="width:100px;" />
+                            </div>
+                            <div class="col-xs-12 col-lg-8">
+                                <div class="div-head">Expense</div>
+                                <div class="div-body">
+                                    <span control="dashBoard.label" controlid="lblExpenseToday"></span>
+                                </div>
+                                <small class="text-muted">&nbsp;</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xs-12 col-sm-4">
+                    <div class="card col-xs-12">
+                        <div class="card-block">
+                            <div class="col-xs-12 col-lg-4">
+                                <!--<img src="Images/dashboard.png" style="width:100px;" />-->
+                                <img src="Images/cash_in_hand.jpg" style="width:100px;" />
+                            </div>
+                            <div class="col-xs-12 col-lg-8">
+                                <div class="div-head">Closing Cash In Counter</div>
+                                <div class="div-body">
+                                    <span control="dashBoard.label" controlid="lblClosingCash"></span>
+                                </div>
+                                <small class="text-muted">&nbsp;</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-3 col-md-4">
+                    <div class="card col-xs-12">
+                        <div class="card-block">
+                            <div class="col-xs-12 col-lg-4">
+                                <!--<img src="Images/dashboard.png" style="width:100px;" />-->
+                                <img src="Images/cash_in_bank.png" style="width:100px;" />
+                            </div>
+                            <div class="col-xs-12 col-lg-8">
+                                <div class="div-head">Closing Cash in Bank</div>
+                                <div class="div-body">
+                                    <span control="dashBoard.label" controlid="lblClosingBank"></span>
+                                </div>
+                                <small class="text-muted">&nbsp;</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-3 col-md-4">
+                    <div class="card col-xs-12">
+                        <div class="card-block">
+                            <div class="col-xs-12 col-lg-4">
+                                <!--<img src="Images/dashboard.png" style="width:100px;" />-->
+                                <img src="Images/amount_receivable.png" style="width:100px;" />
+                            </div>
+                            <div class="col-xs-12 col-lg-8">
+                                <div class="div-head">Amount Receivable From Customer</div>
+                                <div class="div-body">
+                                    <span control="dashBoard.label" controlid="lblAmountReceivableToday"></span>
+                                </div>
+                                <small class="text-muted">&nbsp;</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-3 col-md-4">
+                    <div class="card col-xs-12">
+                        <div class="card-block">
+                            <div class="col-xs-12 col-lg-4">
+                                <!--<img src="Images/dashboard.png" style="width:100px;" />-->
+                                <img src="Images/amount_payable.png" style="width:100px;" />
+                            </div>
+                            <div class="col-xs-12 col-lg-8">
+                                <div class="div-head">Amount Payable To Supplier</div>
+                                <div class="div-body">
+                                    <span control="dashBoard.label" controlid="lblAmountPayableToday"></span>
+                                </div>
+                                <small class="text-muted">&nbsp;</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+            <div class="col-sm-12 col-md-12 col-lg-12">
+                <h1 class="col-xs-12">Sales DashBoard</h1>
+            </div>
+            <div class="col-sm-12 col-md-12 col-lg-12">
+                <div class="col-xs-12 col-sm-4">
+                    <div class="card col-xs-12">
+                        <div class="card-block">
+                            <div class="col-xs-12 col-lg-4">
+                                <img src="Images/sales-dashboard.png" style="width:100px;" />
+                            </div>
+                            <div class="col-xs-12 col-lg-8">
+                                <div class="div-head">Today Sales</div>
+                                <div class="div-body">
+                                    <span control="dashBoard.label" controlid="lblTodayRevenue"></span>
+                                </div>
+                                <small class="text-muted">&nbsp;</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xs-12 col-sm-4">
+                    <div class="card col-xs-12">
+                        <div class="card-block">
+                            <div class="col-xs-12 col-lg-4">
+                                <img src="Images/sales-dashboard.png" style="width:100px;" />
+                            </div>
+                            <div class="col-xs-12 col-lg-8">
+                                <div class="div-head">Weekly Sales</div>
+                                <div class="div-body">
+                                    <span control="dashBoard.label" controlid="lblWeekRevenue"></span>
+                                </div>
+                                <small class="text-muted">&nbsp;</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xs-12 col-sm-4">
+                    <div class="card col-xs-12">
+                        <div class="card-block">
+                            <div class="col-xs-12 col-lg-4">
+                                <img src="Images/sales-dashboard.png" style="width:100px;" />
+                            </div>
+                            <div class="col-xs-12 col-lg-8">
+                                <div class="div-head">Monthly Sales</div>
+                                <div class="div-body">
+                                    <span control="dashBoard.label" controlid="lblMonthRevenue"></span>
+                                </div>
+                                <small class="text-muted">&nbsp;</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-12 col-md-12 col-lg-12">
+                <h1 class="col-xs-12">Purchase DashBoard</h1>
+            </div>
+            <div class="col-sm-12 col-md-12 col-lg-12">
+                <div class="col-xs-12 col-sm-4">
+                    <div class="card col-xs-12">
+                        <div class="card-block">
+                            <div class="col-xs-12 col-lg-4">
+                                <img src="Images/purchase-dashboard.jpg" style="width:100px;" />
+                            </div>
+                            <div class="col-xs-12 col-lg-8">
+                                <div class="div-head">Today Purchase</div>
+                                <div class="div-body">
+                                    <span control="dashBoard.label" controlid="lblTodayPurchase"></span>
+                                </div>
+                                <small class="text-muted">&nbsp;</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xs-12 col-sm-4">
+                    <div class="card col-xs-12">
+                        <div class="card-block">
+                            <div class="col-xs-12 col-lg-4">
+                                <img src="Images/purchase-dashboard.jpg" style="width:100px;" />
+                            </div>
+                            <div class="col-xs-12 col-lg-8">
+                                <div class="div-head">Weekly Purchase</div>
+                                <div class="div-body">
+                                    <span control="dashBoard.label" controlid="lblWeekPurchase"></span>
+                                </div>
+                                <small class="text-muted">&nbsp;</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xs-12 col-sm-4">
+                    <div class="card col-xs-12">
+                        <div class="card-block">
+                            <div class="col-xs-12 col-lg-4">
+                                <img src="Images/purchase-dashboard.jpg" style="width:100px;" />
+                            </div>
+                            <div class="col-xs-12 col-lg-8">
+                                <div class="div-head">Monthly Purchase</div>
+                                <div class="div-body">
+                                    <span control="dashBoard.label" controlid="lblMonthPurchase"></span>
+                                </div>
+                                <small class="text-muted">&nbsp;</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            
+            
+
+            <div class="col-sm-12 col-md-12 col-lg-12" style="text-align:center;display:none;">
+                <h1>Finfacts DashBoard(Today)</h1>
+            </div>
+            <div class="col-sm-12 col-md-12 col-lg-12" style="display:none;">
+                <div class="col-sm-3 col-md-3">
+                    <div class="card col-xs-12">
+                        <div class="card-block">
+                            <div class="div-head m-0 col-sm-12 col-md-12 col-lg-12"><center>Sales</center></div>
+                            <div class="div-head m-0 col-sm-12 col-md-12 col-lg-12">
+                                <span class="col-sm-8 col-md-6 col-lg-6">Today</span>
+                                <span class="col-sm-8 col-md-6 col-lg-6" control="dashBoard.label" controlid="lblRevenueToday"></span>
+                            </div>
+                            <small class="text-muted">&nbsp;</small>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-3 col-md-3">
+                    <div class="card col-xs-12">
+                        <div class="card-block">
+                            <div class="div-head m-0 col-sm-12 col-md-12 col-lg-12"><center>Cost Of Goods</center></div>
+                            <div class="div-head m-0 col-sm-12 col-md-12 col-lg-12">
+                                <span class="col-sm-8 col-md-6 col-lg-6">Today</span>
+                                <span class="col-sm-8 col-md-6 col-lg-6" control="dashBoard.label" controlid="lblCostOfGoodsToday"></span>
+                            </div>
+                            <small class="text-muted">&nbsp;</small>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-3 col-md-3">
+                    <div class="card col-xs-12">
+                        <div class="card-block">
+                            <div class="div-head m-0 col-sm-12 col-md-12 col-lg-12"><center>Other Income</center></div>
+                            <div class="div-head m-0 col-sm-12 col-md-12 col-lg-12">
+                                <span class="col-sm-8 col-md-6 col-lg-6">Today</span>
+                                <span class="col-sm-8 col-md-6 col-lg-6" control="dashBoard.label" controlid="lblOtherIncomeToday"></span>
+                            </div>
+                            <small class="text-muted">&nbsp;</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-sm-12 col-md-12 col-lg-12">
+                <h1 class="col-xs-12">Finfacts DashBoard(Year)</h1>
+            </div>
+            <div class="col-sm-12 col-md-12 col-lg-12">
+                <div class="col-xs-12 col-sm-3">
+                    <div class="card col-xs-12">
+                        <div class="card-block">
+                            <div class="col-xs-12 col-lg-4">
+                                <!--<img src="Images/dashboard.png" style="width:100px;" />-->
+                                <img src="Images/profit.png" style="width:100px;" />
+                            </div>
+                            <div class="col-xs-12 col-lg-8">
+                                <div class="div-head">Profit</div>
+                                <div class="div-body">
+                                    <span control="dashBoard.label" controlid="lblProfitYear"></span>
+                                </div>
+                                <small class="text-muted">&nbsp;</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xs-12 col-sm-3">
+                    <div class="card col-xs-12">
+                        <div class="card-block">
+                            <div class="col-xs-12 col-lg-4">
+                                <!--<img src="Images/dashboard.png" style="width:100px;" />-->
+                                <img src="Images/sales.jpg" style="width:100px;" />
+                            </div>
+                            <div class="col-xs-12 col-lg-8">
+                                <div class="div-head">Sales</div>
+                                <div class="div-body">
+                                    <span control="dashBoard.label" controlid="lblRevenueYear"></span>
+                                </div>
+                                <small class="text-muted">&nbsp;</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xs-12 col-sm-3">
+                    <div class="card col-xs-12">
+                        <div class="card-block">
+                            <div class="col-xs-12 col-lg-4">
+                                <!--<img src="Images/dashboard.png" style="width:100px;" />-->
+                                <img src="Images/cost_of_goods.png" style="width:100px;" />
+                            </div>
+                            <div class="col-xs-12 col-lg-8">
+                                <div class="div-head">Cost Of Goods</div>
+                                <div class="div-body">
+                                    <span control="dashBoard.label" controlid="lblCostOfGoodsYear"></span>
+                                </div>
+                                <small class="text-muted">&nbsp;</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xs-12 col-sm-3">
+                    <div class="card col-xs-12">
+                        <div class="card-block">
+                            <div class="col-xs-12 col-lg-4">
+                                <!--<img src="Images/dashboard.png" style="width:100px;" />-->
+                                <img src="Images/purchase-dashboard.jpg" style="width:100px;" />
+                            </div>
+                            <div class="col-xs-12 col-lg-8">
+                                <div class="div-head">Purchase</div>
+                                <div class="div-body">
+                                    <span control="dashBoard.label" controlid="lblPurchaseYear"></span>
+                                </div>
+                                <small class="text-muted">&nbsp;</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xs-12 col-sm-3">
+                    <div class="card col-xs-12">
+                        <div class="card-block">
+                            <div class="col-xs-12 col-lg-4">
+                                <!--<img src="Images/dashboard.png" style="width:100px;" />-->
+                                <img src="Images/expense.png" style="width:100px;" />
+                            </div>
+                            <div class="col-xs-12 col-lg-8">
+                                <div class="div-head">Expense</div>
+                                <div class="div-body">
+                                    <span control="dashBoard.label" controlid="lblExpenseYear"></span>
+                                </div>
+                                <small class="text-muted">&nbsp;</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xs-12 col-sm-3">
+                    <div class="card col-xs-12">
+                        <div class="card-block">
+                            <div class="col-xs-12 col-lg-4">
+                                <!--<img src="Images/dashboard.png" style="width:100px;" />-->
+                                <img src="Images/income.png" style="width:100px;" />
+                            </div>
+                            <div class="col-xs-12 col-lg-8">
+                                <div class="div-head">Other Income</div>
+                                <div class="div-body">
+                                    <span control="dashBoard.label" controlid="lblOtherIncomeYear"></span>
+                                </div>
+                                <small class="text-muted">&nbsp;</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-3 col-md-4">
+                    <div class="card col-xs-12">
+                        <div class="card-block">
+                            <div class="col-xs-12 col-lg-4">
+                                <!--<img src="Images/dashboard.png" style="width:100px;" />-->
+                                <img src="Images/amount_receivable.png" style="width:100px;" />
+                            </div>
+                            <div class="col-xs-12 col-lg-8">
+                                <div class="div-head">Amount Receivable From Customer</div>
+                                <div class="div-body">
+                                    <span control="dashBoard.label" controlid="lblAmountReceivable"></span>
+                                </div>
+                                <small class="text-muted">&nbsp;</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-3 col-md-4">
+                    <div class="card col-xs-12">
+                        <div class="card-block">
+                            <div class="col-xs-12 col-lg-4">
+                                <!--<img src="Images/dashboard.png" style="width:100px;" />-->
+                                <img src="Images/amount_payable.png" style="width:100px;" />
+                            </div>
+                            <div class="col-xs-12 col-lg-8">
+                                <div class="div-head">Amount Payable To Supplier</div>
+                                <div class="div-body">
+                                    <span control="dashBoard.label" controlid="lblAmountPayable"></span>
+                                </div>
+                                <small class="text-muted">&nbsp;</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+
+            <div class="col-sm-12 col-md-12 col-lg-12">
+                <h1 class="col-xs-12">Stock DashBoard</h1>
+            </div>
+            <div class="col-sm-12 col-md-12 col-lg-12">
+                <div class="col-xs-12 col-sm-4">
+                    <div class="card col-xs-12">
+                        <div class="card-block">
+                            <div class="col-xs-12 col-lg-4">
+                                <img src="Images/stock-dashboard.png" style="width:80px;padding-top:10px;   " />
+                            </div>
+                            <div class="col-xs-12 col-lg-8">
+                                <div class="div-head">Out Of Stock Items</div>
+                                <div class="div-body">
+                                    <span control="dashBoard.label" controlid="lblOutOfStock"></span>
+                                </div>
+                                <small class="text-muted">&nbsp;</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xs-12 col-sm-4">
+                    <div class="card col-xs-12">
+                        <div class="card-block">
+                            <div class="col-xs-12 col-lg-4">
+                                <img src="Images/stock-dashboard.png" style="width:80px;padding-top:10px;" />
+                            </div>
+                            <div class="col-xs-12 col-lg-8">
+                                <div class="div-head">Below Reorder Level Items</div>
+                                <div class="div-body">
+                                    <span control="dashBoard.label" controlid="lblBelowReorderLevel"></span>
+                                </div>
+                                <small class="text-muted">&nbsp;</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xs-12 col-sm-4">
+                    <div class="card col-xs-12">
+                        <div class="card-block">
+                            <div class="col-xs-12 col-lg-4">
+                                <img src="Images/stock-dashboard.png" style="width:80px;padding-top:10px;" />
+                            </div>
+                            <div class="col-xs-12 col-lg-8">
+                                <div class="div-head">Un Sold Items</div>
+                                <div class="div-body">
+                                    <span control="dashBoard.label" controlid="lblOldItems"></span>
+                                </div>
+                                <small class="text-muted">&nbsp;</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-sm-12 col-md-12 col-lg-12">
+                <h1 class="col-xs-12">Sales By User(Today)</h1>
+            </div>
+            <div class="col-sm-12 col-md-12 col-lg-12">
+                <span control="dashBoard.htmlControl" controlid="lblGrdUser"></span>
+            </div>
+
+            <div class="col-xs-12" style="height:80px;">
+                <span>&nbsp;</span>
+            </div>
+        </div>
+
+    </div>
+</body>
+</html>

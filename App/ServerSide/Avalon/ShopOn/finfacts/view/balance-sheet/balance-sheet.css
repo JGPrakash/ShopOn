@@ -1,0 +1,103 @@
+.content-area {
+    padding: 10px;
+    /*width: calc(100% - 20px);*/
+    margin-top: 40px;
+    height:auto;
+    margin:15px;
+    overflow-wrap:break-word;
+}
+.report-panel {
+    border: 1px solid gray;
+    /*display: block;*/
+    margin-top: 0px;
+    margin-bottom:30px;
+    /*margin-left: auto;
+    margin-right: auto;
+    margin-bottom: auto;
+    margin-top: 80px;*/
+    /*padding: 10px;
+    width: 60%;*/
+}
+.left-panel {
+    float: left;
+    /*margin-right: 20px;
+    width: 48%;*/
+}
+.right-panel {
+    float: left;
+    /*width: 48%;*/
+}
+[controlid="lblCompanyName"] {
+    font-size: 32px;
+    font-weight: bold;
+}
+.title-panel {
+    display: inline-block;
+    font-size: 20px;
+    font-weight: bold;
+    margin: 10px 10px 30px;
+    width: calc(100% - 20px);
+}
+.all-panel {
+    display: inline-block;
+    margin-left: 10px;
+    width: calc(100% - 20px);
+}
+[controlid="grdRevenue"] {
+    margin-bottom: 5px;
+    margin-top: 10px;
+}
+[controlid="grdPurchase"] {
+    margin-bottom: 5px;
+    margin-top: 10px;
+}
+[controlid="grdExpenses"] {
+    margin-bottom: 5px;
+    margin-top: 10px;
+}
+[controlid="grdIncome"] {
+    margin-bottom: 5px;
+    margin-top: 10px;
+}
+.all-panel > div > span {
+    font-size: 20px;
+}
+[controlid="ddlCompanyName"] {
+   color:black;
+   font-size:16px;
+}
+[controlid="ddlCompanyName"] :hover{
+   background-color:green;
+}
+[controlid="ddlPeriod"] {
+    color:black;
+   font-size:16px;
+}
+.top-panel {
+    margin: 20px 0px 20px 0px;
+}
+.total_record {
+    display: none;
+}
+
+.transaction-panel {
+    border: 1px solid gray;
+    /*display: block;*/
+    margin-top: 30px;
+    /*margin-left: auto;
+    margin-right: auto;
+    margin-bottom: auto;
+    margin-top: 80px;*/
+    /*padding: 10px;
+    width: 60%;*/
+}
+
+.label-value{
+    background:transparent;
+    border:none;
+}
+[controlid=lblAcntName]{
+    font-weight: bold;
+    font-size: 20px;
+    padding-top: 5px;
+}

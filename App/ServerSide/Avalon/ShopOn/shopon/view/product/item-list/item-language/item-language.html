@@ -1,0 +1,35 @@
+﻿<div control="itemLanguage.messagePanel" controlid="msgPanel" class="message-panel" style="display:none">
+</div>
+<div class="row" style="margin-top:10px;">
+    <div class="col-xs-6">
+        <span class="header-label" rlabel="Product Language" controlId="Product Language" control="itemLanguage.label">Product Language</span>
+    </div>
+
+    <div class="col-xs-6">
+        <input style="float:right;margin-right:10px;margin-top:2px" type="button" event="click:btnRemoveLanguage_click" control="itemLanguage.secondaryButton" controlid="btnRemoveLanguage" value="Remove" rlabel="Remove">
+        <span style="padding-left: 5px;padding-right: 5px; margin-top: 6px;float:right" id="line2"> |</span>
+        <input style="float:right;margin-right:10px;margin-top:2px" type="button" event="click:btnSaveLanguage_click" control="itemLanguage.secondaryButton" controlid="btnSaveLanguage" value="Save" rlabel="Save">
+        <span style="padding-left: 5px;padding-right: 5px; margin-top: 6px;float:right" id="line1"> |</span>
+        <input style="float:right;margin-top:2px" type="button" event="click:btnNewLanguage_click" control="itemLanguage.secondaryButton" controlid="btnNewLanguage" value="New" rlabel="New">
+    </div>
+</div>
+<div class="row col-xs-12" style="display:none;" control="itemLanguage.htmlControl" controlid="pnlProductDetails">
+    <span class="label col-xs-12 col-lg-1" rlabel="Name" controlId="txtLaguageName" control="itemLanguage.label">Name</span>
+    <input class="col-xs-12 col-lg-4" rlabel="Name" controlId="txtProductName" control="itemLanguage.textArea" name="comment" onKeyDown="toggleKBMode(event)" charset="utf-8"/>
+    <span class="col-xs-12 col-sm-1">&nbsp;</span>
+    <span class="label col-xs-12 col-lg-1" rlabel="Language" controlId="txtLaguage" control="itemLanguage.label">Language</span>
+    <select class="col-xs-12 col-lg-2" controlId="ddlProductCode" control="itemLanguage.dropDownList">
+        <option value="en">English</option>
+        <option value="ta">Tamil</option>
+    </select>
+    <span class="col-xs-12 col-sm-3">&nbsp;</span>
+    <div class="col-lg-5 col-xs-12" style="display:none;" controlId="pnlBamini" control="itemLanguage.htmlControl">
+        <input type=radio name=keybrd value=bamini onclick="toggleKBMode(event,this)" controlId="htmlBamini" control="itemLanguage.htmlControl" class="col-lg-1" style="margin-top:-5px;" checked><span class="col-lg-8" style="padding:0px;">Bamini</span>
+    </div>
+</div>
+<div class="row col-xs-12" style="margin-top:10px;">
+    <div style="width:100%;overflow-x:auto; overflow-y:hidden;">
+        <div controlId="grdItemLanguage" control="itemLanguage.grid"> </div>
+    </div>
+</div>
+

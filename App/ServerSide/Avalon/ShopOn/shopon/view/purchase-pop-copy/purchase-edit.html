@@ -1,0 +1,416 @@
+﻿<div controlId="pnlBill" control="purchaseEditBill.htmlControl" class="col-sm-12">
+
+    <div class="col-sm-6">
+        <div controlId="pnlItemSearch" control="purchaseEditBill.htmlControl" class="sales-item-search" style="display:none" default-button="btnSearchItem">
+            <span class="label"> Item Search </span>
+            <input controlId="txtItemSearch" control="purchaseEditBill.autoCompleteList" type="text" value="" placeholder="Search by Item No,Item Name or Scan.">
+            <!--<input value="QR Scan" controlid="btnQrScan" control="purchaseEditBill.secondaryButton" event="click:btnQrScan_click">-->
+            <img src="BackgroundImage/qr-code.png" height="30px" width="30px" style="margin-left:5px;" controlid="btnQrScan" control="purchaseEditBill.secondaryButton" event="click:btnQrScan_click" />
+            <input value="Search" controlid="btnSearchItem" control="purchaseEditBill.primaryReadButton" style="display:none;">
+        </div>
+    </div>
+    <div class="col-sm-2" style="margin-top:10px;">
+        <span class="label col-xs-5">Invoice No:</span>
+        <input class="col-xs-7" type="text" controlId="txtInvoiceNo" control="purchaseEditBill.textBox" placeholder="Invoice No">
+    </div>
+    <div class="col-sm-4" style="margin-top:10px;">
+        <input style="float:right; height:auto;" value="Buy Now" control="purchaseEditBill.primaryReadButton" controlId="btnPayment" event="click:btnPayment_click">
+        <span style="float:right;" id="chkPrintBill"><input type="checkbox" tabindex="7" controlId="chkPrintBill" control="purchaseEditBill.chkBox" name="print_bill"><span class="label" style="margin-top:-22px;margin-left:5px;">Print</span></span>
+        <select style="float:right;width:100px;margin-right:10px" class="dropDown" control="purchaseEditBill.dropDownList" controlid="ddlPayMode"></select>
+        <input style="float:right;width:40px;margin-right:10px" value="Save" type="button" control="purchaseEditBill.secondaryButton" controlId="btnSave" event="click:btnSave_click">
+    </div>
+
+    <div style="margin-bottom:1px" control="purchaseEditBill.grid" controlId="grdBillReturn"></div>
+    <!--<input value="Select Return Item" controlid="btnSelectReturnItem" control="purchaseEditBill.primaryReadButton" event="click:btnSelectReturnItem_click">-->
+    <div style="width:100%;overflow-x:auto;overflow-y:hidden">
+        <div controlId="grdBill" control="purchaseEditBill.grid">
+        </div>
+    </div>
+    <div controlId="grdReturnItemSelection" control="purchaseEditBill.grid"> </div>
+    <div controlId="pnlPayNow" control="purchaseEditBill.popup" style="display:none">
+        <div class="col-xs-12 col-lg-12" style="padding:1%;">
+            <div class="col-lg-12">
+                <input style="float:right;" value="Pay" controlId="btnPayPending" control="purchaseEditBill.primaryReadButton" event="click:btnMixedPayment_click" />
+                <input style="margin-right:20px;float:right;" value="Add" controlId="btnAddPayment" control="purchaseEditBill.secondaryButton" event="click:btnAddPayment_click" />
+            </div>
+        </div>
+        <div class="col-xs-12 col-lg-6">
+            <span class="label  col-xs-12 col-lg-6">Pay Type</span>
+            <select style="" class="col-xs-12 col-lg-6" control="purchaseEditBill.dropDownList" controlid="ddlPaymentType">
+                <!--<option>Cash</option>
+                <option>Card</option>
+                <option>Coupon</option>
+                <option>Points</option>-->
+            </select>
+        </div>
+        <div style="margin-top:10px;" controlId="pnlCard" control="purchaseEditBill.htmlControl">
+            <div class="col-xs-12 col-lg-6 ">
+                <span class="label  col-xs-12 col-lg-6">Card</span>
+                <select class="col-lg-6" control="purchaseEditBill.dropDownList" controlid="ddlCardType">
+                    <option>Credit</option>
+                    <option>Debit</option>
+                </select>
+            </div>
+            <div class="col-xs-12 col-lg-6 ">
+                <span class="label  col-xs-12 col-lg-6">Card No<span style="color:red">*</span></span>
+                <input class="col-xs-12 col-lg-6" type="text" controlId="txtCardNo" control="purchaseEditBill.textBox">
+            </div>
+        </div>
+        <div style="margin-top:10px;">
+            <div class="col-xs-12 col-lg-6 " controlId="pnlCoupon" control="purchaseEditBill.htmlControl">
+                <span class="label  col-xs-12 col-lg-6">Coupon No <span style="color:red">*</span></span>
+                <input class="col-xs-12 col-lg-6" type="text" controlId="txtCouponNo" control="purchaseEditBill.textBox">
+            </div>
+            <div class="col-xs-12 col-lg-6 " controlId="pnlAmount" control="purchaseEditBill.htmlControl">
+                <span class="label  col-xs-12 col-lg-6">Amount</span>
+                <input class="col-xs-12 col-lg-6" type="text" controlId="txtAmount" control="purchaseEditBill.textBox">
+            </div>
+            <div class="col-xs-12 col-lg-6 " controlId="pnlBalance" control="purchaseEditBill.htmlControl">
+                <span class="label  col-xs-12 col-lg-6">Balance</span>
+                <span class="col-xs-12 col-lg-6 " control="purchaseEditBill.labelValue" controlId="lblBalance">0</span>
+            </div>
+            <div class="col-xs-12 col-lg-6 " controlId="pnlPoints" control="purchaseEditBill.htmlControl">
+                <span class="label  col-xs-12 col-lg-6">Points<span style="color:red">*</span></span>
+                <input class="col-xs-12 col-lg-6" type="text" controlId="txtPoints" control="purchaseEditBill.textBox">
+            </div>
+        </div>
+        <div class="col-xs-12 col-lg-12 " style="margin-top:10px;">
+            <div class="itemGrid" controlId="grdAllPayment" control="purchaseEditBill.grid">
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="row">
+    <!--Customer Address-->
+    <div class="col-sm-4">
+        <div class="col-xs-12">
+            <span class="header-label"><b>Supplier Details</b></span>
+        </div>
+        <!--<div class="sales-cust-panel row">-->
+        <div class="col-xs-12" style="margin:5px;">
+            <span class="label col-lg-3"> Supplier</span>
+            <input class="col-lg-8" controlId="txtVendorName" control="purchaseEditBill.autoCompleteList" placeholder="No Supplier Selected">
+            <input type="hidden" controlId="hdnVendorNo" control="purchaseEditBill.htmlControl" value="">
+            <input class="col-lg-1" value="+" controlId="btnAddVendor" control="purchaseEditBill.primaryReadButton" event="click:btnAddVendor_click" />
+        </div>
+        <div class="col-xs-12" style="margin:5px;">
+            <span class="label col-lg-3"> Mobile No</span>
+            <span class="col-lg-9" controlId="lblPhoneNo" control="purchaseEditBill.labelValue"> </span>
+        </div>
+        <div class="col-xs-12" style="margin:5px;">
+            <span class="label col-lg-3">Email Id</span>
+            <span class="col-lg-9" controlId="lblEmail" control="purchaseEditBill.labelValue"> </span>
+        </div>
+        <div class="col-xs-12" style="margin:5px;">
+            <span class="label col-lg-3"> Address</span>
+            <span class="col-lg-9" controlId="lblAddress" control="purchaseEditBill.labelValue"> </span>
+        </div>
+        <div class="col-xs-12" style="margin:5px;">
+            <span class="label col-lg-3"> GST No</span>
+            <span class="col-lg-9" controlId="lblGst" control="purchaseEditBill.labelValue"> </span>
+        </div>
+        <div class="col-xs-12" style="margin:5px;">
+            <input value="More Details" controlId="btnVendorMoreDetails" control="purchaseEditBill.secondaryButton" event="click:btnVendorMoreDetails_click" />
+        </div>
+        <!--</div>-->
+    </div>
+    <div class="col-sm-4">
+        <div class="col-xs-12">
+            <span class="header-label"><b>Bill Details</b></span>
+        </div>
+        <div class="col-xs-12" style="margin:5px;">
+            <span class="label col-lg-6"> Bill No</span>
+            <span class="col-lg-6" controlId="lblBillNo" control="purchaseEditBill.labelValue"> </span>
+        </div>
+        <div class="col-xs-12" style="margin:5px;">
+            <span class="label col-lg-6"> Bill Date</span>
+            <input controlId="txtBillDate" control="purchaseEditBill.dateSelector" class="col-lg-6" />
+        </div>
+        <div class="col-xs-12" style="margin:5px;" controlId="pnlExpenseName" control="purchaseEditBill.htmlControl">
+            <span class="label col-lg-6"> Expense Name</span>
+            <select class="col-xs-12 col-lg-6" controlId="ddlExpName" control="purchaseEditBill.dropDownList" />
+            <!--<input controlId="txtExpName" control="purchaseEditBill.textBox" class="col-lg-7" />-->
+        </div>
+        <div class="col-xs-12" style="margin:5px;" controlId="pnlExpenseAmount" control="purchaseEditBill.htmlControl">
+            <span class="label col-lg-6"> Expense Amount</span>
+            <input controlId="txtExpAmount" control="purchaseEditBill.textBox" class="col-lg-6" />
+        </div>
+    </div>
+    <div class="col-sm-4" style="float:left;">
+        <div class="col-xs-12">
+            <span class="header-label"><b>Bill Summary</b></span>
+        </div>
+        <div class="sales-summary-panel ">
+            <div class="col-xs-12" style="margin:0px;">
+                <span class="label col-lg-3">Sub Total</span>
+                <span class="col-lg-9" control="purchaseEditBill.labelValue" controlId="lblSubTotal" style="background: transparent;border: 0px;">0</span>
+            </div>
+            <div class="col-xs-12" style="margin:0px;background-color: whitesmoke;">
+                <span class="label col-lg-3">Discount</span>
+                <span class="col-lg-9" control="purchaseEditBill.labelValue" controlId="lblDiscount" style="background: transparent;border: 0px;">0</span>
+            </div>
+            <div class="col-xs-12" style="margin:0px;">
+                <span class="label col-lg-3" control="purchaseEditBill.label" controlId="lblTaxLabel" event="click:lblTaxLabel_click" style="">GST</span>
+                <span class="col-lg-9" control="purchaseEditBill.labelValue" controlId="lblTax" style="background: transparent;border: 0px;">0</span>
+            </div>
+            <div class="col-xs-12" style="margin:0px;background-color: whitesmoke;">
+                <span class="label col-lg-3">Round Off</span>
+                <span control="purchaseEditBill.labelValue" controlId="lblRndOff" class="col-lg-9" style="background: transparent;border: 0px;">0</span>
+            </div>
+            <div class="col-xs-12" style="margin:0px;background-color: dimgray;">
+                <!--<span class="label col-lg-3" style="color:white;font-size: 50px;padding-top: 10px;"><b>Total</b></span>-->
+                <span class="label col-lg-4" style="color:white;font-size: 50px;padding-top: 10px;">
+                    Net
+                    <i class="fa fa-rupee"></i>
+                    :
+                </span>
+                <span class="col-lg-8" style="background-color: transparent;font-size: 50px;color: white;border: 0px;padding-top: 25px;" control="purchaseEditBill.labelValue" controlId="lblTotal">0</span>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<div style="margin-top: 10px;">
+    <!--Sales Item Grid-->
+    <!--Discount popup-->
+    <!--<div controlId="pnlDiscountPopup" control="purchaseEditBill.popup" style="display:none">
+        <span>Enter Discount Amount </span>
+        <select controlId="ddlDiscount" control="purchaseEditBill.dropDownList" />
+        <input value="Add Discount" controlId="btnDiscountOK" control="purchaseEditBill.primaryReadButton" event="click:btnDiscountOK_click" />
+        <input value="Remove" controlId="btnDiscountRemove" control="purchaseEditBill.primaryReadButton" event="click:btnDiscountRemove_click" />
+        <div controlId="grdDiscount" control="purchaseEditBill.grid"> </div>
+    </div>-->
+    <!--<div controlId="pnlItemDiscountPopup" control="purchaseEditBill.popup" style="display:none">
+        <span>Enter Discount Amount </span>
+        <input controlId="txtItemDiscountValue" control="purchaseEditBill.textBox" />
+        <input value="Add Discount" controlId="btnItemDiscountOK" control="purchaseEditBill.primaryReadButton" event="click:btnItemDiscountOK_click" />
+
+        <div controlId="grdItemDiscount" control="purchaseEditBill.grid"> </div>
+    </div>-->
+    <!--Tax popup-->
+    <!--<div controlId="pnlTaxPopup" control="purchaseEditBill.popup" style="display:none">
+        <span>Enter Tax  </span>
+        <select controlId="ddlSalesTax" control="purchaseEditBill.dropDownList" />
+
+        <input value="OK" controlId="btnTaxOK" control="purchaseEditBill.primaryReadButton" event="click:btnTaxOK_click" />
+    </div>-->
+    <!--Return Item popup-->
+    <div controlId="pnlReturnItemSelection" control="purchaseEditBill.popup" style="display:none">
+        <span>Select Items to be returned  </span>
+        <input value="OK" controlId="btnReturnItemOK" control="purchaseEditBill.primaryReadButton" event="click:btnReturnItemOK_click" />
+
+
+
+    </div>
+
+    <!--Return Item popup-->
+    <div controlId="pnlNewVendor" control="purchaseEditBill.popup" style="display:none">
+
+        <input value="Save" controlId="btnSaveVendor" control="purchaseEditBill.primaryReadButton" event="click:btnSaveVendor_click" style="float:right" />
+        <div control="purchaseEditBill.vendorEdit" controlid="ucVendorEdit"> </div>
+    </div>
+    <div controlId="pnlVendorDetails" control="purchaseEditBill.popup" style="display:none" class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+        <div class="col-xs-12" style="margin:5px;">
+            <span class="label col-xs-12 col-lg-6">Supplier</span>
+            <span controlId="lblMoreSupplier" control="purchaseEditBill.labelValue" class="col-xs-12 col-lg-6" style="overflow:hidden;"> </span>
+        </div>
+        <div class="col-xs-12" style="margin:5px;">
+            <span class="label col-xs-12 col-lg-6">Total Purchase</span>
+            <span controlId="lblMoreTotalPurchase" control="purchaseEditBill.labelValue" class="col-xs-12 col-lg-6" style="overflow:hidden;"> </span>
+        </div>
+        <div class="col-xs-12" style="margin:5px;">
+            <span class="label col-xs-12 col-lg-6">Total Return</span>
+            <span controlId="lblMoreTotalReturn" control="purchaseEditBill.labelValue" class="col-xs-12 col-lg-6" style="overflow:hidden;"> </span>
+        </div>
+        <div class="col-xs-12" style="margin:5px;">
+            <span class="label col-xs-12 col-lg-6">Total Purchase Payment</span>
+            <span controlId="lblMoreTotalPurchasePayment" control="purchaseEditBill.labelValue" class="col-xs-12 col-lg-6" style="overflow:hidden;"> </span>
+        </div>
+        <div class="col-xs-12" style="margin:5px;">
+            <span class="label col-xs-12 col-lg-6">Total Return Payment</span>
+            <span controlId="lblMoreTotalReturnPayment" control="purchaseEditBill.labelValue" class="col-xs-12 col-lg-6" style="overflow:hidden;"> </span>
+        </div>
+        <div class="col-xs-12" style="margin:5px;">
+            <span class="label col-xs-12 col-lg-6">Pending Payment</span>
+            <span controlId="lblMorePendingPayment" control="purchaseEditBill.labelValue" class="col-xs-12 col-lg-6" style="overflow:hidden;"> </span>
+        </div>
+        <div class="col-xs-12" style="margin:5px;">
+            <span class="label col-xs-12 col-lg-6">Pending Settlement</span>
+            <span controlId="lblMorePendingSettlement" control="purchaseEditBill.labelValue" class="col-xs-12 col-lg-6" style="overflow:hidden;"> </span>
+        </div>
+    </div>
+
+    <div id="dialog-form" style="display:none">
+        <form>
+            <label for="name">Enter Manual Discount</label>
+            <input type="text" name="manualDiscount" id="manualDiscount" class="text ui-widget-content ui-corner-all" />
+        </form>
+    </div>
+    <div class="basic-info" style="display:none" controlId="pnlNewVariation" control="purchaseEditBill.popup">
+        <div class="col-xs-12">
+            <input style="float:right" type="button" event="click:btnAddVariation_click" control="purchaseEditBill.primaryReadButton" controlid="btnAddVariation" value="Add">
+            <!--<input type="button" value="Add" control="purchaseOrder.secondaryButton" controlid="btnReturnPOItem" event="click:btnReturnPOItem_click">-->
+        </div>
+        <div class="col-xs-12 col-lg-6 " control="purchaseEditBill.htmlControl" controlId="pnlVariation">
+            <span class="label  col-xs-12 col-lg-5">New Variation</span>
+            <input class="col-xs-12 col-lg-7" type="text" controlid="txtNewVariation" control="purchaseEditBill.textBox">
+        </div>
+        <div class="col-xs-12 col-lg-6 ">
+            <span class="label  col-xs-12 col-lg-5">Cost</span>
+            <input class="col-xs-12 col-lg-7" type="text" controlid="txtAddInventCost" control="purchaseEditBill.textBox">
+            <!--<select class="col-xs-12 col-lg-7" control="purchaseEditBill.dropDownList" controlid="ddlAddInventCost"></select>-->
+        </div>
+        <div class="col-xs-12 col-lg-6 ">
+            <span class="label  col-xs-12 col-lg-5">Supplier</span>
+            <select class="col-xs-12 col-lg-7" control="purchaseEditBill.dropDownList" controlid="ddlAddInventVendor"></select>
+        </div>
+        <div class="col-xs-12 col-lg-6 " control="purchaseEditBill.htmlControl" controlId="pnlMrp">
+
+            <span class="label  col-xs-12 col-lg-5">MRP</span>
+            <input class="col-xs-12 col-lg-7" type="text" controlid="txtAddMrp" control="purchaseEditBill.textBox">
+        </div>
+        <div class="col-xs-12 col-lg-6 " control="purchaseEditBill.htmlControl" controlId="pnlBatchNo">
+
+            <span class="label  col-xs-12 col-lg-5">Batch No</span>
+            <input class="col-xs-12 col-lg-7" type="text" controlid="txtAddBatchNo" control="purchaseEditBill.textBox">
+        </div>
+        <div class="col-xs-12 col-lg-6 " control="purchaseEditBill.htmlControl" controlId="pnlManDate">
+            <span class="label  col-xs-12 col-lg-5">Manufacture Date</span>
+            <input type="text" class="col-xs-12 col-lg-7" controlid="dsAddManDate" control="purchaseEditBill.dateSelector">
+        </div>
+        <div class="col-xs-12 col-lg-6 " control="purchaseEditBill.htmlControl" controlId="pnlExpiryDate">
+            <span class="label  col-xs-12 col-lg-5">Expiry Date</span>
+            <input type="text" class="col-xs-12 col-lg-7" controlid="dsAddExpiryDate" control="purchaseEditBill.dateSelector">
+        </div>
+    </div>
+
+
+    <div controlId="pnlItemEdit" control="purchaseEditBill.popup" style="display:none">
+        <div class="col-xs-12 col-lg-12 " style="margin:5px;">
+            <input value="Save" controlId="btnSaveItem" control="purchaseEditBill.primaryReadButton" event="click:btnSaveItem_click" style="float:right;" />
+        </div>
+        <div class="col-xs-12 col-lg-12 " style="margin:5px;">
+            <span class="label  col-xs-12 col-lg-5">Item No</span>
+            <span class="label-value col-xs-12 col-lg-7" controlId="lblItemNo" control="purchaseEditBill.labelValue">I0003</span>
+        </div>
+        <div class="col-xs-12 col-lg-12 " style="margin:5px;" control="purchaseEditBill.htmlControl" controlId="pnlEditItemCode">
+            <span class="label  col-xs-12 col-lg-5">Item Code</span>
+            <input class="label-value col-xs-12 col-lg-7" type="text" controlid="txtItemCode" control="purchaseEditBill.textBox">
+        </div>
+        <div class="col-xs-12 col-lg-12 " style="margin:5px;">
+            <span class="label  col-xs-12 col-lg-5">Item Name</span>
+            <input class="label-value col-xs-12 col-lg-7" type="text" controlid="txtItemName" control="purchaseEditBill.textBox">
+        </div>
+        <!--<div class="col-xs-12 col-lg-12 " style="margin:5px;">
+            <span class="label  col-xs-12 col-lg-5">Packing</span>
+            <input class="col-xs-12 col-lg-7" type="text" class="label-value" controlid="txtPacking" control="purchaseEditBill.textBox">
+        </div>-->
+        <div class="col-xs-12 col-lg-12 " style="margin:5px;">
+            <span class="label  col-xs-12 col-lg-5">Quantity Type</span>
+            <select class="col-xs-12 col-lg-7" control="purchaseEditBill.dropDownList" controlid="qty_type">
+                <option>Integer</option>
+                <option>Decimal</option>
+            </select>
+        </div>
+        <!--<div class="col-xs-12 col-lg-12 " style="margin:5px;">
+            <span class="label  col-xs-12 col-lg-5">Key Word</span>
+            <textarea rows="2" cols="50" class="col-xs-12 col-lg-7" control="purchaseEditBill.textBox" controlId="txtKeyWord"></textarea>
+        </div>-->
+        <div class="col-xs-12 col-lg-12 " style="margin:5px;">
+            <span class="label  col-xs-12 col-lg-5">Unit</span>
+            <select class="col-xs-12 col-lg-7" control="purchaseEditBill.dropDownList" controlid="itemUnit">
+                <option>No unit</option>
+                <option>KGs</option>
+                <option>gm</option>
+                <option>Lt</option>
+                <option>ml</option>
+                <option>M</option>
+                <option>Mm</option>
+                <option>Pcs</option>
+                <option>No</option>
+                <option>Tray</option>
+                <option>Box</option>
+                <option>Pack</option>
+                <option>Period</option>
+                <option>Others</option>
+            </select>
+        </div>
+        <div class="col-xs-12 col-lg-12 " style="margin:5px;" control="purchaseEditBill.htmlControl" controlId="pnlEditBarCode">
+            <span class="label  col-xs-12 col-lg-5"><input value="G" class="col-xs-12 col-lg-5" control="purchaseEditBill.primaryWriteButton" controlId="btnGenBarCode" event="click:btnGenBarCode_click">Barcode</span>
+            <input type="text" class="col-xs-12 col-lg-7" controlid="txtBarcode" control="purchaseEditBill.textBox">
+            <span class="label  col-xs-12 col-lg-7">  </span>
+        </div>
+        <div class="col-xs-12 col-lg-12 " style="margin:5px;">
+            <span class="label  col-xs-12 col-lg-5">Tax Apply Mode</span>
+            <span class="label col-xs-12 col-lg-7" style="margin-top:-8px;"><input type="checkbox" tabindex="10" controlId="chkInclusive" control="purchaseEditBill.chkBox" name="tax_inclusive"><span class="label col-xs-11" style="float:right;">Tax Inclusive</span></span>
+        </div>
+    </div>
+
+    <div controlId="pnlNewItem" control="purchaseEditBill.popup" style="display:none" default-button="btnSaveNewItem_click">
+        <div default-button="btnSaveNewItem">
+            <div class="col-xs-12 col-lg-12 " style="margin:5px;">
+                <input value="Save" controlId="btnSaveNewItem" control="purchaseEditBill.primaryReadButton" event="click:btnSaveNewItem_click" style="float:right;" />
+            </div>
+            <div class="col-xs-12 col-lg-12 " style="margin:5px;">
+                <span class="label  col-xs-12 col-lg-5">Item Name<span style="color:red">*</span></span>
+                <input class="label-value col-xs-12 col-lg-7" type="text" controlid="txtNewItemName" control="purchaseEditBill.autoCompleteList">
+            </div>
+            <div class="col-xs-12 col-lg-12 " style="margin:5px;" control="purchaseEditBill.htmlControl" controlId="pnltemCode">
+                <span class="label  col-xs-12 col-lg-5">Item Code</span>
+                <input class="label-value col-xs-12 col-lg-7" type="text" controlid="txtNewItemCode" control="purchaseEditBill.textBox">
+            </div>
+            <div class="col-xs-12 col-lg-12 " style="margin:5px;">
+                <span class="label  col-xs-12 col-lg-5">Unit</span>
+                <select class="col-xs-12 col-lg-7" control="purchaseEditBill.dropDownList" controlid="itemNewUnit">
+                    <option>No unit</option>
+                    <option>KGs</option>
+                    <option>gm</option>
+                    <option>Lt</option>
+                    <option>ml</option>
+                    <option>M</option>
+                    <option>Mm</option>
+                    <option>Pcs</option>
+                    <option>No</option>
+                    <option>Tray</option>
+                    <option>Box</option>
+                    <option>Pack</option>
+                    <option>Period</option>
+                    <option>Others</option>
+                </select>
+            </div>
+            <div class="col-xs-12 col-lg-12 " style="margin:5px;" control="purchaseEditBill.htmlControl" controlId="pnlBarCode">
+                <span class="label  col-xs-12 col-lg-5"><!--<input value="G" class="col-xs-12 col-lg-5" control="purchaseEditBill.primaryWriteButton" controlId="btnNewGenBarCode" event="click:btnNewGenBarCode_click">-->Barcode</span>
+                <input type="text" class="col-xs-12 col-lg-7" controlid="txtNewBarcode" control="purchaseEditBill.textBox">
+                <span class="label  col-xs-12 col-lg-7">  </span>
+            </div>
+            <div class="col-xs-12 col-lg-12" style="margin:5px;">
+                <span class="label  col-xs-12 col-lg-5">Tax</span>
+                <select class="col-xs-12 col-lg-7" controlId="ddlNewTax" control="purchaseEditBill.dropDownList" id="ddlNewTax" />
+            </div>
+            <div class="col-xs-12 col-lg-12 " style="margin:5px;">
+                <span class="label  col-xs-12 col-lg-5">Tax Apply Mode</span>
+                <span class="label col-xs-12 col-lg-7" style="margin-top:-8px;"><input type="checkbox" tabindex="10" controlId="chkNewInclusive" control="purchaseEditBill.chkBox" name="tax_inclusive"><span class="label col-xs-11" style="float:right;margin-top:6px;">Tax Inclusive</span></span>
+            </div>
+        </div>
+    </div>
+    <!--Tax popup-->
+    <div controlId="pnlTaxPopup" control="purchaseEditBill.popup" style="display:none">
+        <div class="col-lg-12">
+            <span class="col-lg-3">Select Tax  </span>
+            <select class="col-lg-6" controlId="ddlSalesTax" control="purchaseEditBill.dropDownList" />
+            <!--
+            <input value="OK" controlId="btnTaxOK" control="purchaseEditBill.primaryReadButton" event="click:btnTaxOK_click" />
+            -->
+            <input style="float:right" value="Add Tax" controlId="btnTaxOK" control="purchaseEditBill.primaryReadButton" event="click:btnTaxOK_click" />
+            <!--<input class="col-lg-3" value="Remove" controlId="btnTaxRemove" control="purchaseEditBill.primaryReadButton" event="click:btnTaxRemove_click" />
+            <div class="col-lg-12" controlId="grdTax" control="purchaseEditBill.grid" style="margin-top:15px;"> </div>-->
+        </div>
+    </div>
+    <!--QR Scan Screen-->
+    <div controlId="pnlQrScan" control="purchaseEditBill.popup" style="display:none">
+        <video id="preview" controlId="preview" control="purchaseEditBill.htmlControl"></video>
+    </div>
+</div>

@@ -1,0 +1,454 @@
+﻿.formPanel {
+    margin-right: 0;
+    width: 100%;
+}
+
+.formPanel select {
+    border: medium none;
+    color: dimgray;
+    font-size: 14px;
+    height: 31px;
+    padding: 2px;
+    width: calc(100% - 126px);
+}
+
+.formPanel input {
+    border: medium none;
+    color: dimgray;
+    float: left;
+    font-size: 14px;
+    height: 27px;
+    margin: 0;
+    padding: 0 0 0 5px;
+    width: calc(100% - 131px);
+}
+
+.formPanel div {
+    border-bottom: 1px solid gray;
+    float: left;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+}
+
+.formPanel span.label-value {
+    display: inline-block;
+    font-size: 14px;
+    line-height: 25px;
+    padding-left: 5px;
+    width: calc(100% - 131px);
+}
+
+.formPanel span.label {
+    background-color: whitesmoke;
+    border-bottom: medium none;
+    border-right: 1px solid gray;
+    display: inline-block;
+    float: left;
+    line-height: 30px;
+    margin: 0;
+    padding: 0 0 0 5px;
+    width: 120px;
+}
+
+.formPanel>div:first-child {
+    background-color: lightgray;
+    display: inline-block;
+    font-size: 14px;
+    font-weight: bold;
+    line-height: 25px;
+}
+
+.table {
+    display: inline-block;
+}
+
+.table-row {
+    border-top: 1px solid gray;
+    display: inline-block;
+    width: 100%;
+}
+
+.table-row-head {
+    display: inline-block;
+    font-weight: bold;
+    width: 100%;
+}
+
+.table-col {
+    cursor: pointer;
+    display: inline-block;
+    padding: 6px;
+    width: 120px;
+}
+
+.btn {
+    background: #CCC;
+    color: #FFF;
+    display: inline-block;
+    border-radius: 4px;
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2);
+    font-family: Arial, sans-serif;
+    line-height: 2.5em;
+    padding: 0 3em;
+    text-decoration: none;
+}
+
+body {
+    font: .875em/1.618 Helvetica, Sans-serif;
+}
+
+#navigation {
+    background-color: #eee;
+}
+
+#navigation ul {
+    margin: 0;
+    padding: 0;
+}
+
+#navigation li {
+    border-right: 1px solid #ddd;
+    display: block;
+    float: left;
+    margin: 0;
+}
+
+#navigation li:last-child {
+    border-right-width: 0;
+}
+
+#navigation a {
+    background-color: #eee;
+    color: #333;
+    display: block;
+    padding: .75em 1.5em;
+    text-decoration: none;
+    transition: all .25s ease-in-out;
+    -moz-transition: all .25s ease-in-out;
+    -webkit-transition: all .25s ease-in-out;
+}
+
+#navigation a:hover {
+    background-color: #ddd;
+}
+
+.clearfix {
+    *zoom: 1;
+}
+
+.clearfix:after,
+.clearfix:before {
+    content: '';
+    display: table;
+}
+
+.clearfix:after {
+    clear: both;
+}
+
+body {
+    font-family: Verdana;
+    margin: 0;
+    color: #4f4f51;
+    font-size: 11px;
+}
+
+.panel-header {
+    background-color: black;
+    font-size: 9px;
+    height: 40px;
+    left: 0;
+    position: fixed;
+    top: 0;
+    width: 100%;
+}
+
+.panel-header .menu-shopon-icon {
+    background: black none repeat scroll 0 0;
+    cursor: pointer;
+    display: inline-block;
+    height: 30px;
+    margin-left: 5px;
+    margin-top: 5px;
+    width: 30px;
+}
+
+.current-academic>span {
+    width: 120px;
+    display: inline-block;
+}
+
+.current-academic>select {
+    width: 180px;
+}
+
+.content-panel {
+    margin-top: 40px;
+}
+
+.ui-widget input,
+.ui-widget select,
+.ui-widget textarea,
+.ui-widget button {
+    font-size: 11px;
+}
+
+.panel-header .menu-shopon-icon img {
+    height: 20px;
+    margin-left: 4px;
+    margin-top: 5px;
+}
+
+.menu-shopon {
+    background-color: rgb(51, 51, 51);
+    border-right: 1px solid gray;
+    height: 50%;
+    left: 0;
+    position: fixed;
+    top: 40px;
+    width: 40px;
+}
+
+.filter-panel {
+    background: rgb(247, 247, 247) none repeat scroll 0 0;
+    border: 1px solid rgb(204, 204, 204);
+    box-shadow: 0 1px 4px 0 rgba(153, 153, 153, 0.6);
+    display: block;
+    margin-top: 10px;
+    padding: 10px;
+}
+
+.filter-panel>div {
+    background-color: white;
+    border: 1px solid rgb(204, 204, 204);
+    display: inline-block;
+    padding: 10px;
+    width: calc(100% - 20px);
+}
+
+
+/*.filter-panel > div .buttonSearch  {
+display: inline-block;
+float: left;
+margin-right: 10px;
+}*/
+
+.filter-panel>div>span {
+    display: inline-block;
+    float: left;
+    margin-right: 10px;
+    margin-top: 6px;
+}
+
+.action-panel {
+    width: 100%;
+    display: inline-block;
+    margin-bottom: 10px;
+}
+
+.action-panel>hr {
+    display: inline-block;
+    float: left;
+    margin-right: 10px;
+    margin-top: 13px;
+    width: calc(100% - 85px);
+}
+
+.content-area {
+    display: inline-block;
+    margin: 50px 20px 20px;
+    width: calc(100% - 40px);
+}
+
+.sales-area {
+    width: 100%;
+}
+
+.drop-down {}
+
+.sales-cust-panel {
+    background-color: whitesmoke;
+    border: 1px solid gray;
+    box-shadow: 1px 1px 1px lightgray;
+    display: inline-block;
+    margin-bottom: 10px;
+    padding: 10px;
+    width: calc(100% - 20px);
+}
+
+.sales-cust-panel input[controlid=txtCustomerName] {
+    width: 25px;
+}
+
+.sales-cust-panel input[controlid=txtCustomerName] {
+    background-color: #fbfbfb;
+    border: 1px solid lightgray;
+    color: dimgray;
+    line-height: 25px;
+    padding: 2px 6px;
+    width: 150px;
+}
+
+.sales-cust-panel>div {
+    float: left;
+    display: inline-block;
+    margin-right: 20px;
+    width: 300px;
+    height: 30px;
+}
+
+.sales-cust-panel span {
+    font-size: 12px;
+    color: dimgray;
+}
+
+.sales-cust-panel .label {
+    font-size: 12px;
+    font-weight: 500;
+}
+
+.sales-item-search {
+    display: inline-block;
+    margin-bottom: 10px;
+    width: 100%;
+}
+
+.sales-item-search input:first-of-type {
+    background-color: #fbfbfb;
+    border: 1px solid lightgray;
+    height: 20px;
+    margin-left: 10px;
+    padding: 4px 8px;
+    width: 250px;
+}
+
+.sales-item-search input:last-of-type {
+    margin-left: 10px;
+}
+
+.sales-item-search span {
+    font-weight: bold;
+}
+
+.sales-summary-panel {
+    background-color: whitesmoke;
+    border: 1px solid gray;
+    box-shadow: 1px 1px 1px lightgray;
+    float: right;
+    height: 100%;
+    left: 70%;
+    padding: 20px;
+    text-align: center;
+    width: 25%;
+}
+
+.sales-summary-panel div {
+    border-bottom: 1px solid gray;
+    display: inline-block;
+    padding: 10px 5px;
+    width: 250px;
+}
+
+.sales-summary-panel .label {
+    display: inline-block;
+    font-size: 16px;
+    font-weight: bold;
+    text-align: right;
+    width: 120px;
+}
+
+.sales-summary-panel .label-value {
+    color: gray;
+    display: inline-block;
+    font-size: 16px;
+    font-weight: bold;
+    margin-left: 20px;
+    text-align: left;
+    width: 100px;
+}
+
+.sales-summary-panel>div:last-of-type>.label {
+    color: black;
+    font-size: 22px;
+    vertical-align: inherit;
+}
+
+.sales-summary-panel>div:last-of-type>.label-value {
+    color: black;
+    font-size: 22px;
+}
+
+.sales-summary-panel .buttonSearch {
+    font-size: 20px;
+    font-weight: bold;
+    padding: 10px;
+}
+
+.sales-item-panel {
+    background-color: whitesmoke;
+    border: 1px solid gray;
+    box-shadow: 1px 1px 1px lightgray;
+    float: left;
+    font-size: 12px;
+    height: 400px;
+    padding: 10px;
+    width: calc( 70% - 40px);
+}
+
+.label {
+    font-size: 11px;
+    line-height: 20px;
+    vertical-align: middle;
+    font-weight: 500;
+}
+
+.label-value {
+    font-size: 11px;
+    line-height: 20px;
+    vertical-align: middle;
+    font-weight: normal;
+}
+
+.buttonSecondary {
+    background: transparent none repeat scroll 0 0;
+    border: medium none;
+    cursor: pointer;
+    display: inline-block;
+    font-family: verdana;
+    font-size: 12px;
+    font-weight: normal;
+    padding: 7px 10px;
+    text-align: center;
+}
+
+.buttonSecondary:hover {
+    text-decoration: underline
+}
+
+.buttonSearch {
+    background-color: gray;
+    border: medium none;
+    border-radius: 5px;
+    box-shadow: 2px 2px 2px lightgray;
+    color: white;
+    display: inline-block;
+    font-family: verdana;
+    font-size: 12px;
+    font-weight: normal;
+    padding: 4px 10px;
+    text-align: center;
+    cursor: pointer;
+}
+
+.ui-dialog .ui-dialog-title {
+    font-size: 12px;
+}
+
+.main-setting-menu{
+    margin-left: 70px; 
+    height: 30px
+}
+.main-setting-menu input{
+    margin:10px;
+}

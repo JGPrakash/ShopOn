@@ -1,0 +1,77 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+
+
+/* 
+    Created on : Sep 23, 2016, 11:59:42 AM
+    Author     : admin
+*/
+
+.search-panel {
+    /*width: 350px;*/
+}
+
+.detail-basic input[type=checkbox] {
+    min-height: 10px;
+    height: 19px;
+}
+
+/*input[controlid="txtSearchInput"] {
+    width: 100px;
+}*/
+
+.search-action>hr {
+}
+
+.detail-panel {
+    display: inline-block;
+    /*width: calc(100% - 410px);*/
+}
+
+
+.detail-info {
+margin-top:10px;
+}
+.basic-panel>div>span {
+    display: inline-block;
+    width: 33%;
+}
+
+.basic-panel {
+    width: 300px;
+}
+
+.basic-panel>div {
+    margin-bottom: 10px;
+}
+
+.basic-panel>div>input {
+    margin-bottom: 5px;
+    display: inline-block;
+    width: 63%;
+}
+
+[controlid="ddlTax"] {
+    width: 150px;
+}
+
+.detail-action>hr {
+    width: 580px;
+}
+
+.taxclass-panel {
+    margin-top: 10px;
+}
+/*.taxclass-panel>div>div>input[value="Add"]{
+    margin-right:5%;
+}*/
+
+.taxright-panel {
+}
+
+[controlid="grdTaxResult"] {
+    margin-top: 10px;
+}

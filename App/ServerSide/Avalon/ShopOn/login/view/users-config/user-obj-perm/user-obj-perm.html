@@ -1,0 +1,34 @@
+﻿<!doctype html>
+<html>
+<head>
+    <base href="/ShopOn/">
+    <script src="core/master.js" type="text/javascript"></script>
+
+    <link href="view/user/users-config/user-obj-perm/user-obj-perm.css" rel="stylesheet" />
+    <script src="view/user/users-config/user-obj-perm/user-obj-perm.js"></script>
+    <script src="service/w3data/w3data.js"></script>
+
+
+    <link href="view/pages/simple-entity-manage/simple-entity-manage.css" rel="stylesheet" />
+    <script src="view/pages/simple-entity-manage/simple-entity-manage.js"></script>
+
+
+
+</head>
+<div w3-include-html="view/user/users-config/users-config.html"></div>
+
+<body control="page.userObjPermPage" controlId="userObjPermPage">
+<script>
+    w3IncludeHTML();
+</script>
+    <!--Master Page-->
+    <div control="userObjPermPage.masterPage" controlId="masterPage"></div>
+
+    <div class="content-panel" style="margin-top: 60px; margin-left: 20px; margin-right: 20px;">
+        <span><b>User Object and Permission Configuration</b></span>
+        <div control="userObjPermPage.simpleEntityManage" controlId="ucSimpleEntityManage"></div>
+    </div>
+
+
+</body>
+</html>

@@ -1,0 +1,62 @@
+﻿<!doctype html>
+<html>
+
+<head>
+
+    <script src="/config/config.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        document.write('<script src="/' + appConfig.root + '/core/master.js" type="text/javascript" > <\/script> ');
+
+        document.write('<script src="/' + appConfig.root + '/shopon/service/doctor/doctor-service.js"><\/script>');
+
+        document.write('<link href="/' + appConfig.root + '/shopon/view/billTransfer/billTransfer.css" rel="stylesheet" />');
+        document.write('<script src="/' + appConfig.root + '/shopon/view/billTransfer/billTransfer.js"><\/script>');
+        document.write('<script src="/' + appConfig.root + '/shopon/service/purchase/purchase-bill-service.js"><\/script>');
+        document.write('<script src="/' + appConfig.root + '/shopon/service/stock-api.js"><\/script>');
+        document.write('<script src="/' + appConfig.root + '/finfacts/service/account/finfacts-entry-service.js"><\/script>');
+        document.write('<script src="/' + appConfig.root + '/shopon/service/sales/bill-service.js"><\/script>');
+    </script>
+
+
+</head>
+
+
+<body control="page.billTransfer" controlId="billTransfer">
+
+    <div control="billTransfer.masterPage" controlId="masterPage"></div>
+    <div control="billTransfer.messagePanel" controlid="msgPanel" class="message-panel" style="display:none"></div>
+        <div style="margin-top:40px">
+            <!--Load Content Area-->
+            <div class="container-fluid">
+                <div class="content-area row">
+                    <div control="billTransfer.messagePanel" controlid="msgPanel" class="message-panel" style="display:none"></div>
+                    
+                    <div class="detail-panel  col-sm-12">
+
+                        <div class="detail-action">
+                            <input value="Upload Purchase Bill" tabindex="16" control="billTransfer.primaryWriteButton" controlid="btnUploadPurchaseBill" event="click:btnUploadPurchaseBill_click">
+                            <input value="Upload Sales Bill" tabindex="17" control="billTransfer.primaryWriteButton" controlid="btnUploadSalesBill" event="click:btnUploadSalesBill_click">
+                        </div>
+                        <div class="detail-info">
+
+                            <div class="basic-info row">
+                                <span class="label col-xs-12" style="margin-bottom: 5px"><b>How To Upload Bill</b></span>
+                                <span class="col-xs-12">Step 1: Run ShopOnRestAPI In Your Localhost Machine To Point Source Database</span>
+                                <span class="col-xs-12">Step 2: Run Another One ShopOnRestAPI To Point Your Destination Database By Using Netbeans(This Project I Will Use It)</span>
+                                <span class="col-xs-12">Step 3: Call Local ShopOnRestApi To Get The Bill Details</span>
+                                <span class="col-xs-12">Step 4: Modify The Data Corresponding To The Destination Datbase Value</span>
+                                <span class="col-xs-12">Step 5: Call The Destination ShopOnRestAPI To Update The Bill</span>
+                            </div>
+                        </div>
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <br />
+        <br />
+
+</body>
+
+</html>

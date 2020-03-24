@@ -1,0 +1,395 @@
+<!doctype html>
+<html>
+
+<head>
+
+    <script src="/config/config.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        document.write('<script src="/' + appConfig.root + '/core/master.js" type="text/javascript" > <\/script> ');
+        document.write('<script src="/' + appConfig.root + '/shopon/service/sales/city-api.js"><\/script>');
+        document.write('<script src="/' + appConfig.root + '/shopon/service/sales/citystate-api.js"><\/script>');
+        document.write('<script src="/' + appConfig.root + '/shopon/service/sales/customer-api.js"><\/script>');
+        document.write('<script src="/' + appConfig.root + '/shopon/service/sales/customer-reward-api.js"><\/script>');
+        document.write('<script src="/' + appConfig.root + '/shopon/service/Reward/rewardplan-api.js"><\/script>');
+        document.write('<script src="/' + appConfig.root + '/shopon/service/sales/customer-service.js"><\/script>');
+        document.write('<script src="/' + appConfig.root + '/finfacts/service/account/accounting-service.js"><\/script>');
+        document.write('<link href="/' + appConfig.root + '/shopon/view/customer/customer.css" rel="stylesheet" />');
+        document.write('<script src="/' + appConfig.root + '/shopon/view/customer/customer.js"><\/script>');
+        document.write('<script src="/' + appConfig.root + '/shopon/service/product/item-api.js"><\/script>');
+        document.write('<script src="/' + appConfig.root + '/shopon/view/customer/customer-subscription/subscription.js"><\/script>');
+        document.write('<script src="/' + appConfig.root + '/shopon/service/product/item-api.js"><\/script>');
+        document.write('<script src="/' + appConfig.root + '/shopon/service/subscription-api.js"><\/script>');
+        document.write('<script src="/' + appConfig.root + '/shopon/service/subscription-plan-api.js"><\/script>');
+
+        document.write('<script src="/' + appConfig.root + '/shopon/service/stock-api.js"><\/script>');
+        document.write('<script src="/' + appConfig.root + '/shopon/service/sales/bill-api.js"><\/script>');
+        document.write('<script src="/' + appConfig.root + '/shopon/service/report/report-api.js"><\/script>');
+        document.write('<script src="/' + appConfig.root + '/login/service/user-api.js"><\/script>');
+        document.write('<script src="/' + appConfig.root + '/cloud/service/user-group-api.js"><\/script>');
+        document.write('<script src="/' + appConfig.root + '/shopon/service/stock-api.js"><\/script>');
+        document.write('<script src="/' + appConfig.root + '/shopon/service/report/dynareport-service.js"><\/script>');
+        //Tamil Font
+        document.write('<script src="/' + appConfig.root + '/core/tamil-common.js" type="text/javascript" > <\/script> ');
+        document.write('<script src="/' + appConfig.root + '/core/tamil.js" type="text/javascript" > <\/script> ');
+
+    </script>
+
+
+</head>
+
+
+<body control="page.manageCustomer" controlId="manageCustomer">
+
+    <div control="manageCustomer.masterPage" controlId="masterPage"></div>
+
+    <div style="margin-top:40px;">
+
+        <!--Load Content Area-->
+        <div class="container-fluid">
+            <div class="content-area row">
+                <div control="manageCustomer.messagePanel" controlid="msgPanel" class="message-panel" style="display:none"></div>
+                <div class="search-panel col-sm-4" default-button="btnSearch">
+
+                    <div class="search-action">
+                        <hr>
+                        <input type="button" tabindex="34" value="Search" rlabel="Search" control="manageCustomer.primaryReadButton" controlId="btnSearch" event="click:btnSearch_click" class="" role="button">
+
+                    </div>
+
+                    <div class="search-filter">
+                        <div>
+                            <!--<span>Customer</span>-->
+                            <input type="text" tabindex="32" controlId="txtCustomerSearch" rlabel="Enter Name, Customer no, Mobile no" placeholder="Enter Name, Customer no, Mobile no" control="manageCustomer.textBox">
+                        </div>
+
+
+                    </div>
+                    <div class="search-result" style="overflow-x:auto;overflow-y:hidden">
+                        <div control="manageCustomer.grid" controlid="grdCustomer"></div>
+                    </div>
+                    <div class="col-sm-12 padding-left-zero">
+                        <span class="label" rlabel="F1 - New"> F1 - New </span>
+                        <span class="label" rlabel="F2 - Save"> F2 - Save </span>
+                        <span class="label" rlabel="Ctrl + R - Remove"> Ctrl + R - Remove </span>
+                        <span class="label" rlabel="Ctrl + P - Print"> Ctrl + P - Print </span>
+                    </div>
+                </div>
+                <div class="detail-panel  col-sm-8">
+
+                    <div class="detail-action">
+                        <input value="New" rlabel="New" tabindex="29" control="manageCustomer.primaryWriteButton" controlid="btnNewCustomer" event="click:btnNewCustomer_click">
+                        <input value="Save" rlabel="Save" tabindex="28" control="manageCustomer.primaryWriteButton" controlid="btnSave" event="click:btnSave_click">
+                        <input value="Remove" rlabel="Remove" tabindex="30" control="manageCustomer.secondaryButton" controlid="btnRemove" event="click:btnBeforeDelete_click">
+                        <span style="padding-right: 10px; font-size: 20px;float:left" id="cremove"> |</span>
+                        <input type="button" tabindex="31" value="Print" rlabel="Print" control="manageCustomer.secondaryButton" controlid="btnPrintCustomerReport" event="click:btnPrintCustomerReport_click">
+                        <input type="button" tabindex="32" value="Report" rlabel="Report" control="manageCustomer.secondaryButton" controlid="btnReportCustomerReport" event="click:btnReportCustomerReport_click">
+                        <span style="padding-right: 10px; margin-top: 5px;float:left" id="cprint"> |</span>
+                        <input type="button" tabindex="33" value="Reward Transaction" rlabel="Reward Transaction" control="manageCustomer.secondaryButton" controlid="btnRewardTransaction" event="click:btnRewardTransaction_click">
+                        <span style="padding-right: 10px;  margin-top: 5px;float:left" id="credeem"> |</span>
+                        <input type="button" tabindex="34" value="Redeem Reward" rlabel="Redeem Reward" control="manageCustomer.secondaryButton" controlid="btnRedeemReward" event="click:btnRedeemReward_click">
+                        <span style="padding-right: 10px; margin-top: 5px;float:left" id="subscription"> |</span>
+                        <input type="button" tabindex="35" value="Subscription" rlabel="Subscription" control="manageCustomer.secondaryButton" controlid="btnSubscription" event="click:btnSubscription_click">
+                        <span style="padding-right: 10px;  margin-top: 5px;float:left" id="subscriptionReport"> |</span>
+                        <input type="button" tabindex="35" value="Subscription Report" rlabel="Subscription Report" control="manageCustomer.secondaryButton" controlid="btnSubscriptionReport" event="click:btnSubscriptionReport_click">
+                        <span style="padding-right: 10px;  margin-top: 5px;float:left" id="customerbill"> |</span>
+                        <input type="button" tabindex="35" value="Bill History" rlabel="Bill History" control="manageCustomer.secondaryButton" controlid="btnBillHistory" event="click:btnBillHistory_click">
+                        <span style="padding-right: 10px;  margin-top: 5px;float:left" id="customerautobill"> |</span>
+                        <input type="button" tabindex="35" value="Auto Bill" rlabel="Auto Bill" control="manageCustomer.secondaryButton" controlid="btnAutoBill" event="click:btnAutoBill_click">
+                        <span style="padding-right: 10px;  margin-top: 5px;float:left" id="customerbillprint"> |</span>
+                        <input type="button" tabindex="35" value="Bill Print" rlabel="Bill Print" control="manageCustomer.secondaryButton" controlid="btnBillPrint" event="click:btnBillPrint_click">
+                    </div>
+                    <div class="detail-info">
+                        <div class="basic-info row" style="height:600px;overflow-y:scroll;">
+                            <span class="label col-xs-12 header-style-1" style="margin-bottom: 5px" rlabel="Customer Details"><b>Personal Details</b></span>
+
+                            <div class="col-xs-12 col-lg-6 padding-left-zero">
+                                <span class="label  col-xs-12 col-lg-5" rlabel="First Name">First Name<span style="color:red;">*</span></span>
+                                <input type="hidden" controlId="hdnCustNo" control="manageCustomer.htmlControl" />
+                                <input class="col-xs-12 col-lg-7" rlabel="First Name" tabindex="1" controlId="txtFirstName" control="manageCustomer.textBox" />
+                            </div>
+                            <div class="col-xs-12 col-lg-6 padding-left-zero">
+                                <span class="label  col-xs-12 col-lg-5" rlabel="Last Name">Last Name</span>
+                                <input class="col-xs-12 col-lg-7" rlabel="Last Name" tabindex="2" controlId="txtLastName" control="manageCustomer.textBox" />
+                            </div>
+                            <div class="col-xs-12 col-lg-6 padding-left-zero">
+                                <span class="label  col-xs-12 col-lg-5" rlabel="Company">Company</span>
+                                <input class="col-xs-12 col-lg-7" rlabel="Company" tabindex="3" controlId="txtCompany" control="manageCustomer.textBox" />
+                            </div>
+                            <div class="col-xs-12 col-lg-6 padding-left-zero">
+                                <span class="label  col-xs-12 col-lg-5" rlabel="Date Of Birth">Date Of Birth</span>
+                                <input class="col-xs-12 col-lg-7" rlabel="Date Of Birth" tabindex="4" controlId="txtDOB" control="manageCustomer.dateSelector" />
+                            </div>
+                            <div class="col-xs-12 col-lg-6 padding-left-zero">
+                                <span class="label  col-xs-12 col-lg-5" rlabel="Mobile no">Mobile No</span>
+                                <input class="col-xs-12 col-lg-7" rlabel="Mobile no" tabindex="5" max="10" controlId="txtPhone" maxlength="10" control="manageCustomer.textBox" />
+                            </div>
+                            <div class="col-xs-12 col-lg-6 padding-left-zero">
+                                <span class="label  col-xs-12 col-lg-5" rlabel="Alternate Mobile No">Alternate Mobile No</span>
+                                <input class="col-xs-12 col-lg-7" rlabel="Alternate mobile" tabindex="6" max="10" controlId="txtAltMobile" maxlength="10" control="manageCustomer.textBox" />
+                            </div>
+                            <div class="col-xs-12 col-lg-6 padding-left-zero">
+                                <span class="label  col-xs-12 col-lg-5" rlabel="Landline no">Landline no</span>
+                                <input class="col-xs-12 col-lg-7" rlabel="Landline no" tabindex="7" controlId="txtLandline" maxlength="15" control="manageCustomer.textBox" />
+                            </div>
+                            <div class="col-xs-12 col-lg-6 padding-left-zero">
+                                <span class="label  col-xs-12 col-lg-5" rlabel="Email">Email</span>
+                                <input class="col-xs-12 col-lg-7" rlabel="Email" tabindex="8" controlId="txtEmail" control="manageCustomer.uniqueTextBox" />
+                            </div>
+
+                            <div class="col-xs-12 col-lg-6 padding-left-zero" controlId="pnlCommunication" control="manageCustomer.htmlControl">
+                                <span class="label col-xs-12 col-lg-5" rlabel="Mode Of Communication">Mode Of Communication</span>
+                                <span class="col-lg-3"><input type="checkbox" tabindex="9" controlId="chkMobile" control="manageCustomer.chkBox" name="mobile_comm"><span id="lblMobile" class="label" style="margin-top:-22px;margin-left:5px;" rlabel="Mobile">Mobile</span></span>
+                                <span class="col-lg-3"><input type="checkbox" tabindex="10" controlId="chkEmail" control="manageCustomer.chkBox" name="email_comm"><span id="lblEmail" class="label" style="margin-top:-22px;margin-left:5px;" rlabel="Email">Email</span></span>
+                            </div>
+                            <div class="col-xs-12 col-lg-6 padding-left-zero">
+                                <span class="label col-xs-12 col-lg-5" rlabel="Customer">Customer</span>
+                                <span class="col-xs-12 col-lg-4"><input type="checkbox" tabindex="11" controlId="chkActive" control="manageCustomer.chkBox" name="cus_active"><span class="label" style="margin-top:-22px;margin-left:5px;" rlabel="Active">Active</span></span>
+                            </div>
+                            <div class="col-xs-12 col-lg-6 padding-left-zero" control="manageCustomer.htmlControl" controlid="pnlRewardPlans">
+                                <span class="label col-xs-12 col-lg-5" rlabel="Reward Plans">Reward Plans</span>
+                                <select class="col-xs-12 col-lg-7" tabindex="12" control="manageCustomer.dropDownList" controlid="ddlmyrewardplans"></select>
+                            </div>
+                            <p class="col-xs-12 col-lg-12"></p>
+                            <div class="col-xs-12 col-lg-6 padding-left-zero" control="manageCustomer.htmlControl" controlid="pnlRewardPoints">
+                                <span class="label col-xs-12 col-lg-5" rlabel="Points">Points</span>
+                                <span class="label-value col-xs-12 col-lg-7" controlId="lblrewardpoint" control="manageCustomer.labelValue"></span>
+                            </div>
+                            <div class="col-xs-12 col-lg-6 padding-left-zero" control="manageCustomer.htmlControl" controlid="pnlVehicle">
+                                <span class="label col-xs-12 col-lg-5" rlabel="Vehicle No">Vehicle No</span>
+                                <input class="col-xs-12 col-lg-7" rlabel="Vehicle No" tabindex="13" controlId="txtVehicleNo" control="manageCustomer.textBox" />
+                            </div>
+                            <div class="col-xs-12 col-lg-6 padding-left-zero" control="manageCustomer.htmlControl" controlid="pnlType">
+                                <span class="label col-xs-12 col-lg-5" rlabel="Business Type">Business Type</span>
+                                <select class="col-xs-12 col-lg-7" tabindex="14" controlId="ddlBusinessType" control="manageCustomer.dropDownList">
+                                    <option>Individual</option>
+                                    <option>Firm</option>
+                                    <option>Company</option>
+                                    <option>Other</option>
+                                </select>
+                                <input class="col-xs-12 col-lg-7" style="margin-left:190px;margin-top:15px;" rlabel="Other Type" controlId="txtOtherType" control="manageCustomer.textBox" />
+                            </div>
+                         <!--   <div class="col-xs-12 col-lg-6" control="manageCustomer.htmlControl" controlid="pnlOtherType">-->
+                            <!--    <input class="col-xs-12 col-lg-7" rlabel="Other Type" controlId="txtOtherType" control="manageCustomer.textBox" />
+                             </div>-->
+                            <span class="label col-xs-12 header-style-1" style="margin-bottom: 5px" rlabel="Address"><b>Address</b></span>
+
+                            <div class="col-xs-12 col-lg-6 padding-left-zero">
+                                <span class="label  col-xs-12 col-lg-5" rlabel="Address Line">Address Line</span>
+                                <input class="col-xs-12 col-lg-7" rlabel="Address Line" tabindex="14" controlId="txtAddressLine2" control="manageCustomer.textBox" />
+                            </div>
+                            <div class="col-xs-12 col-lg-6 padding-left-zero">
+                                <span class="label  col-xs-12 col-lg-5" rlabel="Street">Street</span>
+                                <input class="col-xs-12 col-lg-7" rlabel="Street" tabindex="15" controlId="txtStreet" control="manageCustomer.textBox" />
+                            </div>
+                            <div class="col-xs-12 col-lg-6 padding-left-zero">
+                                <span class="label  col-xs-12 col-lg-5" rlabel="Pincode">Pincode</span>
+                                <input class="col-xs-12 col-lg-7" rlabel="Pincode" tabindex="16" controlId="txtPincode" control="manageCustomer.autoCompleteList" />
+                            </div>
+                            <div class="col-xs-12 col-lg-6 padding-left-zero">
+                                <span class="label  col-xs-12 col-lg-5" rlabel="City">City</span>
+                                <input class="col-xs-12 col-lg-7" rlabel="City" tabindex="17" controlId="txtCity" control="manageCustomer.autoCompleteList" spellcheck="true" />
+                            </div>
+
+                            <div class="col-xs-12 col-lg-6 padding-left-zero">
+                                <span class="label  col-xs-12 col-lg-5" rlabel="State">State</span>
+                                <input class="col-xs-12 col-lg-7" rlabel="State" tabindex="18" controlId="txtState" control="manageCustomer.autoCompleteList" />
+                            </div>
+                            
+                            <div class="col-xs-12 col-lg-6 padding-left-zero">
+                                <span class="label  col-xs-12 col-lg-5" rlabel="Area">Area</span>
+                                <input class="col-xs-12 col-lg-7" rlabel="Area" tabindex="19" controlId="txtArea" control="manageCustomer.textBox" />
+                            </div>
+                            <div controlId="pnlBankDetails" control="manageCustomer.htmlControl">
+                                <span class="label col-xs-12 header-style-1" style="margin-bottom: 5px" rlabel="Bank Details"><b>Bank Details</b></span>
+
+                                <div class="col-xs-12 col-lg-6 padding-left-zero">
+                                    <span class="label  col-xs-12 col-lg-5" rlabel="Bank Name">Bank Name</span>
+                                    <input class="col-xs-12 col-lg-7" rlabel="Bank Name" tabindex="20" controlId="txtBankName" control="manageCustomer.textBox" />
+                                </div>
+                                <div class="col-xs-12 col-lg-6 padding-left-zero">
+                                    <span class="label  col-xs-12 col-lg-5" rlabel="Account Number">Account Number</span>
+                                    <input class="col-xs-12 col-lg-7" rlabel="Account Number" tabindex="21" controlId="txtAcntNo" maxlength="20" control="manageCustomer.textBox" />
+                                </div>
+                                <div class="col-xs-12 col-lg-6 padding-left-zero">
+                                    <span class="label  col-xs-12 col-lg-5" rlabel="IFSC Code">IFSC Code</span>
+                                    <input class="col-xs-12 col-lg-7" rlabel="IFSC Code" tabindex="22" id="txtifsccode" controlId="txtifsccode" control="manageCustomer.textBox" />
+                                </div>
+
+                                <div class="col-xs-12 col-lg-6 padding-left-zero">
+                                    <span class="label  col-xs-12 col-lg-5" rlabel="GST No">GST No</span>
+                                    <input class="col-xs-12 col-lg-7" rlabel="GST No" tabindex="23" controlId="txtgstno" control="manageCustomer.textBox" />
+                                </div>
+                                <div class="col-xs-12 col-lg-6 padding-left-zero">
+                                    <span class="label  col-xs-12 col-lg-5" rlabel="D.LNo">D.LNo</span>
+                                    <input class="col-xs-12 col-lg-7" rlabel="D.LNo" tabindex="24" controlId="txtlicenseno" control="manageCustomer.textBox" />
+                                </div>
+                                <div class="col-xs-12 col-lg-6 padding-left-zero">
+                                    <span class="label  col-xs-12 col-lg-5" rlabel="PAN No">PAN No</span>
+                                    <input class="col-xs-12 col-lg-7" rlabel="PAN No" tabindex="25" controlId="txtPanNo" control="manageCustomer.textBox" />
+                                </div>
+                                <div class="col-xs-12 col-lg-6 padding-left-zero">
+                                    <span class="label  col-xs-12 col-lg-5" rlabel="Aadhaar No">Aadhaar No</span>
+                                    <input class="col-xs-12 col-lg-7" rlabel="Aadhaar No" tabindex="26" controlId="txtAadhaarNo" control="manageCustomer.textBox" />
+                                </div>
+                                <div class="col-xs-12 col-lg-6 padding-left-zero">
+                                    <span class="label  col-xs-12 col-lg-5" rlabel="TIN No">TIN No</span>
+                                    <input class="col-xs-12 col-lg-7" rlabel="TIN No" tabindex="27" controlId="txtTinNo" control="manageCustomer.textBox" />
+                                </div>
+                            </div>
+                            
+                            <div controlId="pnlMoreAction" control="manageCustomer.htmlControl">
+                                <span class="label col-xs-12" style="margin-bottom: 5px" rlabel="More Action"><b>More Actions</b></span>
+                                <div class="col-xs-12 col-lg-6 padding-left-zero">
+                                    <span class="label  col-xs-12 col-lg-5" rlabel="User Id">User Id</span>
+                                    <span class="col-xs-12 col-lg-7" rlabel="User Id" controlId="lblUserId" control="manageCustomer.htmlControl"></span>
+                                </div>
+                                <div class="col-xs-12 col-lg-6 padding-left-zero">
+                                    <span class="label  col-xs-12 col-lg-5" rlabel="User Name">User Name</span>
+                                    <input class="col-xs-12 col-lg-7" rlabel="User Name" tabindex="28" controlId="txtUserName" control="manageCustomer.textBox" />
+                                </div>
+                                <div class="col-xs-12 col-lg-6 padding-left-zero">
+                                    <span class="label  col-xs-12 col-lg-5" rlabel="Password">Password</span>
+                                    <input class="col-xs-12 col-lg-7" rlabel="Password" tabindex="29" controlId="txtPassword" control="manageCustomer.textBox" />
+                                </div>
+                                <div class="col-xs-12 col-lg-6 padding-left-zero">
+                                    <input value="Create" rlabel="Create" tabindex="30" control="manageCustomer.secondaryButton" controlid="btnSaveUser" event="click:btnSaveUser_click">
+                                </div>
+                            </div>
+                        </div>
+                        <div control="manageCustomer.popup" controlid="pnlPointTransaction" style="display:none">
+                            <input type="button" rlabel="Report" value="Report" style="float:right" control="manageCustomer.primaryWriteButton" controlid="btnRewardTransactionReport" event="click:btnbtnRewardTransactionReport_click">
+                            <div control="manageCustomer.grid" controlid="grdPointTransaction" style="margin-top:10px;"></div>
+                        </div>
+                        <div controlId="pnlRewardTransactionPrintingPopup" control="manageCustomer.popup" style="display:none">
+                            <div class="row col-sm-12">
+                                &nbsp;
+                            </div>
+                            <div class="row col-sm-12">
+                                <span class="label col-sm-4" rlabel="Export Type">Export Type</span>
+                                <select style="margin-left:15px;" class="col-sm-4" control="manageCustomer.dropDownList" controlid="ddlRewardTransactionExportType">
+                                    <!--<option>PDF</option>
+                                    <option>EXCEL</option>
+                                    <option>WORD</option>
+                                    <option>PPT</option>
+                                    <option>CSV</option>
+                                    <option>HTML</option>-->
+                                </select>
+                                <input class="col-xs-12 col-lg-2" style="float:right;" value="Go" rlabel="Go" controlId="btnPrintRewardTransaction" control="manageCustomer.primaryWriteButton" event="click:btnPrintRewardTransaction_click" />
+                            </div>
+                        </div>
+                        <div control="manageCustomer.popup" controlid="pnlRedeemReward" style="display:none">
+                            <div class="col-xs-12">
+                                <input type="button" value="Save" rlabel="Save" style="float:right" control="manageCustomer.primaryWriteButton" controlid="btnSavePoints" event="click:btnSavePoints_click">
+                            </div>
+                            <div class="col-xs-12" style="padding:0px;">
+                                <div class="col-xs-6" style="padding-top:20px;">
+                                    <span class="label col-xs-12" rlabel="TotalRewardPoints">Total Reward Points</span><br><br>
+                                    <span class="label col-xs-12" rlabel="Set Points Amount">Set Points Amount</span><br><br>
+                                    <span class="label col-xs-12" rlabel="Points to Redeem">Points to Redeem</span><br><br>
+                                    <span class="label col-xs-12" rlabel="Description">Description</span><br><br>
+                                    <span class="label col-xs-12" rlabel="Amount">Amount</span>
+                                </div>
+                                <div class="col-xs-6" style="padding-top:20px;">
+                                    <span class="label-value col-xs-12" controlId="lbltotalpoints" control="manageCustomer.labelValue"></span><br><br>
+                                    <input class="col-xs-12" rlabel="Set Points Amount" controlId="txtpointamount" control="manageCustomer.textBox" /><br><br>
+                                    <input class="col-xs-12" rlabel="Points to Redeem" controlId="txtpointstoredeem" control="manageCustomer.textBox" /><br><br>
+                                    <input class="col-xs-12" rlabel="Description" controlId="txtDescription" control="manageCustomer.textBox" /><br><br>
+                                    <span class="label-value col-xs-12" controlId="lblamount" control="manageCustomer.labelValue"></span><br><br>
+                                </div>
+
+                            </div><br><br>
+                            <div class="col-xs-12">
+                                <br>
+                                <span class="label label-value" rlabel="Note: 4 Points = 1Rupee"><b>Note: 4 Points = 1Rupee</b></span>
+                            </div>
+                        </div>
+
+                        <div controlId="pnlPrintingPopup" control="manageCustomer.popup" style="display:none">
+                            <div class="row col-sm-12">
+                                &nbsp;
+                            </div>
+                            <div class="row col-sm-12">
+                                <span class="label col-sm-4" rlabel="Export Type">Export Type</span>
+                                <select style="margin-left:15px;" class="col-sm-4" control="manageCustomer.dropDownList" controlid="ddlExportType">
+                                    <!--<option>PDF</option>
+                                    <option>EXCEL</option>
+                                    <option>WORD</option>
+                                    <option>PPT</option>
+                                    <option>CSV</option>
+                                    <option>HTML</option>-->
+                                </select>
+                                <input class="col-xs-12 col-lg-2" style="float:right;" value="Go" rlabel="Go" controlId="btnPrintJasperBill" control="manageCustomer.primaryWriteButton" event="click:btnPrintJasperBill_click" />
+                            </div>
+                        </div>
+                        <div control="manageCustomer.popup" controlid="pnlSubscriptionReport" style="display:none">
+                            <div class="col-sm-4">
+                                <span class="label col-sm-4" rlabel="Start Date">Start Date</span>
+                                <input class="col-sm-8" type="text" control="manageCustomer.dateSelector" controlid="txtStartDate" />
+                            </div>
+                            <div class="col-sm-4">
+                                <span class="label col-sm-4" rlabel="End Date">End Date</span>
+                                <input class="col-sm-8" type="text" control="manageCustomer.dateSelector" controlid="txtEndDate" />
+                            </div>
+                            <div class="col-sm-4">
+                                <span class="label col-sm-4" rlabel="Customer">Customer</span>
+                                <select class="col-sm-8" control="manageCustomer.dropDownList" controlid="ddlCustomer"></select>
+                            </div>
+                            <div class="col-sm-2" style="margin-top:5px;float:right;">
+                                <input value="Search" rlabel="Search" control="manageCustomer.primaryWriteButton" controlid="btnGenerate" event="click:btnGenerate_click" class="col-sm-12" />
+                            </div>
+                            <div style="margin-top:5px;" control="manageCustomer.grid" controlid="grdSubscriptionReport"></div>
+                        </div>
+
+                        <div control="manageCustomer.popup" controlid="pnlBillHistory" style="display:none">
+                            <div style="width:100%; overflow-x:auto; overflow-y:hidden;margin-top:10px">
+                                <div control="manageCustomer.grid" controlid="grdBillHistory"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div control="manageCustomer.popup" controlid="pnlSubscription" style="display:none">
+                        <div control="manageCustomer.subscriptionCust" controlid="ucCustomerSubscription"> </div>
+                    </div>
+                    <div controlId="pnlPrintingCustomerBillPopup" control="manageCustomer.popup" style="display:none">
+                        <div class="col-xs-12 col-lg-6 ">
+                            <span class="label  col-xs-12 col-lg-5" rlabel="Start Date">Start Date<span style="color:red;">*</span></span>
+                            <input class="col-xs-12 col-lg-7" tabindex="36" controlId="dsBillStartDate" control="manageCustomer.dateSelector" />
+                        </div>
+                        <div class="col-xs-12 col-lg-6">
+                            <span class="label  col-xs-12 col-lg-5" rlabel="End Date">End Date</span>
+                            <input class="col-xs-12 col-lg-7" tabindex="36" controlId="dsBillEndDate" control="manageCustomer.dateSelector" />
+                        </div>
+                        <div class="col-xs-12 col-lg-6" style="margin-top:10px;">
+                            <span class="label  col-xs-12 col-lg-5" rlabel="Customer Name">Customer<span style="color:red;">*</span></span>
+                            <select class="col-xs-12 col-lg-7" controlId="ddlBillCustomerName" control="manageCustomer.dropDownList"></select>
+                        </div>
+                        <div class="col-xs-12 col-lg-6" style="margin-top:10px;">
+                            <input type="button" value="Search" rlabel="Search" control="manageCustomer.secondaryButton" controlid="btnBillSearch" event="click:btnBillSearch_click">
+                            <input type="button" value="Print" rlabel="Print" control="manageCustomer.primaryReadButton" controlid="btnCustomerBillPrint" event="click:btnbtnCustomerBillPrint_click" style="float:right;">
+                        </div>
+                        <div class="col-xs-12" style="margin-top:10px;">
+                            <div control="manageCustomer.grid" controlid="grdCustomerBill"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div controlId="pnlRemoveConfirmPopup" control="manageCustomer.popup" style="display:none">
+            <div class="row col-sm-12">
+                <input style="float:right;" value="Cancel" controlId="btnRemoveConfirmPopupClose" control="manageCustomer.primaryReadButton" event="click:btnRemoveConfirmPopupClose_click" />
+                <input style="float:right;padding-right:10px;" value="Ok" controlId="btnRemoveAlertPopupSave" control="manageCustomer.secondaryButton" event="click:btnRemove_click" />
+            </div>
+            <span class="col-xs-12">&nbsp;</span>
+            <div class="row col-sm-12">
+                <img src="../../../ui/ui/images/alert.png" width="100%" class="col-xs-3" style="margin-top: -13px;" />
+                <span class="label-value col-xs-9" style="background:transparent;border:none;">If You Delete This Customer It Can Be Affected On Bill</span>
+            </div>
+        </div>
+
+    </div>
+    <br />
+    <br />
+
+</body>
+
+</html>

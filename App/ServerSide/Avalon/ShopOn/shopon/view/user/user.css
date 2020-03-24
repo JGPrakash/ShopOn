@@ -1,0 +1,80 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : Sep 23, 2016, 11:59:42 AM
+    Author     : admin
+*/
+#idTotCashCollected,#idTotSettle{
+    background-color:transparent;
+    /*font-weight:bold;*/
+    font-size:12px;
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    padding:10px;
+    text-align: left;
+    color: #898989;
+}
+#idTotSettlement{
+    background-color:transparent;
+    /*font-weight:bold;*/
+    font-size:12px;
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    padding:2px;
+    text-align: left;
+    color: #898989;
+}
+.search-panel {
+    /*width: 350px;*/
+}
+.detail-basic input[type=checkbox] {
+    min-height: 10px;
+    height: 19px;
+}
+.search-action>hr {
+}
+.detail-panel {
+    display: inline-block;
+    /*width: calc(100% - 410px);*/
+}
+.detail-info {
+margin-top:10px;
+}
+.margintop {
+    margin-top: 10px;
+}
+.basic-panel>div>span {
+    display: inline-block;
+    width: 33%;
+}
+.basic-panel {
+    width: 300px;
+}
+.basic-panel>div {
+    margin-bottom: 10px;
+}
+.basic-panel>div>input {
+    margin-bottom: 5px;
+    display: inline-block;
+    width: 63%;
+}
+[controlid="ddlTax"] {
+    width: 150px;
+}
+.detail-action>hr {
+    width: 580px;
+}
+.vehicleclass-panel {
+    margin-top: 10px;
+}
+.userclass-panel>div>div>input[value="Add"]{
+    margin-right:5%;
+}
+[controlid="grdDriverVehicle"] {
+    margin-top: 10px;
+}
+[controlId=grdMixedTrans] .grid_edit input {
+    background-color: #fffdd5;
+    border: medium none;
+}

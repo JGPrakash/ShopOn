@@ -1,0 +1,684 @@
+﻿[controlid=pnlDetailsTitle]{
+    /*background: #f4f5f7;*/
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+[controlid=pnlDetailsTitle] > span{
+    font-size:18px;
+}
+.title-active{
+    font-size:20px;
+    font-weight:bold;
+    color:#3c4a65;
+}
+.title-direction{
+    padding-left:10px;
+    padding-right:10px;
+}
+[controlid=pnlDetailsHeading]{
+    background: #f4f5f7;
+    padding-bottom:10px;
+}
+[controlid=pnlDetailsHeading] > span{
+    font-size:34px;
+    font-weight:bold;
+    color:#3c4a65;
+    border-bottom:5px solid #3c4a65;
+}
+
+[controlid=pnlDetailsCategory]{
+    border-right:1px solid #00000042;
+    border-bottom:1px solid #00000042;
+        padding-top: 10px;
+    padding-bottom: 20px;
+}
+[controlid=pnlDetailsCategory] > h4{
+    font-size: 24px;
+    font-weight: bold;
+    line-height: 24px;
+    letter-spacing: 1px;
+}
+[controlid=pnlDetailsCategory] > h5{
+    font-size: 18px;
+    font-weight: bold;
+    line-height: 18px;
+    letter-spacing: 1px;
+}
+[controlid=pnlDetailsCategory] > span{
+    font-size:18px;
+        line-height: 42px;
+        letter-spacing: 1px;
+}
+[controlid=pnlDetailsCategory] > input{
+    width:35%;
+}
+[controlid=pnlDetailsCategory] > button{
+    background: #eeeeee;
+    border: none;
+    font-size: 22px;
+}
+/*[controlid=pnlDetailsItems]{
+    border-left:1px solid #00000042;
+}*/
+[controlid=pnlDetailsItems] > div{
+        padding: 10px 10px 10px 10px;
+    border-bottom: 1px solid #ded6d6;
+    border-top: 1px solid #ded6d6;
+}
+[controlid=pnlDetailsItems] > div > span{
+    font-size: 22px;
+    letter-spacing: 1px;
+}
+.sort-panel{
+    text-align:right;
+}
+.manufacture-details{
+    border:1px solid #00000042;
+    padding-top:15px;
+    padding-bottom:10px;
+}
+.collection-heading{
+    padding-top:20px;
+    padding-bottom:20px;
+}
+.manufacture-details > img{
+    height:200px;
+}
+.manufacture-details > h3{
+    text-align:center;
+}
+
+.checkbox-container {
+  display: block;
+  position: relative;
+  padding-left: 35px;
+  margin-bottom: 12px;
+  cursor: pointer;
+  font-size: 16px;
+  padding-left:50px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+/* Hide the browser's default checkbox */
+.checkbox-container input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+/* Create a custom checkbox */
+.checkmark {
+  position: absolute;
+    top: 0px;
+    left: 18px;
+    border-radius: 5px;
+    height: 25px;
+    width: 25px;
+  background-color: #eee;
+}
+
+/* On mouse-over, add a grey background color */
+.checkbox-container:hover input ~ .checkmark {
+  background-color: #ccc;
+}
+
+/* When the checkbox is checked, add a blue background */
+.checkbox-container input:checked ~ .checkmark {
+  background-color: #33425a;
+}
+
+/* Create the checkmark/indicator (hidden when not checked) */
+.checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+/* Show the checkmark when checked */
+.checkbox-container input:checked ~ .checkmark:after {
+  display: block;
+}
+
+/* Style the checkmark/indicator */
+.checkbox-container .checkmark:after {
+  left: 9px;
+  top: 5px;
+  width: 5px;
+  height: 10px;
+  border: solid white;
+  border-width: 0 3px 3px 0;
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+
+.mobilecheckbox-container {
+  display: block;
+  position: relative;
+  padding-left: 35px;
+  margin-bottom: 12px;
+  cursor: pointer;
+  font-size: 18px;
+  padding-left:50px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+/* Hide the browser's default checkbox */
+.mobilecheckbox-container input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+/* Create a custom checkbox */
+.checkmark {
+  position: absolute;
+    top: 0px;
+    left: 18px;
+    border-radius: 5px;
+    height: 20px;
+    width: 20px;
+  background-color: #eee;
+}
+
+/* On mouse-over, add a grey background color */
+.mobilecheckbox-container:hover input ~ .checkmark {
+  background-color: #ccc;
+}
+
+/* When the checkbox is checked, add a blue background */
+.mobilecheckbox-container input:checked ~ .checkmark {
+  background-color: #33425a;
+}
+
+/* Show the checkmark when checked */
+.mobilecheckbox-container input:checked ~ .checkmark:after {
+  display: block;
+}
+
+/* Style the checkmark/indicator */
+.mobilecheckbox-container .checkmark:after {
+  left: 9px;
+  top: 5px;
+  width: 5px;
+  height: 10px;
+  border: solid white;
+  border-width: 0 3px 3px 0;
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+
+.pricebox-container {
+  display: block;
+  position: relative;
+  padding-left: 35px;
+  margin-bottom: 12px;
+  cursor: pointer;
+  font-size: 16px;
+  padding-left:50px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  padding-top:10px;
+}
+
+/* Hide the browser's default checkbox */
+.pricebox-container input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+/* Create a custom checkbox */
+.pricemark {
+  position: absolute;
+    top: 10px;
+    left: 18px;
+    border-radius: 5px;
+    height: 20px;
+    width: 20px;
+  background-color: #eee;
+}
+
+/* On mouse-over, add a grey background color */
+.pricebox-container:hover input ~ .pricemark {
+  background-color: #ccc;
+}
+
+/* When the checkbox is checked, add a blue background */
+.pricebox-container input:checked ~ .pricemark {
+  background-color: #33425a;
+}
+
+/* Create the pricemark/indicator (hidden when not checked) */
+.pricemark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+/* Show the pricemark when checked */
+.pricebox-container input:checked ~ .pricemark:after {
+  display: block;
+}
+
+/* Style the pricemark/indicator */
+.pricebox-container .pricemark:after {
+  left: 9px;
+  top: 5px;
+  width: 5px;
+  height: 10px;
+  border: solid white;
+  border-width: 0 3px 3px 0;
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+.mobilepricebox-container {
+  display: block;
+  position: relative;
+  padding-left: 35px;
+  margin-bottom: 12px;
+  cursor: pointer;
+  font-size: 18px;
+  padding-left:50px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  padding-top:10px;
+}
+
+/* Hide the browser's default checkbox */
+.mobilepricebox-container input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+/* On mouse-over, add a grey background color */
+.mobilepricebox-container:hover input ~ .pricemark {
+  background-color: #ccc;
+}
+
+/* When the checkbox is checked, add a blue background */
+.mobilepricebox-container input:checked ~ .pricemark {
+  background-color: #33425a;
+}
+
+/* Create the pricemark/indicator (hidden when not checked) */
+.pricemark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+/* Show the pricemark when checked */
+.mobilepricebox-container input:checked ~ .pricemark:after {
+  display: block;
+}
+
+/* Style the pricemark/indicator */
+.mobilepricebox-container .pricemark:after {
+  left: 9px;
+  top: 5px;
+  width: 5px;
+  height: 10px;
+  border: solid white;
+  border-width: 0 3px 3px 0;
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+
+div[controlId=grdItemResult] .grid_data  {
+    background-color: white;
+    }
+div[controlId=grdItemResult]  {
+        /*padding-top: 20px;*/
+    padding-bottom: 20px;
+    background: transparent;
+    border: none;
+}
+div[controlId=grdItemResult] .grid_data  {
+    overflow-y: auto;
+    }
+div[controlId=grdItemResult] .grid_header{
+   background: transparent;
+   border:none;
+}
+div[controlId=grdItemResult] .grid_data > div{
+    /*width:25%;*/
+    background:white !important;
+    /*height: 400px;*/
+    overflow: hidden;
+        padding-bottom: 10px;
+    border-bottom: 2px solid #eeeeee;
+}
+
+.item-name{
+    font-size: 18px;
+    letter-spacing: 1px;
+    white-space: pre-wrap !important;
+        word-break: break-word !important;
+}
+.sku-name{
+    line-height:30px;
+    float: right;
+    white-space: pre-wrap !important;
+        word-break: break-word !important;
+}
+.model-name{
+    line-height:30px;
+    white-space: pre-wrap !important;
+        word-break: break-word !important;
+}
+.man-name{
+        font-size: 18px;
+    line-height: 30px;
+    letter-spacing:1px;
+    white-space: pre-wrap !important;
+        word-break: break-word !important;
+}
+.store-info{
+    font-size:16px;
+    line-height:16px;
+    letter-spacing:1px;
+    white-space: pre-wrap;
+    word-break: break-word;
+}
+.stock-info{
+    font-size:18px;
+    line-height:30px;
+    letter-spacing:1px;
+    white-space: pre-wrap !important;
+        word-break: break-word !important;
+}
+.cart-button{
+    background: #ff7600;
+    border: none;
+    border-radius: 10px;
+    font-size: 16px;
+    padding: 10px;
+    letter-spacing: 1px;
+    color: white;
+}
+#prdDetail{
+    padding-top:20px;
+}
+[controlid=pnlFilterSpace]{
+    height:50px;
+    display:none;
+}
+[controlid=pnlMobileFilter]{
+    padding:0px;
+    position:fixed;
+    bottom:0px;
+    display:none;
+}
+.filter-button{
+    background: #809288;
+    border: none;
+    border-radius: 0px;
+    font-size: 18px;
+    padding: 5px;
+    letter-spacing: 1px;
+    color: white;
+}
+.sort-button{
+    background: #33425a;
+    border: none;
+    border-radius: 0px;
+    font-size: 18px;
+    padding: 5px;
+    letter-spacing: 1px;
+    color: white;
+}
+
+.filter-container {
+  display: block;
+  position: relative;
+  padding-left: 35px;
+  margin-bottom: 12px;
+  cursor: pointer;
+  font-size: 18px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+/* Hide the browser's default radio button */
+.filter-container input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+}
+
+/* Create a custom radio button */
+.radiomark {
+  position: absolute;
+  top: 2px;
+  left: 0;
+  height: 25px;
+  width: 25px;
+  background-color: #eee;
+  border-radius: 50%;
+}
+
+/* On mouse-over, add a grey background color */
+.filter-container:hover input ~ .radiomark {
+  background-color: #ccc;
+}
+
+/* When the radio button is checked, add a blue background */
+.filter-container input:checked ~ .radiomark {
+  background-color: #33425a;
+}
+
+/* Create the indicator (the dot/circle - hidden when not checked) */
+.radiomark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+/* Show the indicator (dot/circle) when checked */
+.filter-container input:checked ~ .radiomark:after {
+  display: block;
+}
+
+/* Style the indicator (dot/circle) */
+.filter-container .radiomark:after {
+ 	top: 9px;
+	left: 9px;
+	width: 8px;
+	height: 8px;
+	border-radius: 50%;
+	background: white;
+}
+[controlid=lblSortHeading]{
+    font-size:20px;
+}
+[controlid=btnCancelMobileSort], [controlid=btnCancelMobileFilter]{
+    background: #809288;
+    border: none;
+    border-radius: 0px;
+    font-size: 18px;
+    padding: 5px;
+    letter-spacing: 1px;
+    color: white;
+}
+[controlid=btnApplyMobileSort], [controlid=btnApplyMobileFilter]{
+    background: #33425a;
+    border: none;
+    border-radius: 0px;
+    font-size: 18px;
+    padding: 5px;
+    letter-spacing: 1px;
+    color: white;
+}
+
+
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 650px) {
+    [controlid=pnlDetailsCategory], .sort-panel{
+        display:none;
+    }
+    .item-name{
+        font-size: 22px !important;
+        letter-spacing: 1px !important;
+    }
+    .sku-name{
+        line-height: 24px !important;
+        font-size: 16px;
+        float: right !important;
+    }
+    .model-name{
+        line-height: 24px !important;
+        font-size: 16px;
+    }
+    .man-name{
+        font-size: 18px !important;
+        line-height: 20px !important;
+        letter-spacing:1px !important;
+    }
+    .store-info{
+        font-size:18px !important;
+        line-height:20px !important;
+        letter-spacing:1px !important;
+        white-space: pre-wrap !important;
+        word-break: break-word !important;
+    }
+    .stock-info{
+        font-size:18px !important;
+        line-height:20px !important;
+        letter-spacing:1px !important;
+    }
+    .price{
+        font-size:22px !important;
+        margin-top:0px !important;
+        line-height:1 !important;
+    }
+    .cart-button {
+        background: #ff7600;
+        border: none;
+        border-radius: 5px;
+        font-size: 18px;
+        padding: 5px;
+        letter-spacing: 1px;
+        color: white;
+    }
+    #prdDetail{
+        padding-top:10px !important;
+    }
+    [controlid=pnlDetailsItems] > div{
+        padding:5px;
+    }
+    [controlid=pnlDetailsItems] > div > span{
+        font-size: 20px;
+        letter-spacing: 1px;
+    }
+    [controlid=pnlMobileFilter]{
+        display:block;
+    }
+}
+
+/* Small devices (portrait and landscape tablets) */
+@media only screen 
+  and (min-device-width: 650px) 
+  and (max-device-width: 1020px) 
+  and (-webkit-min-device-pixel-ratio: 1) {
+    [controlid=pnlDetailsCategory], .sort-panel{
+        display:none;
+    }
+    .item-name{
+        font-size: 22px !important;
+        letter-spacing: 1px !important;
+    }
+    .sku-name{
+        line-height: 24px !important;
+        font-size: 16px;
+        float: right !important;
+    }
+    .model-name{
+        line-height: 24px !important;
+        font-size: 16px;
+    }
+    .man-name{
+        font-size: 18px !important;
+        line-height: 20px !important;
+        letter-spacing:1px !important;
+    }
+    .store-info{
+        font-size:18px !important;
+        line-height:20px !important;
+        letter-spacing:1px !important;
+        white-space: pre-wrap !important;
+        word-break: break-word !important;
+    }
+    .stock-info{
+        font-size:18px !important;
+        line-height:20px !important;
+        letter-spacing:1px !important;
+    }
+    .price{
+        font-size:22px !important;
+        margin-top:0px !important;
+        line-height:1 !important;
+    }
+    .cart-button {
+        background: #ff7600;
+        border: none;
+        border-radius: 5px;
+        font-size: 18px;
+        padding: 5px;
+        letter-spacing: 1px;
+        color: white;
+    }
+    #prdDetail{
+        padding-top:10px !important;
+    }
+    [controlid=pnlDetailsItems] > div{
+        padding:5px;
+    }
+    [controlid=pnlDetailsItems] > div > span{
+        font-size: 20px;
+        letter-spacing: 1px;
+    }
+    [controlid=pnlMobileFilter]{
+        display:block;
+    }
+}
+
+/* Medium devices (landscape tablets, 768px and up) */
+/*@media only screen and (min-width: 768px) {
+   .home-carosal{
+        height:200px !important;
+    }
+}*/
+
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 992px) {
+
+}
+
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+@media only screen and (min-width: 1200px) {
+
+}

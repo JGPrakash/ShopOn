@@ -1,0 +1,147 @@
+﻿[controlid=pnlAddressTitle] > span{
+        font-size: 28px;
+    line-height: 35px;
+    letter-spacing: 1px;
+}
+[controlid=pnlAddressTitle] > button{
+    background: #ff7600;
+    border: none;
+    border-radius: 0px;
+    font-size: 18px;
+    padding: 5px;
+    letter-spacing: 1px;
+    color: white;
+    text-align: center;
+    padding-left:10px;
+    padding-right:10px;
+    float:right;
+}
+[controlid=pnlAddressTitle] > button > i {
+    padding-right:5px;
+}
+[controlid=pnlNewAddress] > div > span{
+    font-size: 18px;
+    line-height: 30px;
+    letter-spacing: 1px;
+    padding-left: 0px;
+}
+[controlid=pnlNewAddress] > div > input, [controlid=pnlNewAddress] > div > select{
+    height:30px;
+    font-size: 18px;
+    line-height: 30px;
+    letter-spacing: 1px;
+    margin-bottom:10px;
+}
+[controlid=pnlNewAddress] > div > button{
+        float: right;
+    background: #ff7600;
+    border: none;
+    border-radius: 0px;
+    font-size: 20px;
+    padding: 5px;
+    letter-spacing: 1px;
+    color: white;
+    text-align: center;
+}
+[controlid=lblAlertContent]{
+    font-size:18px;
+    letter-spacing:1px;
+    line-height:30px;
+}
+.cart-button{
+    background: #ff7600;
+    border: none;
+    border-radius: 5px;
+    font-size: 24px;
+    padding: 10px;
+    letter-spacing: 1px;
+    color: white;
+    text-align:center;
+    float:right;
+}
+h4{
+    /*font-size: 30px;
+    line-height: 22px;*/
+    letter-spacing: 1px;
+}
+[controlid=lblDeliveryAddress],[controlid=lblNoDeliveryAddress]{
+    height:35px;
+    font-size: 18px;
+    line-height: 30px;
+    letter-spacing: 1px;
+    margin-bottom:10px;
+}
+.address-panel > span{
+    font-size:22px;
+    letter-spacing:1px;
+}
+
+div[controlId=grdAddress] .grid_data  {
+    background-color: white;
+    }
+div[controlId=grdAddress]  {
+        /*padding-top: 20px;*/
+    padding-bottom: 20px;
+    background: transparent;
+    /*border: none;*/
+}
+div[controlId=grdAddress] .grid_data  {
+    overflow-y: auto;
+    }
+div[controlId=grdAddress] .grid_header{
+   background: transparent;
+   border:none;
+   display:none;
+}
+div[controlId=grdAddress] .grid_data > div{
+    /*width:25%;*/
+    background:white !important;
+    /*height: 400px;*/
+    overflow: hidden;
+}
+
+[controlid=pnlConfirmation] > div > span{
+        font-size: 18px;
+    line-height: 30px;
+    letter-spacing: 1px;
+}
+[controlid=pnlConfirmation] > div > button{
+    background: #ff7600;
+    border: none;
+    border-radius: 0px;
+    font-size: 20px;
+    padding: 5px;
+    letter-spacing: 1px;
+    color: white;
+    text-align: center;
+    padding-left:10px;
+    padding-right:10px;
+    margin-left:10px;
+}
+[controlid=pnlConfirmation] > div > button > i {
+    padding-right:5px;
+}
+
+
+@media only screen and (max-width: 650px) {
+    [controlid=pnlAddressTitle] > span{
+        font-size: 24px;
+    }
+    [controlid=pnlAddressTitle] > button{
+        font-size: 16px;
+    }
+    .address-panel > span{
+        font-size: 16px;
+    }
+}
+@media only screen and (min-device-width: 650px) and (max-device-width: 1000px) and (-webkit-min-device-pixel-ratio: 1) {
+    [controlid=pnlAddressTitle] > span{
+        font-size: 24px;
+    }
+    [controlid=pnlAddressTitle] > button{
+        font-size: 16px;
+    }
+    .address-panel > span{
+        font-size: 16px;
+    }
+}

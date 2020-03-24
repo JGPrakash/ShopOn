@@ -1,0 +1,95 @@
+﻿<!doctype html>
+<html>
+<head>
+
+    <script src="/config/config.js" type="text/javascript"></script>
+    <!--<script src="https://www.amcharts.com/lib/3/amcharts.js" type="text/javascript"></script>
+    <script src="https://www.amcharts.com/lib/3/serial.js" type="text/javascript"></script>-->
+    <script type="text/javascript">
+        document.write('<script src="/' + appConfig.root + '/core/master.js" type="text/javascript" > <\/script> ');
+
+        document.write('<script src="/' + appConfig.root + '/shopon/service/sales/customer-service.js"><\/script>');
+        document.write('<script src="/' + appConfig.root + '/shopon/service/product/item-service.js"><\/script>');
+        document.write('<script src="/' + appConfig.root + '/shopon/service/sales/bill-service.js"><\/script>');
+        document.write('<link href="/' + appConfig.root + '/finfacts/view/dashboard-page/dashboard-page.css" rel="stylesheet" />');
+        document.write('<script src="/' + appConfig.root + '/finfacts/view/dashboard-page/dashboard-page.js"><\/script>');
+        document.write('<script src="/' + appConfig.root + '/shopon/service/sales/sales-service.js"><\/script>');
+        document.write('<script src="/' + appConfig.root + '/shopon/service/purchase/purchase-service.js"><\/script>');
+        document.write('<script src="/' + appConfig.root + '/shopon/service/product/item-service.js"><\/script>');
+        document.write('<script src="/' + appConfig.root + '/finfacts/service/finfacts-service.js"><\/script>');
+        document.write('<script src="/' + appConfig.root + '/finfacts/service/accaccount-service.js"><\/script>');
+        document.write('<script src="/' + appConfig.root + '/finfacts/service/dashboard-service.js"><\/script>');
+        document.write('<script src="/' + appConfig.root + '/finfacts/service/revenue-service.js"><\/script>');
+
+        document.write('<script src="/' + appConfig.root + '/finfacts/view/chart/chart-bundle.js"><\/script>');
+        document.write('<script src="/' + appConfig.root + '/finfacts/view/chart/utils.js"><\/script>');
+    </script>
+    <style>
+        canvas {
+            -moz-user-select: none;
+            -webkit-user-select: none;
+            -ms-user-select: none;
+        }
+    </style>
+
+</head>
+<body control="page.dashBoardPage" controlId="dashBoardPage">
+    <!-- Master Page-->
+    <div control="dashBoardPage.masterPage" controlId="masterPage"></div>
+        <div class="content-area">
+            <!--<div class="col-xs-offset-0 col-sm-offset-0 col-md-1 col-lg-1" style="margin-left:100px;"></div>-->
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                <!--<div class="col-lg-12 col-xs-12 col-sm-12 col-md-12">-->
+                    <div class="detail-basic col-xs-12 col-sm-12 col-md-4 col-lg-4" style="height:400px; margin-top:10px;">
+                        <div>
+                            <div class="title"><span>Your Account Details</span></div>
+                            <div control="dashBoardPage.grid" controlid="grdAccountDetails" style="padding:10px;"></div>
+                        </div>
+                        <div>
+                            <span class="label">Balance : </span>
+                            <span class="label-value" control="dashBoardPage.label" controlid="lblBalance"></span>
+                        </div>
+                    </div>
+
+                    <div class="detail-basic col-xs-12 col-sm-12 col-md-4 col-lg-4" style="height:400px; margin-top:10px">
+                        <div>
+                            <div class="title"><span>Your 7 days Income</span></div>
+                            <div control="dashBoardPage.grid" controlid="grdIncomeDetails" style="margin-top:10px;"></div>
+                        </div>
+                        <div>
+                            <span class="label">Total : </span>
+                            <span class="label-value" control="dashBoardPage.label" controlid="lblIncome"></span>
+                        </div>
+                    </div>
+                    <div class="detail-basic col-xs-12 col-sm-12 col-md-4 col-lg-4" style="height:400px; margin-top:10px">
+                        <div>
+                            <div class="title"><span>Your 7 days Expense</span></div>
+                            <div control="dashBoardPage.grid" controlid="grdOutcomeDetails" style="margin-top:10px;"></div>
+                        </div>
+                        <div>
+                            <span class="label">Total : </span>
+                            <span class="label-value" control="dashBoardPage.label" controlid="lblOutcome"></span>
+                        </div>
+                    </div>
+                    
+                <!--</div>-->
+            </div>
+            <!--<div class="col-xs-offset-0 col-sm-offset-0 col-md-1 col-lg-1" style="margin-left:100px;"></div>-->
+            <!--<div class="graph-head col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                <span class="col-xs-12 col-sm-12 col-md-8 col-lg-8" style="float:inherit;">Graphical Representation</span>
+            </div>-->
+            <div class="graph-head col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                <span class="col-xs-12 col-sm-12 col-md-8 col-lg-8">Graphical Representation</span>
+            </div>
+            <div id="container" style="width: 75%;">
+                <canvas id="canvas"></canvas>
+            </div>
+            <button id="randomizeData">Randomize Data</button>
+            <button id="addDataset">Add Dataset</button>
+            <button id="removeDataset">Remove Dataset</button>
+            <button id="addData">Add Data</button>
+            <button id="removeData">Remove Data</button>
+
+        </div>
+</body>
+</html>

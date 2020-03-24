@@ -1,0 +1,185 @@
+[controlid=salesEntryPage] {
+    margin: 10px;
+}
+
+[controlid=salesEntryPage] .content-area {
+    margin-top: 20px;
+}
+
+[controlid=salesEntryPage] .label {
+    font-size: 20px;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+[controlid=salesEntryPage] .label-value {
+    font-size: 20px;
+    border: none;
+}
+
+[controlid=salesEntryPage] input {
+    font-size: 20px;
+    height: 35px;
+}
+
+[controlid=salesEntryPage] select {
+    font-size: 20px;
+    height: 35px;
+}
+
+.detail-area {
+    display: inline-block;
+}
+
+[controlid=salesEntryPage] [controlid=lblCustName] {
+    font-weight: normal;
+}
+
+.detail-action {
+    display: inline-block;
+    width: calc(100% - 10px);
+    padding-top: 10px;
+    margin-bottom: 25px;
+}
+
+.head-sales {
+    font-size: 24px;
+    text-decoration: underline;
+    display: inline-block;
+    margin-bottom: 20px;
+    margin-top: 20px;
+}
+
+.detail-basic input[type=button] {
+    float: left;
+    display: inline;
+    padding: 0px;
+    text-align: left;
+    width: 120px;
+}
+
+.detail-basic input[controlid=btnMonthlySales],
+.detail-basic input[controlid=btnTrayTransaction] {
+    font-size: 20px;
+    margin-bottom: 10px;
+    font-weight: bold;
+    width: 100%;
+    display: inline-block;
+}
+
+.detail-basic input[type=button] :hover {
+    border: none;
+}
+
+.detail-basic {
+    width: 100%;
+}
+
+.report-panel {
+    width: 100%;
+}
+
+[controlid="lblCompanyName"] {
+    font-size: 32px;
+    font-weight: bold;
+}
+
+.title-panel {
+    display: inline-block;
+    font-size: 20px;
+    font-weight: bold;
+    margin: 10px 10px 30px;
+    width: calc(100% - 20px);
+}
+
+.all-panel {
+    display: inline-block;
+    margin-left: 10px;
+}
+
+[controlid="grdRevenue"] {
+    margin-bottom: 5px;
+    margin-top: 10px;
+}
+
+[controlid="grdPurchase"] {
+    margin-bottom: 5px;
+    margin-top: 10px;
+}
+
+[controlid="grdExpenses"] {
+    margin-bottom: 5px;
+    margin-top: 10px;
+}
+
+[controlid="grdIncome"] {
+    margin-bottom: 5px;
+    margin-top: 10px;
+}
+
+.all-panel>div>span {
+    font-size: 20px;
+}
+
+[controlid="ddlCompanyName"] {
+    width: 120px;
+}
+
+[controlid="ddlPeriod"] {
+    width: 120px;
+}
+
+.top-panel {
+    margin: 20px 20px 20px 400px;
+}
+
+.total_record {
+    display: none
+}
+
+@media only screen and (min-width: 500px) {
+    .detail-action {
+        margin-bottom: 5px;
+    }
+    .detail-info>.detail-basic:first-child {
+        display: none;
+    }
+    .detail-basic input[controlid=btnMonthlySales],
+    .detail-basic input[controlid=btnTrayTransaction] {
+        font-size: 12px;
+        margin-bottom: 10px;
+        font-weight: bold;
+        width: 123px;
+        display: inline-block;
+    }
+    [controlid=salesEntryPage] {
+        margin: 0px;
+    }
+    [controlid=salesEntryPage] .label {
+        font-size: 12px;
+        margin-bottom: 10px;
+        font-weight: bold;
+    }
+    [controlid=salesEntryPage] .label-value {
+        font-size: 12px;
+        border: none;
+    }
+    [controlid=salesEntryPage] input {
+        font-size: 12px;
+        height: 25px;
+    }
+    [controlid=salesEntryPage] select {
+        font-size: 12px;
+        height: 25px;
+    }
+    [controlid=salesEntryPage] .content-area {
+        margin-top: 30px;
+        width: calc(100% - 30px);
+        margin-left: 30px;
+    }
+    [controlid=salesEntryPage] .label {
+        font-size: 12px;
+        margin-bottom: 10px;
+        font-weight: bold;
+    }
+}

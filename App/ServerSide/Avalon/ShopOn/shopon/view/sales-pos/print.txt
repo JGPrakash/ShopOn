@@ -1,0 +1,31 @@
+"var_no":"845","item_no":"988","qty":1,"free_qty":0,"unit_identity":0,"unit":"Pcs",
+"alter_unit":"","price":"59.00","discount":0,
+"taxable_value":2.80,"tax_per":5,"tax_inclusive":"1","total_price":59,"price_no":"878",
+"tax_class_no":"1","sub_total":56.19,"hsn_code":"123","cgst":"2.50","sgst":"2.50","igst":"0.00",
+executive_id":"-1","text_qty":"||",
+
+
+"bill_type":"Sale","tray_received":"0","cost":"43.5","amount":43.5,""mrp":null,"batch_no":null,"man_date":"",
+"expiry_date":"","stock_selection":"auto"
+
+
+
+Create windows form
+
+
+Place on button
+
+
+click o button pprinter code    =   notepad perf
+
+
+http://localhost:60951/ShopOn/shopon/view/sales-pos/TestingPrint.html?version=1
+
+RP3150 STAR(U)
+
+Technique					Time(sec)			ItemCount
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+PrintBatch - PayNow			2.5,2				1
+PrintBatch - PrintBill		2					1
+WindowsApplication			2,2,2				1
+FireFox						2,2.5,1.5			1

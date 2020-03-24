@@ -1,0 +1,66 @@
+﻿<div class="pnlViewer">
+    <!--<div class="col-xs-12" style="margin-top:0px;">
+        <h2>Barcode Panel</h2>
+    </div>-->
+    <div class="col-xs-12" style="margin-top:0px;">
+        <span class="col-xs-12">&nbsp;</span>
+    </div>
+    <div class="col-xs-12 col-lg-3" style="padding-left:0px;">
+        <span class="col-xs-4">Po No</span>
+        <input class="col-xs-8" rlabel="PO No" tabindex="1" controlId="txtPoNo" control="barcodePrint.textBox" />
+    </div>
+    <div class="col-xs-12 col-lg-3" style="padding-left:0px;">
+        <span class="col-xs-4">Bill No</span>
+        <input class="col-xs-8" rlabel="Bill No" tabindex="1" controlId="txtBillNo" control="barcodePrint.textBox" />
+    </div>
+    <div class="col-xs-12 col-lg-4" style="padding-left:0px;">
+        <span class="col-xs-6">Invoice No</span>
+        <input class="col-lg-6" rlabel="Invoice No" tabindex="2" controlId="txtInvoiceNo" control="barcodePrint.textBox" />
+    </div>
+    <div class="col-xs-12 col-lg-2" style="float:right;">
+        <input value="Search" style="float:right;" rlabel="Search" control="barcodePrint.secondaryButton" controlid="btnSearchStockBarcode" event="click:btnSearchStock_click">
+    </div>
+    <span class="col-xs-12">&nbsp;</span>
+    <div class="col-xs-12 col-lg-3" style="padding-left:0px;">
+        <span class="col-xs-4">Categary</span>
+        <select class="col-xs-8" controlId="ddlType" control="barcodePrint.dropDownList" style="padding:0px;">
+            <option value="1">Select</option>
+            <option value="2">Main Product Type</option>
+            <option value="3">Product Type</option>
+            <option value="4">Item</option>
+            <option value="5">Variation</option>
+        </select>
+    </div>
+    <div class="col-xs-12 col-lg-3" style="padding-left:0px;">
+        <span class="col-xs-4">Value</span>
+        <input class="col-xs-8" id="txtValue" controlId="txtValue" control="barcodePrint.autoCompleteList" placeholder="Select Category" />
+    </div>
+    <div class="col-xs-12 col-lg-4" style="padding-left:0px;">
+        <span class="col-xs-6">Stock From</span>
+        <select class="col-xs-6" controlId="ddlStock" control="barcodePrint.dropDownList" style="padding:0px;">
+            <option value="1">All</option>
+            <option value="2">In Stock</option>
+            <option value="3">Out Of Stock</option>
+        </select>
+    </div>
+    <div class="col-xs-12" style="margin-top:15px;">
+        <div class="col-xs-6" style="padding:0px;">
+            <span class="col-xs-12" style="font-size:20px;padding:0px;">Barcode</span>
+        </div>
+        <div class="col-xs-6" style="text-align:right;padding-right:0px;">
+            <span class="col-xs-8"><input type="checkbox" controlId="chkPrintItemBarcode" control="barcodePrint.chkBox" name="print_item_barcode"><span style="float:right;margin-top: 5px;margin-left: 5px;" rlabel="Print Item Barcode" control="barcodePrint.label" controlId="Print Item Barcode">Print Item Barcode</span></span>
+            <span style="margin-right:10px;">Rows</span>
+            <select control="barcodePrint.dropDownList" controlid="ddlBillPrintCount" style="margin-right:10px;">
+                <option>2</option>
+                <option>3</option>
+            </select>
+            <input value="Print" rlabel="Print" control="barcodePrint.primaryReadButton" controlid="btnPrintBarcode" event="click:btnPrintBarcode_click">
+        </div>
+    </div>
+    <div class="col-xs-12" style="margin-top:10px;">
+        <div style="width:100%;overflow-x:auto;overflow-y:hidden">
+            <div controlId="grdBarcodePrint" control="barcodePrint.grid">
+            </div>
+        </div>
+    </div>
+</div>

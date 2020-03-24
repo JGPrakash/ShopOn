@@ -1,0 +1,232 @@
+﻿h3{
+    font-size:26px;
+    line-height:24px;
+    white-space: pre-wrap !important;
+        word-break: break-word !important;
+}
+[controlid=pnlOrderListCategory] > button{
+    background:transparent;
+    border:none;
+    font-size:18px;
+}
+[controlid=pnlOrderListCategory] > span{
+    padding-left:5px;
+    padding-right:5px;
+    font-size:18px;
+}
+[controlid=pnlSearch]{
+    background:#e8e5e5;
+    padding-top: 15px;
+    padding-bottom: 15px;
+}
+[controlid=pnlSearch] > div > input{
+    float: left;
+    margin-left: 10px;
+    margin-right: 10px;
+    font-size:18px;
+    width:225px;
+}
+.search-label{
+    font-size:20px;
+    float: left;
+    white-space: pre-wrap !important;
+        word-break: break-word !important;
+}
+.list-label{
+    font-size:20px;
+    margin-right:10px;
+    white-space: pre-wrap !important;
+        word-break: break-word !important;
+}
+[controlid=pnlSearch] > div > button{
+    background: #ff7600;
+    border: none;
+    border-radius: 0px;
+    letter-spacing: 1px;
+    color: white;
+    text-align: center;
+        height: 35px;
+    font-size: 18px;
+}
+[controlid=lblNoOfOrders]{
+    font-size:16px;
+    white-space: pre-wrap !important;
+        word-break: break-word !important;
+}
+.order-list-style1{
+    font-size:17px;
+    line-height: 25px;
+    white-space: pre-wrap !important;
+        word-break: break-word !important;
+        letter-spacing: 1px;
+}
+.order-date, .state-text{
+    font-size:24px;
+    color:#ff0000b8;
+    white-space: pre-wrap !important;
+        word-break: break-word !important;
+        letter-spacing: 1px;
+}
+.order-list-button{
+    background: #ff7600;
+    border: none;
+    border-radius: 5px;
+    font-size: 18px;
+    padding: 5px;
+    letter-spacing: 1px;
+    color: white;
+    text-align: center;
+    margin-bottom: 5px;
+    margin-top:10px;
+}
+.item-name{
+    margin-top: 0px;
+    padding-top: 0px;
+        margin-bottom: 0px;
+        white-space: pre-wrap !important;
+        word-break: break-word !important;
+}
+.active-color{
+  color: #ff7600;
+}
+div[controlId=grdServices] .grid_data  {
+    background-color: white;
+    }
+div[controlId=grdServices]  {
+        /*padding-top: 20px;*/
+    padding-bottom: 20px;
+    background: transparent;
+    /*border: none;*/
+}
+div[controlId=grdServices] .grid_data  {
+    overflow-y: auto;
+    }
+div[controlId=grdServices] .grid_header{
+   background: transparent;
+   border:none;
+   display:none;
+}
+div[controlId=grdServices] .grid_data > div{
+    /*width:25%;*/
+    background:white !important;
+    /*height: 400px;*/
+    overflow: hidden;
+}
+.second-panel{
+    text-align:right;
+}
+.item-name{
+    white-space: pre-wrap !important;
+        word-break: break-word !important;
+}
+.cart-button{
+    background: #ff7600;
+    border: none;
+    border-radius: 0px;
+    font-size: 24px;
+    padding: 10px;
+    letter-spacing: 1px;
+    color: white;
+    text-align:center;
+    float:right;
+}
+
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 650px) {
+    .search-label {
+        font-size: 20px;
+        float: left;
+        padding-bottom: 5px;
+    }
+    [controlid=pnlSearch] > div > input {
+        float: left;
+        font-size: 18px;
+        width: 100%;
+        margin-bottom: 5px;
+        margin-left: 0px;
+        margin-right: 0px;
+    }
+    [controlid=pnlSearch] > div > button{
+        width: 100%;
+        margin-bottom: 20px;
+        margin-left: 0px;
+        margin-right: 0px;
+    }
+    .second-panel{
+        text-align:left;
+    }
+    .order-list-style1 {
+        font-size: 18px;
+        line-height: 22px;
+    }
+    .order-date, .state-text {
+        font-size: 22px;
+        margin-bottom: 0px;
+        color: #ff0000b8;
+        padding-bottom: 0px;
+        margin-top: 5px;
+    }
+    .item-name{
+        font-size:22px;
+    }
+}
+
+/* Small devices (portrait and landscape tablets) */
+@media only screen 
+  and (min-device-width: 650px) 
+  and (max-device-width: 1020px) 
+  and (-webkit-min-device-pixel-ratio: 1) {
+    .search-label {
+        font-size: 20px;
+        float: left;
+        padding-bottom: 5px;
+    }
+    [controlid=pnlSearch] > div > input {
+        float: left;
+        font-size: 18px;
+        width: 100%;
+        margin-bottom: 5px;
+        margin-left: 0px;
+        margin-right: 0px;
+    }
+    [controlid=pnlSearch] > div > button{
+        width: 100%;
+        margin-bottom: 20px;
+        margin-left: 0px;
+        margin-right: 0px;
+    }
+    .second-panel{
+        text-align:left;
+    }
+    .order-list-style1 {
+        font-size: 18px;
+        line-height: 22px;
+    }
+    .order-date, .state-text {
+        font-size: 22px;
+        margin-bottom: 0px;
+        color: #ff0000b8;
+        padding-bottom: 0px;
+        margin-top: 5px;
+    }
+    .item-name{
+        font-size:22px;
+    }
+}
+
+/* Medium devices (landscape tablets, 768px and up) */
+/*@media only screen and (min-width: 768px) {
+   .home-carosal{
+        height:200px !important;
+    }
+}*/
+
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 992px) {
+
+}
+
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+@media only screen and (min-width: 1200px) {
+
+}

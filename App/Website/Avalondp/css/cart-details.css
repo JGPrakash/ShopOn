@@ -1,0 +1,248 @@
+﻿
+[controlid=lblCartHeading]{
+        font-size: 28px;
+    letter-spacing: 1px;
+    line-height: 32px;
+    
+}
+[controlid=billSummaryHeading],[controlid=billPaymentHeading]{
+         font-size: 24px;
+    letter-spacing: 1px;
+    line-height: 0px;
+}
+.lblsummary{
+    font-size:20px;
+    letter-spacing:1px;
+    line-height:35px;
+}
+.lblvalue{
+    font-size:20px;
+    letter-spacing:1px;
+    line-height:35px;
+}
+.lbltotal{
+    font-size:28px;
+    letter-spacing:1px;
+    line-height:40px;
+}
+.summary-panel{
+    border-left:1px solid #00000042;
+}
+
+.space-style-3{
+    height:50px;
+}
+
+
+div[controlId=grdBill] .grid_data  {
+    background-color: white;
+    }
+div[controlId=grdBill]  {
+        /*padding-top: 20px;*/
+    padding-bottom: 20px;
+    background: transparent;
+    /*border: none;*/
+}
+div[controlId=grdBill] .grid_data  {
+    overflow-y: auto;
+    }
+div[controlId=grdBill] .grid_header{
+   background: transparent;
+   border:none;
+   display:none;
+}
+div[controlId=grdBill] .grid_data > div{
+    /*width:25%;*/
+    background:white !important;
+    /*height: 400px;*/
+    overflow: hidden;
+}
+
+.item-name{
+        font-size: 24px;
+    letter-spacing: 1px;
+    line-height:30px;
+    white-space: pre-wrap !important;
+        word-break: break-word !important;
+}
+.sku-name{
+    line-height:30px;
+    float: right;
+    white-space: pre-wrap !important;
+        word-break: break-word !important;
+}
+.model-name{
+    line-height:30px;
+    white-space: pre-wrap !important;
+        word-break: break-word !important;
+}
+.man-name{
+        font-size: 18px;
+    line-height: 30px;
+    letter-spacing:1px;
+}
+
+.price-title{
+    padding: 0px;
+    color: blue;
+    font-size: 16px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    line-height: 35px;
+    white-space: pre-wrap !important;
+        word-break: break-word !important;
+}
+
+#minButton,#plusButton{
+    background: #33425a;
+    width: 30px;
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
+    height: 35px;
+}
+
+
+.payment-container {
+  display: block;
+  position: relative;
+  padding-left: 35px;
+  margin-bottom: 12px;
+  cursor: pointer;
+  font-size: 22px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+/* Hide the browser's default radio button */
+.payment-container input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+}
+
+/* Create a custom radio button */
+.checkmark {
+  position: absolute;
+  top: 5px;
+  left: 0;
+  height: 25px;
+  width: 25px;
+  background-color: #eee;
+  border-radius: 50%;
+}
+
+/* On mouse-over, add a grey background color */
+.payment-container:hover input ~ .checkmark {
+  background-color: #ccc;
+}
+
+/* When the radio button is checked, add a blue background */
+.payment-container input:checked ~ .checkmark {
+  background-color: #33425a;
+}
+
+/* Create the indicator (the dot/circle - hidden when not checked) */
+.checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+/* Show the indicator (dot/circle) when checked */
+.payment-container input:checked ~ .checkmark:after {
+  display: block;
+}
+
+/* Style the indicator (dot/circle) */
+.payment-container .checkmark:after {
+ 	top: 9px;
+	left: 9px;
+	width: 8px;
+	height: 8px;
+	border-radius: 50%;
+	background: white;
+}
+
+.cart-button{
+    background: #ff7600;
+    border: none;
+        border-radius: 5px;
+    font-size: 18px;
+    padding: 5px;
+    letter-spacing: 1px;
+    color: white;
+    text-align:center;
+}
+
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 650px) {
+    [controlid=pnlDetailsCategory]{
+        display:none;
+    }
+    .item-name{
+        font-size: 22px !important;
+        letter-spacing: 1px !important;
+    }
+    .sku-name{
+        line-height: 24px !important;
+        font-size: 16px;
+        float: right !important;
+    }
+    .model-name{
+        line-height: 24px !important;
+        font-size: 16px;
+    }
+    .man-name{
+        font-size: 18px !important;
+        line-height: 20px !important;
+        letter-spacing:1px !important;
+    }
+}
+
+/* Small devices (portrait and landscape tablets) */
+@media only screen 
+  and (min-device-width: 650px) 
+  and (max-device-width: 1020px) 
+  and (-webkit-min-device-pixel-ratio: 1) {
+    [controlid=pnlDetailsCategory]{
+        display:none;
+    }
+    .item-name{
+        font-size: 22px !important;
+        letter-spacing: 1px !important;
+    }
+    .sku-name{
+        line-height: 24px !important;
+        font-size: 16px;
+        float: right !important;
+    }
+    .model-name{
+        line-height: 24px !important;
+        font-size: 16px;
+    }
+    .man-name{
+        font-size: 18px !important;
+        line-height: 20px !important;
+        letter-spacing:1px !important;
+    }
+}
+
+/* Medium devices (landscape tablets, 768px and up) */
+/*@media only screen and (min-width: 768px) {
+   .home-carosal{
+        height:200px !important;
+    }
+}*/
+
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 992px) {
+
+}
+
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+@media only screen and (min-width: 1200px) {
+
+}

@@ -1,0 +1,23 @@
+﻿<div control="itemProperty.messagePanel" controlid="msgPanel" class="message-panel" style="display:none">
+</div>
+<div class="row" style="margin-top:10px;">
+    <div class="col-xs-6">
+        <span class="header-label">Item Property</span>
+    </div>
+</div>
+<div class="row col-xs-12" style="margin-top:10px;">
+    <span class="label col-xs-12 col-lg-1">Property</span>
+    <select class="col-xs-3" controlId="ddlPropertyName" control="itemProperty.dropDownList"></select>
+    <span class="label col-xs-12 col-lg-1">&nbsp;</span>
+    <span class="label col-xs-12 col-lg-1">Property Value</span>
+    <select class="col-xs-3" controlId="ddlPropertyValue" control="itemProperty.dropDownList"></select>
+    <span class="label col-xs-12 col-lg-1">&nbsp;</span>
+    <input style="margin-left:5px" type="button" event="click:btnSaveItemProperty_click" control="itemProperty.primaryReadButton" controlid="btnSaveItemProperty" value="Save">
+    <input style="margin-left:5px" type="button" event="click:btnNewItemProperty_click" control="itemProperty.secondaryButton" controlid="btnNewItemProperty" value="New(+)">
+</div>
+<div class="row col-xs-12" style="margin-top:10px;">
+    <div style="width:100%;overflow-x:auto; overflow-y:hidden;">
+        <div controlId="grditemProperty" control="itemProperty.grid"> </div>
+    </div>
+</div>
+

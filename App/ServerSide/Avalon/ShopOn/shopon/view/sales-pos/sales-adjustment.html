@@ -1,0 +1,312 @@
+﻿<div control="salesAdjustment.messagePanel" controlid="msgPanel" class="message-panel" style="display:none">
+
+</div>
+<div controlId="pnlBill" control="salesAdjustment.htmlControl" class="row">
+
+
+    <div class="col-sm-6 col-xs-12 col-md-6 col-lg-6" style="margin-bottom: 10px;margin-top:15px;">
+        <div controlId="pnlItemSearch" control="salesAdjustment.htmlControl" class="sales-item-search" style="display:none">
+            <!-- default-button="btnSearchItem"-->
+            <span class="label col-xs-12 col-sm-12 col-md-2 col-lg-2"> Item Search </span>
+            <input controlId="txtItemSearch" class="col-xs-12 col-sm-12 col-md-6 col-lg-6" control="salesAdjustment.autoCompleteList" type="text" value="" placeholder="Search by Item No,Item Name or Scan."> <!--style="width: 400px;"-->
+            <input class="col-xs-12 col-sm-12 col-md-4 col-lg-4" value="Search" controlid="btnSearchItem" control="salesAdjustment.primaryReadButton" event="click:btnAdvSearchItem_click">
+            <input value="Advance Search" controlid="btnAdvSearchItem" control="salesAdjustment.secondaryButton" event="click:btnAdvSearchItem_click" style="display:none">
+        </div>
+    </div>
+    <div class="col-sm-12 col-xs-12 col-md-4 col-lg-4" style="margin-bottom: 10px;margin-top:15px;">
+        <span class="col-xs-6 col-sm-4" id="free"><input type="checkbox" tabindex="8" controlId="chkShowFree" control="salesAdjustment.chkBox" name="show_free"><span controlId="lblFree" control="salesAdjustment.label" class="label" style="margin-top:-22px;margin-left:5px;">Show Free</span></span>
+        <span class="col-xs-6 col-sm-4"><input type="checkbox" tabindex="8" controlId="chkShowStock" control="salesAdjustment.chkBox" name="show_stock"><span controlId="lblFreeStock" control="salesAdjustment.label" class="label" style="margin-top:-22px;margin-left:5px;">Show Stock</span></span>
+        <span class="col-xs-6 col-sm-4"><input type="checkbox" tabindex="8" controlId="chkShowGst" control="salesAdjustment.chkBox" name="show_gst"><span controlId="lblGst1" control="salesAdjustment.label" class="label" style="margin-top:-22px;margin-left:5px;">Show GST</span></span>
+    </div>
+
+    <div class="col-sm-3 col-xs-12 col-md-2 col-lg-2" style="margin-bottom: 10px;margin-top:15px;">
+
+        <!-- <input style="float:right" value="Send Email" control="salesAdjustment.primaryReadButton" controlId="btnSendEmail" event="click:btnSendMail_click">-->
+        <input style="float:right" value="Return" control="salesAdjustment.primaryReadButton" controlId="btnReturn" event="click:btnReturn_click">
+        <input style="float:right" value="Pay Now" control="salesAdjustment.primaryReadButton" controlId="btnPayment" event="click:btnPayment_click">
+        <input style="float:right" value="Adjust" control="salesAdjustment.primaryReadButton" controlId="btnAdjust" event="click:btnAdjust_click">
+        <select style="float:right;width:100px;margin-right:10px" class="dropDown" control="salesAdjustment.dropDownList" controlid="ddlPayType"></select>
+        <input style="display:none;float:right;width:40px;margin-right:10px" value="Save" type="button" control="salesAdjustment.secondaryButton" controlId="btnSave" event="click:btnSave_click">
+        <div style="display:none;">
+            <input style="display:none;float:right;width:100px;margin-right:10px" value="Send Mail" type="button" control="salesAdjustment.secondaryButton" controlId="btnSendMail" event="click:btnSendMail_click">
+            <input style="float:right;width:100px;margin-right:10px" value="Send SMS" type="button" control="salesAdjustment.secondaryButton" controlId="btnSendSMS" event="click:btnSendSMS_click">
+        </div>
+    </div>
+    <div class="col-sm-12">
+        <div style="width:100%; overflow-x:auto; overflow-y:hidden;margin-top:10px">
+            <div style="margin-bottom:1px" control="salesAdjustment.grid" controlId="grdBillReturn"></div>
+        </div>
+    </div>
+    <div class="col-sm-12">
+        <div style="width:100%; overflow-x:auto; overflow-y:hidden;margin-top:10px">
+            <div controlId="grdBill" control="salesAdjustment.grid">
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-12">
+        <div style="width:100%; overflow-x:auto; overflow-y:hidden;margin-top:10px">
+            <div controlId="grdBillAdjustment" control="salesAdjustment.grid">
+            </div>
+        </div>
+    </div>
+    <div controlId="grdReturnItemSelection" control="salesAdjustment.grid"> </div>
+    <!--Advance Search-->
+    <div controlId="pnlAdvSearchItemPopup" control="salesAdjustment.popup" style="display:none">
+        <div class="top-panel row col-lg-12" style="margin-left: 0.5%;padding-left: 2.5%;">
+            <span class="label"> Item Search </span>
+            <input controlId="txtAdvItemSearch" control="salesAdjustment.textBox" type="text" value="" placeholder="Search by Item No, Item Name, Item Code, Vendor, Manufacturer, Tax" style="width:65%;">
+            <input value="Search" controlid="btnAdvaSearchItem" control="salesAdjustment.primaryReadButton" event="click:btnAdvaSearchItem_click">
+            <input value="Add" controlid="btnAddAdvaSearchItem" control="salesAdjustment.primaryReadButton" event="click:btnAddAdvaSearchItem_click">
+            <input value="Touch" controlid="btnTouchAdvaSearchItem" control="salesAdjustment.primaryReadButton" event="click:btnTouchAdvaSearchItem_click">
+            <div controlId="grdAdvSearchItem" style="margin-top:2%;" control="salesAdjustment.grid"> </div>
+        </div>
+        <div class="touch row col-lg-12" style="display:none">
+            <div class="left-panel col-lg-4" style="">
+                <div class="col-lg-12">
+                    <div class="col-lg-4"><span class="label"> Vendor </span></div>
+                    <div class="col-lg-8"><input controlId="txtAdvVendor" control="salesAdjustment.textBox" type="text" value="" placeholder="Enter Vendor Name"></div>
+                </div>
+                <div class="col-lg-12" style="padding-top: 2%;">
+                    <div class="col-lg-4"><span class="label"> Manufacturer </span></div>
+                    <div class="col-lg-8"><input controlId="txtAdvManufacturer" control="salesAdjustment.textBox" type="text" value="" placeholder="Enter Manufacturer Name"></div>
+                </div>
+            </div>
+            <div class="right-panel col-lg-8">
+                <div controlId="grdTouchAdvSearchItem" control="salesAdjustment.grid"></div>
+            </div>
+        </div>
+    </div>
+    <!--Payment Screen-->
+    <div controlId="pnlPayNow" control="salesAdjustment.popup" style="display:none">
+        <div class="col-xs-12 col-lg-12" style="padding:1%;">
+            <div class="col-lg-12">
+                <input class="col-xs-12 col-lg-6" style="float:right;" value="Pay" controlId="btnPayPending" control="salesAdjustment.primaryReadButton" event="click:btnMixedPayment_click" />
+                <input class="col-xs-12 col-lg-6" style="margin-right:20px;float:right;" value="Add" controlId="btnAddPayment" control="salesAdjustment.secondaryButton" event="click:btnAddPayment_click" />
+            </div>
+        </div>
+        <div class="col-xs-12 col-lg-6">
+            <span class="label  col-xs-12 col-lg-6">Pay Type</span>
+            <select style="" class="col-xs-12 col-lg-6" control="salesAdjustment.dropDownList" controlid="ddlPaymentType">
+                <!--<option>Cash</option>
+                <option>Card</option>
+                <option>Coupon</option>
+                <option>Points</option>-->
+            </select>
+        </div>
+        <div style="margin-top:10px;" controlId="pnlCard" control="salesAdjustment.htmlControl">
+            <div class="col-xs-12 col-lg-6 ">
+                <span class="label  col-xs-12 col-lg-6">Card</span>
+                <select class="col-lg-6" control="salesAdjustment.dropDownList" controlid="ddlCardType">
+                    <option>Credit</option>
+                    <option>Debit</option>
+                </select>
+            </div>
+            <div class="col-xs-12 col-lg-6 ">
+                <span class="label  col-xs-12 col-lg-6">Card No<span style="color:red">*</span></span>
+                <input class="col-xs-12 col-lg-6" type="text" controlId="txtCardNo" control="salesAdjustment.textBox">
+            </div>
+        </div>
+        <div style="margin-top:10px;">
+            <div class="col-xs-12 col-lg-6 " controlId="pnlCoupon" control="salesAdjustment.htmlControl">
+                <span class="label  col-xs-12 col-lg-6">Coupon No <span style="color:red">*</span></span>
+                <input class="col-xs-12 col-lg-6" type="text" controlId="txtCouponNo" control="salesAdjustment.textBox">
+            </div>
+            <div class="col-xs-12 col-lg-6 " controlId="pnlAmount" control="salesAdjustment.htmlControl">
+                <span class="label  col-xs-12 col-lg-6">Amount</span>
+                <input class="col-xs-12 col-lg-6" type="text" controlId="txtAmount" control="salesAdjustment.textBox">
+            </div>
+            <div class="col-xs-12 col-lg-6 " controlId="pnlBalance" control="salesAdjustment.htmlControl">
+                <span class="label  col-xs-12 col-lg-6">Balance</span>
+                <span class="col-xs-12 col-lg-6 " control="salesAdjustment.labelValue" controlId="lblBalance">0</span>
+            </div>
+            <div class="col-xs-12 col-lg-6 " controlId="pnlPoints" control="salesAdjustment.htmlControl">
+                <span class="label  col-xs-12 col-lg-6">Points<span style="color:red">*</span></span>
+                <input class="col-xs-12 col-lg-6" type="text" controlId="txtPoints" control="salesAdjustment.textBox">
+            </div>
+        </div>
+        <div class="col-xs-12 col-lg-12 " style="margin-top:10px;">
+            <div class="itemGrid" controlId="grdAllPayment" control="salesAdjustment.grid">
+            </div>
+        </div>
+    </div>
+
+</div>
+
+
+
+<div class="row">
+
+    <div class="col-xs-12 col-sm-4">
+        <div class="col-xs-12" style="margin-top:10px;">
+            <span class="header-label"><b>Customer</b></span>
+        </div>
+        <div class="col-xs-12" style="margin-top:5px;">
+            <span class="label col-lg-5"> Name</span>
+            <div class="col-lg-7">
+                <input controlId="txtCustomerName" control="salesAdjustment.autoCompleteList" placeholder="No Customer Selected" style="width:90%;margin-left: -15px;">
+                <input value="+" controlId="btnAddCustomer" control="salesAdjustment.primaryReadButton" event="click:btnAddCustomer_click" style="width:40px;margin-right: -15px;" />
+                <input type="hidden" controlId="hdnCustomerNo" control="salesAdjustment.htmlControl" value=""><br />
+            </div>
+        </div>
+        <div class="col-xs-12" style="margin-top:5px;">
+            <span class="label col-xs-5 col-sm-5 col-lg-5"> Mobile No</span>
+            <span class="col-xs-7 col-sm-7 col-lg-7" controlId="lblPhoneNo" control="salesAdjustment.labelValue"> </span>
+        </div>
+        <div class="col-xs-12" style="margin-top:5px;">
+            <span class="label col-xs-5 col-lg-5">Email ID</span>
+            <span controlId="lblEmailId" control="salesAdjustment.labelValue" class="col-xs-7 col-lg-7"> </span>
+        </div>
+        <div class="col-xs-12" style="margin-top:5px;">
+            <span class="label col-xs-5 col-lg-5">Address</span>
+            <span controlId="lblAddress" control="salesAdjustment.labelValue" class="col-xs-7 col-lg-7" style="overflow:hidden;"> </span>
+        </div>
+        <div class="col-xs-12" controlId="pnlCustPoints" control="salesAdjustment.htmlControl" style="margin-top:5px;">
+            <span class="label col-xs-5 col-lg-5"> Available Points</span>
+            <span class="col-xs-7 col-lg-7" controlId="lblAvalablePoints" control="salesAdjustment.labelValue"> </span>
+        </div>
+        <div class="col-xs-12" controlId="pnlCustGst" control="salesAdjustment.htmlControl" style="margin-top:5px;">
+            <span class="label col-xs-5 col-lg-5">Gst No</span>
+            <span class="col-xs-7 col-lg-7" controlId="lblGst" control="salesAdjustment.labelValue"> </span>
+        </div>
+        <div class="col-xs-12" style="margin-top:5px;" control="salesAdjustment.htmlControl" controlId="pnlSalesExecutive">
+            <span class="label col-xs-5 col-lg-5" controlid="lblSalesExe" control="salesAdjustment.label">Sales Executive</span>
+            <select control="salesAdjustment.dropDownList" controlid="ddlDeliveryBy" class="col-xs-7 col-lg-7"></select>
+        </div>
+        <!--</div>-->
+    </div>
+    <div class="col-xs-12 col-sm-4">
+        <div controlId="pnlBillNo" control="salesAdjustment.htmlControl" style="margin-top:10px;">
+            <div class="col-xs-12">
+                <span class="header-label"><b>Bill Details</b></span>
+            </div>
+            <div class="col-xs-12">
+                <span class="label col-xs-5  col-lg-6">Bill No</span>
+                <span controlId="lblBillNo" control="salesAdjustment.labelValue" class="col-xs-7 col-lg-6"> </span>
+            </div>
+            <div controlId="pnlBillDate" control="salesAdjustment.htmlControl" class="col-xs-12">
+                <span class="label col-xs-5  col-lg-6">Bill Date</span>
+                <input controlId="txtBillDate" control="salesAdjustment.dateSelector" class="col-xs-7 col-lg-6" />
+            </div>
+            <div class="col-xs-12" style="margin: 0px;background-color: white;" controlId="pnlExpenseName" control="salesAdjustment.htmlControl">
+                <span control="salesAdjustment.label" class="label col-xs-5 col-lg-6">Expense Name</span>
+                <input class="col-xs-7 col-lg-6" placeholder="Expense Name" controlId="txtExpenseName" control="salesAdjustment.textBox" />
+            </div>
+            <div class="col-xs-12" style="margin: 0px;background-color: white;" controlId="pnlExpenses" control="salesAdjustment.htmlControl">
+                <span control="salesAdjustment.label" class="label col-xs-5 col-lg-6">Expense Amount</span>
+                <input class="col-xs-7 col-lg-6" placeholder="Expense Amount" controlId="txtExpense" control="salesAdjustment.textBox" />
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-4">
+        <div class="col-xs-12" style="margin-top:10px;">
+            <span class="header-label"><b>Bill Summary</b></span>
+        </div>
+        <div class="col-xs-12" style="margin: 0px;background-color: white;">
+            <span class="label col-xs-5 col-lg-6">Sub Total</span>
+            <span control="salesAdjustment.labelValue" controlId="lblSubTotal" class="col-xs-7 col-lg-6" style="background-color: transparent;border: none">0</span>
+        </div>
+        <div class="col-xs-12" style="margin: 0px;background-color: whitesmoke;">
+            <span control="salesAdjustment.label" controlId="lblDiscountLabel" event="click:lblDiscountLabel_click" class="label col-xs-5 col-lg-6">Discount</span>
+            <span control="salesAdjustment.labelValue" controlId="lblDiscount" class="col-xs-7 col-lg-6" style="background-color: transparent;border: none">0</span>
+        </div>
+        <div class="col-xs-12" style="margin: 0px;background-color: white;">
+            <span control="salesAdjustment.label" controlId="lblTaxLabel" event="click:lblTaxLabel_click" class="label col-xs-5 col-lg-6">Tax</span>
+            <span control="salesAdjustment.labelValue" controlId="lblTax" class="col-xs-7 col-lg-6" style="background-color: transparent;border: none">0</span>
+        </div>
+        <div class="col-xs-12" style="margin: 0px;background-color: whitesmoke;">
+            <span control="salesAdjustment.label" controlId="lblRndOffLabel" event="click:lblRndOffLabel_click" class="label col-xs-5 col-lg-6">Round Off</span>
+            <span control="salesAdjustment.labelValue" controlId="lblRndOff" class="col-xs-7 col-lg-6" style="background-color: transparent;border: none">0</span>
+        </div>
+        <div class="col-xs-12" style="margin-top: 5px;background-color: dimgray;">
+            <span class="label col-lg-6" style="color:white;font-size: 50px;padding: 0px;">Total</span>
+            <span control="salesAdjustment.labelValue" controlId="lblTotal" class="col-lg-6" style="font-family:Calibri; padding: 0px;background-color: transparent;border: none;font-size: 50px;margin-top: 15px;color: white;">0</span>
+        </div>
+        <br />
+        <!--<input type="button" value="Discount" style="font-size: 18px; padding: 10px; border-radius: 10px; float: right; margin-right: 10px; box-shadow: 1px 1px 1px green inset;">-->
+        <!--</div>-->
+    </div>
+
+
+
+
+
+
+</div>
+
+<div style="margin-top: 10px;">
+
+
+
+    <!--Sales Item Grid-->
+    <!--Discount popup-->
+    <div controlId="pnlDiscountPopup" control="salesAdjustment.popup" style="display:none">
+        <span>Select a Discount </span>
+        <select controlId="ddlDiscount" control="salesAdjustment.dropDownList" />
+        <input value="Add Discount" controlId="btnDiscountOK" control="salesAdjustment.primaryReadButton" event="click:btnDiscountOK_click" />
+        <input value="Remove" controlId="btnDiscountRemove" control="salesAdjustment.primaryReadButton" event="click:btnDiscountRemove_click" />
+        <div controlId="grdDiscount" control="salesAdjustment.grid"> </div>
+    </div>
+    <div controlId="pnlItemDiscountPopup" control="salesAdjustment.popup" style="display:none">
+        <span>Select a Discount </span>
+        <!--<input controlId="txtItemDiscountValue" control="salesAdjustment.textBox" />
+            <input value="Add Discount" controlId="btnItemDiscountOK" control="salesAdjustment.primaryReadButton" event="click:btnItemDiscountOK_click" />-->
+        <select controlId="ddlItemDiscount" control="salesAdjustment.dropDownList" />
+        <input value="Add Discount" controlId="btnItemDiscountOK" control="salesAdjustment.primaryReadButton" event="click:btnItemDiscountOK_click" />
+        <input value="Remove" controlId="btnItemDiscountRemove" control="salesAdjustment.primaryReadButton" event="click:btnItemDiscountRemove_click" />
+
+
+
+        <div controlId="grdItemDiscount" control="salesAdjustment.grid"> </div>
+    </div>
+    <!--Tax popup-->
+    <div controlId="pnlTaxPopup" control="salesAdjustment.popup" style="display:none">
+        <div class="col-lg-12">
+            <span class="col-lg-3">Select Tax  </span>
+            <select class="col-lg-6" controlId="ddlSalesTax" control="salesAdjustment.dropDownList" />
+            <!--
+            <input value="OK" controlId="btnTaxOK" control="salesAdjustment.primaryReadButton" event="click:btnTaxOK_click" />
+            -->
+            <input class="col-lg-3" style="float:right" value="Add Tax" controlId="btnTaxOK" control="salesAdjustment.primaryReadButton" event="click:btnTaxOK_click" />
+            <!--<input class="col-lg-3" value="Remove" controlId="btnTaxRemove" control="salesAdjustment.primaryReadButton" event="click:btnTaxRemove_click" />
+            <div class="col-lg-12" controlId="grdTax" control="salesAdjustment.grid" style="margin-top:15px;"> </div>-->
+        </div>
+    </div>
+
+    <!--Return Item popup-->
+    <div controlId="pnlReturnItemSelection" control="salesAdjustment.popup" style="display:none">
+        <span>Select Items to be returned  </span>
+        <input value="OK" controlId="btnReturnItemOK" control="salesAdjustment.primaryReadButton" event="click:btnReturnItemOK_click" />
+
+
+
+    </div>
+
+    <!--Return Item popup-->
+    <div controlId="pnlNewCustomer" control="salesAdjustment.popup" style="display:none" class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+        <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+            <input class="col-xs-12 col-sm-4" value="Save Permanent" controlId="btnSaveCustomer" control="salesAdjustment.primaryReadButton" event="click:btnSaveCustomer_click" />
+        </div>
+        <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+            <input class="col-xs-12 col-sm-4" value="Save Just Once" controlId="btnSaveCustomerTemp" control="salesAdjustment.primaryReadButton" event="click:btnSaveCustomerTemp_click" />
+        </div>
+        <div control="salesAdjustment.customerEdit" controlid="ucCustomerEdit"> </div>
+    </div>
+    <div id="dialog-form" style="display:none">
+        <form>
+            <label for="name">Enter Manual Discount</label>
+            <input type="text" name="manualDiscount" id="manualDiscount" class="text ui-widget-content ui-corner-all" />
+        </form>
+    </div>
+    <div controlId="pnlManualDiscountPopUp" control="salesAdjustment.popup" style="display:none">
+        <label for="name">Enter Manual Discount</label>
+        <input controlId="txtManualDiscount" class="text ui-widget-content ui-corner-all" control="salesAdjustment.textBox" type="text" value="" placeholder="">
+        <hr />
+        <input value="Cancel" style="float:right" controlId="btnManualDiscountCancel" control="salesAdjustment.primaryReadButton" event="click:btnManualDiscountCancel_click" />
+        <input value="Ok" style="float:right" controlId="btnManualDiscountOK" control="salesAdjustment.primaryReadButton" event="click:btnManualDiscountOK_click" />
+    </div>
+
+
+
+
+</div>
+    </div>

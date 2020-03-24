@@ -1,0 +1,263 @@
+﻿<!doctype html>
+<html>
+
+<head>
+    <script src="/config/config.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        document.write('<script src="/' + appConfig.root + '/core/master.js" type="text/javascript" > <\/script> ');
+        document.write('<link href="/' + appConfig.root + '/shopon/view/gst-report/gst-report.css" rel="stylesheet" />');
+        document.write('<script src="/' + appConfig.root + '/shopon/view/gst-report/gst-report.js"><\/script>');
+        document.write('<script src="/' + appConfig.root + '/shopon/service/invoice-service.js"><\/script>');
+        document.write('<script src="/' + appConfig.root + '/shopon/service/stock-api.js"><\/script>');
+        document.write('<script src="/' + appConfig.root + '/shopon/service/sales/sales-executive-api.js"><\/script>');
+        document.write('<script src="/' + appConfig.root + '/shopon/service/tax/taxclass-api.js"><\/script>');
+        document.write('<script src="/' + appConfig.root + '/login/service/store-api.js"><\/script>');
+        document.write('<script src="/' + appConfig.root + '/shopon/service/sales/customer-api.js"><\/script>');
+        document.write('<script src="/' + appConfig.root + '/shopon/service/gst-api.js"><\/script>');
+        document.write('<script src="/' + appConfig.root + '/shopon/service/sales/bill-api.js?version=' + appConfig.app_version + '" type="text/javascript"><\/script>');
+    </script>
+
+</head>
+
+
+<body control="page.gstReport" controlId="gstReport">
+
+    <div control="gstReport.masterPage" controlId="gstReportMaster"></div>
+    <div control="gstReport.messagePanel" controlid="msgPanel" class="message-panel" style="display:none; margin-top:40px;"></div>
+    <div class="container-fluid">
+        <div class="">
+            <div class="col-sm-12">
+                <br /><br />
+                <h1 align="center">GST Report</h1>
+            </div>
+            <ul class="tab gap" control="gstReport.tab" controlId="tabGSTReport" style="display: block;margin-top: 0;">
+                <li class="tab tabSelected" id="pnlmenupreparegst">
+                    <a id="detail" tabindex="1" target="#pnlpreparegst" class="tab tabSelected" tabindex="32">Prepare GST</a>
+                </li>
+                <li id="pnlmenusubmitgst"> <a tabindex="9" target="#pnlsubmitgst" id="treatment" tabindex="33">Submit GST</a></li>
+                <hr style="margin-top: 10px;border-top: 3px solid whitesmoke;">
+            </ul>
+            <div class="tab-panels" style="border:0px">
+                <div control="gstReport.htmlControl" controlid="pnlPreparegst">
+                    <div class="col-sm-6" style="margin-top:20px;float:right;">
+                        <input value="Download" style="float:right;display:none;" rlabel="Download" control="gstReport.primaryWriteButton" controlid="btnDownload" event="click:btnDownload_click" />
+                        <input value="Preview" style="float:right;display:none;margin-right:10px" rlabel="Preview" control="gstReport.primaryWriteButton" controlid="btnPreview" event="click:btnPreview_click" />
+                        <input value="Generate" style="float:right;margin-right:10px;display:none;" rlabel="Generate" control="gstReport.primaryWriteButton" controlid="btnGenerate" event="click:btnGenerate_click" />
+
+                        <input value="Save" style="float:right;margin-right:10px;display:none" rlabel="Save" control="gstReport.primaryWriteButton" controlid="btnSave" event="click:btnSave_click" />
+                        <input value="Save" style="float:right;margin-right:10px;display:none" rlabel="Save" control="gstReport.primaryWriteButton" tabindex="6" controlid="btnSaveB2B" event="click:btnSaveB2B_click" />
+                    </div>
+                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12"><span>&nbsp;</span></div>
+                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+                        <div class="col-sm-3" control="gstReport.htmlControl" controlid="pnlviewmode" style="display:none;margin-bottom:10px">
+                            <span class="label col-sm-4" rlabel="View Mode">View Mode</span>
+                            <select class="col-sm-8" tabindex="2" control="gstReport.dropDownList" controlid="ddlViewMode"></select>
+                        </div>
+                        <div class="col-sm-3" control="gstReport.htmlControl" controlid="pnlStartMonth" style="display:none;margin-bottom:10px">
+                            <span class="label col-sm-4" rlabel="Period">Period</span>
+                            <input class="col-sm-8" type="month" tabindex="3" id="start" name="start" />
+                        </div>
+                        <div class="col-sm-3" control="gstReport.htmlControl" controlid="pnlGSTType" style="display:none;margin-bottom:10px">
+                            <span class="label col-sm-4" rlabel="Type">Type</span>
+                            <select class="col-sm-8" tabindex="4" control="gstReport.dropDownList" controlid="ddlGSTType"></select>
+                        </div>
+                        <div class="col-sm-3" control="gstReport.htmlControl" controlid="pnlDownloadType" style="display:none;margin-bottom:10px">
+                            <span class="label col-sm-4" rlabel="Filter">Filter</span>
+                            <select class="col-sm-8" tabindex="5" control="gstReport.dropDownList" controlid="ddlGSTR1Type"></select>
+                        </div>
+                    </div>
+                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 summary-panel" style="display:none;" control="gstReport.htmlControl" controlid="pnlSummaryMode">
+                        <h2 class="col-xs-12">Summary</h2>
+                        <div class="col-sm-3" style="margin-bottom:10px">
+                            <span class="label col-sm-4" rlabel="Total Bills">Total Bills</span>
+                            <p class="col-sm-8" tabindex="2" control="gstReport.htmlControl" controlid="lblTotalBills">0</p>
+                        </div>
+                        <div class="col-sm-3" style="margin-bottom:10px">
+                            <span class="label col-sm-4" rlabel="Total Bill Amount">Total Bill Amount</span>
+                            <p class="col-sm-8" tabindex="2" control="gstReport.htmlControl" controlid="lblTotalBillAmount">0</p>
+                        </div>
+                        <div class="col-sm-3" style="margin-bottom:10px">
+                            <span class="label col-sm-4" rlabel="Total Taxable Amount">Total Taxable Amount</span>
+                            <p class="col-sm-8" tabindex="2" control="gstReport.htmlControl" controlid="lblTotalTaxableAmount">0</p>
+                        </div>
+                    </div>
+                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12" control="gstReport.htmlControl" controlid="pnlgridpreparegst" style="display:none;margin-top: 0px;width: 100%;margin-bottom: 5%;margin-left: 0px;overflow-x: auto;overflow-y: hidden;">
+                        <div control="gstReport.grid" style="margin-top:20px;" tabindex="8" controlid="grdGenerate"></div>
+                        <div control="gstReport.grid" style="margin-top:20px;" tabindex="7" controlid="grdGenerateB2B"></div>
+                    </div>
+                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12" control="gstReport.htmlControl" controlid="pnlgstrinvoice" style="display:none">
+                        <span class="label col-sm-12" style="padding-left: 15px;"><span style="background-color:#d2cece;color:black;padding-left:20px;padding-right:20px;padding-top:5px;padding-bottom:5px" rlabel="GSTR-1 Invoice Details">GSTR-1 Invoice Details</span></span>
+                        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+                            <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 col-xl-4 gstinvoice" style="background:#d2cece;height: 100px;" id="pnlgridb2b" control="gstReport.htmlControl" controlid="pnlgridb2b" event="click:pnlgridb2b_click">
+                                <span style="background-color:rgb(22, 82, 212);color:white" class="label col-sm-12" rlabel="B2B Invoices">B2B Invoices</span>
+                                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12" style="background-color:whitesmoke;height:75px">
+                                    <span rlabel="Total Invoice Value" class="col-sm-6" control="gstReport.htmlControl" controlid="totB2BInvoiceValue">Total Invoice Value</span>
+                                    <span rlabel="Total Taxable Value" class="col-sm-6" control="gstReport.htmlControl" controlid="totB2BTaxableValue">Total Taxable Value</span>
+                                    <span rlabel="Total Tax Liability" class="col-sm-6" control="gstReport.htmlControl" controlid="totB2BTaxLiabilityValue">Total Tax Liability</span>
+                                </div>
+                            </div>
+                            <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 col-xl-4 gstinvoice" style="background:#d2cece;height: 100px;" id="b2clid" control="gstReport.htmlControl" controlid="pnlgridb2cl" event="click:pnlgridb2cl_click">
+                                <span style="background-color:rgb(22, 82, 212);color:white" class="label col-sm-12" rlabel="B2CL Invoices">B2CL Invoices</span>
+                                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12" style="background-color:whitesmoke;height:75px">
+                                    <span rlabel="Total Invoice Value" class="col-sm-6" control="gstReport.htmlControl" controlid="totB2CLInvoiceValue">Total Invoice Value</span>
+                                    <span rlabel="Total Taxable Value" class="col-sm-6" control="gstReport.htmlControl" controlid="totB2CLTaxableValue">Total Taxable Value</span>
+                                    <span rlabel="Total Tax Liability" class="col-sm-6" control="gstReport.htmlControl" controlid="totB2CLTaxLiabilityValue">Total Tax Liability</span>
+                                </div>
+                            </div>
+                            <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 col-xl-4 gstinvoice" style="background:#d2cece;height: 100px;" id="b2csid" control="gstReport.htmlControl" controlid="pnlgridb2cs" event="click:pnlgridb2cs_click">
+                                <span style="background-color:rgb(22, 82, 212);color:white" class="label col-sm-12" rlabel="B2CS Invoices">B2CS Invoices</span>
+                                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12" style="background-color:whitesmoke;height:75px">
+                                    <span rlabel="Total Invoice Value" class="col-sm-6" control="gstReport.htmlControl" controlid="totB2CSInvoiceValue">Total Invoice Value</span>
+                                    <span rlabel="Total Taxable Value" class="col-sm-6" control="gstReport.htmlControl" controlid="totB2CSTaxableValue">Total Taxable Value</span>
+                                    <span rlabel="Total Tax Liability" class="col-sm-6" control="gstReport.htmlControl" controlid="totB2CSTaxLiabilityValue">Total Tax Liability</span>
+                                </div>
+                            </div>
+                            <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 col-xl-4 gstinvoice" style="background:#d2cece;height: 100px;" id="pnlgridhsn" control="gstReport.htmlControl" controlid="pnlgridhsn" event="click:pnlgridhsn_click">
+                                <span style="background-color:rgb(22, 82, 212);color:white" class="label col-sm-12" rlabel="HSN">HSN</span>
+                                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12" style="background-color:whitesmoke;height:75px">
+                                    <span rlabel="Total Invoice Value" class="col-sm-6" control="gstReport.htmlControl" controlid="totHSNInvoiceValue">Total Invoice Value</span>
+                                    <span rlabel="Total Taxable Value" class="col-sm-6" control="gstReport.htmlControl" controlid="totHSNTaxableValue">Total Taxable Value</span>
+                                    <span rlabel="Total Tax Liability" class="col-sm-6" control="gstReport.htmlControl" controlid="totHSNTaxLiabilityValue">Total Tax Liability</span>
+                                </div>
+                            </div>
+                            <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 col-xl-4 gstinvoice" style="background:#d2cece;height: 100px;" id="pnlgriddocs" control="gstReport.htmlControl" controlid="pnlgriddocs" event="click:pnlgriddocs_click">
+                                <span style="background-color:rgb(22, 82, 212);color:white" class="label col-sm-12" rlabel="Doc Issue">Doc Issue</span>
+                                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12" style="background-color:whitesmoke;height:75px">
+                                    <span rlabel="Total Invoice Value" class="col-sm-6" control="gstReport.htmlControl" controlid="totDocBill">Total Invoice Value</span>
+                                    <span rlabel="Total Taxable Value" class="col-sm-6" control="gstReport.htmlControl" controlid="totDocSalesBill">Total Taxable Value</span>
+                                    <span rlabel="Total Tax Liability" class="col-sm-6" control="gstReport.htmlControl" controlid="totDocReturnBill">Total Tax Liability</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">&nbsp;</div>
+                        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12" style="display:none;">
+                            <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 col-xl-4 gstinvoice" style="background:#d2cece;height: 100px;" id="creditrid" control="gstReport.htmlControl" controlid="pnlgridcreditreg" event="click:pnlgridcreditreg_click">
+                                <span style="background-color:rgb(22, 82, 212);color:white" class="label col-sm-12" rlabel="Credit/Debit Notes (Registered)">Credit/Debit Notes (Registered)</span>
+                                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12" style="background-color:whitesmoke;height:75px">
+                                    <span rlabel="Total Invoice Value" class="col-sm-6">Total Invoice Value</span>
+                                    <span rlabel="Total Taxable Value" class="col-sm-6">Total Taxable Value</span>
+                                    <span rlabel="Total Tax Liability" class="col-sm-6">Total Tax Liability</span>
+                                </div>
+                            </div>
+                            <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 col-xl-4 gstinvoice" style="background:#d2cece;height: 100px;" id="crediturid" control="gstReport.htmlControl" controlid="pnlgridcreditunreg" event="click:pnlgridcreditunreg_click">
+                                <span style="background-color:rgb(22, 82, 212);color:white" class="label col-sm-12" rlabel="Credit/Debit Notes (Unregistered)">Credit/Debit Notes (Unregistered)</span>
+                                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12" style="background-color:whitesmoke;height:75px">
+                                    <span rlabel="Total Invoice Value" class="col-sm-6">Total Invoice Value</span>
+                                    <span rlabel="Total Taxable Value" class="col-sm-6">Total Taxable Value</span>
+                                    <span rlabel="Total Tax Liability" class="col-sm-6">Total Tax Liability</span>
+                                </div>
+                            </div>
+                            <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 col-xl-4 gstinvoice" style="background:#d2cece;height: 100px;" id="exportid" control="gstReport.htmlControl" controlid="pnlgridexport" event="click:pnlgridexport_click">
+                                <span style="background-color:rgb(22, 82, 212);color:white" class="label col-sm-12" rlabel="Export Invoices">Export Invoices</span>
+                                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12" style="background-color:whitesmoke;height:75px">
+                                    <span rlabel="Total Invoice Value" class="col-sm-6">Total Invoice Value</span>
+                                    <span rlabel="Total Taxable Value" class="col-sm-6">Total Taxable Value</span>
+                                    <span rlabel="Total Tax Liability" class="col-sm-6">Total Tax Liability</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">&nbsp;</div>
+                    </div>
+                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12" control="gstReport.htmlControl" controlid="pnlgstrinvoiceothers" style="display:none;padding-bottom: 50px;">
+                        <span class="label col-sm-12" style="padding-left: 15px;"><span style="background-color:#d2cece;color:black;padding-left:20px;padding-right:20px;padding-top:5px;padding-bottom:5px" rlabel="GSTR-1 Other Details">GSTR-1 Other Details</span></span>
+                        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+                            <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 col-xl-4 gstinvoice" style="background:#d2cece;height: 100px;" control="gstReport.htmlControl" controlid="pnlgridb2cothers" event="click:pnlgridb2cothers_click">
+                                <span style="background-color:rgb(22, 82, 212);color:white" class="label col-sm-12" rlabel="B2C Others">B2C Others</span>
+                                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12" style="background-color:whitesmoke;height:75px">
+                                    <span rlabel="Total Taxable Value" class="col-sm-6">Total Taxable Value</span>
+                                    <span rlabel="Total Tax Liability" class="col-sm-6">Total Tax Liability</span>
+                                </div>
+                            </div>
+                            <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 col-xl-4 gstinvoice" style="background:#d2cece;height: 100px;" control="gstReport.htmlControl" controlid="pnlgridnilsupplies" event="click:pnlgridnilsupplies_click">
+                                <span style="background-color:rgb(22, 82, 212);color:white" class="label col-sm-12" rlabel="Nill rated supplies">Nill rated supplies</span>
+                                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12" style="background-color:whitesmoke;height:75px">
+                                    <span rlabel="Total Nil Amt" class="col-sm-6">Total Nil Amt</span>
+                                    <span rlabel="Total Exempted Amt" class="col-sm-6">Total Exempted Amt</span>
+                                    <span rlabel="Total Non-GST Amt" class="col-sm-6">Total Non-GST Amt</span>
+                                </div>
+                            </div>
+                            <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 col-xl-4 gstinvoice" style="background:#d2cece;height: 100px;" control="gstReport.htmlControl" controlid="pnlgridtaxliab" event="click:pnlgridtaxliab_click">
+                                <span style="background-color:rgb(22, 82, 212);color:white" class="label col-sm-12" rlabel="Tax Liability (Advances Received)">Tax Liability (Advances Received)</span>
+                                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12" style="background-color:whitesmoke;height:75px">
+                                    <span rlabel="Gross Advance received" class="col-sm-6">Gross Advance received</span>
+                                    <span rlabel="Total Tax Liability" class="col-sm-6">Total Tax Liability</span>
+                                </div>
+                            </div>
+                            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">&nbsp;</div>
+                            <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 col-xl-4 gstinvoice" style="background:#d2cece;height: 100px;" control="gstReport.htmlControl" controlid="pnlgridadjadv" event="click:pnlgridadjadv_click">
+                                <span style="background-color:rgb(22, 82, 212);color:white" class="label col-sm-12" rlabel="Adjustment of Advances">Adjustment of Advances</span>
+                                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12" style="background-color:whitesmoke;height:75px">
+                                    <span rlabel="Gross Advance Adjusted" class="col-sm-6">Gross Advance Adjusted</span>
+                                    <span rlabel="Total Tax Liability" class="col-sm-6">Total Tax Liability</span>
+                                </div>
+                            </div>
+                            <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 col-xl-4 gstinvoice" style="background:#d2cece;height: 100px;" control="gstReport.htmlControl" controlid="pnlgridoutsupp" event="click:pnlgridoutsupp_click">
+                                <span style="background-color:rgb(22, 82, 212);color:white" class="label col-sm-12" rlabel="Wise Summary of outwars supplies">Wise Summary of outwars supplies</span>
+                                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12" style="background-color:whitesmoke;height:75px">
+                                    <span rlabel="Total Invoice Value" class="col-sm-6">Total Invoice Value</span>
+                                    <span rlabel="Total Taxable Value" class="col-sm-6">Total Taxable Value</span>
+                                    <span rlabel="Total Tax Liability" class="col-sm-6">Total Tax Liability</span>
+                                </div>
+                            </div>
+                            <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 col-xl-4 gstinvoice" style="background:#d2cece;height: 100px;" control="gstReport.htmlControl" controlid="pnlgriddociss" event="click:pnlgriddociss_click">
+                                <span style="background-color:rgb(22, 82, 212);color:white" class="label col-sm-12" rlabel="Documents Issued">Documents Issued</span>
+                                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12" style="background-color:whitesmoke;height:75px">
+                                    <span rlabel="Total Docs" class="col-sm-6">Total Docs</span>
+                                    <span rlabel="Cancelled Docs" class="col-sm-6">Cancelled Docs</span>
+                                    <span rlabel="Net Issued Docs" class="col-sm-6">Net Issued Docs</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xs-12" style="height:50px;">
+                    <span class="col-xs-12">&nbsp;</span>
+                </div>
+            </div>
+                <div controlId="pnlPrintingPopup" control="gstReport.popup" style="display:none">
+                    <div class="row col-sm-12">
+                        &nbsp;
+                    </div>
+                    <div class="row col-sm-12">
+                        <span class="label col-sm-4" rlabel="Export Type">Export Type</span>
+                        <select style="margin-left:15px;" class="col-sm-4" control="gstReport.dropDownList" controlid="ddlGSTExportType">
+                            <option>Select</option>
+                            <option>Json</option>
+                            <option>Excel</option>
+                        </select>
+                        <a id="downloadJson" style="display:none;">Download</a>
+                        <input class="col-sm-2" style="float:right;" id="btnPrintMultipleBill_click" value="Go" controlId="btnPrintMultipleBill" control="gstReport.primaryReadButton" event="click:btnPrintMultipleBill_click" />
+                    </div>
+                    <div class="row col-sm-12" style="display:none;">
+                        <span class="col-sm-4">Export Type</span>
+                        <select style="margin-left:15px;" class="col-sm-4" control="gstReport.dropDownList" controlid="ddlExportType">
+                            <!--<option>PDF</option>
+                            <option>EXCEL</option>
+                            <option>WORD</option>
+                            <option>PPT</option>
+                            <option>CSV</option>
+                            <option>HTML</option>-->
+                        </select>
+                        <input class="col-sm-8" style="float:right;" value="Go" controlId="btnPrintJasperBill" control="gstReport.primaryReadButton" event="click:btnPrintJasperBill_click" />
+                    </div>
+                </div>
+            <div controlId="pnlAllPrintingPopup" control="gstReport.popup" style="display:none">
+                <div class="row col-sm-12">
+                    &nbsp;
+                </div>
+                <div class="row col-sm-12">
+                    <span class="label col-sm-4" rlabel="Export Type">Export Type</span>
+                    <select style="margin-left:15px;" class="col-sm-4" control="gstReport.dropDownList" controlid="ddlAllGSTExportType">
+                        <option>Json</option>
+                        <!--<option>Excel</option>-->
+                    </select>
+                    <a id="downloadAllJson" style="display:none;">Download1</a>
+                    <input class="col-sm-2" style="float:right;" id="btnAllPrintMultipleBill_click" value="Go" controlId="btnAllPrintMultipleBill" control="gstReport.primaryReadButton" event="click:btnAllPrintMultipleBill_click" />
+                </div>
+            </div>
+            </div>
+
+        </div>
+</body>
+
+</html>

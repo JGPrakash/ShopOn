@@ -1,0 +1,181 @@
+﻿body{
+    
+}
+.content-panel{
+    /*background: #f7f5f5;*/
+    border: 2px solid #dad6d6;
+    padding: 15px;
+    background-image: url('../image/business.jpg');
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+}
+.signin-panel{
+    background: rgba(255,255,255,0.8);
+    padding: 20px;
+    color: #49494a;
+    font-weight: inherit;
+    line-height: 1.5em;
+}
+.header-text{
+    font-size: 28px;
+    padding: 10px 0px 15px 0px;
+        display: block;
+    line-height: 1em;
+    font-weight:700;
+}
+.span-label{
+    display: block;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    font-size:18px;
+    line-height: 26px;
+}
+}
+h3{
+        text-align: center;
+    font-size: 32px;
+    letter-spacing: 1px;
+    line-height: 40px;
+}
+.notificaltion{
+    font-size:18px;
+    letter-spacing:1px;
+}
+.text{
+    font-size:20px;
+    letter-spacing:1px;
+    padding-left:0px;
+    line-height:40px;
+    padding-left: 15px;
+}
+.value{
+    font-size: 18px !important;
+    letter-spacing: 1px;
+    height: 40px !important;
+    border-radius:0px !important;
+}
+.cart-button{
+    background: #ff7600;
+    border: none;
+    border-radius: 5px;
+    font-size: 18px;
+    padding: 5px;
+    letter-spacing: 1px;
+    color: white;
+    border-radius:0px;
+}
+.attribute-button{
+    float: right;
+    font-size: 14px;
+    color: blue;
+    background: transparent;
+    border: none;
+}
+[controlid=lblAlertContent], .success-message{
+    font-size:18px;
+    letter-spacing:1px;
+    line-height:30px;
+}
+[controlid=btnCloseAlert],[controlid=btnCloseSuccess]{
+    float:right;
+}
+.otp-title{
+    font-size:26px;
+    letter-spacing:1px;
+    line-height:35px;
+}
+[controlid=btnForgetPassword]{
+    background: transparent;
+    border: none;
+    color: blue;
+    float: right;
+}
+
+
+.business-top-space{
+    height:50px;
+}
+.action-button-div{
+    background: #38294d;
+    padding: 10px;
+}
+.action-button-div > input, .action-button-div > button{
+    background: transparent;
+    color: white;
+    font-weight: bold;
+    letter-spacing: 2px;
+    padding: 5px;
+    margin-right: 10px;
+    border: none;
+    font-size: 18px;
+}
+.active{
+    border-bottom:2px solid white !important;
+}
+
+
+[controlId=pnlProducts]{
+    background: #e8e5e5;
+}
+div[controlId=grdItems] .grid_data  {
+    background-color: white;
+    }
+div[controlId=grdItems]  {
+        /*padding-top: 20px;*/
+    padding-bottom: 20px;
+    background: transparent;
+    border: none !important;
+}
+div[controlId=grdItems] .grid_data  {
+    overflow-y: auto;
+    background: #e8e5e5;
+}
+div[controlId=grdItems] .grid_header{
+   background: transparent;
+   border:none;
+   display:none;
+}
+div[controlId=grdItems] .grid_data > div{
+    /*width:25%;*/
+    background:white !important;
+    /*height: 400px;*/
+    overflow: hidden;
+    margin-bottom: 10px;
+    border: 2px solid #e8e5e5;
+}
+
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 650px) {
+    .action-button-div{
+        width:600px;
+    }
+}
+
+/* Small devices (portrait and landscape tablets) */
+@media only screen 
+  and (min-device-width: 650px) 
+  and (max-device-width: 1020px) 
+  and (-webkit-min-device-pixel-ratio: 1) {
+    .action-button-div{
+        width:600px;
+    }
+}
+
+/* Medium devices (landscape tablets, 768px and up) */
+/*@media only screen and (min-width: 768px) {
+   .home-carosal{
+        height:200px !important;
+    }
+}*/
+
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 992px) {
+
+}
+
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+@media only screen and (min-width: 1200px) {
+
+}

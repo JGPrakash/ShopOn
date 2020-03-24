@@ -1,0 +1,108 @@
+.detail-tab-action {
+    margin-top: 5px;
+    display: inline-block;
+   
+    width: 100%;
+}
+
+.detail-tab-action>input[type=button] {
+    margin-right: 20px;
+    border: solid 1px dimgray;
+    border-bottom: none;
+    background-color: transparent;
+    border: none;
+    outline: none;
+    font-size: 20px;
+    margin-top: 10px;
+}
+
+    .detail-tab-action > input:hover,.detail-tab-action > input:focus {
+        border-bottom:solid 1px green;
+        outline: none;
+    }
+.search-panel hr {
+    display: inline-block;
+    float: left;
+    width: calc(100% - 200px);
+    margin-top: 10px;
+    ;
+}
+
+.item-detail>.basic-info {
+}
+
+.item-detail>.image-panel {
+    display: inline-block;
+    float: left;
+    margin-bottom: 20px;
+    margin-right: 10px;
+    width: 130px;
+}
+
+.item-detail>.image-panel img[controlid="imgItem"] {
+    border: 1px solid whitesmoke;
+    margin-left: 10px;
+    width: 120px;
+}
+
+.attr-panel {
+    margin-left: 140px;
+    width: calc(100% - 140px);
+}
+
+[view] {
+    display: none !important;
+}
+
+.item-invent .basic-info {
+}
+
+.simple-action {
+}
+
+.simple-action input {
+    margin-bottom: 10px;
+}
+
+[controlid="pnlContainerPage"] {
+    display: inline-block;
+}
+
+[controlid="grdItemInventory"] {
+}
+
+[controlid=grdItemSelected] {
+    margin-left: 0px;
+    margin-top: 20px;
+}
+
+@media only screen and (min-width: 500px) {
+    [controlid=grdItemSelected] {
+        margin-left: 20px;
+        margin-top: 0px;
+    }
+}
+
+.label-value {
+}
+
+[controlid="grdItemPrice"] {
+    margin-top: 10px;
+}
+.detail-action input {
+    margin-right: 0px;
+}
+input[value="Save"], input[value="New"] {
+    margin-right: 10px;
+}
+input[value="Details"], input[value="Inventory"], input[value="Price"] {
+    font-size: 18px;
+}
+.margin-top{
+    padding:0px;
+    margin-top:10px;
+}
+select[control="itemInventory.dropDownList"] {
+    font-size: 14px;
+    font-family: Calibri;
+}

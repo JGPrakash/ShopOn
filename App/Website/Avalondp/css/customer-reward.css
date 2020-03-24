@@ -1,0 +1,60 @@
+﻿.reward-summary-title{
+    font-size: 30px;
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
+.summary-panel{
+    text-align:center;
+}
+.summary-panel > h4{
+    font-size: 50px;
+    line-height: 70px;
+    color: #ff7600;
+}
+.summary-panel > span{
+    font-size: 20px;
+    line-height: 30px;
+}
+[controlid=ddlRewardLimit]{
+    float: right;
+    margin-right: 15px;
+    margin-top: 5px;
+    height: 35px;
+}
+.reward-list-title{
+    background:whitesmoke;
+}
+.reward-list-title > div > h4{
+    font-size:24px;
+}
+.reward-list-data{
+    padding-top:10px;
+}
+.reward-list-data >div >h4{
+    font-size:20px;
+}
+div[controlId=grdReward] .grid_data  {
+    background-color: white;
+    }
+div[controlId=grdReward]  {
+        /*padding-top: 20px;*/
+    padding-bottom: 20px;
+    background: transparent;
+    border: none;
+}
+div[controlId=grdReward] .grid_data  {
+    overflow-y: auto;
+    }
+div[controlId=grdReward] .grid_header{
+   background: transparent;
+   border:none;
+       padding-top: 10px;
+}
+div[controlId=grdReward] .grid_data > div{
+    /*width:25%;*/
+    background:white !important;
+    /*height: 400px;*/
+    overflow: hidden;
+        padding-bottom: 10px;
+    border: 1px solid #eeeeee;
+}

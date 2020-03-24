@@ -1,0 +1,75 @@
+﻿<div class="header-area" >
+    <!-- ICON -->
+    <div controlid="pnlMenu" control="masterPage.shopOnMenu" class="menu-shopon-icon">
+        <img src="/RAC/ui/ui/images/menu_grid-128.png">
+    </div>
+
+    <!-- APP NAME -->
+    <!--<input type="button" value="Add" control="masterPage.secondaryButton" controlid="lblAppName" event="click:lblAppName_click" style="color: lightgray; font-size: 20px; font-weight: bold; font-family: -moz-fixed; margin-top: 8px; margin-left: 20px;float:left" />-->
+    <span controlid="lblAppName" control="masterPage.secondaryButton" event="click:lblAppName_click" style="color: lightgray; font-size: 20px; font-weight: bold; font-family: -moz-fixed; margin-top: 8px; margin-left: 20px;float:left" id=""></span>
+    <span class="store-header" style="font-size: 20px;color: whitesmoke;">&nbsp;-&nbsp;</span>
+    <select class="store-header" controlid="ddlGlobalStoreName" control="masterPage.dropDownList"></select>
+    <span class="register-header" style="font-size: 20px;color: whitesmoke;">&nbsp;-&nbsp;</span>
+    <select class="register-header" controlid="ddlGlobalRegisterName" control="masterPage.dropDownList"></select>
+    <span style="font-size: 20px;color: whitesmoke;" class="fullfillment-header">&nbsp;-&nbsp;</span>
+    <span style="font-size: 20px;color: red;" class="fullfillment-header">Fulfillment Store</span>
+    <span style="font-size: 20px;color: whitesmoke;" class="fullfillment-header">&nbsp;:&nbsp;</span>
+    <select style="color:red"  class="fullfillment-header" controlid="ddlFulfillmentStoreName" control="masterPage.dropDownList"></select>
+    
+        <!-- RIGHT END MENUS-->
+        <div style="display: inline-block; float: right; width: 300px;">
+            <div style="width: 100%; display: inline-block;margin-top: 3px">
+                <span controlid="lblUserName" control="masterPage.htmlControl" style="color: white; float: right;line-height:20px;  margin-right: 20px; font-size: 12px; margin-top:6px;"></span>
+                <span style="float: right; color: white; margin-top: 1px; margin-right: 5px; margin-left: 5px;line-height:20px; margin-top:4px;">|</span>
+                <input style="color: white; float: right; font-size: 14px; padding: 0px;" value="logout"  controlid="btnLogout" control="masterPage.secondaryButton" event="click:btnLogout_click" rlabel="Logout" />
+                <span style="color: white; float: right; font-size: 10px;padding:0px;display:none" controlid="btnTasks" control="masterPage.secondaryButton" event="click:btnTasks_click"> Tasks | &nbsp;</span>
+            </div>
+        </div>
+    <!--<div style="display: inline-block; float: right;width: 300px;margin-top:10px;">
+        <span style="color:white;font-size:16px;">Store Name:</span>
+        <span controlid="lblStoreName" control="masterPage.htmlControl" style="color: white;line-height:20px;  margin-right: 20px; font-size: 18px;"></span>
+    </div>-->
+
+
+    </div>
+
+<!-- Menu Box and its temeplates-->
+<div class="menu-shopon" style="display:none">
+    <!-- Place holder for menu-->
+    <div controlid="pnlMenuPlaceHolder" control="masterPage.htmlControl">
+
+    </div>
+
+    <div controlid="pnlMenuMainTeplate" control="masterPage.htmlControl" style="display:none;">
+        <div>     
+            <span>{MainMenu}</span>
+            {SubMenu}
+        </div>
+    </div>
+   <div controlid="pnlMenuTeplate" control="masterPage.htmlControl"  style="display:none;" >
+       <div menu="{Menu}" URL="{URL}"  >         
+           <span>{Menu}</span>
+       </div>
+   </div>
+</div>
+<div controlId="pnlExpireLicense" control="masterPage.popup" style="display:none;background-color:aliceblue;" class="expirypopup">
+    <div class="master-row">
+        <div class="col-xs-4 license-left-panel" style="background-image:url(../../../ui/ui/images/sales_logo.png)"></div>
+        <div class="col-xs-8 license-right-panel">
+            <h1><img src="../../../ui/ui/images/exclamation.png" height="50px;" />License Expired</h1>
+            <span style="color:green">Thank You For Using Our ShopOn Trial Pack</span>
+            <p>Your Trial Pack License Has Been Expired, Contect Us To Get The License</p>
+            <span class="glyphicon glyphicon-map-marker license-contact-details col-xs-12"> WotoTech, Tiruchendur, TamilNadu</span>
+            <span class="glyphicon glyphicon-phone license-contact-details col-xs-12"> 7338898011</span>
+            <span class="glyphicon glyphicon-envelope license-contact-details col-xs-12"> wototech@outlook.com</span>
+        </div>
+        <!--<div class="col-xs-12">
+            <p>Write Your Feedback To: &nbsp;&nbsp;&nbsp; <a href="www.outlook.com" target="_blank">wototech@outlook.com</a></p>
+        </div>-->
+        <!--<p class="license-alert col-xs-12">License Expired</p>
+        <p class="license-contact col-xs-12">Contact For Getting License</p>
+        <span class="glyphicon glyphicon-map-marker license-contact-details col-xs-12">Woto Tech, Tiruchendur, TamilNadu</span>
+        <span class="glyphicon glyphicon-phone license-contact-details col-xs-12"> 9003300929</span>
+        <span class="glyphicon glyphicon-envelope license-contact-details col-xs-12"> wototech@outlook.com</span>-->
+    </div>
+</div>

@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+<head>
+    <script src="/config/config.js" type="text/javascript"></script>
+    <script type="text/javascript">
+
+
+        document.write('<script src="/'+ appConfig.root + '/core/master.js" type="text/javascript" > <\/script> ');
+        document.write('<script src="/' + appConfig.root + '/login/service/user/user-service.js"><\/script>');
+
+        document.write('<link href="/' + appConfig.root + '/finfacts/view/business/business.css" rel="stylesheet" />');
+        document.write('<script src="/' + appConfig.root + '/finfacts/view/business/business.js"><\/script>');
+
+        document.write('<script src="/' + appConfig.root + '/finfacts/service/accaccount-service.js"><\/script>');
+        document.write('<script src="/' + appConfig.root + '/finfacts/service/user/business-service.js"><\/script>');
+    </script>
+
+</head>
+<body control="page.businessPage" controlId="businessPage">
+    <div control="businessPage.masterPage" controlId="masterPage"></div>
+    <div style="margin-top:40px">
+
+        <!--Load Content Area-->
+        <div class="container-fluid">
+
+            <div class="content-area row">
+                <div control="businessPage.messagePanel" controlid="msgPanel" class="message-panel" style="display:none">
+                </div>
+                <div class="search-panel col-sm-4" default-button="btnSearch">
+                    <div class="search-action">
+                        <hr>
+                        <input type="button" value="Search" control="businessPage.primaryReadButton" controlid="btnSearch" event="click:btnSearch_click" />
+                    </div>
+                    <div class="search-filter">
+                        <input type="text" control="businessPage.textBox" controlid="txtSearch" placeholder="Enter Business Id,Name" />
+                    </div>
+                    <div class="search-result">
+                        <div control="businessPage.grid" controlid="grdBusinessResult"></div>
+                    </div>
+                    <div class="col-sm-12" style="height:50px;">
+                        <span class="label"> F1 - New </span>
+                        <span class="label"> F2 - Save </span>
+                        <span class="label"> Ctrl + R - Remove </span>
+                    </div>
+                </div>
+                <div class="detail-panel col-sm-8">
+                    <div class="detail-action">
+                        <input type="button" value="New" control="businessPage.primaryWriteButton" controlid="btnNew" event="click:btnNew_click" />
+                        <input type="button" value="Save" control="businessPage.primaryWriteButton" controlid="btnSave" event="click:btnSave_click" />
+                        <input type="button" value="Remove" control="businessPage.secondaryButton" controlid="btnDelete" event="click:btnDelete_click" />
+                    </div>
+                    <br /><br />
+                    <div class="detail-info container-fluid" control="businessPage.htmlControl" controlid="pnlDetail">
+                        <div class="detail-basic row">
+                            <div class="col-xs-12 col-sm-6 col-lg-6 col-md-6">
+                                <span class="label col-xs-12 col-sm-6 col-lg-4 col-md-4">Business Id</span>
+                                <input class="col-xs-12 col-sm-6 col-lg-6 col-md-6" type="text" control="businessPage.textBox" controlId="txtBusinessId">
+                            </div>
+                            <div class="col-xs-12 col-sm-6 col-lg-6 col-md-6">
+                                <span class="label col-xs-12 col-sm-6 col-lg-4 col-md-4">Business Name<span style="color:red;">*</span></span>
+                                <input class="col-xs-12 col-sm-6 col-lg-6 col-md-6" type="text" control="businessPage.textBox" controlId="txtBusinessName">
+                            </div>
+                            <div class="col-xs-12 col-sm-6 col-lg-6 col-md-6">
+                                <span class="label col-xs-12 col-sm-6 col-lg-4 col-md-4">Description</span>
+                                <input class="col-xs-12 col-sm-6 col-lg-6 col-md-6" type="text" control="businessPage.textBox" controlId="txtBusinessDescription">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="template-panel" control="businessPage.htmlControl" controlid="pnlTemplate">
+                        <div>
+                            <span style="font-size:medium"><b>Template</b></span>
+                            <input type="button" value="Remove" control="businessPage.secondaryButton" controlId="btnRemTemplate" event="click:btnRemTemplate_click" />
+                            <input type="button" value="Add" control="businessPage.secondaryButton" controlId="btnAddTemplate" event="click:btnAddTemplate_click" />
+                        </div>
+                        <div control="businessPage.grid" controlid="grdtemplate"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+           
+
+
+            <div control="businessPage.popup" controlid="pnlAddTemplatePopup" style="display:none">
+                <div style="width:100%;display: inline-block; margin: 5px;">
+                    <input type="button" value="Save" control="businessPage.primaryWriteButton" controlid="btnSavetemplate" event="click:btnSaveTemplate_click" style="float: right" />
+                </div>
+                <div class="detail-basic">
+                    <div>
+                        <span class="label">Template Name</span>
+                        <select class="col-xs-12 col-lg-7" control="businessPage.dropDownList" controlid="ddlTemplateName"></select>
+                    </div>
+                    <div style="margin-top:10px;">
+                        <span class="label" style="float:left">Template Access</span>
+                        <span class="col-xs-12 col-lg-7" style="float:right;margin-top: 0px;"><input type="checkbox" controlId="chkActive" control="businessPage.chkBox" name="active_comm" class="col-lg-2"><span class="label col-lg-9" style="margin-top:-25px;margin-left:20px;">Active</span></span>
+                    </div>
+                </div>
+            </div>
+</body>
+</html>

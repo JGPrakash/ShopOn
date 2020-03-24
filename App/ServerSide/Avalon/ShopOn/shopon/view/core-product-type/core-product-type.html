@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+
+    <script src="/config/config.js" type="text/javascript"></script>
+    <script type="text/javascript">
+
+
+        document.write('<script src="/'+ appConfig.root + '/core/master.js" type="text/javascript" > <\/script> ');
+        document.write('<link href="/' + appConfig.root + '/shopon/view/core-product-type/core-product-type.css" rel="stylesheet" />');
+        document.write('<script src="/' + appConfig.root + '/shopon/view/core-product-type/core-product-type.js"><\/script>');
+        document.write('<script src="/' + appConfig.root + '/shopon/service/product/item-service.js"><\/script>');
+        document.write('<script src="/' + appConfig.root + '/shopon/service/product/core-product-type-api.js"><\/script>');
+
+
+        document.write('<script src="/' + appConfig.root + '/shopon/service/w3data/w3data.js"><\/script>');
+        //Tamil Font
+        document.write('<script src="/' + appConfig.root + '/core/tamil-common.js" type="text/javascript" > <\/script> ');
+        document.write('<script src="/' + appConfig.root + '/core/tamil.js" type="text/javascript" > <\/script> ');
+
+    </script>
+
+</head>
+
+
+<body control="page.coreproductPage" controlId="coreproductPage">
+
+
+
+    <div control="coreproductPage.masterPage" controlId="masterPage"></div>
+    <div style="margin-top:40px">
+
+        <!--Load Content Area-->
+        <div class="container-fluid">
+
+
+            <div class="content-area row">
+                <div control="coreproductPage.messagePanel" controlid="msgPanel" class="message-panel" style="display:none">
+                </div>
+                <div class="search-panel col-sm-4" default-button="btnSearch">
+
+                    <div class="search-action">
+                        <hr>
+                        <input type="button" value="Search" rlabel="Search" control="coreproductPage.primaryReadButton" controlId="btnSearch" event="click:btnSearch_click" />
+
+                    </div>
+                    
+                    <div class="search-filter">
+                        <div>
+                           
+                            <input type="text" control="coreproductPage.textBox" controlId="txtSearchInput" placeholder="Enter core product type no or name">
+                        </div>
+
+
+
+                    </div>
+                    <div class="search-result">
+                        <div control="coreproductPage.grid" controlId="grdSearchResult"> </div>
+                    </div>
+                    <div class="col-sm-12">
+                        <span class="label" rlabel="F1 - New"> F1 - New </span>
+                        <span class="label" rlabel="F2 - Save"> F2 - Save </span>
+                        <span class="label" rlabel="Ctrl + R - Remove"> Ctrl + R - Remove </span>
+                    </div>
+                </div>
+                <div class="detail-panel  col-sm-8">
+
+                    <div class="detail-action">
+                        <input type="button" value="New" rlabel="New" control="coreproductPage.primaryReadButton" controlId="btnNew" event="click:btnNew_click" />
+
+                        <input type="button" value="Save" rlabel="Save" control="coreproductPage.primaryReadButton" controlId="btnSave" event="click:btnSave_click" />
+
+                        <input type="button" value="Remove" rlabel="Remove" control="coreproductPage.secondaryButton" controlId="btnDelete" event="click:btnDelete_click" />
+
+                    </div>
+                    
+                    <div class="detail-info container-fluid">
+                        <div class="detail-basic row">
+                            <span class="label col-sm-12"><b>Details:</b></span>
+                            <div>
+                                <span class="label col-sm-5" rlabel="Core Product Type Name">Core Product Type Name<span style="color:red;">*</span></span>
+                                <input class="col-sm-6" type="text" control="coreproductPage.textBox" controlId="txtMainProductName">
+                            </div>
+                            <span class="col-xs-12">&nbsp;</span>
+                            <div>
+                                <span class="label col-sm-5">Order No<span style="color:red;">*</span></span>
+                                <input class="col-sm-6" type="text" control="coreproductPage.textBox" controlId="txtOrderNo">
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div><br />
+
+
+</body>
+</html>

@@ -1,0 +1,114 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+
+
+    <script src="/config/config.js" type="text/javascript"></script>
+    <script type="text/javascript">
+
+
+        document.write('<script src="/'+ appConfig.root + '/core/master.js" type="text/javascript" > <\/script> ');
+        document.write('<link href="/' + appConfig.root + '/shopon/view/property/property.css" rel="stylesheet" />');
+        document.write('<script src="/' + appConfig.root + '/shopon/view/property/property.js"><\/script>');
+        document.write('<script src="/' + appConfig.root + '/shopon/service/property-api.js"><\/script>');
+        document.write('<script src="/' + appConfig.root + '/shopon/service/product/main-product-type-api.js"><\/script>');
+
+        document.write('<script src="/' + appConfig.root + '/shopon/service/w3data/w3data.js"><\/script>');
+        
+    </script>
+
+</head>
+
+
+<body control="page.propertyPage" controlId="propertyPage">
+
+
+
+    <div control="propertyPage.masterPage" controlId="masterPage"></div>
+    <div style="margin-top:40px">
+
+        <!--Load Content Area-->
+        <div class="container-fluid">
+
+
+            <div class="content-area row">
+                <div control="propertyPage.messagePanel" controlid="msgPanel" class="message-panel" style="display:none">
+                </div>
+                <div class="search-panel col-sm-4" default-button="btnSearch">
+
+                    <div class="search-action">
+                        <hr>
+                        <input type="button" value="Search" rlabel="Search" control="propertyPage.primaryReadButton" controlId="btnSearch" event="click:btnSearch_click" />
+
+                    </div>
+
+                    <div class="search-filter">
+                        <div>
+
+                            <input type="text" control="propertyPage.textBox" controlId="txtSearchInput" placeholder="Enter property no or name">
+                        </div>
+
+
+
+                    </div>
+                    <div class="search-result">
+                        <div control="propertyPage.grid" controlId="grdSearchResult"> </div>
+                    </div>
+                    <div class="col-sm-12">
+                        <span class="label" rlabel="F1 - New"> F1 - New </span>
+                        <span class="label" rlabel="F2 - Save"> F2 - Save </span>
+                        <span class="label" rlabel="Ctrl + R - Remove"> Ctrl + R - Remove </span>
+                    </div>
+                </div>
+                <div class="detail-panel  col-sm-8">
+
+                    <div class="detail-action">
+                        <input type="button" value="New" rlabel="New" control="propertyPage.primaryReadButton" controlId="btnNew" event="click:btnNew_click" />
+
+                        <input type="button" value="Save" rlabel="Save" control="propertyPage.primaryReadButton" controlId="btnSave" event="click:btnSave_click" />
+
+                        <input type="button" value="Remove" rlabel="Remove" control="propertyPage.secondaryButton" controlId="btnDelete" event="click:btnDelete_click" />
+
+                    </div>
+
+                    <div class="detail-info container-fluid">
+                        <div class="detail-basic row col-xs-12">
+                            <span class="label row col-sm-12"><b>Details:</b></span>
+                            <div class="row col-xs-6" style="padding:0px;">
+                                <span class="label col-sm-5">Property Name<span style="color:red;">*</span></span>
+                                <input class="col-sm-6" type="text" control="propertyPage.textBox" controlId="txtPropertyName">
+                            </div>
+                            <div class="row col-xs-6">
+                                <span class="label col-sm-5">Sort Order</span>
+                                <input class="col-sm-6" type="text" control="propertyPage.textBox" controlId="txtPropertySortOrder">
+                            </div>
+                        </div>
+                        <div class="col-xs-12" style="margin-top:10px;padding:0px;"  controlId="pnlPropertyValue" control="propertyPage.htmlControl">
+                            <span class="label row col-sm-12" style="padding:0px;"><b>Property Value:</b></span>
+                            <div class="row col-xs-6" style="padding:0px;margin-top:10px;">
+                                <span class="label  col-xs-5">Add Value</span>
+                                <input class="col-xs-6" controlId="txtPropertyValue" control="propertyPage.textBox" />
+                            </div>
+                            <div class="row col-xs-6" style="padding:0px;margin-top:10px;">
+                                <span class="label col-sm-5">Sort Order</span>
+                                <input class="col-xs-6" type="text" control="propertyPage.textBox" controlId="txtPropertyValueSortOrder" placeholder="Sort Order">
+                            </div>
+                            <div class="row col-xs-6" style="padding:0px;margin-top:10px;">
+                                <span class="label col-xs-5">Main Product Type<span style="color:red;">*</span></span>
+                                <select class="col-xs-6" control="propertyPage.dropDownList" controlid="ddlMainProductName"></select>
+                            </div>
+                            <div class="row col-xs-6" style="padding:0px;margin-top:10px;">
+                                <input value="Add" controlId="btnAddPropertyValue" control="propertyPage.primaryReadButton" event="click:btnAddPropertyValue_click" />
+                                <input value="(New)" controlId="btnNewPropertyValue" control="propertyPage.secondaryButton" event="click:btnNewPropertyValue_click" style="margin-left:10px;"/>
+                            </div>
+                            <div class="row col-xs-12" style="margin-top:10px;padding:0px;"><div control="propertyPage.grid" controlId="grdPropertyValue"> </div></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div><br />
+
+
+</body>
+</html>

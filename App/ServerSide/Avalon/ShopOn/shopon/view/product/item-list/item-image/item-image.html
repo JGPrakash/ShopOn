@@ -1,0 +1,36 @@
+﻿<div control="itemImage.messagePanel" controlid="msgPanel" class="message-panel" style="display:none">
+</div>
+<div class="row" style="margin-top:10px;">
+    <div class="col-xs-12">
+        <span class="header-label">Item Image</span>
+    </div>
+
+    <div class="image-panel col-xs-12 col-lg-6 col-sm-12 col-md-6" align="center" controlId="pnlImg" control="itemImage.htmlControl">
+        <div class="col-lg-12">
+            <img id="output" style="max-width:150px; max-height:150px;" />
+            <div class="col-md-10">
+                <div>
+                    <label for="fileUpload" class="label" rlabel="Select File to Upload:">
+                        Select File to Upload:
+                    </label>
+                    <input type="file" id="fileUpload" accept="image/*" onchange="loadFile(event)">
+                    <br />
+                    <input id="btnUploadFile" class="btn btn-sm btn-success" control="itemImage.primaryReadButton" type="button" value="Upload File" rlabel="Upload File" controlid="btnUploadImage" event="click:btnUploadImage_click" />
+
+                </div>
+                <script>
+                    var loadFile = function (event) {
+                        var output = document.getElementById('output');
+                        output.src = URL.createObjectURL(event.target.files[0]);
+                    };
+                </script>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row col-xs-12" style="margin-top:10px;">
+    <div style="width:100%;overflow-x:auto; overflow-y:hidden;">
+        <div controlId="grdItemImage" control="itemImage.grid"> </div>
+    </div>
+</div>
+

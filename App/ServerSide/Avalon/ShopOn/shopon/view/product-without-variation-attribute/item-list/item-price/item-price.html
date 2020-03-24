@@ -1,0 +1,98 @@
+﻿<div control="itemPrice.messagePanel" controlid="msgPanel" class="message-panel" style="display:none">
+</div>
+<div class="row" style="margin-top:10px;">
+    <div class="col-xs-6">
+        <span class="header-label" rlabel="Price Variations"  controlId="Price Variations" control="itemPrice.label">Price Variations</span>
+    </div>
+
+    <div class="col-xs-6">
+        <!--<input type="button" style="float:right;margin-top:2px" value="Stop Price" controlid="btnStopPrice" control="itemPrice.secondaryButton" event="click:btnStopPrice_click">
+        <span style="padding-left: 5px;padding-right: 5px; margin-top: 10px;float:right"> |</span>-->
+        <input type="button" style="float:right;margin-top:2px" value="Add Price" rlabel="Add Price" controlid="btnAddPrice" control="itemPrice.secondaryButton" event="click:btnAddPrice_click">
+    </div>
+</div>
+
+<div class="row" style="margin-top:10px;">
+    <div class="col-xs-12" >
+        <div style="width:100%;overflow-x:auto; overflow-y:hidden;">
+            <div controlId="grdInventoryPrice" control="itemPrice.grid"> </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="row" style="margin-top:20px;">
+    <div class="col-xs-6">
+        <span class="header-label" rlabel="Price Variations"  controlId="Price History" control="itemPrice.label">Price History</span>
+    </div>
+    <div class="col-xs-6">
+        <input type="button" value="Remove" rlabel="Remove" style="width:auto;float:right; margin-right:10px;margin-top:2px;" controlid="btnRemovePrice" control="itemPrice.secondaryButton" event="click:btnRemovePrice_click">
+        <span style="padding-left: 5px;padding-right: 5px; margin-top: 6px;float:right"> |</span>
+        <input style="float:right;margin-right:10px;margin-top:2px" type="button" event="click:btnSTHideFilter_click" control="itemPrice.secondaryButton" controlid="btnSTHideFilter" value="Hide Filter" rlabel="Hide Filter">
+        <span style="padding-left: 5px;padding-right: 5px; margin-top: 6px;float:right"> |</span>
+        <input style="float:right;margin-right:10px;margin-top:2px" type="button" event="click:btnSTShowFilter_click" control="itemPrice.secondaryButton" controlid="btnSTShowFilter" value="Show Filter" rlabel="Show Filter">
+        
+    </div>
+
+    <div class="col-xs-12" >
+        <div style="width:100%;overflow-x:auto; overflow-y:hidden;">
+            <div controlId="grdItemPrice" control="itemPrice.grid"> </div>
+        </div>
+    </div>
+
+</div>
+
+
+    <div class="basic-info row">
+        <div control="itemPrice.htmlControl" controlId="pnlPriceElements" style="display:none">
+            <div class="col-xs-12 col-lg-4 ">
+                <span class="label  col-xs-12 col-lg-5">Price</span>
+                <input type="text" class="col-xs-12 col-lg-7" controlid="txtAddItemPrice" control="itemPrice.textBox">
+            </div>
+            <div class="col-xs-12 col-lg-4 ">
+                <span class="label  col-xs-12 col-lg-5">Cost</span>
+                <input type="text" class="col-xs-12 col-lg-7" controlid="txtAddItemCost" control="itemPrice.textBox">
+            </div>
+            <div class="col-xs-12 col-lg-4 " control="itemPrice.htmlControl" controlId="pnlMrp">
+                <span class="label  col-xs-12 col-lg-5">MRP</span>
+                <input type="text" class="col-xs-12 col-lg-7" controlid="txtAddItemMrp" control="itemPrice.textBox">
+            </div>
+            <!--<div class="col-xs-12 col-lg-4 ">
+            <span class="label  col-xs-12 col-lg-5">Selling Price</span>
+            <input type="text" class="col-xs-12 col-lg-7" controlid="txtAddItemSellPrice" control="itemPrice.textBox">
+        </div>-->
+            <div class="col-xs-12 col-lg-4 " control="itemPrice.htmlControl" controlId="pnlBatchNo">
+                <span class="label  col-xs-12 col-lg-5">Batch No</span>
+                <input type="text" class="col-xs-12 col-lg-7" controlid="txtAddItemBatchNo" control="itemPrice.textBox">
+            </div>
+            <div class="col-xs-12 col-lg-4 ">
+                <span class="label  col-xs-12 col-lg-5">From Date</span>
+                <input type="text" class="col-xs-12 col-lg-7" controlid="dsAddPriceFromDate" control="itemPrice.dateSelector">
+            </div>
+            <div class="col-xs-12 col-lg-4 " control="itemPrice.htmlControl" controlId="pnlExpiryDate">
+                <span class="label  col-xs-12 col-lg-5">Expiry Date</span>
+                <input type="text" class="col-xs-12 col-lg-7" controlid="dsAddExpiryDate" control="itemPrice.dateSelector">
+            </div>
+        </div>
+        <div>
+           
+        </div>
+    </div>
+   
+        
+
+        <div class="formInput  row" controlId="pnlUpdInventory" control="itemPrice.popup" style="display:none">
+            <div class="col-xs-12 col-lg-6 ">
+                <span>Quantity</span>
+                <input type="text" controlId="txtUpdInventQty" control="itemPrice.textBox" />
+            </div>
+            <div class="col-xs-12 col-lg-6 ">
+                <span>Cost</span>
+                <input type="text" controlId="txtUpdInventCost" control="itemPrice.textBox" />
+            </div>
+            <div class="col-xs-12 col-lg-6 ">
+                <span>Supplier</span>
+                <select controlId="ddlUpdInventVendor" control="itemPrice.htmlControl" />
+            </div>
+            <input type="button" value="Update Inventory" controlId="btnUpdInventory" control="itemPrice.htmlControl" event="click:btnAddInventory_click" />
+        </div>

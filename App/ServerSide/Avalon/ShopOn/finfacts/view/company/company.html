@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+<head>
+    <script src="/config/config.js" type="text/javascript"></script>
+    <script type="text/javascript">
+
+
+        document.write('<script src="/'+ appConfig.root + '/core/master.js" type="text/javascript" > <\/script> ');
+        document.write('<script src="/' + appConfig.root + '/login/service/user/user-service.js"><\/script>');
+
+        document.write('<link href="/' + appConfig.root + '/finfacts/view/company/company.css" rel="stylesheet" />');
+        document.write('<script src="/' + appConfig.root + '/finfacts/view/company/company.js"><\/script>');
+
+        document.write('<script src="/' + appConfig.root + '/finfacts/service/accaccount-service.js"><\/script>');
+
+        document.write('<script src="/' + appConfig.root + '/finfacts/service/user/business-service.js"><\/script>');
+        document.write('<script src="/' + appConfig.root + '/finfacts/service/user/company-service.js"><\/script>');
+        document.write('<script src="/' + appConfig.root + '/shopon/service/setting-service.js"><\/script>');
+        document.write('<script src="/' + appConfig.root + '/finfacts/service/revenue-service.js"><\/script>');
+
+        document.write('<script src="/' + appConfig.root + '/finfacts/service/finfacts-service.js"><\/script>');
+        document.write('<script src="/' + appConfig.root + '/finfacts/service/company-api.js"><\/script>');
+    </script>
+
+</head>
+<body control="page.companyPage" controlId="companyPage">
+    <div control="companyPage.masterPage" controlId="masterPage"></div>
+    <div style="margin-top:40px">
+
+        <!--Load Content Area-->
+        <div class="container-fluid">
+
+            <div class="content-area row">
+                <div control="companyPage.messagePanel" controlid="msgPanel" class="message-panel" style="display:none">
+                </div>
+                <div class="search-panel col-sm-4" default-button="btnSearch">
+                    <div class="search-action">
+                        <hr>
+                        <input type="button" value="Search" control="companyPage.primaryReadButton" controlid="btnSearch" event="click:btnSearch_click" />
+                    </div>
+                    <div class="search-filter">
+                        <input type="text" control="companyPage.textBox" controlid="txtSearch" placeholder="Enter company Id or Name" />
+                    </div>
+                    <div class="search-result">
+                        <div control="companyPage.grid" controlid="grdCompanyResult"></div>
+                    </div>
+                    <div class="col-sm-12">
+                        <!--<span class="label"> F1 - New </span>-->
+                        <span class="label"> F2 - Save </span>
+                        <!--<span class="label"> Ctrl + R - Remove </span>-->
+                    </div>
+                </div>
+                <div class="detail-panel col-sm-8">
+                    <div class="detail-action">
+                        <input type="button" value="New" control="companyPage.primaryWriteButton" controlid="btnNew" event="click:btnNew_click" />
+                        <input type="button" value="Save" control="companyPage.primaryWriteButton" controlid="btnSave" event="click:btnSave_click" />
+                        <input type="button" value="Remove" control="companyPage.secondaryButton" controlid="btnDelete" event="click:btnDelete_click" />
+                    </div>
+                    <br /><br />
+                    <div class="detail-info container-fluid" control="companyPage.htmlControl" controlid="pnlDetail">
+                        <div class="detail-basic row">
+                            <span class="label col-xs-12">Company Details</span>
+                            <div class="col-xs-12 col-sm-6 col-lg-6 col-md-6">
+                                <span class="label col-xs-12 col-sm-6 col-lg-4 col-md-4">Company Id</span>
+                                <input class="col-xs-12 col-sm-6 col-lg-6 col-md-6" type="text" control="companyPage.textBox" controlId="txtCompanyId">
+                            </div>
+                            <div class="col-xs-12 col-sm-6 col-lg-6 col-md-6">
+                                <span class="label col-xs-12 col-sm-6 col-lg-4 col-md-4">Company Name<span style="color:red;">*</span></span>
+                                <input class="col-xs-12 col-sm-6 col-lg-6 col-md-6" type="text" control="companyPage.textBox" controlId="txtCompanyName">
+                            </div>
+                            <div class="col-xs-12 col-sm-6 col-lg-6 col-md-6">
+                                <span class="label col-xs-12 col-sm-6 col-lg-4 col-md-4">Start Date<span style="color:red;">*</span></span>
+                                <input class="col-xs-12 col-sm-6 col-lg-6 col-md-6" type="text" control="companyPage.dateSelector" controlId="dsStartDate">
+                            </div>
+                            <div class="col-xs-12 col-sm-6 col-lg-6 col-md-6">
+                                <span class="label col-xs-12 col-sm-6 col-lg-4 col-md-4">Business<span style="color:red;">*</span></span>
+                                <select controlId="ddlBusiness" control="companyPage.dropDownList" class="col-xs-12 col-sm-6 col-lg-6 col-md-6"></select>
+                            </div>
+                            <div class="col-xs-12 col-sm-6 col-lg-6 col-md-6">
+                                <span class="label col-xs-12 col-sm-6 col-lg-4 col-md-4">Current Period<span style="color:red;">*</span></span>
+                                <select controlId="ddlPeriod" control="companyPage.dropDownList" class="col-xs-12 col-sm-6 col-lg-6 col-md-6"></select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="period-panel" control="companyPage.htmlControl" controlid="pnlPeriod">
+                        <div>
+                            <span style="font-size:20px;"><b>Period</b></span>
+                            <input type="button" value="Remove" control="companyPage.secondaryButton" controlId="btnRemPeriod" event="click:btnRemPeriod_click" />
+                            <input type="button" value="Add" control="companyPage.secondaryButton" controlId="btnAddPeriod" event="click:btnAddPeriod_click" />
+                        </div>
+                        <div control="companyPage.grid" controlid="grdPeriod"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+           
+
+
+            <div control="companyPage.popup" controlid="pnlAddPeriodPopup" style="display:none">
+                <div style="width:100%;display: inline-block; margin: 5px;">
+                    <input type="button" value="Save" control="companyPage.primaryWriteButton" controlid="btnSavePeriod" event="click:btnSavePeriod_click" style="float: right" />
+                </div>
+                <div class="detail-basic">
+                    <div>
+                        <span class="label">Period Name</span>
+                        <input type="text" control="companyPage.textBox" controlid="txtPeriodName" />
+                    </div>
+                </div>
+            </div>
+</body>
+</html>

@@ -1,0 +1,506 @@
+﻿<div control="salesEdit.messagePanel" controlid="msgPanel" class="message-panel" style="display:none">
+
+</div>
+<div controlId="pnlBill" control="salesEdit.htmlControl" class="row">
+
+
+    <div class="col-sm-6 col-xs-12 col-md-5 col-lg-4" style="margin-top:15px;">
+        <div controlId="pnlItemSearch" control="salesEdit.htmlControl" class="sales-item-search" style="display:none">
+            <input class="col-xs-12 col-lg-8" controlId="txtItemSearch" control="salesEdit.autoCompleteList" type="text" value="" placeholder="Item No,Item Name or Scan." id="txtItemSearch"> <!--style="width: 400px;"-->
+            <!--<input value="QR Scan" controlid="btnQrScan" control="salesEdit.secondaryButton" event="click:btnQrScan_click">-->
+            <img src="BackgroundImage/qr-code.png" height="30px" width="30px" style="margin-left:5px;" controlid="btnQrScan" control="salesEdit.secondaryButton" event="click:btnQrScan_click" />
+            <select controlId="ddlRate" control="salesEdit.dropDownList" style="margin-left:5px;">
+                <option value="1">Rate A</option>
+                <option value="2">Rate B</option>
+                <option value="3">Rate C</option>
+            </select>
+            <input value="Search" controlid="btnSearchItem" control="salesEdit.primaryReadButton" event="click:btnAdvSearchItem_click" style="display:none">
+            <input value="Advance Search" controlid="btnAdvSearchItem" control="salesEdit.secondaryButton" event="click:btnAdvSearchItem_click" style="display:none">
+        </div>
+    </div>
+    <div class="col-sm-12 col-xs-12 col-md-4 col-lg-4" style="margin-top:15px;">
+        <span class="col-xs-6 col-sm-4" id="free"><input type="checkbox" tabindex="8" controlId="chkShowFree" control="salesEdit.chkBox" name="show_free"><span controlId="lblFree" control="salesEdit.label" class="label" style="margin-top:-22px;margin-left:5px;">Show Free</span></span>
+        <span class="col-xs-6 col-sm-4"><input type="checkbox" tabindex="8" controlId="chkShowStock" control="salesEdit.chkBox" name="show_stock"><span controlId="lblFreeStock" control="salesEdit.label" class="label" style="margin-top:-22px;margin-left:5px;">Show Stock</span></span>
+        <span class="col-xs-6 col-sm-4"><input type="checkbox" tabindex="8" controlId="chkShowGst" control="salesEdit.chkBox" name="show_gst"><span controlId="lblGst1" control="salesEdit.label" class="label" style="margin-top:-22px;margin-left:5px;">Show GST</span></span>
+    </div>
+
+    <div class="col-sm-3 col-xs-12 col-md-3 col-lg-4" style="margin-top:15px;">
+
+        <!-- <input style="float:right" value="Send Email" control="salesEdit.primaryReadButton" controlId="btnSendEmail" event="click:btnSendMail_click">-->
+        <input style="float:right" value="Return" control="salesEdit.primaryReadButton" controlId="btnReturn" event="click:btnReturn_click">
+        <input style="float:right" value="Pay Now" control="salesEdit.primaryReadButton" controlId="btnPayment" event="click:btnPayment_click">
+        <span style="float:right;" id="chkPrintBill"><input type="checkbox" tabindex="7" controlId="chkPrintBill" control="salesEdit.chkBox" name="print_bill"><span class="label" style="margin-top:-22px;margin-left:5px;">Print</span></span>
+        <select style="float:right;width:100px;margin-right:10px" class="dropDown" control="salesEdit.dropDownList" controlid="ddlPayType"></select>
+        <input style="display:none;float:right;width:40px;margin-right:10px" value="Save" type="button" control="salesEdit.secondaryButton" controlId="btnSave" event="click:btnSave_click">
+        <input style="float:right;width:80px;margin-right:10px;display:none;" value="Save&Print" type="button" control="salesEdit.secondaryButton" controlId="btnSavePrint" event="click:btnSavePrint_click">
+        <div style="display:none;">
+            <input style="display:none;float:right;width:100px;margin-right:10px" value="Send Mail" type="button" control="salesEdit.secondaryButton" controlId="btnSendMail" event="click:btnSendMail_click">
+            <input style="float:right;width:100px;margin-right:10px" value="Send SMS" type="button" control="salesEdit.secondaryButton" controlId="btnSendSMS" event="click:btnSendSMS_click">
+        </div>
+    </div>
+    <div class="col-sm-12" style="display:none">
+        <div style="width:100%; overflow-x:auto; overflow-y:hidden;margin-top:10px">
+            <div style="margin-bottom:1px" control="salesEdit.grid" controlId="grdBillReturn"></div>
+        </div>
+    </div>
+    <div class="col-sm-12">
+        <div style="width:100%; overflow-x:auto; overflow-y:hidden;margin-top:10px">
+            <div controlId="grdBill" control="salesEdit.grid">
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-12">
+        <div style="width:100%; overflow-x:auto; overflow-y:hidden;margin-top:10px">
+            <div controlId="grdBillAdjustment" control="salesEdit.grid">
+            </div>
+        </div>
+    </div>
+    <div controlId="grdReturnItemSelection" control="salesEdit.grid"> </div>
+    <!--Advance Search-->
+    <div controlId="pnlAdvSearchItemPopup" control="salesEdit.popup" style="display:none">
+        <div class="top-panel row col-lg-12" style="margin-left: 0.5%;padding-left: 2.5%;">
+            <span class="label"> Item Search </span>
+            <input controlId="txtAdvItemSearch" control="salesEdit.textBox" type="text" value="" placeholder="Search by Item No, Item Name, Item Code, Vendor, Manufacturer, Tax" style="width:65%;">
+            <input value="Search" controlid="btnAdvaSearchItem" control="salesEdit.primaryReadButton" event="click:btnAdvaSearchItem_click">
+            <input value="Add" controlid="btnAddAdvaSearchItem" control="salesEdit.primaryReadButton" event="click:btnAddAdvaSearchItem_click">
+            <input value="Touch" controlid="btnTouchAdvaSearchItem" control="salesEdit.primaryReadButton" event="click:btnTouchAdvaSearchItem_click">
+            <div controlId="grdAdvSearchItem" style="margin-top:2%;" control="salesEdit.grid"> </div>
+        </div>
+        <div class="touch row col-lg-12" style="display:none">
+            <div class="left-panel col-lg-4" style="">
+                <div class="col-lg-12">
+                    <div class="col-lg-4"><span class="label"> Vendor </span></div>
+                    <div class="col-lg-8"><input controlId="txtAdvVendor" control="salesEdit.textBox" type="text" value="" placeholder="Enter Vendor Name"></div>
+                </div>
+                <div class="col-lg-12" style="padding-top: 2%;">
+                    <div class="col-lg-4"><span class="label"> Manufacturer </span></div>
+                    <div class="col-lg-8"><input controlId="txtAdvManufacturer" control="salesEdit.textBox" type="text" value="" placeholder="Enter Manufacturer Name"></div>
+                </div>
+            </div>
+            <div class="right-panel col-lg-8">
+                <div controlId="grdTouchAdvSearchItem" control="salesEdit.grid"></div>
+            </div>
+        </div>
+    </div>
+    <!--Payment Screen-->
+    <div controlId="pnlPayNow" control="salesEdit.popup" style="display:none">
+        <div class="col-xs-12 col-lg-12" style="padding:1%;">
+            <div class="col-lg-12">
+                <input style="float:right;" value="Pay" controlId="btnPayPending" control="salesEdit.primaryReadButton" event="click:btnMixedPayment_click" />
+                <input style="margin-right:20px;float:right;" value="Add" controlId="btnAddPayment" control="salesEdit.secondaryButton" event="click:btnAddPayment_click" />
+            </div>
+        </div>
+        <div class="col-xs-12 col-lg-6">
+            <span class="label  col-xs-12 col-lg-6">Pay Type</span>
+            <select style="" class="col-xs-12 col-lg-6" control="salesEdit.dropDownList" controlid="ddlPaymentType">
+                <!--<option>Cash</option>
+                <option>Card</option>
+                <option>Coupon</option>
+                <option>Points</option>-->
+            </select>
+        </div>
+        <div style="margin-top:10px;" controlId="pnlCard" control="salesEdit.htmlControl">
+            <div class="col-xs-12 col-lg-6 ">
+                <span class="label  col-xs-12 col-lg-6">Card</span>
+                <select class="col-lg-6" control="salesEdit.dropDownList" controlid="ddlCardType">
+                    <option>Credit</option>
+                    <option>Debit</option>
+                </select>
+            </div>
+            <div class="col-xs-12 col-lg-6 ">
+                <span class="label  col-xs-12 col-lg-6">Card No<span style="color:red">*</span></span>
+                <input class="col-xs-12 col-lg-6" type="text" controlId="txtCardNo" control="salesEdit.textBox">
+            </div>
+        </div>
+        <div style="margin-top:10px;">
+            <div class="col-xs-12 col-lg-6 " controlId="pnlCoupon" control="salesEdit.htmlControl">
+                <span class="label  col-xs-12 col-lg-6">Coupon No <span style="color:red">*</span></span>
+                <input class="col-xs-12 col-lg-6" type="text" controlId="txtCouponNo" control="salesEdit.textBox">
+            </div>
+            <div class="col-xs-12 col-lg-6 " controlId="pnlAmount" control="salesEdit.htmlControl">
+                <span class="label  col-xs-12 col-lg-6">Amount</span>
+                <input class="col-xs-12 col-lg-6" type="text" controlId="txtAmount" control="salesEdit.textBox">
+            </div>
+            <div class="col-xs-12 col-lg-6 " controlId="pnlBalance" control="salesEdit.htmlControl">
+                <span class="label  col-xs-12 col-lg-6">Balance</span>
+                <span class="col-xs-12 col-lg-6 " control="salesEdit.labelValue" controlId="lblBalance">0</span>
+            </div>
+            <div class="col-xs-12 col-lg-6 " controlId="pnlPoints" control="salesEdit.htmlControl">
+                <span class="label  col-xs-12 col-lg-6">Points<span style="color:red">*</span></span>
+                <input class="col-xs-12 col-lg-6" type="text" controlId="txtPoints" control="salesEdit.textBox">
+            </div>
+        </div>
+        <div class="col-xs-12 col-lg-12 " style="margin-top:10px;">
+            <div class="itemGrid" controlId="grdAllPayment" control="salesEdit.grid">
+            </div>
+        </div>
+    </div>
+
+    <!--EMI Screen-->
+    <div controlId="pnlEMI" control="salesEdit.popup" style="display:none">
+
+        <div class="col-xs-12">
+            <div class="col-xs-12 col-lg-4">
+                <span class="label  col-xs-12 col-lg-5">Total Bill Amt(Rs)</span>
+                <span controlId="lblTotalEMIBillAmount" control="salesEdit.label" class="col-xs-12 col-lg-7"> </span>
+            </div>
+            <div class="col-xs-12 col-lg-4 ">
+                <span class="label  col-xs-12 col-lg-5">Down Payment</span>
+                <input type="text" class="col-xs-12 col-lg-7" tabindex="1" controlId="txtEMIPayment" control="salesEdit.textBox" id="txtEMIPayment" />
+            </div>
+            <div class="col-xs-12 col-lg-4">
+                <span class="label  col-xs-12 col-lg-5">Balance(Rs)</span>
+                <span controlId="lblTotalBalanceEMIAmount" control="salesEdit.label" class="col-xs-12 col-lg-7"> </span>
+            </div>
+        </div>
+        <div class="col-xs-12" style="margin-top:2%;">
+            <div class="col-xs-12 col-lg-4">
+                <span class="label  col-xs-12 col-lg-5">EMI Interest(Rs)</span>
+                <input type="text" class="col-xs-12 col-lg-7" tabindex="1" controlId="txtEMIAmount" control="salesEdit.textBox" id="txtEMIAmount" />
+            </div>
+            <div class="col-xs-12 col-lg-4">
+                <span class="label  col-xs-12 col-lg-5">Interest Rate(%)</span>
+                <input type="text" class="col-xs-12 col-lg-7" tabindex="2" controlId="txtEMIInterest" control="salesEdit.textBox" id="txtEMIInterest" />
+            </div>
+            <div class="col-xs-12 col-lg-4 ">
+                <span class="label  col-xs-12 col-lg-5">Loan Term(Months)</span>
+                <input type="text" class="col-xs-12 col-lg-7" tabindex="3" controlId="txtEMIMonth" control="salesEdit.textBox" />
+            </div>
+        </div>
+        <div class="col-xs-12" style="margin-top:2%;">
+            <div class="col-xs-12 col-lg-4">
+                <span class="label  col-xs-12 col-lg-5">Pay Type</span>
+                <select tabindex="5" class="col-xs-12 col-lg-7" control="salesEdit.dropDownList" controlid="ddlEMIPaymentType"></select>
+            </div>
+            <div class="col-xs-12 col-lg-4">
+                <span class="label  col-xs-12 col-lg-5">Due Type</span>
+                <select tabindex="6" class="col-xs-12 col-lg-7" control="salesEdit.dropDownList" controlid="ddlEMIDueType">
+                    <option value="-1">Select</option>
+                    <option value="1">Daily</option>
+                    <option value="2">Weekly</option>
+                    <option value="3">Monthly</option>
+                </select>
+            </div>
+            <div class="col-xs-12 col-lg-4" controlId="pnlEMIDaily" control="salesEdit.htmlControl" style="display:none;">
+                <span class="label  col-xs-12 col-lg-5">Start Date</span>
+                <input class="col-xs-12 col-lg-7" controlId="dsEMIStartDate" control="salesEdit.dateSelector" />
+            </div>
+            <div class="col-xs-12 col-lg-4" controlId="pnlEMIWeek" control="salesEdit.htmlControl" style="display:none;">
+                <span class="label  col-xs-12 col-lg-5">Due Day</span>
+                <select tabindex="7" class="col-xs-12 col-lg-7" control="salesEdit.dropDownList" controlid="ddlEMIDueTypeWeek">
+                    <option value="0">Sunday</option>
+                    <option value="1">Monday</option>
+                    <option value="2">Tuesday</option>
+                    <option value="3">Wednesday</option>
+                    <option value="4">Thursday</option>
+                    <option value="5">Friday</option>
+                    <option value="6">Saturday</option>
+                </select>
+            </div>
+            <div class="col-xs-12 col-lg-4" controlId="pnlEMIMonth" control="salesEdit.htmlControl" style="display:none;">
+                <span class="label  col-xs-12 col-lg-5">Due Date(date)</span>
+                <select tabindex="7" class="col-xs-12 col-lg-7" control="salesEdit.dropDownList" controlid="ddlEMIDueTypeMonth">
+                    <option>01</option>
+                    <option>02</option>
+                    <option>03</option>
+                    <option>04</option>
+                    <option>05</option>
+                    <option>06</option>
+                    <option>07</option>
+                    <option>08</option>
+                    <option>09</option>
+                    <option>10</option>
+                    <option>11</option>
+                    <option>12</option>
+                    <option>13</option>
+                    <option>14</option>
+                    <option>15</option>
+                    <option>16</option>
+                    <option>17</option>
+                    <option>18</option>
+                    <option>19</option>
+                    <option>20</option>
+                    <option>21</option>
+                    <option>22</option>
+                    <option>23</option>
+                    <option>24</option>
+                    <option>25</option>
+                    <option>26</option>
+                    <option>27</option>
+                    <option>28</option>
+                </select>
+            </div>
+        </div>
+        <div class="col-xs-12" style="margin-top:2%;">
+            <div class="col-xs-12 col-lg-4" style="display:none;">
+                <span class="label  col-xs-12 col-lg-5">Total Amt(Rs)</span>
+                <span controlId="lblTotalEMIAmount" control="salesEdit.label" class="col-xs-12 col-lg-7"> </span>
+            </div>
+            <div class="col-xs-12 col-lg-4">
+                <span class="label  col-xs-12 col-lg-5">Paid Amt(Rs)</span>
+                <span controlId="lblTotalEMIPaidAmount" control="salesEdit.label" class="col-xs-12 col-lg-7"> </span>
+            </div>
+            <div class="col-xs-12 col-lg-4">
+                <span class="label  col-xs-12 col-lg-5">Due Amt(Rs)</span>
+                <span controlId="lblTotalEMIDueAmount" control="salesEdit.label" class="col-xs-12 col-lg-7"> </span>
+            </div>
+            <div class="col-xs-12 col-lg-4">
+                <input tabindex="8" style="float:left;margin-right:2%;" value="Generate" controlId="btnGenerateEMI" control="salesEdit.secondaryButton" event="click:btnGenerateEMI_click" />
+                <input style="float:left;" value="Pay" controlId="btnPayEMI" control="salesEdit.primaryReadButton" event="click:btnPayEMI_click" />
+            </div>
+        </div>
+
+        <div class="col-xs-12 col-lg-12 " style="margin-top:10px;">
+            <div style="width:100%; overflow-x:auto; overflow-y:hidden;margin-top:10px">
+                <div controlId="grdAllEMI" control="salesEdit.grid">
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<div class="row">
+
+    <div class="col-xs-12 col-sm-4">
+        <div class="col-xs-12">
+            <!--style="margin-top:10px;"-->
+            <span class="header-label"><b>Customer Details</b></span>
+        </div>
+        <div class="col-xs-12" style="margin:5px;">
+            <!--style="margin-top:5px;"-->
+            <span class="label col-lg-3"> Name</span>
+            <!--<div class="col-lg-7">-->
+            <input class="col-xs-8" controlId="txtCustomerName" control="salesEdit.autoCompleteList" placeholder="No Customer Selected" /><!--style="width:90%;margin-left: -15px;"-->
+            <input type="hidden" controlId="hdnCustomerNo" control="salesEdit.htmlControl" value="">
+            <input class="col-lg-1" value="+" controlId="btnAddCustomer" control="salesEdit.primaryReadButton" event="click:btnAddCustomer_click" /> <!--style="width:40px;margin-right: -15px;" />-->
+            <!--<input type="hidden" controlId="hdnCustomerNo" control="salesEdit.htmlControl" value=""><br />-->
+            <!--</div>-->
+        </div>
+        <div class="col-xs-12" style="margin:5px;">
+            <span class="label col-lg-3"> Mobile No</span>
+            <span class="col-xs-9" controlId="lblPhoneNo" control="salesEdit.labelValue"> </span>
+        </div>
+        <div class="col-xs-12" style="margin:5px;">
+            <span class="label col-xs-3">Email ID</span>
+            <span controlId="lblEmailId" control="salesEdit.labelValue" class="col-xs-9"> </span>
+        </div>
+        <div class="col-xs-12" style="margin:5px;">
+            <span class="label col-xs-12 col-lg-3">Address</span>
+            <span controlId="lblAddress" control="salesEdit.labelValue" class="col-xs-12 col-lg-9" style="overflow:hidden;"> </span>
+        </div>
+        <div class="col-xs-12" controlId="pnlCustPoints" control="salesEdit.htmlControl" style="margin:5px;">
+            <span class="label col-xs-12 col-lg-3"> Available Points</span>
+            <span class="col-xs-12 col-lg-9" controlId="lblAvalablePoints" control="salesEdit.labelValue"> </span>
+        </div>
+        <div class="col-xs-12" controlId="pnlCustGst" control="salesEdit.htmlControl" style="margin:5px;">
+            <span class="label col-xs-12 col-lg-3">Gst No</span>
+            <span class="col-xs-9" controlId="lblGst" control="salesEdit.labelValue"> </span>
+        </div>
+        <div class="col-xs-12" style="margin:5px;" control="salesEdit.htmlControl" controlId="pnlSalesExecutive">
+            <!--<span class="label col-xs-5 col-lg-5">Sales Executive</span>-->
+            <span class="label col-xs-12 col-lg-3" style="background-color:white;border:none;" controlId="lblSalesExecutive" control="salesEdit.labelValue">I0003</span>
+            <select control="salesEdit.dropDownList" controlid="ddlDeliveryBy" class="col-xs-12 col-lg-9"></select>
+        </div>
+        <div class="col-xs-12" style="margin:5px;">
+            <input value="More Details" controlId="btnCustomerMoreDetails" control="salesEdit.secondaryButton" event="click:btnCustomerMoreDetails_click" />
+        </div>
+        <!--</div>-->
+    </div>
+    <div class="col-xs-12 col-sm-4">
+        <div controlId="pnlBillNo" control="salesEdit.htmlControl" style="margin-top:10px;">
+            <div class="col-xs-12">
+                <span class="header-label"><b>Bill Details</b></span>
+            </div>
+            <div class="col-xs-12" style="margin:5px;">
+                <span class="label col-xs-12 col-lg-4">Bill No</span>
+                <span controlId="lblBillNo" control="salesEdit.labelValue" class="col-xs-12 col-lg-8"> </span>
+            </div>
+            <div controlId="pnlBillDate" control="salesEdit.htmlControl" class="col-xs-12" style="margin:5px;">
+                <span class="label col-xs-12 col-lg-4">Bill Date</span>
+                <input controlId="txtBillDate" control="salesEdit.dateSelector" class="col-xs-12 col-lg-8" />
+            </div>
+            <div class="col-xs-12" style="margin: 5px;background-color: white;" controlId="pnlExpenseName" control="salesEdit.htmlControl">
+                <span class="label col-xs-12 col-lg-4">Expense Name</span>
+                <input class="col-xs-12 col-lg-8" placeholder="Expense Name" controlId="txtExpenseName" control="salesEdit.textBox" />
+            </div>
+            <div class="col-xs-12" style="margin: 5px;background-color: white;" controlId="pnlExpenses" control="salesEdit.htmlControl">
+                <span class="label col-xs-12 col-lg-4">Expense Amount</span>
+                <input class="col-xs-12 col-lg-8" placeholder="Expense Amount" controlId="txtExpense" control="salesEdit.textBox" />
+            </div>
+            <div class="col-xs-12" style="margin: 5px;background-color: white;" controlId="pnlBillDiscount" control="salesEdit.htmlControl">
+                <span class="label col-xs-12 col-lg-4">Bill Discount(Rs)</span>
+                <input class="col-xs-12 col-lg-8" placeholder="Discount Amount" controlId="txtBillDiscount" control="salesEdit.textBox" />
+            </div>
+            <!--Advance Amount Panel-->
+            <div style="margin: 0px;background-color: white;" controlId="pnlAdvancePanel" control="salesEdit.htmlControl">
+                <!--<div class="col-xs-12 col-lg-12">
+                    <input value="Show" controlId="btnShowAdvancePanel" control="salesEdit.secondaryButton" event="click:btnShowAdvancePanel_click"/>
+                    <input value="Hide" controlId="btnHideAdvancePanel" control="salesEdit.secondaryButton" event="click:btnHideAdvancePanel_click" />
+                </div>-->
+                <div class="col-xs-12" style="margin:5px;">
+                    <span class="header-label"><b>Advance Amount Panel</b></span>
+                </div>
+                <div class="col-xs-12" style="margin:5px;">
+                    <span class="label col-xs-12 col-lg-4">Advance Amount</span>
+                    <input class="col-xs-12 col-lg-8" placeholder="Advance Amount" controlId="txtAdvanceAmount" control="salesEdit.htmlControl" />
+                </div>
+                <div class="col-xs-12" style="margin:5px;">
+                    <span class="label col-xs-12 col-lg-4">Advance Status</span>
+                    <select class="col-xs-12 col-lg-8 dropDown" control="salesEdit.dropDownList" controlid="ddlAdvancePayType">
+                        <option>Received</option>
+                        <option>Paid</option>
+                    </select>
+                </div>
+                <div class="col-xs-12 col-lg-12" style="margin:5px;">
+                    <span class="label col-xs-12 col-lg-4">Total Days(In Days)</span>
+                    <input class="col-xs-12 col-lg-8" placeholder="Days" controlId="txtTotDays" control="salesEdit.textBox" />
+                </div>
+                <div class="col-xs-12 col-lg-12" style="margin:5px;">
+                    <span class="label col-xs-12 col-lg-4">End Date(In Date)</span>
+                    <input controlId="txtAdvEndDate" control="salesEdit.dateSelector" class="col-xs-12 col-lg-8" />
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-4">
+        <div class="col-xs-12" style="margin-top:10px;">
+            <span class="header-label"><b>Bill Summary</b></span>
+        </div>
+        <div class="col-xs-12" style="margin: 0px;background-color: white;">
+            <span class="label col-xs-12 col-lg-3">Sub Total</span>
+            <span control="salesEdit.labelValue" controlId="lblSubTotal" class="col-xs-12 col-lg-9" style="background-color: transparent;border: none">0</span>
+        </div>
+        <div controlId="pnlDiscount" control="salesEdit.htmlControl" class="col-xs-12" style="margin: 0px;background-color: whitesmoke;">
+            <span control="salesEdit.label" controlId="lblDiscountLabel" event="click:lblDiscountLabel_click" class="label col-xs-12 col-lg-3" style="">Item Discount</span>
+            <span control="salesEdit.labelValue" controlId="lblDiscount" class="col-xs-12 col-lg-9" style="background-color: transparent;border: none">0</span>
+        </div>
+        <div controlId="pnlTax" control="salesEdit.htmlControl" class="col-xs-12" style="margin: 0px;background-color: white;">
+            <span control="salesEdit.label" controlId="lblTaxLabel" event="click:lblTaxLabel_click" class="label col-xs-12 col-lg-3" style="">GST</span>
+            <span control="salesEdit.labelValue" controlId="lblTax" class="col-xs-12 col-lg-9" style="background-color: transparent;border: none">0</span>
+        </div>
+        <div class="col-xs-12" style="margin: 0px;background-color: whitesmoke;">
+            <span class="label col-xs-12 col-lg-3">Round Off</span>
+            <span control="salesEdit.labelValue" controlId="lblRndOff" class="col-xs-12 col-lg-9" style="background-color: transparent;border: none">0</span>
+        </div>
+        <div controlId="pnlTax" control="salesEdit.htmlControl" class="col-xs-12" style="margin: 0px;background-color: white;">
+            <span class="label col-lg-3">Total</span>
+            <span control="salesEdit.label" controlId="lblTotal" class="col-lg-9" style="padding-top:5px;">0</span>
+        </div>
+        <div class="col-xs-12" style="margin-top: 5px;background-color: dimgray;">
+            <!--<span class="label col-lg-3" style="color:white;font-size: 50px;padding-top: 10px;">Net :</span>-->
+            <span class="label col-lg-4" style="color:white;font-size: 50px;padding-top: 10px;">
+                Net
+                <!--<img src="BackgroundImage/rupee-indian.png" width="50px;" height="50px" />-->
+                <i class="fa fa-rupee"></i>
+                :
+            </span>
+            <span control="salesEdit.label" controlId="lblTotalNet" class="col-lg-8" style="background-color: transparent;font-size: 50px;color: white;padding-top: 10px;">0</span>
+        </div>
+        <br />
+        <!--<input type="button" value="Discount" style="font-size: 18px; padding: 10px; border-radius: 10px; float: right; margin-right: 10px; box-shadow: 1px 1px 1px green inset;">-->
+        <!--</div>-->
+    </div>
+</div>
+
+<div style="margin-top: 10px;">
+
+    <!--Sales Item Grid-->
+    <!--Discount popup-->
+    <div controlId="pnlDiscountPopup" control="salesEdit.popup" style="display:none">
+        <span>Select a Discount </span>
+        <select controlId="ddlDiscount" control="salesEdit.dropDownList" />
+        <input value="Add Discount" controlId="btnDiscountOK" control="salesEdit.primaryReadButton" event="click:btnDiscountOK_click" />
+        <input value="Remove" controlId="btnDiscountRemove" control="salesEdit.primaryReadButton" event="click:btnDiscountRemove_click" />
+        <div controlId="grdDiscount" control="salesEdit.grid"> </div>
+    </div>
+    <div controlId="pnlItemDiscountPopup" control="salesEdit.popup" style="display:none">
+        <span>Select a Discount </span>
+        <!--<input controlId="txtItemDiscountValue" control="salesEdit.textBox" />
+            <input value="Add Discount" controlId="btnItemDiscountOK" control="salesEdit.primaryReadButton" event="click:btnItemDiscountOK_click" />-->
+        <select controlId="ddlItemDiscount" control="salesEdit.dropDownList" />
+        <input value="Add Discount" controlId="btnItemDiscountOK" control="salesEdit.primaryReadButton" event="click:btnItemDiscountOK_click" />
+        <input value="Remove" controlId="btnItemDiscountRemove" control="salesEdit.primaryReadButton" event="click:btnItemDiscountRemove_click" />
+
+        <div controlId="grdItemDiscount" control="salesEdit.grid"> </div>
+    </div>
+    <!--Tax popup-->
+    <div controlId="pnlTaxPopup" control="salesEdit.popup" style="display:none">
+        <div class="col-lg-12">
+            <span class="col-lg-3">Select Tax  </span>
+            <select class="col-lg-6" controlId="ddlSalesTax" control="salesEdit.dropDownList" />
+            <!--
+            <input value="OK" controlId="btnTaxOK" control="salesEdit.primaryReadButton" event="click:btnTaxOK_click" />
+            -->
+            <input style="float:right" value="Add Tax" controlId="btnTaxOK" control="salesEdit.primaryReadButton" event="click:btnTaxOK_click" />
+            <!--<input class="col-lg-3" value="Remove" controlId="btnTaxRemove" control="salesEdit.primaryReadButton" event="click:btnTaxRemove_click" />
+            <div class="col-lg-12" controlId="grdTax" control="salesEdit.grid" style="margin-top:15px;"> </div>-->
+        </div>
+    </div>
+
+    <!--Return Item popup-->
+    <div controlId="pnlReturnItemSelection" control="salesEdit.popup" style="display:none">
+        <span>Select Items to be returned  </span>
+        <input value="OK" controlId="btnReturnItemOK" control="salesEdit.primaryReadButton" event="click:btnReturnItemOK_click" />
+
+    </div>
+
+    <!--Return Item popup-->
+    <div controlId="pnlNewCustomer" control="salesEdit.popup" style="display:none" class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+        <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+            <input value="Save Permanent" controlId="btnSaveCustomer" control="salesEdit.primaryReadButton" event="click:btnSaveCustomer_click" />
+        </div>
+        <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+            <input value="Save Just Once" controlId="btnSaveCustomerTemp" control="salesEdit.primaryReadButton" event="click:btnSaveCustomerTemp_click" />
+        </div>
+        <div control="salesEdit.customerEdit" controlid="ucCustomerEdit"> </div>
+    </div>
+    <div controlId="pnlCustomerDetails" control="salesEdit.popup" style="display:none" class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+        <div class="col-xs-12" style="margin:5px;">
+            <span class="label col-xs-12 col-lg-6">Customer</span>
+            <span controlId="lblMoreCustomer" control="salesEdit.labelValue" class="col-xs-12 col-lg-6" style="overflow:hidden;"> </span>
+        </div>
+        <div class="col-xs-12" style="margin:5px;">
+            <span class="label col-xs-12 col-lg-6">Total Sales</span>
+            <span controlId="lblMoreTotalSales" control="salesEdit.labelValue" class="col-xs-12 col-lg-6" style="overflow:hidden;"> </span>
+        </div>
+        <div class="col-xs-12" style="margin:5px;">
+            <span class="label col-xs-12 col-lg-6">Total Return</span>
+            <span controlId="lblMoreTotalReturn" control="salesEdit.labelValue" class="col-xs-12 col-lg-6" style="overflow:hidden;"> </span>
+        </div>
+        <div class="col-xs-12" style="margin:5px;">
+            <span class="label col-xs-12 col-lg-6">Total Sales Payment</span>
+            <span controlId="lblMoreTotalSalesPayment" control="salesEdit.labelValue" class="col-xs-12 col-lg-6" style="overflow:hidden;"> </span>
+        </div>
+        <div class="col-xs-12" style="margin:5px;">
+            <span class="label col-xs-12 col-lg-6">Total Return Payment</span>
+            <span controlId="lblMoreTotalReturnPayment" control="salesEdit.labelValue" class="col-xs-12 col-lg-6" style="overflow:hidden;"> </span>
+        </div>
+        <div class="col-xs-12" style="margin:5px;">
+            <span class="label col-xs-12 col-lg-6">Pending Payment</span>
+            <span controlId="lblMorePendingPayment" control="salesEdit.labelValue" class="col-xs-12 col-lg-6" style="overflow:hidden;"> </span>
+        </div>
+        <div class="col-xs-12" style="margin:5px;">
+            <span class="label col-xs-12 col-lg-6">Pending Settlement</span>
+            <span controlId="lblMorePendingSettlement" control="salesEdit.labelValue" class="col-xs-12 col-lg-6" style="overflow:hidden;"> </span>
+        </div>
+    </div>
+    <div id="dialog-form" style="display:none">
+        <form>
+            <label for="name">Enter Manual Discount</label>
+            <input type="text" name="manualDiscount" id="manualDiscount" class="text ui-widget-content ui-corner-all" />
+        </form>
+    </div>
+    <div controlId="pnlManualDiscountPopUp" control="salesEdit.popup" style="display:none">
+        <label for="name">Enter Manual Discount</label>
+        <input controlId="txtManualDiscount" class="text ui-widget-content ui-corner-all" control="salesEdit.textBox" type="text" value="" placeholder="">
+        <hr />
+        <input value="Cancel" style="float:right" controlId="btnManualDiscountCancel" control="salesEdit.primaryReadButton" event="click:btnManualDiscountCancel_click" />
+        <input value="Ok" style="float:right" controlId="btnManualDiscountOK" control="salesEdit.primaryReadButton" event="click:btnManualDiscountOK_click" />
+    </div>
+    <!--QR Scan Screen-->
+    <div controlId="pnlQrScan" control="salesEdit.popup" style="display:none">
+        <video id="preview" controlId="preview" control="salesEdit.htmlControl"></video>
+    </div>
+</div>
+

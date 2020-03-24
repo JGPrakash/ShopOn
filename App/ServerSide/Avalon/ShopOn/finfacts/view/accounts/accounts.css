@@ -1,0 +1,44 @@
+.content-area {
+}
+[controlid="btnSave"] {
+    float: right;
+    margin-right: 5px;
+}
+.transaction-panel {
+    float: left;
+    /*margin-top: 30px;*/
+    width: 700px;
+}
+.transaction-panel > div > span {
+    font-family: Arial;
+    font-size: 15px;
+}
+[controlid="grdTransactions"] {
+    margin-top: 10px;
+}
+[id="btnNew"] {
+    float: left;
+}
+[controlid="ddlGroups"] {
+    /*width: 63%;*/
+}
+
+ .detail-basic-horiz{
+     /*width:100%;*/
+     margin-top:15px;
+ }
+ .detail-basic-horiz input{
+     /*width:130px;*/
+    
+ }
+ .detail-basic-horiz input[value=Search]{
+     /*width:90px;*/
+    
+ }
+  .detail-basic-horiz >div .label{
+     /*width:auto;
+     margin-right:5px;*/
+     
+ }
+.detail-basic-horiz >div{
+}

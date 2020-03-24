@@ -1,0 +1,956 @@
+<!doctype html>
+<!--suppress ALL -->
+<html>
+<head>
+
+
+    <script src="/config/config.js" type="text/javascript"></script>
+    <script type="text/javascript">
+
+
+        document.write('<script src="/'+ appConfig.root + '/core/master.js" type="text/javascript" > <\/script> ');
+        document.write('<script src="/' + appConfig.root + '/login/service/user/user-service.js"><\/script>');
+
+        document.write('<script src="/' + appConfig.root + '/finfacts/service/user/lookup-service.js"><\/script>');
+        document.write('<link href="/' + appConfig.root + '/finfacts/view/journal/journal.css" rel="stylesheet" />');
+        document.write('<script src="/' + appConfig.root + '/finfacts/view/journal/journal.js"><\/script>');
+
+        document.write('<script src="/' + appConfig.root + '/finfacts/service/account/accounting-service.js"><\/script>');
+        document.write('<script src="/' + appConfig.root + '/finfacts/service/revenue-service.js"><\/script>');
+        document.write('<script src="/' + appConfig.root + '/finfacts/service/accaccount-service.js"><\/script>');
+        document.write('<script src="/' + appConfig.root + '/finfacts/service/account/finfacts-entry-service.js"><\/script>');
+        document.write('<script src="/' + appConfig.root + '/finfacts/service/user/company-service.js"><\/script>');
+        document.write('<script src="/' + appConfig.root + '/finfacts/service/user/business-service.js"><\/script>');
+
+       
+    </script>
+
+
+</head>
+<body control="page.journalPage" controlId="journalPage">
+    <!--Load Master Page-->
+    <div control="journalPage.masterPage" controlId="masterPage"></div>
+
+    <!--Load Content Area-->
+    <div class="container-fluid" style="margin-top:40px">
+
+        <div control="journalPage.messagePanel" controlid="msgPanel" class="message-panel" style="display:none"></div>
+        <div style="display:block;position:fixed;top:0;left:50%;z-index:999999;margin-top:3px">
+            <!--<span><b>Company Name</b></span>-->
+            <select style="font-size:16px;background-color: transparent;color: lightgray;border: none;width: auto;" controlId="ddlCompanyName" control="journalPage.dropDownList" autofocus></select>
+        </div>
+        <div class="row">
+            <nav class="navbar navbar-default">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar1">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <div class="navbar-brand" style="margin-top:0px;margin-bottom:0px">
+                        JOURNAL BOOK
+                        <select style="font-size:30px;background-color: transparent;color: dimgray;border: none;width: auto;" controlId="ddlPeriod" control="journalPage.dropDownList"></select>
+
+                    </div>
+                </div>
+                <div class="collapse navbar-collapse" id="myNavbar1">
+                    <ul class="nav navbar-nav navbar-right">
+                        <li><a target="pnlNewJournal" control="journalPage.htmlControl" controlId="pnlMenuManualJournal">MANUAL JOURNAL</a></li>
+
+                        <!--<li class="dropdown">
+                            <a class="dropdown-toggle" data-toggle="dropdown" href="#" control="journalPage.htmlControl" controlId="pnlMenuSale">
+                                SALES
+                                <span class="caret"></span>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a target="pnlCashSales">CASH SALES</a></li>
+                                <li><a target="pnlCreditSales">CREDIT SALES</a></li>
+                                <li><a target="pnlPaymentSales">SALES PAYMENT</a></li>
+                                <li><a target="pnlReturnCashSales">RETURN CASH SALES</a></li>
+                                <li><a target="pnlReturnCreditSales">RETURN CREDIT SALES</a></li>
+                                <li><a target="pnlReturnSalesPayment">RETURN SALES PAYMENT</a></li>
+                            </ul>
+                        </li>-->
+                        <!--<li class="dropdown">
+                            <a class="dropdown-toggle" data-toggle="dropdown" href="#" control="journalPage.htmlControl" controlId="pnlMenuPurchase">
+                                PURCHASE
+                                <span class="caret"></span>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a target="pnlCashPurchase">CASH PURCHASE</a></li>
+                                <li><a target="pnlCreditPurchase">CREDIT PURCHASE</a></li>
+                                <li><a target="pnlPaymentPurchase">PURCHASE PAYMENT</a></li>
+                                <li><a target="pnlReturnCashPurchase">RETURN CASH PURCHASE</a></li>
+                                <li><a target="pnlReturnCreditPurchase">RETURN CREDIT PURCHASE</a></li>
+                                <li><a target="pnlReturnPurchasePayment">RETURN PURCHASE PAYMENT</a></li>
+                            </ul>
+                        </li>-->
+                        <!--<li><a target="pnlInventory" control="journalPage.htmlControl" controlId="pnlMenuInventory">INVENTORY</a></li>-->
+                        <li><a target="pnlNewIncome" control="journalPage.htmlControl" controlId="pnlMenuIncome">INCOME</a></li>
+                        <li><a target="pnlNewExpense" control="journalPage.htmlControl" controlId="pnlMenuExpense">EXPENSE</a></li>
+                        <li class="dropdown">
+                            <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                                MORE
+                                <span class="caret"></span>
+                            </a>
+                            <ul class="dropdown-menu multi-level">
+
+                                <li><a target="pnlNewTransfer" control="journalPage.htmlControl" controlId="pnlMenuTransfer">Transfer</a></li>
+                                <li class="dropdown-submenu" id="dropdown-submenu2">
+                                    <a class="dropdown-toggle" data-toggle="dropdown" href="#" control="journalPage.htmlControl" controlId="pnlMenuPurchase">
+                                        PURCHASE
+                                        <span class="caret"></span>
+                                    </a>
+                                    <ul class="dropdown-menu" style="margin-top: 25px;margin-left: -100px;">
+                                        <li><a target="pnlCashPurchase" control="journalPage.htmlControl" controlId="pnlMenuCashPurchase">CASH PURCHASE</a></li>
+                                        <li><a target="pnlCreditPurchase" control="journalPage.htmlControl" controlId="pnlMenuCreditPurchase">CREDIT PURCHASE</a></li>
+                                        <li><a target="pnlPaymentPurchase" control="journalPage.htmlControl" controlId="pnlMenuPurchasePayment">PURCHASE PAYMENT</a></li>
+                                        <li><a target="pnlReturnCashPurchase" control="journalPage.htmlControl" controlId="pnlMenuReturnCashPurchase">RETURN CASH PURCHASE</a></li>
+                                        <li><a target="pnlReturnCreditPurchase" control="journalPage.htmlControl" controlId="pnlMenuReturnCreditPurchase">RETURN CREDIT PURCHASE</a></li>
+                                        <li><a target="pnlReturnPurchasePayment" control="journalPage.htmlControl" controlId="pnlMenuReturnPurchasePayment">RETURN PURCHASE PAYMENT</a></li>
+                                    </ul>
+                                </li>
+                                <li><a target="pnlInventory" control="journalPage.htmlControl" controlId="pnlMenuInventory">INVENTORY</a></li>
+                                <li class="dropdown-submenu" id="dropdown-submenu1">
+                                    <a class="dropdown-toggle" data-toggle="dropdown" control="journalPage.htmlControl" controlId="pnlMenuSale">
+                                        SALES
+                                        <span class="caret"></span>
+                                    </a>
+                                    <ul class="dropdown-menu" style="margin-top: 25px;margin-left: -60px;">
+                                        <li><a target="pnlCashSales" control="journalPage.htmlControl" controlId="pnlMenuCashSale">CASH SALES</a></li>
+                                        <li><a target="pnlCreditSales" control="journalPage.htmlControl" controlId="pnlMenuCreditSale">CREDIT SALES</a></li>
+                                        <li><a target="pnlPaymentSales" control="journalPage.htmlControl" controlId="pnlMenuSalePayment">SALES PAYMENT</a></li>
+                                        <li><a target="pnlReturnCashSales" control="journalPage.htmlControl" controlId="pnlMenuReturnCashSale">RETURN CASH SALES</a></li>
+                                        <li><a target="pnlReturnCreditSales" control="journalPage.htmlControl" controlId="pnlMenuReturnCreditSale">RETURN CREDIT SALES</a></li>
+                                        <li><a target="pnlReturnSalesPayment" control="journalPage.htmlControl" controlId="pnlMenuReturnSalePayment">RETURN SALES PAYMENT</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+
+        <div class="journal-panel">
+            <div class="row" id="top-panel" controlId="pnlNewJournal" control="journalPage.htmlControl" style="margin-top:10px;">
+                <div class="col-xs-6 col-sm-6 col-md-9 col-lg-9">
+                    <span class="header-label">Manual Journal</span>
+                </div>
+                <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3">
+                    <input class="" type="button" style="float:right;" controlId="btnNewManuelJournalBack" value="Back" control="journalPage.secondaryButton" event="click:btnBackJournal_click" />
+                    <span style="margin-left:10px;margin-right:10px;float:right;margin-top:5px">|</span>
+                    <input class="" style="float:right;" type="button" controlId="btnNewJournalSave" value="Add" control="journalPage.primaryWriteButton" event="click:btnNewJournalSave_click" />
+                </div>
+                <br /><br />
+                <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4" style="margin-top:10px;">
+                    <span class="label col-xs-12 col-sm-4 col-md-4 col-lg-4">Journal Date</span>
+                    <input type="text" class="col-xs-12 col-sm-8 col-md-8 col-lg-8" controlId="dsJournalDate" control="journalPage.dateSelector" />
+                </div>
+                <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4" style="margin-top:10px;">
+                    <span class="label col-xs-12 col-sm-4 col-md-4 col-lg-4">Description</span>
+                    <input type="text" class="col-xs-12 col-sm-8 col-md-8 col-lg-8" controlId="txtJournalDescription" control="journalPage.textBox" />
+                </div>
+                <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4" style="margin-top:10px;">
+                    <input type="button" class="col-xs-6 col-sm-6 col-md-6 col-lg-6" style="float:right;" controlId="btnNewJournalShowMore" value="Show More" control="journalPage.secondaryButton" event="click:btnNewJournalShowMore_click" />
+                    <input type="button" class="col-xs-6 col-sm-6 col-md-6 col-lg-6" style="float:right; margin-right:20px;" controlId="btnNewJournalShowLess" value="Show Less" control="journalPage.secondaryButton" event="click:btnNewJournalShowLess_click" />
+                </div>
+                <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4" style="margin-top:10px;">
+                    <span class="label col-xs-12 col-sm-4 col-md-4 col-lg-4">Account Name</span>
+                    <select type="text" class="col-xs-12 col-sm-8 col-md-8 col-lg-8" controlId="aclMainAccount" control="journalPage.dropDownList"></select>
+                    <span class="label col-xs-12 col-sm-4 col-md-4 col-lg-4">&nbsp;</span>
+                    <select type="text" class="col-xs-12 col-sm-8 col-md-8 col-lg-8" controlId="aclTranAccount1" control="journalPage.dropDownList" style="margin-top: 5px;"></select>
+                    <span class="label col-xs-12 col-sm-4 col-md-4 col-lg-4">&nbsp;</span>
+                    <select type="text" class="col-xs-12 col-sm-8 col-md-8 col-lg-8" controlId="aclTranAccount2" control="journalPage.dropDownList" style="margin-top: 5px;"></select>
+                    <span class="label col-xs-12 col-sm-4 col-md-4 col-lg-4">&nbsp;</span>
+                    <select type="text" class="col-xs-12 col-sm-8 col-md-8 col-lg-8" controlId="aclTranAccount3" control="journalPage.dropDownList" style="margin-top: 5px;"></select>
+                </div>
+                <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4" style="margin-top:10px;">
+                    <span class="label col-xs-12 col-sm-4 col-md-4 col-lg-4">Debit</span>
+                    <input type="text" class="col-xs-12 col-sm-8 col-md-8 col-lg-8" controlId="txtMainAmountDebit" control="journalPage.textBox" />
+                    <span class="label col-xs-12 col-sm-4 col-md-4 col-lg-4">&nbsp;</span>
+                    <input type="text" class="col-xs-12 col-sm-8 col-md-8 col-lg-8" controlId="txtTranAmountDebit1" control="journalPage.textBox" style="margin-top: 5px;" />
+                    <span class="label col-xs-12 col-sm-4 col-md-4 col-lg-4">&nbsp;</span>
+                    <input type="text" class="col-xs-12 col-sm-8 col-md-8 col-lg-8" controlId="txtTranAmountDebit2" control="journalPage.textBox" style="margin-top: 5px;" />
+                    <span class="label col-xs-12 col-sm-4 col-md-4 col-lg-4">&nbsp;</span>
+                    <input type="text" class="col-xs-12 col-sm-8 col-md-8 col-lg-8" controlId="txtTranAmountDebit3" control="journalPage.textBox" style="margin-top: 5px;" />
+                </div>
+                <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4" style="margin-top:10px;">
+                    <span class="label col-xs-12 col-sm-4 col-md-4 col-lg-4">Credit</span>
+                    <input type="text" class="col-xs-12 col-sm-8 col-md-8 col-lg-8" controlId="txtMainAmountCredit" control="journalPage.textBox" />
+                    <span class="label col-xs-12 col-sm-4 col-md-4 col-lg-4">&nbsp;</span>
+                    <input type="text" class="col-xs-12 col-sm-8 col-md-8 col-lg-8" controlId="txtTranAmountCredit1" control="journalPage.textBox"  style="margin-top: 5px;"/>
+                    <span class="label col-xs-12 col-sm-4 col-md-4 col-lg-4">&nbsp;</span>
+                    <input type="text" class="col-xs-12 col-sm-8 col-md-8 col-lg-8" controlId="txtTranAmountCredit2" control="journalPage.textBox" style="margin-top: 5px;" />
+                    <span class="label col-xs-12 col-sm-4 col-md-4 col-lg-4">&nbsp;</span>
+                    <input type="text" class="col-xs-12 col-sm-8 col-md-8 col-lg-8" controlId="txtTranAmountCredit3" control="journalPage.textBox" style="margin-top: 5px;" />
+                </div>
+            </div>
+            <div class="row" id="top-panel" controlId="pnlCashSales" control="journalPage.htmlControl" style="margin-top:10px;">
+                <div class="col-xs-6 col-sm-6 col-md-9 col-lg-9">
+                    <span class="header-label">Cash Sales</span>
+                </div>
+                <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3">
+                    <input type="button" style="float:right;" controlId="btnNewCashSalesBack" value="Back" control="journalPage.secondaryButton" event="click:btnBackJournal_click" />
+                    <span style="margin-left:10px;margin-right:10px;float:right;margin-top:5px">|</span>
+                    <input type="button" style="float:right;" controlId="btnNewCashSalesSave" value="Add" control="journalPage.primaryWriteButton" event="click:btnNewCashSalesSave_click" />
+                </div>
+                <br /><br />
+                <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4" style="margin-top:10px;">
+                    <span class="label col-xs-12 col-sm-4 col-md-4 col-lg-4">Journal Date</span>
+                    <input type="text" class="col-xs-12 col-sm-8 col-md-8 col-lg-8" controlId="dsCashSalesJournalDate" control="journalPage.dateSelector" />
+                </div>
+                <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4" style="margin-top:10px;">
+                    <span class="label col-xs-12 col-sm-4 col-md-4 col-lg-4">Description</span>
+                    <input type="text" class="col-xs-12 col-sm-8 col-md-8 col-lg-8" controlId="txtCashSalesDescription" control="journalPage.textBox" />
+                </div>
+                <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4" style="margin-top:10px;">
+                    <span class="label col-xs-12 col-sm-4 col-md-4 col-lg-4">Bill No</span>
+                    <input type="text" class="col-xs-12 col-sm-8 col-md-8 col-lg-8" controlId="txtCashSalesBillNo" control="journalPage.textBox" />
+                </div>
+                <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4" style="margin-top:10px;">
+                    <span class="label col-xs-12 col-sm-4 col-md-4 col-lg-4">Customer Name</span>
+                    <input type="text" class="col-xs-12 col-sm-8 col-md-8 col-lg-8" controlId="txtCashSaleCust" control="journalPage.autoCompleteList" /><!--</select>-->
+                </div>
+                <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4" style="margin-top:10px;">
+                    <span class="label col-xs-12 col-sm-4 col-md-4 col-lg-4">Cost of Goods</span>
+                    <input type="text" class="col-xs-12 col-sm-8 col-md-8 col-lg-8" controlId="txtCashSalesBCost" control="journalPage.textBox" />
+                </div>
+                <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4" style="margin-top:10px;">
+                    <span class="label col-xs-12 col-sm-4 col-md-4 col-lg-4">Total Tax</span>
+                    <input type="text" class="col-xs-12 col-sm-8 col-md-8 col-lg-8" controlId="txtCashSalesTaxAmt" control="journalPage.textBox" />
+                </div>
+                <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4" style="margin-top:10px;">
+                    <span class="label col-xs-12 col-sm-4 col-md-4 col-lg-4">Total Sales(with out tax)</span>
+                    <input type="text" class="col-xs-12 col-sm-8 col-md-8 col-lg-8" controlId="txtCashSalesSCost" control="journalPage.textBox" />
+                </div>
+                <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4" style="margin-top:10px;">
+                    <span class="label col-xs-12 col-sm-4 col-md-4 col-lg-4">Round Off</span>
+                    <input type="text" class="col-xs-12 col-sm-8 col-md-8 col-lg-8" controlId="txtCashSalesRndOff" control="journalPage.textBox" />
+                </div>
+            </div>
+
+            <div class="row" id="top-panel" controlId="pnlCreditSales" control="journalPage.htmlControl" style="margin-top:10px;">
+                <div class="col-xs-6 col-sm-6 col-md-9 col-lg-9">
+                    <span class="header-label">Credit Sales</span>
+                </div>
+                <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3">
+                    <input type="button" style="float:right;" controlId="btnNewCreditSalesBack" value="Back" control="journalPage.secondaryButton" event="click:btnBackJournal_click" />
+                    <span style="margin-left:10px;margin-right:10px;float:right;margin-top:5px">|</span>
+                    <input type="button" style="float:right;" controlId="btnNewCreditSalesSave" value="Add" control="journalPage.primaryWriteButton" event="click:btnNewCreditSalesSave_click" />
+                </div>
+                <br /><br />
+                <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4" style="margin-top:10px;">
+                    <span class="label col-xs-12 col-sm-4 col-md-4 col-lg-4">Journal Date</span>
+                    <input type="text" class="col-xs-12 col-sm-8 col-md-8 col-lg-8" controlId="dsCreditSalesJournalDate" control="journalPage.dateSelector" />
+                </div>
+                <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4" style="margin-top:10px;">
+                    <span class="label col-xs-12 col-sm-4 col-md-4 col-lg-4">Description</span>
+                    <input type="text" class="col-xs-12 col-sm-8 col-md-8 col-lg-8" controlId="txtCreditSalesDescription" control="journalPage.textBox" />
+                </div>
+                <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4" style="margin-top:10px;">
+                    <span class="label col-xs-12 col-sm-4 col-md-4 col-lg-4">Bill No</span>
+                    <input type="text" class="col-xs-12 col-sm-8 col-md-8 col-lg-8" controlId="txtCreditSalesBillNo" control="journalPage.textBox" />
+                </div>
+                <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4" style="margin-top:10px;">
+                    <span class="label col-xs-12 col-sm-4 col-md-4 col-lg-4">Customer Name</span>
+                    <input type="text" class="col-xs-12 col-sm-8 col-md-8 col-lg-8" controlId="txtCreditSaleCust" control="journalPage.autoCompleteList" /><!--</select>-->
+                </div>
+                <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4" style="margin-top:10px;">
+                    <span class="label col-xs-12 col-sm-4 col-md-4 col-lg-4">Cost of Goods</span>
+                    <input type="text" class="col-xs-12 col-sm-8 col-md-8 col-lg-8" controlId="txtCreditSalesBCost" control="journalPage.textBox" />
+                </div>
+                <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4" style="margin-top:10px;">
+                    <span class="label col-xs-12 col-sm-4 col-md-4 col-lg-4">Total Tax</span>
+                    <input type="text" class="col-xs-12 col-sm-8 col-md-8 col-lg-8" controlId="txtCreditSalesTaxAmt" control="journalPage.textBox" />
+                </div>
+                <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4" style="margin-top:10px;">
+                    <span class="label col-xs-12 col-sm-4 col-md-4 col-lg-4">Round Off</span>
+                    <input type="text" class="col-xs-12 col-sm-8 col-md-8 col-lg-8" controlId="txtCreditSalesRndOff" control="journalPage.textBox" />
+                </div>
+                <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4" style="margin-top:10px;">
+                    <span class="label col-xs-12 col-sm-4 col-md-4 col-lg-4">Total Sales(with out tax)</span>
+                    <input type="text" class="col-xs-12 col-sm-8 col-md-8 col-lg-8" controlId="txtCreditSalesSCost" control="journalPage.textBox" />
+                </div>
+            </div>
+
+            <div class="row" id="top-panel" controlId="pnlPaymentSales" control="journalPage.htmlControl" style="margin-top:10px;">
+                <div class="col-xs-6 col-sm-6 col-md-9 col-lg-9">
+                    <span class="header-label">Payment Sales</span>
+                </div>
+                <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3">
+                    <input type="button" style="float:right;" controlId="btnNewPaymentSalesBack" value="Back" control="journalPage.secondaryButton" event="click:btnBackJournal_click" />
+                    <span style="margin-left:10px;margin-right:10px;float:right;margin-top:5px">|</span>
+                    <input type="button" style="float:right;" controlId="btnNewPaymentSalesSave" value="Add" control="journalPage.primaryWriteButton" event="click:btnNewPaymentSalesSave_click" />
+                </div>
+
+                <br /><br />
+                <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4" style="margin-top:10px;">
+                    <span class="label col-xs-12 col-sm-4">Journal Date</span>
+                    <input type="text" class="col-xs-12 col-sm-8 col-md-8 col-lg-8" controlId="dsCreditSalesPayJournalDate" control="journalPage.dateSelector" />
+                </div>
+                <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4" style="margin-top:10px;">
+                    <span class="label col-xs-12 col-sm-4">Description</span>
+                    <input type="text" class="col-xs-12 col-sm-8 col-md-8 col-lg-8" controlId="txtCreditSalesPayDescription" control="journalPage.textBox" />
+                </div>
+                <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4" style="margin-top:10px;">
+                    <span class="label col-xs-12 col-sm-4 col-md-4 col-lg-4">Bill No</span>
+                    <input type="text" class="col-xs-12 col-sm-8 col-md-8 col-lg-8" controlId="txtPaySalesBillNo" control="journalPage.textBox" />
+                </div>
+                <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4" style="margin-top:10px;">
+                    <span class="label col-xs-12 col-sm-4 col-md-4 col-lg-4">Amount</span>
+                    <input type="text" class="col-xs-12 col-sm-8 col-md-8 col-lg-8" controlId="txtPaySalesAmount" control="journalPage.textBox" />
+                </div>
+                <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4" style="margin-top:10px;">
+                    <span class="label col-xs-12 col-sm-4">Customer Name</span>
+                    <input type="text" class="col-xs-12 col-sm-8 col-md-8 col-lg-8" controlId="txtCreditSalePayCust" control="journalPage.autoCompleteList" /><!--</select>-->
+                </div>
+            </div>
+
+            <div class="row" id="top-panel" controlId="pnlReturnCashSales" control="journalPage.htmlControl" style="margin-top:10px;">
+                <div class="col-xs-6 col-sm-6 col-md-9 col-lg-9">
+                    <span class="header-label">Return Cash Sales</span>
+                </div>
+                <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3">
+                    <input type="button" style="float:right;" controlId="btnReCashSalesBack" value="Back" control="journalPage.secondaryButton" event="click:btnBackJournal_click" />
+                    <span style="margin-left:10px;margin-right:10px;float:right;margin-top:5px">|</span>
+                    <input type="button" style="float:right;" controlId="btnReCashSalesSave" value="Add" control="journalPage.primaryWriteButton" event="click:btnReCashSalesSave_click" />
+                </div>
+                <br /><br />
+                <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4" style="margin-top:10px;">
+                    <span class="label col-xs-12 col-sm-4">Journal Date</span>
+                    <input type="text" class="col-xs-12 col-sm-8 col-md-8 col-lg-8" controlId="dsReCashSalesJournalDate" control="journalPage.dateSelector" />
+                </div>
+                <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4" style="margin-top:10px;">
+                    <span class="label col-xs-12 col-sm-4">Description</span>
+                    <input type="text" class="col-xs-12 col-sm-8 col-md-8 col-lg-8" controlId="txtReCashSalesDescription" control="journalPage.textBox" />
+                </div>
+                <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4" style="margin-top:10px;">
+                    <span class="label col-xs-12 col-sm-4">Bill No</span>
+                    <input type="text" class="col-xs-12 col-sm-8 col-md-8 col-lg-8" controlId="txtReCashSalesBillNo" control="journalPage.textBox" />
+                </div>
+                <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4" style="margin-top:10px;">
+                    <span class="label col-xs-12 col-sm-4 col-md-4 col-lg-4">Cost of Goods</span>
+                    <input type="text" class="col-xs-12 col-sm-8 col-md-8 col-lg-8" controlId="txtReCashSalesBCost" control="journalPage.textBox" />
+                </div>
+                <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4" style="margin-top:10px;">
+                    <span class="label col-xs-12 col-sm-4">Total Tax</span>
+                    <input type="text" class="col-xs-12 col-sm-8 col-md-8 col-lg-8" controlId="txtReCashSalesTaxAmt" control="journalPage.textBox" />
+                </div>
+                <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4" style="margin-top:10px;">
+                    <span class="label col-xs-12 col-sm-4">Total Sales(with out tax)</span>
+                    <input type="text" class="col-xs-12 col-sm-8 col-md-8 col-lg-8" controlId="txtReCashSalesSCost" control="journalPage.textBox" />
+                </div>
+                <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4" style="margin-top:10px;">
+                    <span class="label col-xs-12 col-sm-4">Round Off</span>
+                    <input type="text" class="col-xs-12 col-sm-8 col-md-8 col-lg-8" controlId="txtReCashRndOff" control="journalPage.textBox" />
+                </div>
+                <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4" style="margin-top:10px;">
+                    <span class="label col-xs-12 col-sm-4">Customer Name</span>
+                    <input type="text" class="col-xs-12 col-sm-8 col-md-8 col-lg-8" controlId="txtReCashSalePayCust" control="journalPage.autoCompleteList" /><!--</select>-->
+                </div>
+            </div>
+
+            <div class="row" id="top-panel" controlId="pnlReturnCreditSales" control="journalPage.htmlControl" style="margin-top:10px;">
+                <div class="col-xs-6 col-sm-6 col-md-9 col-lg-9">
+                    <span class="header-label">Return Credit Sales</span>
+                </div>
+                <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3">
+                    <input type="button" style="float:right;" controlId="btnReCreditSalesBack" value="Back" control="journalPage.secondaryButton" event="click:btnBackJournal_click" />
+                    <span style="margin-left:10px;margin-right:10px;float:right;margin-top:5px">|</span>
+                    <input type="button" style="float:right;" controlId="btnReCreditSalesSave" value="Add" control="journalPage.primaryWriteButton" event="click:btnReCreditSalesSave_click" />
+                </div>
+                <br /><br />
+                <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4" style="margin-top:10px;">
+                    <span class="label col-xs-12 col-sm-4">Journal Date</span>
+                    <input type="text" class="col-xs-12 col-sm-8 col-md-8 col-lg-8" controlId="dsReCreditSalesJournalDate" control="journalPage.dateSelector" />
+                </div>
+                <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4" style="margin-top:10px;">
+                    <span class="label col-xs-12 col-sm-4">Description</span>
+                    <input type="text" class="col-xs-12 col-sm-8 col-md-8 col-lg-8" controlId="txtReCreditSalesDescription" control="journalPage.textBox" />
+                </div>
+                <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4" style="margin-top:10px;">
+                    <span class="label col-xs-12 col-sm-4">Bill No</span>
+                    <input type="text" class="col-xs-12 col-sm-8 col-md-8 col-lg-8" controlId="txtReCreditSalesBillNo" control="journalPage.textBox" />
+                </div>
+                <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4" style="margin-top:10px;">
+                    <span class="label col-xs-12 col-sm-4 col-md-4 col-lg-4">Cost of Goods</span>
+                    <input type="text" class="col-xs-12 col-sm-8 col-md-8 col-lg-8" controlId="txtReCreditSalesBCost" control="journalPage.textBox" />
+                </div>
+                <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4" style="margin-top:10px;">
+                    <span class="label col-xs-12 col-sm-4">Total Tax</span>
+                    <input type="text" class="col-xs-12 col-sm-8 col-md-8 col-lg-8" controlId="txtReCreditSalesTaxAmt" control="journalPage.textBox" />
+                </div>
+                <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4" style="margin-top:10px;">
+                    <span class="label col-xs-12 col-sm-4">Total Sales(with out tax)</span>
+                    <input type="text" class="col-xs-12 col-sm-8 col-md-8 col-lg-8" controlId="txtReCreditSalesSCost" control="journalPage.textBox" />
+                </div>
+                <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4" style="margin-top:10px;">
+                    <span class="label col-xs-12 col-sm-4">Round Off</span>
+                    <input type="text" class="col-xs-12 col-sm-8 col-md-8 col-lg-8" controlId="txtReCreditSalesRndOff" control="journalPage.textBox" />
+                </div>
+                <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4" style="margin-top:10px;">
+                    <span class="label col-xs-12 col-sm-4">Customer Name</span>
+                    <input type="text" class="col-xs-12 col-sm-8 col-md-8 col-lg-8" controlId="txtReCreditSalePayCust" control="journalPage.autoCompleteList" /><!--</select>-->
+                </div>
+            </div>
+
+            <div class="row" id="top-panel" controlId="pnlReturnSalesPayment" control="journalPage.htmlControl" style="margin-top:10px;">
+                <div class="col-xs-6 col-sm-6 col-md-9 col-lg-9">
+                    <span class="header-label">Return Sales Payment</span>
+                </div>
+                <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3">
+                    <input type="button" style="float:right;" controlId="btnReSalesPayBack" value="Back" control="journalPage.secondaryButton" event="click:btnBackJournal_click" />
+                    <span style="margin-left:10px;margin-right:10px;float:right;margin-top:5px">|</span>
+                    <input type="button" style="float:right;" controlId="btnReSalesPaySave" value="Add" control="journalPage.primaryWriteButton" event="click:btnReSalesPaySave_click" />
+                </div>
+                <br /><br />
+                <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4" style="margin-top:10px;">
+                    <span class="label col-xs-12 col-sm-4">Journal Date</span>
+                    <input type="text" class="col-xs-12 col-sm-8 col-md-8 col-lg-8" controlId="dsReSalesPayJournalDate" control="journalPage.dateSelector" />
+                </div>
+                <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4" style="margin-top:10px;">
+                    <span class="label col-xs-12 col-sm-4">Description</span>
+                    <input type="text" class="col-xs-12 col-sm-8 col-md-8 col-lg-8" controlId="txtReSalesPayDescription" control="journalPage.textBox" />
+                </div>
+                <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4" style="margin-top:10px;">
+                    <span class="label col-xs-12 col-sm-4 col-md-4 col-lg-4">Bill No</span>
+                    <input type="text" class="col-xs-12 col-sm-8 col-md-8 col-lg-8" controlId="txtRPaySalesBillNo" control="journalPage.textBox" />
+                </div>
+                <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4" style="margin-top:10px;">
+                    <span class="label col-xs-12 col-sm-4 col-md-4 col-lg-4">Amount</span>
+                    <input type="text" class="col-xs-12 col-sm-8 col-md-8 col-lg-8" controlId="txtRPaySalesAmount" control="journalPage.textBox" />
+                </div>
+                <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4" style="margin-top:10px;">
+                    <span class="label col-xs-12 col-sm-4">Customer Name</span>
+                    <input type="text" class="col-xs-12 col-sm-8 col-md-8 col-lg-8" controlId="txtReSalePayCust" control="journalPage.autoCompleteList" /><!--</select>-->
+                </div>
+            </div>
+
+            <div class="row" id="top-panel" controlId="pnlCashPurchase" control="journalPage.htmlControl" style="margin-top:10px;">
+                <div class="col-xs-6 col-sm-6 col-md-9 col-lg-9">
+                    <span class="header-label">Cash Purchase</span>
+                </div>
+                <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3">
+                    <input type="button" style="float:right;" controlId="btnNewCashPurchaseBack" value="Back" control="journalPage.secondaryButton" event="click:btnBackJournal_click" />
+                    <span style="margin-left:10px;margin-right:10px;float:right;margin-top:5px">|</span>
+                    <input type="button" style="float:right;" controlId="btnNewCashPurchaseSave" value="Add" control="journalPage.primaryWriteButton" event="click:btnNewCashPurchaseSave_click" />
+                </div>
+                <br /><br />
+                <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4" style="margin-top:10px;">
+                    <span class="label col-xs-12 col-sm-4 col-md-4 col-lg-4">Journal Date</span>
+                    <input type="text" class="col-xs-12 col-sm-8 col-md-8 col-lg-8" controlId="dsCashPurchaseJournalDate" control="journalPage.dateSelector" />
+                </div>
+                <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4" style="margin-top:10px;">
+                    <span class="label col-xs-12 col-sm-4 col-md-4 col-lg-4">Description</span>
+                    <input type="text" class="col-xs-12 col-sm-8" controlId="txtCashPurchaseDescription" control="journalPage.textBox" />
+                </div>
+                <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4" style="margin-top:10px;">
+                    <span class="label col-xs-12 col-sm-4 col-md-4 col-lg-4">Bill No</span>
+                    <input type="text" class="col-xs-12 col-sm-8 col-md-8 col-lg-8" controlId="txtCashPurchaseBillNo" control="journalPage.textBox" />
+                </div>
+                <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4" style="margin-top:10px;display:none">
+                    <span class="label col-xs-12 col-sm-4 col-md-4 col-lg-4">Quantity</span>
+                    <input type="text" class="col-xs-12 col-sm-8 col-md-8 col-lg-8" controlId="txtCashPurchaseQty" control="journalPage.textBox" />
+                </div>
+                <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4" style="margin-top:10px;">
+                    <span class="label col-xs-12 col-sm-4 col-md-4 col-lg-4">Total Tax</span>
+                    <input type="text" class="col-xs-12 col-sm-8 col-md-8 col-lg-8" controlId="txtCashPurchaseTaxAmt" control="journalPage.textBox" />
+                </div>
+                <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4" style="margin-top:10px;">
+                    <span class="label col-xs-12 col-sm-4 col-md-4 col-lg-4">Total Purchase(with out tax)</span>
+                    <input type="text" class="col-xs-12 col-sm-8 col-md-8 col-lg-8" controlId="txtCashPurchaseSCost" control="journalPage.textBox" />
+                </div>
+                <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4" style="margin-top:10px;">
+                    <span class="label col-xs-12 col-sm-4 col-md-4 col-lg-4">Round Off</span>
+                    <input type="text" class="col-xs-12 col-sm-8 col-md-8 col-lg-8" controlId="txtCashPurchaseRndOff" control="journalPage.textBox" />
+                </div>
+                <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4" style="margin-top:10px;">
+                    <span class="label col-xs-12 col-sm-4 col-md-4 col-lg-4">Supplier Name</span>
+                    <input type="text" class="col-xs-12 col-sm-8 col-md-8 col-lg-8" controlId="txtCashPurchaseCustomerName" control="journalPage.autoCompleteList"><!--</select>-->
+                </div>
+            </div>
+
+            <div class="row" id="top-panel" controlId="pnlCreditPurchase" control="journalPage.htmlControl" style="margin-top:10px;">
+                <div class="col-xs-6 col-sm-6 col-md-9 col-lg-9">
+                    <span class="header-label">Credit Purchase</span>
+                </div>
+                <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3">
+                    <input type="button" style="float:right;" controlId="btnCreditPurchaseBack" value="Back" control="journalPage.secondaryButton" event="click:btnBackJournal_click" />
+                    <span style="margin-left:10px;margin-right:10px;float:right;margin-top:5px">|</span>
+                    <input type="button" style="float:right;" controlId="btnCreditPurchaseSave" value="Add" control="journalPage.primaryWriteButton" event="click:btnCreditPurchaseSave_click" />
+                </div>
+                <br /><br />
+                <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4" style="margin-top:10px;">
+                    <span class="label col-xs-12 col-sm-4 col-md-4 col-lg-4">Journal Date</span>
+                    <input type="text" class="col-xs-12 col-sm-8 col-md-8 col-lg-8" controlId="dsCreditPurchaseJournalDate" control="journalPage.dateSelector" />
+                </div>
+                <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4" style="margin-top:10px;">
+                    <span class="label col-xs-12 col-sm-4 col-md-4 col-lg-4">Description</span>
+                    <input type="text" class="col-xs-12 col-sm-8 col-md-8 col-lg-8" controlId="txtCreditPurchaseDescription" control="journalPage.textBox" />
+                </div>
+                <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4" style="margin-top:10px;">
+                    <span class="label col-xs-12 col-sm-4 col-md-4 col-lg-4">Bill No</span>
+                    <input type="text" class="col-xs-12 col-sm-8 col-md-8 col-lg-8" controlId="txtCreditPurchaseBillNo" control="journalPage.textBox" />
+                </div>
+                <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4" style="margin-top:10px;">
+                    <span class="label col-xs-12 col-sm-4 col-md-4 col-lg-4">Total Tax</span>
+                    <input type="text" class="col-xs-12 col-sm-8 col-md-8 col-lg-8" controlId="txtCreditPurchaseTaxAmt" control="journalPage.textBox" />
+                </div>
+                <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4" style="margin-top:10px;">
+                    <span class="label col-xs-12 col-sm-4 col-md-4 col-lg-4">Total Purchase(with out tax)</span>
+                    <input type="text" class="col-xs-12 col-sm-8 col-md-8 col-lg-8" controlId="txtCreditPurchaseSCost" control="journalPage.textBox" />
+                </div>
+                <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4" style="margin-top:10px;">
+                    <span class="label col-xs-12 col-sm-4 col-md-4 col-lg-4">Round Off</span>
+                    <input type="text" class="col-xs-12 col-sm-8 col-md-8 col-lg-8" controlId="txtCreditPurchaseRndOff" control="journalPage.textBox" />
+                </div>
+                <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4" style="margin-top:10px;">
+                    <span class="label col-xs-12 col-sm-4 col-md-4 col-lg-4">Supplier Name</span>
+                    <input type="text" class="col-xs-12 col-sm-8 col-md-8 col-lg-8" controlId="txtCreditPurchaseCustomerName" control="journalPage.autoCompleteList"/><!--</input>-->
+                </div>
+            </div>
+
+            <div class="row" id="top-panel" controlId="pnlPaymentPurchase" control="journalPage.htmlControl" style="margin-top:10px;">
+                <div class="col-xs-6 col-sm-6 col-md-9 col-lg-9">
+                    <span class="header-label">Payment Purchase</span>
+                </div>
+                <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3">
+                    <input type="button" style="float:right;" controlId="btnNewPaymentPurchaseBack" value="Back" control="journalPage.secondaryButton" event="click:btnBackJournal_click" />
+                    <span style="margin-left:10px;margin-right:10px;float:right;margin-top:5px">|</span>
+                    <input type="button" style="float:right;" controlId="btnNewPaymentPurchaseSave" value="Add" control="journalPage.primaryWriteButton" event="click:btnNewPaymentPurchaseSave_click" />
+                </div>
+                <br /><br />
+                <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4" style="margin-top:10px;">
+                    <span class="label col-xs-12 col-sm-4 col-md-4 col-lg-4">Journal Date</span>
+                    <input type="text" class="col-xs-12 col-sm-8 col-md-8 col-lg-8" controlId="dsPayPurchasePaymentJournalDate" control="journalPage.dateSelector" />
+                </div>
+                <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4" style="margin-top:10px;">
+                    <span class="label col-xs-12 col-sm-4 col-md-4 col-lg-4">Description</span>
+                    <input type="text" class="col-xs-12 col-sm-8 col-md-8 col-lg-8" controlId="txtPayPurchasePaymentDescription" control="journalPage.textBox" />
+                </div>
+                <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4" style="margin-top:10px;">
+                    <span class="label col-xs-12 col-sm-4 col-md-4 col-lg-4">Bill No</span>
+                    <input type="text" class="col-xs-12 col-sm-8 col-md-8 col-lg-8" controlId="txtPayPurchaseBillNo" control="journalPage.textBox" />
+                </div>
+                <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4" style="margin-top:10px;">
+                    <span class="label col-xs-12 col-sm-4 col-md-4 col-lg-4">Amount</span>
+                    <input type="text" class="col-xs-12 col-sm-8 col-md-8 col-lg-8" controlId="txtPayPurchaseAmount" control="journalPage.textBox" />
+                </div>
+                <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4" style="margin-top:10px;">
+                    <span class="label col-xs-12 col-sm-4 col-md-4 col-lg-4">Supplier Name</span>
+                    <input type="text" class="col-xs-12 col-sm-8 col-md-8 col-lg-8" controlId="txtPayPurchaseCustomerName" control="journalPage.autoCompleteList" /><!--</select>-->
+                </div>
+            </div>
+
+            <div class="row" id="top-panel" controlId="pnlReturnCashPurchase" control="journalPage.htmlControl" style="margin-top:10px;">
+                <div class="col-xs-6 col-sm-6 col-md-9 col-lg-9">
+                    <span class="header-label">Return Cash Purchase</span>
+                </div>
+                <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3">
+                    <input type="button" style="float:right;" controlId="btnReCashPurchaseBack" value="Back" control="journalPage.secondaryButton" event="click:btnBackJournal_click" />
+                    <span style="margin-left:10px;margin-right:10px;float:right;margin-top:5px">|</span>
+                    <input type="button" style="float:right;" controlId="btnReCashPurchaseSave" value="Add" control="journalPage.primaryWriteButton" event="click:btnReCashPurchaseSave_click" />
+                </div>
+                <br /><br />
+                <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4" style="margin-top:10px;">
+                    <span class="label col-xs-12 col-sm-4 col-md-4 col-lg-4">Journal Date</span>
+                    <input type="text" class="col-xs-12 col-sm-8 col-md-8 col-lg-8" controlId="dsReCashPurchaseJournalDate" control="journalPage.dateSelector" />
+                </div>
+                <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4" style="margin-top:10px;">
+                    <span class="label col-xs-12 col-sm-4 col-md-4 col-lg-4">Description</span>
+                    <input type="text" class="col-xs-12 col-sm-8 col-md-8 col-lg-8" controlId="txtReCashPurchaseDescription" control="journalPage.textBox" />
+                </div>
+                <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4" style="margin-top:10px;">
+                    <span class="label col-xs-12 col-sm-4 col-md-4 col-lg-4">Bill No</span>
+                    <input type="text" class="col-xs-12 col-sm-8 col-md-8 col-lg-8" controlId="txtReCashPurchaseBillNo" control="journalPage.textBox" />
+                </div>
+                <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4" style="margin-top:10px;">
+                    <span class="label col-xs-12 col-sm-4 col-md-4 col-lg-4">Total Tax</span>
+                    <input type="text" class="col-xs-12 col-sm-8 col-md-8 col-lg-8" controlId="txtReCashPurchaseTaxAmt" control="journalPage.textBox" />
+                </div>
+                <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4" style="margin-top:10px;">
+                    <span class="label col-xs-12 col-sm-4 col-md-4 col-lg-4">Total Purchase(with out tax)</span>
+                    <input type="text" class="col-xs-12 col-sm-8 col-md-8 col-lg-8" controlId="txtReCashPurchaseSCost" control="journalPage.textBox" />
+                </div>
+                <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4" style="margin-top:10px;">
+                    <span class="label col-xs-12 col-sm-4 col-md-4 col-lg-4">Round Off</span>
+                    <input type="text" class="col-xs-12 col-sm-8 col-md-8 col-lg-8" controlId="txtReCashPurchaseRndOff" control="journalPage.textBox" />
+                </div>
+                <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4" style="margin-top:10px;">
+                    <span class="label col-xs-12 col-sm-4 col-md-4 col-lg-4">Supplier Name</span>
+                    <input type="text" class="col-xs-12 col-sm-8 col-md-8 col-lg-8" controlId="txtReCashPurchaseCustomerName" control="journalPage.autoCompleteList" /><!--</select>-->
+                </div>
+            </div>
+
+            <div class="row" id="top-panel" controlId="pnlReturnCreditPurchase" control="journalPage.htmlControl" style="margin-top:10px;">
+                <div class="col-xs-6 col-sm-6 col-md-9 col-lg-9">
+                    <span class="header-label">Return Credit Purchase</span>
+                </div>
+                <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3">
+                    <input type="button" style="float:right;" controlId="btnReCreditPurchaseBack" value="Back" control="journalPage.secondaryButton" event="click:btnBackJournal_click" />
+                    <span style="margin-left:10px;margin-right:10px;float:right;margin-top:5px">|</span>
+                    <input type="button" style="float:right;" controlId="btnReCreditPurchaseSave" value="Add" control="journalPage.primaryWriteButton" event="click:btnReCreditPurchaseSave_click" />
+                </div>
+                <br /><br />
+                <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4" style="margin-top:10px;">
+                    <span class="label col-xs-12 col-sm-4 col-md-4 col-lg-4">Journal Date</span>
+                    <input type="text" class="col-xs-12 col-sm-8 col-md-8 col-lg-8" controlId="dsReCreditPurchaseJournalDate" control="journalPage.dateSelector" />
+                </div>
+                <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4" style="margin-top:10px;">
+                    <span class="label col-xs-12 col-sm-4 col-md-4 col-lg-4">Description</span>
+                    <input type="text" class="col-xs-12 col-sm-8 col-md-8 col-lg-8" controlId="txtReCreditPurchaseDescription" control="journalPage.textBox" />
+                </div>
+                <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4" style="margin-top:10px;">
+                    <span class="label col-xs-12 col-sm-4 col-md-4 col-lg-4">Bill No</span>
+                    <input type="text" class="col-xs-12 col-sm-8 col-md-8 col-lg-8" controlId="txtReCreditPurchaseBillNo" control="journalPage.textBox" />
+                </div>
+                <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4" style="margin-top:10px;">
+                    <span class="label col-xs-12 col-sm-4 col-md-4 col-lg-4">Total Tax</span>
+                    <input type="text" class="col-xs-12 col-sm-8 col-md-8 col-lg-8" controlId="txtReCreditPurchaseTaxAmt" control="journalPage.textBox" />
+                </div>
+                <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4" style="margin-top:10px;">
+                    <span class="label col-xs-12 col-sm-4 col-md-4 col-lg-4">Total Purchase(with out tax)</span>
+                    <input type="text" class="col-xs-12 col-sm-8 col-md-8 col-lg-8" controlId="txtReCreditPurchaseSCost" control="journalPage.textBox" />
+                </div>
+                <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4" style="margin-top:10px;">
+                    <span class="label col-xs-12 col-sm-4 col-md-4 col-lg-4">Round Off</span>
+                    <input type="text" class="col-xs-12 col-sm-8 col-md-8 col-lg-8" controlId="txtReCreditPurchaseRndOff" control="journalPage.textBox" />
+                </div>
+                <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4" style="margin-top:10px;">
+                    <span class="label col-xs-12 col-sm-4 col-md-4 col-lg-4">Supplier Name</span>
+                    <input type="text" class="col-xs-12 col-sm-8 col-md-8 col-lg-8" controlId="txtReCreditPurchaseCustomerName" control="journalPage.autoCompleteList" /><!--</select>-->
+                </div>
+            </div>
+
+            <div class="row" id="top-panel" controlId="pnlReturnPurchasePayment" control="journalPage.htmlControl" style="margin-top:10px;">
+                <div class="col-xs-6 col-sm-6 col-md-9 col-lg-9">
+                    <span class="header-label">Return Purchase Payment</span>
+                </div>
+                <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3">
+                    <input type="button" style="float:right;" controlId="btnRePurchasePayBack" value="Back" control="journalPage.secondaryButton" event="click:btnBackJournal_click" />
+                    <span style="margin-left:10px;margin-right:10px;float:right;margin-top:5px">|</span>
+                    <input type="button" style="float:right;" controlId="btnRePurchasePaySave" value="Add" control="journalPage.primaryWriteButton" event="click:btnRePurchasePaySave_click" />
+                </div>
+                <br /><br />
+                <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4" style="margin-top:10px;">
+                    <span class="label col-xs-12 col-sm-4 col-md-4 col-lg-4">Journal Date</span>
+                    <input type="text" class="col-xs-12 col-sm-8 col-md-8 col-lg-8" controlId="dsRePayPurchasePaymentJournalDate" control="journalPage.dateSelector" />
+                </div>
+                <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4" style="margin-top:10px;">
+                    <span class="label col-xs-12 col-sm-4 col-md-4 col-lg-4">Description</span>
+                    <input type="text" class="col-xs-12 col-sm-8 col-md-8 col-lg-8" controlId="txtRePayPurchasePaymentDescription" control="journalPage.textBox" />
+                </div>
+                <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4" style="margin-top:10px;">
+                    <span class="label col-xs-12 col-sm-4 col-md-4 col-lg-4">Bill No</span>
+                    <input type="text" class="col-xs-12 col-sm-8 col-md-8 col-lg-8" controlId="txtRePayPurchaseBillNo" control="journalPage.textBox" />
+                </div>
+                <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4" style="margin-top:10px;">
+                    <span class="label col-xs-12 col-sm-4 col-md-4 col-lg-4">Amount</span>
+                    <input type="text" class="col-xs-12 col-sm-8 col-md-8 col-lg-8" controlId="txtRePayPurchaseAmount" control="journalPage.textBox" />
+                </div>
+                <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4" style="margin-top:10px;">
+                    <span class="label col-xs-12 col-sm-4 col-md-4 col-lg-4">Supplier Name</span>
+                    <input type="text" class="col-xs-12 col-sm-8 col-md-8 col-lg-8" controlId="txtRePayPurchaseCustomerName" control="journalPage.autoCompleteList" /><!--</select>-->
+                </div>
+            </div>
+
+            <div class="row" id="top-panel" controlId="pnlInventory" control="journalPage.htmlControl" style="margin-top:10px;">
+                <div class="col-xs-6 col-sm-6 col-md-9 col-lg-9">
+                    <span class="header-label">Inventory</span>
+                </div>
+                <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3">
+                    <input type="button" style="float:right;" controlId="btnNewInventoryBack" value="Back" control="journalPage.secondaryButton" event="click:btnBackJournal_click" />
+                    <span style="margin-left:10px;margin-right:10px;float:right;margin-top:5px">|</span>
+                    <input type="button" style="float:right;" controlId="btnNewInventorySave" value="Add" control="journalPage.primaryWriteButton" event="click:btnNewInventorySave_click" />
+                </div>
+                <br /><br />
+                <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4" style="margin-top:10px;">
+                    <span class="label col-xs-12 col-sm-4 col-md-4 col-lg-4">Journal Date</span>
+                    <input type="text" class="col-xs-12 col-sm-8 col-md-8 col-lg-8" controlId="dsInventoryJournalDate" control="journalPage.dateSelector" />
+                </div>
+                <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4" style="margin-top:10px;">
+                    <span class="label col-xs-12 col-sm-4 col-md-4 col-lg-4">Description</span>
+                    <input type="text" class="col-xs-12 col-sm-8 col-md-8 col-lg-8" controlId="txtInventoryDescription" control="journalPage.textBox" />
+                </div>
+                <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4" style="margin-top:10px;">
+                    <span class="label col-xs-12 col-sm-4 col-md-4 col-lg-4">Bill No</span>
+                    <input type="text" class="col-xs-12 col-sm-8 col-md-8 col-lg-8" controlId="txtInventoryBillNo" control="journalPage.textBox" />
+                </div>
+                <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4" style="margin-top:10px;">
+                    <span class="label col-xs-12 col-sm-4 col-md-4 col-lg-4">Cost of Goods</span>
+                    <input type="text" class="col-xs-12 col-sm-8 col-md-8 col-lg-8" controlId="txtInventoryBCost" control="journalPage.textBox" />
+                </div>
+                <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4" style="margin-top:10px;">
+                    <span class="label col-xs-12 col-sm-4 col-md-4 col-lg-4">Inventory Type</span>
+                    <select type="text" class="col-xs-12 col-sm-8 col-md-8 col-lg-8" controlId="ddlInventoryType" control="journalPage.dropDownList">
+                        <option>Sale</option>
+                        <option>SaleReturn</option>
+                        <option>PurchaseReturn</option>
+                        <!--<option>ManualRemove</option>-->
+                        <option>Purchase</option>
+                        <!--<option>Manual</option>-->
+                    </select>
+                </div>
+            </div>
+            <div class="row" id="top-panel" controlId="pnlNewIncome" control="journalPage.htmlControl" style="margin-top:10px;">
+                <div class="col-xs-6 col-sm-6 col-md-9 col-lg-9">
+                    <span class="header-label">Income</span>
+                </div>
+                <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3">
+                    <input  style="float:right;" type="button" controlId="btnNewManuelIncomeBack" value="Back" control="journalPage.secondaryButton" event="click:btnBackJournal_click" />
+                    <span style="margin-left:10px;margin-right:10px;float:right;margin-top:5px">|</span>
+                    <input style="float:right;" type="button" controlId="btnNewIncomeSave" value="Add" control="journalPage.primaryWriteButton" event="click:btnNewIncomeSave_click" />
+                </div>
+                <br /><br />
+                <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4" style="margin-top:10px;">
+                    <span class="label col-xs-12 col-sm-4 col-md-4 col-lg-4">Journal Date</span>
+                    <input type="text" class="col-xs-12 col-sm-8 col-md-8 col-lg-8" controlId="dsIncomeJournalDate" control="journalPage.dateSelector" />
+                </div>
+                <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4" style="margin-top:10px;">
+                    <span class="label col-xs-12 col-sm-4 col-md-4 col-lg-4">Description</span>
+                    <input type="text" class="col-xs-12 col-sm-8 col-md-8 col-lg-8" controlId="txtIncomeDescription" control="journalPage.textBox" />
+                </div>
+                <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4" style="margin-top:10px;">
+                    <span class="label col-xs-12 col-sm-4 col-md-4 col-lg-4">Amount</span>
+                    <input type="text" class="col-xs-12 col-sm-8 col-md-8 col-lg-8" controlId="txtIncomeAmount" control="journalPage.textBox" />
+                </div>
+                <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4" style="margin-top:10px;">
+                    <span class="label col-xs-12 col-sm-4 col-md-4 col-lg-4">Category</span>
+                    <select type="text" class="col-xs-12 col-sm-8 col-md-8 col-lg-8" controlId="txtIncomeCategory" control="journalPage.dropDownList"></select>
+                </div>
+                <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4" style="margin-top:10px;">
+                    <span class="label col-xs-12 col-sm-4 col-md-4 col-lg-4">Account</span>
+                    <select type="text" class="col-xs-12 col-sm-8 col-md-8 col-lg-8" controlId="txtIncomeAccount" control="journalPage.dropDownList"></select>
+                </div>
+                <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4" style="margin-top:10px;">
+                    <span class="label col-xs-12 col-sm-4 col-md-4 col-lg-4">Item</span>
+                    <input class="col-xs-12 col-sm-8 col-md-8 col-lg-8" controlId="txtItemSearch" control="journalPage.autoCompleteList" type="text" value="">
+                </div>
+            </div>
+            <div class="row" id="top-panel" controlId="pnlNewExpense" control="journalPage.htmlControl" style="margin-top:10px;">
+                <div class="col-xs-6 col-sm-6 col-md-9 col-lg-9">
+                    <span class="header-label">Expense</span>
+                </div>
+                <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3">
+                    <input style="float:right;" type="button" controlId="btnNewExpenseBack" value="Back" control="journalPage.secondaryButton" event="click:btnBackJournal_click" />
+                    <span style="margin-left:10px;margin-right:10px;float:right;margin-top:5px">|</span>
+                    <input style="float:right;" type="button" controlId="btnNewExpenseSave" value="Add" control="journalPage.primaryWriteButton" event="click:btnNewExpenseSave_click" />
+                </div>
+                <br /><br />
+                <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4" style="margin-top:10px;">
+                    <span class="label col-xs-12 col-sm-4 col-md-4 col-lg-4">Journal Date</span>
+                    <input type="text" class="col-xs-12 col-sm-8 col-md-8 col-lg-8" controlId="dsExpenseJournalDate" control="journalPage.dateSelector" />
+                </div>
+                <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4" style="margin-top:10px;">
+                    <span class="label col-xs-12 col-sm-4 col-md-4 col-lg-4">Description</span>
+                    <input type="text" class="col-xs-12 col-sm-8 col-md-8 col-lg-8" controlId="txtExpenseDescription" control="journalPage.textBox" />
+                </div>
+                <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4" style="margin-top:10px;">
+                    <span class="label col-xs-12 col-sm-4 col-md-4 col-lg-4">Amount</span>
+                    <input type="text" class="col-xs-12 col-sm-8 col-md-8 col-lg-8" controlId="txtExpenseAmount" control="journalPage.textBox" />
+                </div>
+                <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4" style="margin-top:10px;">
+                    <span class="label col-xs-12 col-sm-4 col-md-4 col-lg-4">Category</span>
+                    <select type="text" class="col-xs-12 col-sm-8 col-md-8 col-lg-8" controlId="txtExpenseCategory" control="journalPage.dropDownList"></select>
+                </div>
+                <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4" style="margin-top:10px;">
+                    <span class="label col-xs-12 col-sm-4 col-md-4 col-lg-4">Account</span>
+                    <select type="text" class="col-xs-12 col-sm-8 col-md-8 col-lg-8" controlId="txtExpenseAccount" control="journalPage.dropDownList"></select>
+                </div>
+                <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4" style="margin-top:10px;">
+                    <span class="label col-xs-12 col-sm-4 col-md-4 col-lg-4">Item</span>
+                    <input class="col-xs-12 col-sm-8 col-md-8 col-lg-8" controlId="txtItemExpense" control="journalPage.autoCompleteList" type="text" value="">
+                </div>
+            </div>
+            <div class="row" id="top-panel" controlId="pnlNewTransfer" control="journalPage.htmlControl" style="margin-top:10px;">
+                <div class="col-xs-6 col-sm-6 col-md-9 col-lg-9">
+                    <span class="header-label">New Transfer</span>
+                </div>
+                <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3">
+                    <input type="button" style="float:right;" controlId="btnNewTransferBack" value="Back" control="journalPage.secondaryButton" event="click:btnBackJournal_click" />
+                    <span style="margin-left:10px;margin-right:10px;float:right;margin-top:5px">|</span>
+                    <input type="button" style="float:right;" controlId="btnNewTransferSave" value="Add" control="journalPage.primaryReadButton" event="click:btnNewTransferSave_click" />
+                </div>
+                <br /><br />
+                <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4" style="margin-top:10px;">
+                    <span class="label col-xs-12 col-sm-4 col-md-4 col-lg-4">Journal Date</span>
+                    <input type="text" class="col-xs-12 col-sm-8 col-md-8 col-lg-8" controlId="dsTransferJournalDate" control="journalPage.dateSelector" />
+                </div>
+                <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4" style="margin-top:10px;">
+                    <span class="label col-xs-12 col-sm-4 col-md-4 col-lg-4">Description</span>
+                    <input type="text" class="col-xs-12 col-sm-8 col-md-8 col-lg-8" controlId="txtTransferDescription" control="journalPage.textBox" />
+                </div>
+                <div class="col-xs-12 col-sm-4 col-md-4 col-lg-12" style="margin-top:10px;">
+                    <span class="label col-xs-12 col-sm-4 col-md-4 col-lg-4">&nbsp;</span>
+                </div>              
+                <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4" style="margin-top:10px;">
+                    <span class="label col-xs-12 col-sm-4 col-md-4 col-lg-4">From Account</span>
+                    <select type="text" class="col-xs-12 col-sm-8 col-md-8 col-lg-8" controlId="txtTransferFromAccount" control="journalPage.dropDownList"></select>
+                </div>
+                <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4" style="margin-top:10px;">
+                    <span class="label col-xs-12 col-sm-4 col-md-4 col-lg-4">To Account</span>
+                    <select type="text" class="col-xs-12 col-sm-8 col-md-8 col-lg-8" controlId="txtTransferToAccount" control="journalPage.dropDownList"></select>
+                </div>
+                <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4" style="margin-top:10px;">
+                    <span class="label col-xs-12 col-sm-4 col-md-4 col-lg-4">Amount</span>
+                    <input type="text" class="col-xs-12 col-sm-8 col-md-8 col-lg-8" controlId="txtTransferBCost" control="journalPage.textBox" />
+                </div>
+            </div>
+            </div>
+            
+        <div class="row" style="margin-top:30px;">
+            <div class="col-xs-12 col-lg-6">
+                <span class="header-label">Journal Entries </span>
+            </div>
+            <div class="col-xs-12 col-lg-2">
+                <input style="float:right;margin-right:10px;margin-top:2px;display:none;" type="button" event="click:btnSTShowFilter_click" control="journalPage.secondaryButton" controlid="btnSTShowFilter" value="Show Filter" rlabel="Show Filter">
+                <input style="float:right;margin-right:10px;margin-top:2px;display:none;" type="button" event="click:btnSTHideFilter_click" control="journalPage.secondaryButton" controlid="btnSTHideFilter" value="Hide Filter" rlabel="Hide Filter">
+            </div>
+            <div class="col-xs-12 col-lg-4" style="float:right">
+                <select controlId="ddlViewMode" control="journalPage.dropDownList" style="width:100%">
+                    <option>Journal Entry</option>
+                    <option>Journal Entry Simple</option>
+                    <!--<option>Income Statement</option>
+                    <option>Balance Scheet</option>-->
+                </select>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-12" style="padding-top: 10px;">
+                <div controlId="grdJournalEntry" control="journalPage.grid"></div>
+            </div>
+            <div class="col-sm-12" style="padding-top: 10px;">
+                <div controlId="grdJournalEntrySimple" control="journalPage.grid"></div>
+            </div>
+        </div>
+
+
+        <div class="col-xs-6" style="float:right" controlId="pnlJournalView" control="journalPage.htmlControl"></div>
+        <div controlId="pnlContentArea" control="journalPage.htmlControl" style="width:90%;margin-top:10px;padding:45px">
+
+            <div class="receipt-new row col-sm-12 col-md-12 col-xs-12 col-lg-12" controlId="pnlNewReceipt" control="journalPage.htmlControl" style="margin-left:60px;">
+                <div class="row col-sm-12 col-md-12 col-xs-12 col-lg-12">
+                    <h3>Receipt</h3>
+                </div>
+                <div class="row col-sm-12 col-md-12 col-xs-12 col-lg-12" style="float:right">
+                    <input type="button" style="margin-left:20px;float:right" controlId="btnNewReceiptSave" value="Add" control="journalPage.primaryWriteButton" event="click:btnNewReceiptSave_click" />
+                </div>
+                <div class="row col-sm-12 col-md-12 col-xs-12 col-lg-12">
+                    <div class="col-sm-1 col-md-1 col-xs-1 col-lg-1"> &nbsp; </div>
+                    <div class="col-sm-10 col-md-10 col-xs-10 col-lg-10">
+
+                        <div class="col-sm-4">
+                            <span class="label col-sm-4">Cust Name</span>
+                            <input type="text" class="col-sm-8" controlId="txtCustomerName" control="journalPage.textBox" />
+                        </div>
+                        <div class="col-sm-4">
+                            <span class="label col-sm-4">Quantity</span>
+                            <input type="text" class="col-sm-8" controlId="txtQty" control="journalPage.textBox" />
+                        </div>
+                        <div class="col-sm-4">
+                            <span class="label col-sm-4">Selling Cost</span>
+                            <input type="text" class="col-sm-8" controlId="txtSCost" control="journalPage.textBox" />
+                        </div>
+                        <div class="col-sm-4">
+                            <span class="label col-sm-4">Buying Cost</span>
+                            <input type="text" class="col-sm-8" controlId="txtBCost" control="journalPage.textBox" />
+                        </div>
+                        <div class="col-sm-4">
+                            <span class="label col-sm-4">Tax</span>
+                            <input type="text" class="col-sm-8" controlId="txtTaxAmt" control="journalPage.textBox" />
+                        </div>
+                        <div class="col-sm-4">
+                            <span class="label col-sm-4">Description</span>
+
+                            <input type="text" class="col-sm-8" controlId="txtReceiptDescription" control="journalPage.textBox" />
+                        </div>
+                        <div class="col-sm-4">
+                            <span class="label col-sm-4">Date</span>
+                            <input type="text" class="col-sm-8" controlId="dsReceiptJournalDate" control="journalPage.dateSelector" />
+                        </div>
+
+                        <div class="col-sm-4">
+                            <span class="label col-sm-4">Bill No</span>
+
+                            <input type="text" class="col-sm-8" controlId="txtReceiptBillNo" control="journalPage.textBox" />
+                        </div>
+                    </div>
+                    <div class="col-sm-1 col-md-1 col-xs-1 col-lg-1"> &nbsp; </div>
+                </div>
+
+                <div class="row col-sm-12 col-md-12 col-xs-12 col-lg-12" style="padding-top: 10px;padding-bottom:10px">
+                    <div class="col-sm-1 col-md-1 col-xs-1 col-lg-1"> &nbsp; </div>
+                    <div class="col-sm-10 col-md-10 col-xs-10 col-lg-10">
+                        <div class="col-sm-4">
+                            <span class="label col-sm-4">Amount</span>
+
+                            <input type="text" class="col-sm-8" controlId="txtReceiptAmount" control="journalPage.textBox" />
+                        </div>
+                        <div class="col-sm-4">
+                            <span class="label col-sm-4">Account</span>
+
+                            <select type="text" class="col-sm-8" controlId="txtReceiptAccount" control="journalPage.dropDownList" />
+                        </div>
+                        <div class="col-sm-4">
+                            <input type="button" style="margin-left:20px;display:none" controlId="btnNewReceiptSaveaa" value="Add" control="journalPage.secondaryButton" event="click:btnNewReceiptSavess_click" />
+                        </div>
+                    </div>
+                    <div class="col-sm-1 col-md-1 col-xs-1 col-lg-1"> &nbsp; </div>
+                </div>
+
+
+            </div>
+            <div class="payment-new row col-sm-12 col-md-12 col-xs-12 col-lg-12" controlId="pnlNewPayment" control="journalPage.htmlControl" style="margin-left:60px;">
+                <div class="col-sm-12 col-md-12 col-xs-12 col-lg-12">
+                    <h3>Payment</h3>
+                </div>
+                <div class="col-sm-4" style="float:right">
+                    <input type="button" style="margin-left:20px;float:right" controlId="btnNewPaymentSave" value="Add" control="journalPage.primaryWriteButton" event="click:btnNewPaymentSave_click" />
+                </div>
+                <div class="row col-sm-12 col-md-12 col-xs-12 col-lg-12">
+                    <div class="col-sm-1 col-md-1 col-xs-1 col-lg-1"> &nbsp; </div>
+                    <div class="col-sm-10 col-md-10 col-xs-10 col-lg-10">
+                        <div class="col-sm-4">
+                            <span class="label col-sm-4">Date</span>
+                            <input type="text" class="col-sm-8" controlId="dsPaymentJournalDate" control="journalPage.dateSelector" />
+                        </div>
+                        <div class="col-sm-4">
+                            <span class="label col-sm-4">Description</span>
+
+                            <input type="text" class="col-sm-8" controlId="txtPaymentDescription" control="journalPage.textBox" />
+                        </div>
+                        <div class="col-sm-4">
+                            <span class="label col-sm-4">Bill No</span>
+
+                            <input type="text" class="col-sm-8" controlId="txtPaymentBillNo" control="journalPage.textBox" />
+                        </div>
+
+                    </div>
+                    <div class="col-sm-1 col-md-1 col-xs-1 col-lg-1"> &nbsp; </div>
+                </div>
+                <div class="row col-sm-12 col-md-12 col-xs-12 col-lg-12" style="padding-top: 10px;padding-bottom:10px">
+                    <div class="col-sm-1 col-md-1 col-xs-1 col-lg-1"> &nbsp; </div>
+                    <div class="col-sm-10 col-md-10 col-xs-10 col-lg-10">
+                        <div class="col-sm-4">
+                            <span class="label col-sm-4">Amount</span>
+
+                            <input type="text" class="col-sm-8" controlId="txtPaymentAmount" control="journalPage.textBox" />
+                        </div>
+                        <div class="col-sm-4">
+                            <span class="label col-sm-4">Account</span>
+
+                            <select type="text" class="col-sm-8" controlId="txtPaymentAccount" control="journalPage.dropDownList" />
+                        </div>
+                        <div class="col-sm-4">
+                            <input type="button" style="margin-left:20px;display:none" controlId="btnNewPaymentSavesd" value="Add" control="journalPage.secondaryButton" />
+                        </div>
+
+                    </div>
+                    <div class="col-sm-1 col-md-1 col-xs-1 col-lg-1"> &nbsp; </div>
+                </div>
+            </div>
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,113 @@
+﻿[controlid=pnlDetailsTitle]{
+    background: #f4f5f7;
+    padding-top: 20px;
+    padding-bottom: 5px;
+}
+[controlid=pnlDetailsTitle] > span{
+    font-size:18px;
+}
+.title-active{
+    font-size:20px;
+    font-weight:bold;
+    color:#3c4a65;
+}
+.title-direction{
+    padding-left:10px;
+    padding-right:10px;
+}
+[controlid=pnlDetailsHeading]{
+    background: #f4f5f7;
+    padding-bottom:10px;
+}
+[controlid=pnlDetailsHeading] > span{
+    font-size:24px;
+    font-weight:bold;
+    color:#3c4a65;
+    border-bottom:5px solid #3c4a65;
+}
+
+[controlid=pnlDetailsCategory]{
+    
+    border-bottom:1px solid #00000042;
+    padding-bottom: 20px;
+}
+[controlid=pnlDetailsCategory] > h5{
+    font-size: 18px;
+    font-weight: bold;
+    line-height: 25px;
+    letter-spacing: 1px;
+    margin-bottom: 0px;
+}
+[controlid=pnlDetailsCategory] > span{
+    font-size: 16px;
+    line-height: 24px;
+    letter-spacing: 1px;
+}
+[controlid=pnlDetailsItems]{
+    border-left:1px solid #00000042;
+}
+.manufacture-details{
+    border:1px solid #00000042;
+    padding-top:15px;
+    padding-bottom:10px;
+}
+.collection-heading{
+    padding-top:10px;
+    padding-bottom:10px;
+}
+.manufacture-details > img{
+    height:100px;
+}
+.manufacture-details > h3{
+    text-align:center;
+}
+
+.item-details > h3{
+    font-size:18px;
+    line-height:20px;
+}
+.item-details > h2{
+    font-size:24px;
+    line-height:26px;
+}
+
+
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {
+    [controlid=pnlDetailsCategory]{
+        display:none;
+    }
+    .manufacture-details > img{
+        height:auto;
+    }
+}
+
+/* Small devices (portrait and landscape tablets) */
+@media only screen 
+  and (min-device-width: 650px) 
+  and (max-device-width: 1020px) 
+  and (-webkit-min-device-pixel-ratio: 1) {
+    [controlid=pnlDetailsCategory]{
+        display:none;
+    }
+    .manufacture-details > img{
+        height:auto;
+    }
+}
+
+/* Medium devices (landscape tablets, 768px and up) */
+/*@media only screen and (min-width: 768px) {
+   .home-carosal{
+        height:200px !important;
+    }
+}*/
+
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 992px) {
+
+}
+
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+@media only screen and (min-width: 1200px) {
+
+}

@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <script src="/config/config.js" type="text/javascript"></script>
+        <script type="text/javascript">
+
+
+        document.write('<script src="/'+ appConfig.root + '/core/master.js" type="text/javascript" > <\/script> ');
+        document.write('<script src="/' + appConfig.root + '/login/service/user/user-service.js"><\/script>');
+
+        document.write('<link href="/' + appConfig.root + '/finfacts/view/profit-loss/profit-loss.css" rel="stylesheet" />');
+        document.write('<script src="/' + appConfig.root + '/finfacts/view/profit-loss/profit-loss.js"><\/script>');
+
+        document.write('<script src="/' + appConfig.root + '/finfacts/service/revenue-service.js"><\/script>');
+        document.write('<script src="/' + appConfig.root + '/finfacts/service/user/company-service.js"><\/script>');
+        document.write('<script src="/' + appConfig.root + '/shopon/service/sales/bill-api.js"><\/script>');
+        document.write('<script src="/' + appConfig.root + '/login/service/user-permission-api.js"><\/script>');
+        </script>
+
+
+    </head>
+    <body control="page.revenuePage" controlId="revenuePage">
+        <div control="revenuePage.masterPage" controlId="masterPage"></div>
+        <div control="revenuePage.messagePanel" controlid="msgPanel" class="message-panel" style="display:none; margin-top:40px"></div>
+            <div class="container-fluid">
+                <div class="content-area row">
+                    <div class="top-panel">
+                        <div class="col-xs-12 col-sm-4">
+                            <span class="label col-lg-3 col-xs-12 col-md-3 col-sm-12">Company Name</span>
+                            <select class="col-lg-6 col-xs-12 col-md-6 col-sm-12" control="revenuePage.dropDownList" controlid="ddlCompanyName" autofocus></select>
+                        </div>
+                        <div class="col-xs-12 col-sm-4">
+                            <span class="label col-lg-3 col-xs-12 col-md-3 col-sm-12">Period</span>
+                            <select class="col-lg-6 col-xs-12 col-md-6 col-sm-12" control="revenuePage.dropDownList" controlid="ddlPeriod"></select>
+                        </div>
+                    </div>
+                    <div class="top-panel col-xs-12" style="margin-top: 15px;margin-bottom: 5px;">
+                        <div class="col-xs-12 col-sm-4">
+                            <span class="label col-lg-3 col-xs-12 col-md-3 col-sm-12">&nbsp;</span>
+                        </div>
+                        <div class="col-xs-12 col-sm-4">
+                            <input value="Report" control="revenuePage.primaryReadButton" controlid="btnPrint" event="click:btnReport_click" style="margin-right:-15px;float:right;" />
+                        </div>
+                    </div>
+                    <div class="report-panel  col-xs-12 col-lg-8 col-md-8 col-sm-12" style="display:none"  control="revenuePage.htmlControl" controlid="pnlReport">
+                        <div class="title-panel">
+                            <span class="label-value" control="revenuePage.label" id="lblCompanyName" name="lblCompanyName"
+                                  controlid="lblCompanyName"></span>
+                            <div style="float: right">
+                                <div><span control="revenuePage.htmlControl" controlid="lblStatementName">Income Statement</span></div>
+                                <div>
+                                    <span style="font-size: 15px">For the Year</span>
+                                    <span class="label-value" control="revenuePage.label" id="lblPeriod" name="lblPeriod"
+                                          controlid="lblPeriod"></span>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="all-panel col-xs-12 col-lg-10 col-sm-12 col-md-10" control="revenuePage.htmlControl" controlid="pnlAllGrid">
+                            <div>
+                                <span><b>Revenue : </b></span>
+                            </div>
+                            <div control="revenuePage.grid" controlid="grdRevenue"></div>
+                            <div style="font-size: 16px; margin-bottom: 30px">
+                                <span style="font-size:16px"><b>Net Sales</b></span>
+                                <span control="revenuePage.label" controlid="lblNetSales" style="font-size:16px"></span>
+
+                            </div>
+                            <div>
+                                <span><b>Cost of Goods sold : </b></span>
+                            </div>
+                            <div control="revenuePage.grid" controlid="grdPurchase"></div>
+                            <div style="font-size: 16px; margin-bottom: 30px">
+                                <span style="font-size:16px"><b>Gross Profit(Loss)</b></span>
+                                <span control="revenuePage.label" controlid="lblGoodsSold" style="font-size:16px"></span>
+
+
+                            </div>
+                            <div>
+                                <span><b>Expenses : </b></span>
+                            </div>
+                            <div control="revenuePage.grid" controlid="grdExpenses"></div>
+                            <div style="font-size: 16px; margin-bottom: 30px">
+                                <span style="font-size:16px"><b>Total Operating Expenses</b></span>
+                                <span control="revenuePage.label" controlid="lblTotalExpenses" style="font-size:16px"></span>
+
+                            </div>
+                            <div>
+                                <span><b>Operating Income : </b></span>
+                            </div>
+                            <div control="revenuePage.grid" controlid="grdIncome"></div>
+                            <div style="font-size: 16px; margin-bottom: 30px">
+                                <span style="font-size:16px">
+                                    <b>Income from continuing operations</b>
+
+                                </span>
+                                <span control="revenuePage.label" controlid="lblIncome" style="font-size:16px"></span>
+
+                            </div>
+                            <div style="margin-bottom: 30px" id="netIncome">
+                                <span style="font-size:36px">
+                                    <b>Net Income : </b>
+                                </span>
+                                <span control="revenuePage.label" controlid="lblNetIncome" style="font-size:36px"></span>
+
+                            </div>
+                        </div>
+                    </div>
+
+                    <div control="revenuePage.htmlControl" controlid="pnlAccountTransaction" class="transaction-panel col-xs-12 col-lg-8 col-md-8 col-sm-12" style="display:none;padding:0px;">
+                        <div class="col-xs-6 col-lg-6 col-md-6 col-sm-6"><span class="label-value" control="revenuePage.label" id="lblAcntName" name="lblAcntName" controlid="lblAcntName"></span></div>
+                        <div class="col-xs-6 col-lg-6 col-md-6 col-sm-6"><input style="float:right;" type="button" value="Back" control="revenuePage.secondaryButton" controlid="btnBack" event="click:btnBack_click"></div>
+                        <div class="col-lg-12"> &nbsp;</div>
+                        <div control="revenuePage.grid" controlid="grdBillHistory"></div>
+                    </div>
+
+                    <!--Printing Popup Panel-->
+                    <div controlId="pnlPrintingPopup" control="revenuePage.popup" style="display:none">
+                        <div class="row col-sm-12">
+                            &nbsp;
+                        </div>
+                        <div class="row col-sm-12">
+                            <span class="label col-sm-4" rlabel="Export Type">Export Type</span>
+                            <select style="margin-left:15px;" class="col-sm-4" control="revenuePage.dropDownList" controlid="ddlExportType">
+                                <option>PDF</option>
+                                <option>EXCEL</option>
+                                <option>WORD</option>
+                                <option>PPT</option>
+                                <option>CSV</option>
+                                <option>HTML</option>
+                            </select>
+                            <input class="col-xs-12 col-lg-2" style="float:right;padding:0px;" value="Go" rlabel="Report" controlId="btnPrintJasperBill" control="revenuePage.primaryWriteButton" event="click:btnPrintJasperBill_click" />
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+    </body>
+</html>

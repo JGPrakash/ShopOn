@@ -1,0 +1,114 @@
+﻿<!doctype html>
+<html>
+
+<head>
+
+    <script src="/config/config.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        document.write('<script src="/' + appConfig.root + '/core/master.js" type="text/javascript" > <\/script> ');
+
+        document.write('<script src="/' + appConfig.root + '/shopon/service/Reward/rewardplan-api.js"><\/script>');
+        document.write('<script src="/' + appConfig.root + '/shopon/service/Reward/reward-service.js"><\/script>');
+
+        document.write('<link href="/' + appConfig.root + '/shopon/view/reward-maintenance/reward-maintenance.css" rel="stylesheet" />');
+        document.write('<script src="/' + appConfig.root + '/shopon/view/reward-maintenance/reward-maintenance.js"><\/script>');
+        //Tamil Font
+        document.write('<script src="/' + appConfig.root + '/core/tamil-common.js" type="text/javascript" > <\/script> ');
+        document.write('<script src="/' + appConfig.root + '/core/tamil.js" type="text/javascript" > <\/script> ');
+    </script>
+
+
+</head>
+
+
+<body control="page.rewardMaintenance" controlId="rewardMaintenance">
+
+    <div control="rewardMaintenance.masterPage" controlId="masterPage"></div>
+
+    <div style="margin-top:40px">
+
+        <!--Load Content Area-->
+        <div class="container-fluid">
+            <div class="content-area row">
+                <div control="rewardMaintenance.messagePanel" controlid="msgPanel" class="message-panel" style="display:none">
+                </div>
+                <div class="search-panel col-sm-4" default-button="btnSearch">
+
+                    <div class="search-action">
+                        <hr>
+                        <input type="button" value="Search" rlabel="Search" control="rewardMaintenance.primaryReadButton" controlId="btnSearch" event="click:btnSearch_click" class="" role="button">
+
+                    </div>
+                    
+                    <div class="search-filter">
+                        <div>
+                            <!--<span>Customer</span>-->
+                            <input type="text" controlId="txtRewardSearch" rlabel="Enter Reward Plan Name" placeholder="Enter Reward no, Reward Plan Name" control="rewardMaintenance.textBox">
+                        </div>
+
+
+                    </div>
+                    <div class="search-result">
+                        <div  control="rewardMaintenance.grid" controlid="grdRewardMaintan"></div>
+                    </div>
+                    <div class="col-sm-12 padding-left-zero">
+                        <span class="label" rlabel="F1 - New"> F1 - New </span>
+                        <span class="label" rlabel="F2 - Save"> F2 - Save </span>
+                        <span class="label" rlabel="Ctrl + R - Remove"> Ctrl + R - Remove </span>
+                    </div>
+                </div>
+                <div class="detail-panel  col-sm-8">
+
+                    <div class="detail-action">
+                        <input value="New" rlabel="New" control="rewardMaintenance.primaryWriteButton" controlid="btnNewReward" event="click:btnNewReward_click">
+                        <input tabindex="4" value="Save" rlabel="Save" control="rewardMaintenance.primaryWriteButton" controlid="btnSave" event="click:btnSave_click">
+                        <input value="Remove" rlabel="Remove" control="rewardMaintenance.secondaryButton" controlid="btnRemove" event="click:btnBeforeRemove_click">
+
+                    </div>
+                    <div class="detail-info">
+                        
+                        <div class="basic-info row">
+
+                            <span class="label col-xs-12 header-style-1" style="margin-bottom: 5px" rlabel="Reward Details"><b>Reward Details</b></span>
+                            <div class="col-xs-12 col-lg-8 padding-left-zero">
+                                <span class="label  col-xs-12 col-lg-5" ><span label="Reward Plan Name">Reward Plan Name</span><span style="color:red;">*</span></span>
+                                <input type="hidden" controlId="hdnRewardPlanid" control="rewardMaintenance.htmlControl" />
+                                <input class="col-xs-12 col-lg-7" tabindex="1" placeholder="Reward Plan Name*" rlabel="Reward Plan Name*" controlId="txtRewardPlanName" control="rewardMaintenance.textBox" />
+                            </div><br>
+                            <div class="col-xs-12 col-lg-8 padding-left-zero">
+                                <span class="label  col-xs-12 col-lg-5"><span rlabel="Reward Plan Point">Reward Plan Point <span style="color:red;">*</span></span></span>
+                                <input class="col-xs-12 col-lg-7" tabindex="2" placeholder="Reward Plan Point*" rlabel="Reward Plan Point*" controlId="txtRewardPlanPoint" control="rewardMaintenance.textBox" />
+                            </div><br>
+                            <div class="col-xs-12 col-lg-8 padding-left-zero">
+                                <span class="label  col-xs-12 col-lg-5" rlabel="Reward Plan Type">Reward Plan Type</span>
+                                <input class="col-xs-12 col-lg-7" tabindex="3" placeholder="Reward Plan Type" rlabel="Reward Plan Type" controlId="txtRewardPlanType" control="rewardMaintenance.textBox" />
+                            </div>
+                        </div>
+                        
+                        
+                    </div>
+
+                    </div>
+                
+                </div>
+
+        </div>
+    </div>
+
+    <div controlId="pnlRemoveConfirmPopup" control="rewardMaintenance.popup" style="display:none">
+        <div class="row col-sm-12">
+            <input style="float:right;" value="Cancel" controlId="btnRemoveConfirmPopupClose" control="rewardMaintenance.primaryReadButton" event="click:btnRemoveConfirmPopupClose_click" />
+            <input style="float:right;padding-right:10px;" value="Ok" controlId="btnRemoveAlertPopupSave" control="rewardMaintenance.secondaryButton" event="click:btnRemove_click" />
+        </div>
+        <span class="col-xs-12">&nbsp;</span>
+        <div class="row col-sm-12">
+            <img src="../../../ui/ui/images/alert.png" width="100%" class="col-xs-3" style="margin-top: -13px;" />
+            <span class="label-value col-xs-9" style="background:transparent;border:none;">If You Delete This Reward It Can Be Affected On Customer</span>
+        </div>
+    </div>
+    <br />
+    <br />
+
+</body>
+
+</html>

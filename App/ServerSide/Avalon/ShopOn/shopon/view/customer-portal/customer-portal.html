@@ -1,0 +1,182 @@
+<!doctype html>
+<html>
+
+<head>
+
+    <script src="/config/config.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        document.write('<script src="/' + appConfig.root + '/core/master.js" type="text/javascript" > <\/script> ');
+        document.write('<script src="/' + appConfig.root + '/shopon/service/stock-api.js"><\/script>');
+        document.write('<script src="/' + appConfig.root + '/shopon/service/sales/customer-service.js"><\/script>');
+        document.write('<script src="/' + appConfig.root + '/shopon/service/product/item-service.js"><\/script>');
+        document.write('<script src="/' + appConfig.root + '/shopon/service/sales/bill-service.js"><\/script>');
+        document.write('<link href="/' + appConfig.root + '/shopon/view/customer-portal/customer-portal.css" rel="stylesheet" />');
+        document.write('<script src="/' + appConfig.root + '/shopon/view/customer-portal/customer-portal.js"><\/script>');
+        document.write('<script src="/' + appConfig.root + '/shopon/service/sales/sales-service.js"><\/script>');
+        document.write('<script src="/' + appConfig.root + '/shopon/service/product/item-service.js"><\/script>');
+        document.write('<script src="/' + appConfig.root + '/finfacts/service/finfacts-service.js"><\/script>');
+        document.write('<script src="/' + appConfig.root + '/finfacts/service/account/finfacts-entry-service.js"><\/script>');
+        document.write('<script src="/' + appConfig.root + '/shopon/service/tax/taxclass-service.js"><\/script>');
+
+        document.write('<script src="/' + appConfig.root + '/shopon/service/product/sales-item-api.js"><\/script>');
+        document.write('<script src="/' + appConfig.root + '/shopon/service/sales/customer-api.js"><\/script>');
+        document.write('<script src="/' + appConfig.root + '/shopon/service/product/item-api.js"><\/script>');
+    </script>
+
+
+</head>
+
+
+<body control="page.customerPortal" controlId="customerPortal">
+    <div control="customerPortal.masterPage" controlId="masterPage"></div>
+    <div style="margin-top:40px">
+        <!--<div control="customerPortal.messagePanel" controlid="msgPanel" class="message-panel  col-sm-12" style="display:none"></div>-->
+        <!--Load Content Area-->
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-xs-4 col-sm-1 top-action-button">
+                    <img src="Image/mycart.png" class="top-icons" />
+                    <input value="My Cart" controlid="btnCart" control="customerPortal.secondaryButton" event="click:btnCart_click">
+                </div>
+                <div class="col-xs-6 col-sm-1 top-action-button">
+                    <img src="Image/order.png" class="top-icons" />
+                    <input value="My Order" controlid="btnMyOrder" control="customerPortal.secondaryButton" event="click:btnMyOrder_click">
+                </div>
+                <div class="col-xs-2 col-sm-1 title">
+                    <span>ShopOn</span>
+                </div>
+                <div class="col-xs-12 col-sm-6">
+                    <input class="col-xs-12 col-sm-10" controlId="txtItemSearch" control="customerPortal.textBox" type="text" value="" placeholder="Search for Products">
+                    <!--<img class="col-xs-2 col-sm-2 maginifier" src="Image/magnifier.png" control="customerPortal.primaryReadButton" event="click:btnAdvaSearchItem_click" />-->
+                    <span control="customerPortal.primaryReadButton" event="click:btnAdvaSearchItem_click" class="col-xs-2 col-sm-2 maginifier"><i class="fa fa-search"></i>Search</span>
+                </div>
+            </div>
+            <div class="col-xs-12"><span class="col-xs-12 empty">&nbsp;</span></div>
+            <div class="row" control="customerPortal.htmlControl" controlid="pnlSearchDetail" style="margin-top:10px;">
+                <div class="col-xs-12 col-sm-2 system-filters">
+                    <span class="header">Manufacture</span>
+                    <hr />
+                    <!--<span class="col-sm-12"><input type="checkbox" controlId="chkSystemProductType1" control="customerPortal.chkBox" name="product_type"><span id="lblProductType" class="checkBoxLabel">Mobile</span></span>-->
+                    <div class="col-xs-12" control="customerPortal.grid" controlid="grdManufactureFilter"></div>
+                    <hr />
+                    <span class="header">Product Type</span>
+                    <hr />
+                    <div class="col-xs-12" control="customerPortal.grid" controlid="grdProductTypeFilter"></div>
+                    <hr />
+                    <span class="header">Main Product Type</span>
+                    <hr />
+                    <div class="col-xs-12" control="customerPortal.grid" controlid="grdMainProductTypeFilter"></div>
+                    <!--<span class="header">Sort</span>
+                    <hr />
+                    <span class="col-sm-12"><input type="radio" controlId="rdioSort1" control="customerPortal.chkBox" name="system_sort"><span id="lblSystemSort1" class="col-xs-11 radioLabel">Item - A To Z</span></span>
+                    <span class="col-sm-12"><input type="radio" controlId="rdioSort2" control="customerPortal.chkBox" name="system_sort"><span id="lblSystemSort2" class="col-xs-11 radioLabel">Item - Z To A</span></span>
+                    <span class="col-sm-12"><input type="radio" controlId="rdioSort3" control="customerPortal.chkBox" name="system_sort"><span id="lblSystemSort3" class="col-xs-11 radioLabel">Price - High To Low</span></span>
+                    <span class="col-sm-12"><input type="radio" controlId="rdioSort4" control="customerPortal.chkBox" name="system_sort"><span id="lblSystemSort4" class="col-xs-11 radioLabel">Price - Low To High</span></span>-->
+                </div>
+                <div class="mobile-filters">
+                    <input class="col-xs-6" value="Sort" controlid="btnSort" control="customerPortal.primaryReadButton" event="click:btnSort_click">
+                    <input class="col-xs-6" value="Filters" controlid="btnFilters" control="customerPortal.primaryReadButton" event="click:btnFilters_click">
+                </div>
+                <div class="item_grid">
+                    <div class="col-xs-12 col-sm-12 system-filters">
+                        <span class="label col-sm-8 lblSearchResult" control="customerPortal.htmlControl" controlid="lblSearchResult">Hello Jebas</span>
+                        <div class="col-sm-4">
+                            <span class="label col-xs-12 col-sm-4">Sort By:</span>
+                            <select control="customerPortal.dropDownList" controlid="ddlSystemSort" class="col-xs-12 col-sm-8"> </select>
+                        </div>
+                    </div>
+                    <div controlId="grdAdvSearchItem" control="customerPortal.grid"> </div>
+                </div>
+                <div class="col-xs-12" style="height:10px;">
+                    <span>&nbsp;</span>
+                </div>
+            </div>
+            <div control="customerPortal.htmlControl" controlid="pnlProductDetail" style="display:none">
+                <div class="row">
+                    <div control="customerPortal.grid" controlid="grdProductDetail"></div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-12 col-sm-4 cart-action">
+                        <input type="button" class="col-xs-6" value="Continue Shopping" control="customerPortal.primaryReadButton" controlId="btnBackProdDetails" event="click:btnShowProductList_click" style="float:right;" />
+                    </div>
+                </div>
+                <div class="col-xs-12"><span class="col-xs-12 empty">&nbsp;</span></div>
+            </div>
+            <div control="customerPortal.htmlControl" controlid="pnlMyCart" style="display:none;margin-top:20px;">
+                <div class="col-xs-12 col-lg-6" style="text-align:center;" control="customerPortal.htmlControl" controlid="pnlEmptyCart">
+                    <img src="Image/empty_cart.png" width="100%" />
+                    <span class="col-xs-12" style="margin-top:20px;">Sorry Your Cart Is Empty</span>
+                </div>
+                <div class="col-xs-12 col-sm-8 pnlCartTopRow" control="customerPortal.htmlControl" controlid="pnlCartTopRow">
+                    <div class="col-sm-12 col-md-12 col-xs-12 col-lg-12" style="padding-top:1%">
+                        <div control="customerPortal.grid" controlid="grdMyCart"></div>
+                    </div>
+                </div>
+                <div class="row col-xs-12 col-sm-4 right-cart" control="customerPortal.htmlControl" controlid="right-cart">
+                    <span class="label col-xs-6 col-sm-6">Sub Total : </span>
+                    <span class="label col-xs-6 col-sm-6" control="customerPortal.labelValue" controlId="lblSubTotal">0</span>
+                    <span class="label col-xs-6 col-sm-6">Total Discount : </span>
+                    <span class="label col-xs-6 col-sm-6" control="customerPortal.labelValue" controlId="lblDiscount">0</span>
+                    <span class="label col-xs-6 col-sm-6">Total Tax : </span>
+                    <span class="label col-xs-6 col-sm-6" control="customerPortal.labelValue" controlId="lblTax">0</span>
+                    <span class="label col-xs-6 col-sm-6">Total : </span>
+                    <span class="label col-xs-6 col-sm-6" control="customerPortal.labelValue" controlId="lblTotal">0</span>
+                </div>
+                <div class="row">
+                    <div class="col-xs-12 col-sm-4 cart-action" >
+                        <input type="button" class="primaryReadButton col-xs-6" value="Buy Now" controlid="btnBuyNow" style="float:right;" control="customerPortal.primaryReadButton" event="click:btnBuyNow_click">
+                        <input type="button" class="col-xs-6" value="Continue Shopping" control="customerPortal.primaryReadButton" controlId="btnCancelMyCart" event="click:btnShowProductList_click" />
+                    </div>
+                </div>
+                <div class="row">
+                    <span class="col-xs-12" style="height:30px;">&nbsp;</span>
+                </div>
+            </div>
+            <div control="customerPortal.htmlControl" controlid="pnlMyOrder" style="display:none">
+                <input type="button" class="primaryReadButton" value="Track Order" controlid="btnTrackOrder" style="float:right;display:none" control="customerPortal.primaryReadButton" event="click:btnTrackOrder_click">
+                <div class="row" style="padding-top:1%">
+                    <div control="customerPortal.grid" controlid="grdMyOrder"></div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-12 col-sm-4 cart-action">
+                        <input type="button" class="col-xs-6" value="Continue Shopping" control="customerPortal.primaryReadButton" controlId="btnBackMyOrder" event="click:btnShowProductList_click" style="float:right;" />
+                    </div>
+                </div>
+            </div>
+            <div control="customerPortal.popup" controlId="pnlSortPopup" style="display:none">
+                <div class="detail-basic">
+                    <span class="col-sm-12"><input type="radio" controlId="rdioMobileSort0" control="customerPortal.chkBox" name="mobile_sort"><span id="lblMobileSort0" class="col-xs-10 radioLabel">Relevant</span></span>
+                    <span class="col-sm-12"><input type="radio" controlId="rdioMobileSort1" control="customerPortal.chkBox" name="mobile_sort"><span id="lblMobileSort1" class="col-xs-10 radioLabel">Item - A To Z</span></span>
+                    <span class="col-sm-12"><input type="radio" controlId="rdioMobileSort2" control="customerPortal.chkBox" name="mobile_sort"><span id="lblMobileSort2" class="col-xs-10 radioLabel">Item - Z To A</span></span>
+                    <span class="col-sm-12"><input type="radio" controlId="rdioMobileSort3" control="customerPortal.chkBox" name="mobile_sort"><span id="lblMobileSort3" class="col-xs-10 radioLabel">Price - Low To High</span></span>
+                    <span class="col-sm-12"><input type="radio" controlId="rdioMobileSort4" control="customerPortal.chkBox" name="mobile_sort"><span id="lblMobileSort4" class="col-xs-10 radioLabel">Price - High To Low</span></span>
+                </div>
+                <div style="width:100%;margin-bottom:10px;display: inline-block;margin-top:25px;">
+                    <input controlid="btnSortPopup" control="customerPortal.secondaryButton" event="click:btnSortPopup_click" value="Apply" style="float:right;" />
+                    <input controlid="btnSortCancelPopup" control="customerPortal.secondaryButton" event="click:btnSortCancelPopup_click" value="Cancel" />
+                </div>
+            </div>
+            <div control="customerPortal.popup" controlId="pnlFiltersPopup" style="display:none">
+                <span class="header">Manufacture</span>
+                <hr />
+                <!--<span class="col-sm-12"><input type="checkbox" controlId="chkSystemProductType1" control="customerPortal.chkBox" name="product_type"><span id="lblProductType" class="checkBoxLabel">Mobile</span></span>-->
+                <div class="col-xs-12" control="customerPortal.grid" controlid="grdManufactureMobileFilter"></div>
+                <hr />
+                <span class="header">Product Type</span>
+                <hr />
+                <div class="col-xs-12" control="customerPortal.grid" controlid="grdProductTypeMobileFilter"></div>
+                <hr />
+                <span class="header">Main Product Type</span>
+                <hr />
+                <div class="col-xs-12" control="customerPortal.grid" controlid="grdMainProductTypeMobileFilter"></div>
+                <div style="width:100%;margin-bottom:10px;display: inline-block;margin-top:25px;">
+                    <input controlid="btnFiltersPopup" control="customerPortal.secondaryButton" event="click:btnFiltersPopup_click" value="Apply" />
+                    <input controlid="btnFiltersCancelPopup" control="customerPortal.secondaryButton" event="click:btnFiltersCancelPopup_click" value="Cancel" class="second-button" />
+                </div>
+                <!--<span class="col-sm-12"><input type="checkbox" controlId="chkMobileProductType1" control="customerPortal.chkBox" name="product_type"><span id="lblProductType" class="checkBoxLabel">Mobile</span></span>-->
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,156 @@
+﻿#btnRefresh{
+    /*border: none;    
+    background-color: transparent; 
+    background-image: url(BackgroundImage/Open_file.png);   
+    background-size: contain;    
+    width: 25px;    
+    height: 25px;
+    margin-right:10px;*/
+}
+#idAccntName{
+    font-size: 13px;
+    font-weight:normal;
+}
+.div-head-sub-title{
+    font-size: 12px;
+    font-weight: bold;
+}
+.div-head{
+    font-size: 18px;
+    font-weight: bold;
+    font-family: cursive;
+    margin-top:15px;
+}
+.div-body{
+    font-size: 22px;
+    font-weight: bold;
+    font-family: cursive;
+    margin-top:0px;
+}
+span.label {
+    line-height: 30px;
+    vertical-align: middle;
+    display: inline-block;
+    font: var(--label-font);
+    padding-left: 0px;
+    text-align: left;
+    font-weight: bold;
+}
+h1{
+    font-size:26px;
+}
+.h4, h4 {
+    font-size: 13px;
+}
+.h4, .h5, .h6, h4, h5, h6 {
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+small, .small {
+    font-size: 80%;
+    font-weight: normal;
+}
+.text-muted {
+    color: #818a91 !important;
+}
+.card-block {
+    padding: 0px;
+}
+.card-big{
+    position: relative;
+    display: block;
+    margin-bottom: 0.75rem;
+    background-color: #fff;
+    border: 1px solid #d1d4d7;
+    box-shadow: inset 3px 1px 0px #3c763d;
+    box-shadow: 2px 2px 2px lightgrey;
+    border-left: 3px solid #3c763d;
+    height: 210px;
+    overflow: scroll;
+}
+.card {
+    position: relative;
+    display: block;
+    margin-bottom: 0.75rem;
+    background-color: #fff;
+    border: 1px solid #d1d4d7;
+    box-shadow: inset 3px 1px 0px #3c763d;
+    box-shadow: 2px 2px 2px lightgrey;
+    border-left: 3px solid #3c763d;
+    /*padding-left:0px;*/
+    height: 105px;
+}
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    font-size: 0.875rem;
+    line-height: 1.5;
+    color: #2a2c36;
+    background-color: whitesmoke;
+}
+div[controlId=grdBankAccount],div[controlId=grdTdyHotProduct],div[controlId=grdCashInHand],div[controlId=grdTdyHotProduct],div[controlId=grdMnthlyHotProduct],div[controlId=grdStockLevel],div[controlId=grdRecentPurchase],div[controlId=grdRecentSales],div[controlId=grdBankAccount]{
+     overflow:hidden;
+     border:0px;
+     background-color: white;
+}
+div[controlId=grdBankAccount] .grid_header ,div[controlId=grdCashInHand] .grid_header ,div[controlId=grdTdyHotProduct] .grid_header ,div[controlId=grdMnthlyHotProduct] .grid_header ,div[controlId=grdStockLevel] .grid_header,div[controlId=grdRecentPurchase] .grid_header,div[controlId=grdRecentSales] .grid_header,div[controlId=grdBankAccount] .grid_header {
+   /*border-bottom:0px;*/
+   background-color: white;
+   font:bold;
+   font-size:18px;
+   font-weight: bold;
+}
+div[controlId=grdStockLevel] .grid_header{
+    display:none;
+}
+.detail-basic {
+    border: 1px solid lightgray;
+    box-shadow: 2px 2px 2px lightgray;
+    margin-left: 50px;
+    padding: 10px;
+    width:300px;
+    height:400px;
+    background: white;
+}
+.detail-basic-big {
+    border: 1px solid lightgray;
+    box-shadow: 2px 2px 2px lightgray;
+    padding: 10px;
+    width:520px;
+    height:300px;
+        background: white;
+}
+.detail-basic .label {
+    background-color: white;
+    color: dimgray;
+    font-weight: normal;
+    width: 130px;
+    border:none;
+} 
+div[controlId=grdBankAccount] .grid_data,div[controlId=grdCashInHand] .grid_data,div[controlId=grdTdyHotProduct] .grid_data,div[controlId=grdMnthlyHotProduct] .grid_data,div[controlId=grdStockLevel] .grid_data,div[controlId=grdRecentPurchase] .grid_data ,div[controlId=grdRecentSales] .grid_data  {
+    overflow:hidden;
+}
+.title{
+    text-align:center;
+    font-weight: bold;
+    font-size:15px;
+}
+.subtitle{
+    text-align:center;
+}
+div[controlId=grdBankAccount] .grid_data > div .even-row,div[controlId=grdCashInHand] .grid_data > div .even-row,div[controlId=grdTdyHotProduct] .grid_data > div .even-row {
+    background-color: white;
+}
+.negative{
+    color:red;
+}
+
+@media only screen and (max-width: 794px) {
+    .card{
+        height:auto !important;
+    }
+}
+@media only screen and (max-width: 1200px) {
+    .card{
+        height:180px !important;
+    }
+}

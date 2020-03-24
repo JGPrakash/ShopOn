@@ -1,0 +1,168 @@
+<!doctype html>
+<html>
+
+<head>
+
+
+    <script src="/config/config.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        document.write('<script src="/' + appConfig.root + '/core/master.js" type="text/javascript" > <\/script> ');
+        document.write('<link href="/' + appConfig.root + '/shopon/view/due-report/due-report.css" rel="stylesheet" />');
+        document.write('<script src="/' + appConfig.root + '/shopon/view/due-report/due-report.js"><\/script>');
+
+        document.write('<script src="/' + appConfig.root + '/shopon/service/sales/customer-service.js"><\/script>');
+        document.write('<script src="/' + appConfig.root + '/shopon/service/product/item-service.js"><\/script>');
+        document.write('<script src="/' + appConfig.root + '/shopon/service/w3data/w3data.js"><\/script>');
+        document.write('<script src="/' + appConfig.root + '/shopon/service/report/dynareport-service.js"><\/script>');
+        document.write('<script src="/' + appConfig.root + '/shopon/service/purchase/purchase-service.js"><\/script>');
+
+        document.write('<script src="/' + appConfig.root + '/shopon/service/report/report-service.js"><\/script>');
+
+        document.write('<script src="/' + appConfig.root + '/shopon/service/sales/bill-service.js"><\/script>');
+
+        document.write('<script src="/' + appConfig.root + '/shopon/service/report/report-api.js"><\/script>');
+        document.write('<script src="/' + appConfig.root + '/shopon/service/sales/customer-api.js"><\/script>');
+        document.write('<script src="/' + appConfig.root + '/login/service/store-api.js"><\/script>');
+        document.write('<script src="/' + appConfig.root + '/login/service/user-permission-api.js"><\/script>');
+
+    </script>
+
+</head>
+
+
+<body control="page.dueReport" controlId="dueReport">
+
+    <div control="dueReport.masterPage" controlId="dueReportMaster"></div>
+    <!--<div class="content-area container-fluid">-->
+    <div control="dueReport.messagePanel" controlid="msgPanel" class="message-panel" style="display:none; margin-top:40px;"></div>
+    <div class="container-fluid" style="margin-top:40px;">
+        <div class="row">
+            <div class="col-xs-12 report-header">
+                <span class="report-title">Due Report</span>
+
+                <input rlabel="Export" value="Export" control="dueReport.primaryWriteButton" controlid="btnReport" event="click:btnReport_click" />
+                <input rlabel="Preview" value="Preview" control="dueReport.primaryWriteButton" controlid="btnGenerate" event="click:btnGenerate_click" />
+                <select control="dueReport.dropDownList" controlid="ddlViewMode">
+                    <option>Standard</option>
+                </select>
+                <span class="label" style="float: right;margin-top: 5px;font-weight: bold;"> F2 - Export </span>
+                <span class="label" style="float: right;margin-top: 5px;font-weight: bold;"> F1 - Preview </span>
+            </div>
+        </div>
+        <div class="filter-panel">
+            <div class="col-sm-3">
+                <span class="label" rlabel="Start Date">Start Date</span>
+                <input type="text" control="dueReport.dateSelector" controlid="txtStartDate" />
+            </div>
+            <div class="col-sm-3">
+                <span class="label" rlabel="End Date">End Date</span>
+                <input type="text" control="dueReport.dateSelector" controlid="txtEndDate" />
+            </div>
+            <div class="col-sm-3">
+                <span class="label" rlabel="Customer">Customer</span>
+                <select control="dueReport.dropDownList" controlid="ddlCustomer"></select>
+            </div>
+            <div class="col-sm-3">
+                <span class="label" rlabel="Bill No">Bill No</span>
+                <input type="text" control="dueReport.textBox" controlid="txtBillNo" />
+            </div>
+            <div class="col-sm-3" style="display:none;">
+                <span class="label" rlabel="Bill Type">Bill Type</span>
+                <select control="dueReport.dropDownList" controlid="ddlBillType">
+                    <option>All</option>
+                    <option>Sale</option>
+                    <option>SaleReturn</option>
+                </select>
+            </div>
+            <div class="col-sm-3" control="dueReport.htmlControl" controlid="pnlStatus">
+                <span class="label" rlabel="Status">Status</span>
+                <select control="dueReport.dropDownList" controlid="ddlState">
+                    <option>All</option>
+                    <option>Open</option>
+                    <option>Paid</option>
+                </select>
+            </div>
+            <div class="col-sm-3" style="display:none;">
+                <span class="label" rlabel="Store">Store</span>
+                <select control="dueReport.dropDownList" controlid="ddlStore"></select>
+            </div>
+            <div class="col-sm-3" style="display:none;">
+                <span class="label" rlabel="Status">Filter</span>
+                <select control="dueReport.dropDownList" controlid="ddlReportFilter"></select>
+            </div>
+            <div class="col-sm-3" control="dueReport.htmlControl" controlid="pnlTax">
+                <span class="label" rlabel="Status">Bill Tax</span>
+                <select control="dueReport.dropDownList" controlid="ddlTax">
+                    <option value="">All</option>
+                    <option value="Tax">Tax Bill</option>
+                    <option value="NoTax">No Tax Bill</option>
+                </select>
+            </div>
+            <div class="col-sm-3">
+                <span class="label" rlabel="Payment Mode">Payment Mode</span>
+                <select control="dueReport.dropDownList" controlid="ddlPaymentMode">
+                    <option>All</option>
+                    <option>Cash</option>
+                    <option>Card</option>
+                    <option>Net Bank</option>
+                    <option>Cheque</option>
+                </select>
+            </div>
+        </div>
+        <div class="col-xs-12 summary-panel" control="dueReport.htmlControl" controlid="pnlSummary">
+            <h2 class="col-xs-12">Due Summary</h2>
+            <div class="col-sm-4">
+                <span class="label" rlabel="Total Due Amount">Total Due Amount</span>
+                <p control="dueReport.labelValue" controlid="lblTotalDue"></p>
+            </div>
+            <div class="col-sm-4">
+                <span class="label" rlabel="Total Due Payment">Total Due Payment</span>
+                <p control="dueReport.labelValue" controlid="lblTotalDuePayment"></p>
+            </div>
+            <div class="col-sm-4">
+                <span class="label" rlabel="Total Due Balance">Total Due Balance</span>
+                <p control="dueReport.labelValue" controlid="lblTotalDuePending"></p>
+            </div>
+            <div class="col-sm-4">
+                <span class="label" rlabel="Total Bill Amount">Total Bill Amount</span>
+                <p control="dueReport.labelValue" controlid="lblTotalBillAmount"></p>
+            </div>
+            <div class="col-sm-4">
+                <span class="label" rlabel="Total Down Payment">Total Down Payment</span>
+                <p control="dueReport.labelValue" controlid="lblTotalDownPayment"></p>
+            </div>
+        </div>
+        <div class="col-xs-12" style="margin-top:10px;" control="dueReport.htmlControl" controlid="pnlGrid">
+            <div style="margin-top:0px;width:100%; margin-bottom:2%;margin-left:0px; overflow-x:auto; overflow-y:hidden;">
+                <div control="dueReport.grid" style="" controlid="grdTransactions"></div>
+            </div>
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12" style="display:none;" control="dueReport.htmlControl" controlid="pnlEmptyGrid">
+            <div style="width:100%; overflow-x:auto; overflow-y:hidden;">
+                <img src="../../../../ShopOn/ui/ui/images/no_result_image.png" style="padding-left:35%;padding-bottom:50px;height:200px;" />
+            </div>
+        </div>
+    </div>
+    <div controlId="pnlPrintingPopup" control="dueReport.popup" style="display:none">
+        <div class="row col-sm-12">
+            &nbsp;
+        </div>
+        <div class="row col-sm-12">
+            <span class="label col-sm-4" rlabel="Export Type">Export Type</span>
+            <select style="margin-left:15px;" class="col-sm-4" control="dueReport.dropDownList" controlid="ddlExportType">
+                <!--<option>PDF</option>
+                <option>EXCEL</option>
+                <option>WORD</option>
+                <option>PPT</option>
+                <option>CSV</option>
+                <option>HTML</option>-->
+            </select>
+            <input class="col-xs-12 col-lg-2" style="float:right;" value="Go" rlabel="Go" controlId="btnPrintJasperBill" control="dueReport.primaryWriteButton" event="click:btnPrintJasperBill_click" />
+        </div>
+    </div>
+    <div class="col-xs-12" style="height:50px;">
+        <span class="col-xs-12">&nbsp;</span>
+    </div>
+</body>
+
+</html>

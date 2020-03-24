@@ -1,0 +1,339 @@
+.status-flow span{
+    border : none;
+}
+
+.search-panel hr {
+    display: inline-block;
+    float: left;
+    width: calc(100% - 80px);
+    margin-top: 10px;
+    ;
+}
+
+[controlid=grdItemSelected] {
+    margin-left: 0px;
+    margin-top: 20px;
+}
+
+@media only screen and (min-width: 500px) {
+    [controlid=grdItemSelected] {
+        margin-left: 20px;
+        margin-top: 0px;
+    }
+}
+
+.left-panel{
+    vertical-align: baseline;
+    box-sizing: border-box;
+    margin-left: -20px;
+    padding: 20px;
+}
+.right-panel{
+    box-sizing: border-box;
+    margin-left: -20px;
+    padding: 20px;
+}
+div[controlId=grdSOResult] .grid_data > div {
+    cursor:pointer;
+}
+div[controlId=grdTouchAdvSearchItem] .grid_data > div {
+   
+    width: 25%;
+    font-size:smaller;
+    background-color: white;
+}
+div[controlId=grdTouchAdvSearchItem] .grid_data > div {
+   
+    width: 25%;
+    font-size:smaller;
+    background-color: white;
+}
+[controlId=pnlAdvSearchItemPopup] .left-panel{
+    vertical-align: baseline;
+    box-sizing: border-box;
+    margin-left: -20px;
+    padding: 20px;
+}
+[controlId=pnlAdvSearchItemPopup] .right-panel{
+    box-sizing: border-box;
+    margin-left: -20px;
+    padding: 20px;
+}
+
+[controlId=pnlAdvSearchItemPopup] .top-panel{
+    vertical-align: baseline;
+    box-sizing: border-box;
+    margin-left: -20px;
+    padding: 20px;
+}
+[controlId=pnlBillPayPopup]{
+    /*margin-top:100px;*/
+}
+/*.searchPanel {
+    float: left;
+    width: 520px;
+    height: 600px;
+    background-color: whitesmoke;
+    box-shadow: 1px 1px 1px gray;
+    padding: 10px;
+}
+
+.content-area {
+    float: left;
+    width:100%;
+    margin-left: 20px;
+}
+.content-area1 {
+    float: left;
+    width: calc(100% - 610px);
+    margin-left: 20px;
+}
+
+.formPanel{
+    width : 500px;
+    margin-right: 0px;
+}
+
+.dropDown {
+    width: 30%; height: 20px;
+}
+
+.textBox {
+    width: 50%;
+    height: 20px;
+}
+.printButton{
+    float:right;height: 25px; margin-right: 10px;
+}
+.grid{
+    width: 100%;
+    margin-top: 20px;
+}
+.searchPanel2 {
+    width: 100%;
+    margin-top: 0px;
+}
+
+.footer {
+    background-color: black;
+    bottom: 0;
+    color: white;
+    display: inline-block;
+    font-size: 16px;
+    height: 6em;
+    margin-top: 44px;
+    position: relative;
+    width: 100%;
+    z-index: -999;
+}
+.formPanel select {
+    border: medium none;
+    color: dimgray;
+    font-size: 14px;
+    height: 31px;
+    padding: 2px;
+    width: calc(100% - 206px);
+}
+
+.formPanel input {
+    border: medium none;
+    color: dimgray;
+    float: left;
+    font-size: 14px;
+    height: 27px;
+    margin: 0;
+    padding: 0 0 0 5px;
+    width: calc(100% - 211px);
+}
+
+
+.formPanel div {
+    border-bottom: 1px solid gray;
+    float: left;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+}
+
+.formPanel span.label-value {
+    display: inline-block;
+    font-size: 14px;
+    line-height: 25px;
+    padding-left: 5px;
+    width: calc(100% - 211px);
+}
+
+.formPanel span.label {
+    border-bottom: none;
+    background-color: whitesmoke;
+    border-right: 1px solid gray;
+    display: inline-block;
+    float: left;
+    line-height: 30px;
+    margin: 0;
+    padding: 0 0 0 5px;
+    width: 200px;
+}
+
+.formPanel > div:first-child {
+    background-color: lightgray;
+    display: inline-block;
+    font-size: 14px;
+    font-weight: bold;
+    line-height: 25px;
+}
+
+.sales-summary-panel {
+    background-color: whitesmoke;
+    border: 1px solid gray;
+    box-shadow: 1px 1px 1px lightgray;
+    float: right;
+    height: 100%;
+    left: 70%;
+    padding: 20px;
+    text-align: center;
+    width: 25%;
+}
+.sales-summary-panel div {
+    border-bottom: 1px solid gray;
+    display: inline-block;
+    padding: 10px 5px;
+    width: 250px;
+}
+.sales-summary-panel .label {
+    display: inline-block;
+    font-size: 16px;
+    font-weight: bold;
+    text-align: right;
+    width: 120px;
+}
+.sales-summary-panel .label-value {
+    color: gray;
+    display: inline-block;
+    font-size: 16px;
+    font-weight: bold;
+    margin-left: 20px;
+    text-align: left;
+    width: 100px;
+}
+.sales-summary-panel > div:last-of-type > .label {
+    color: black;
+    font-size: 22px;
+    vertical-align: inherit;
+}
+.sales-summary-panel > div:last-of-type > .label-value {
+    color: black;
+    font-size: 22px;
+}
+input[controlid=btnPayment] {
+    height: 40px;
+}
+.sales-summary-panel .buttonSearch {
+    font-size: 20px;
+    font-weight: bold;
+    padding: 10px;
+}
+.sales-item-panel {
+    background-color: whitesmoke;
+    border: 1px solid gray;
+    box-shadow: 1px 1px 1px lightgray;
+    float: left;
+    font-size: 12px;
+    height: 400px;
+    padding: 10px;
+    width: calc(70% - 40px);
+}
+.itemGrid{
+    width:100%;
+
+}
+
+
+@media only screen and (max-width: 500px) {
+    .content-area1{
+        width: calc(100% - 20px);
+        margin-left:10px;
+    }
+
+    .content-area1 > div:first-child {
+    background-color: lightgray;
+    padding: 10px;
+}
+
+
+    .searchPanel{
+        width: calc( 100% - 20px);
+        height:auto;
+    }
+    [controlid=grdSOResult] {
+        height:auto;
+    }
+
+    .searchPanel2 input, .searchPanel2 select{
+        width:100%;
+        margin-bottom:5px;
+    }
+    .itemGrid{
+        width: calc( 100% - 20px);
+
+    }
+    .content-area {
+        width:100%
+
+    }
+    .formPanel{
+        width : calc(100% - 40px);
+        margin-right: 0px;
+    }
+    .grid{
+        width: 100%;
+        margin-top: 20px;
+    }
+
+
+    .sales-summary-panel {
+        background-color: whitesmoke;
+        border: 1px solid gray;
+        box-shadow: 1px 1px 1px lightgray;
+        float: right;
+        height: 100%;
+        left: calc(100% - 100px);
+        padding: 20px;
+        text-align: center;
+        width: calc(100% - 40px);
+        margin-top:20px;
+    }
+    .sales-summary-panel div {
+        border-bottom: 1px solid gray;
+        display: inline-block;
+        padding: 10px 5px;
+        width: 250px;
+    }
+    .sales-summary-panel .label {
+        display: inline-block;
+        font-size: 16px;
+        font-weight: bold;
+        text-align: right;
+        width: 120px;
+    }
+    .sales-summary-panel .label-value {
+        color: gray;
+        display: inline-block;
+        font-size: 16px;
+        font-weight: bold;
+        margin-left: 20px;
+        text-align: left;
+        width: 100px;
+    }
+    .sales-summary-panel > div:last-of-type > .label {
+        color: black;
+        font-size: 22px;
+        vertical-align: inherit;
+    }
+    .sales-summary-panel > div:last-of-type > .label-value {
+        color: black;
+        font-size: 22px;
+    }
+
+
+}*/

@@ -1,0 +1,132 @@
+﻿<!doctype html>
+<html>
+
+<head>
+
+
+
+    <script src="/config/config.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        document.write('<script src="/' + appConfig.root + '/core/master.js" type="text/javascript" > <\/script> ');
+
+        document.write('<link href="/' + appConfig.root + '/shopon/view/inventory-trans-report/inventory-trans-report.css" rel="stylesheet" />');
+        document.write('<script src="/' + appConfig.root + '/shopon/view/inventory-trans-report/inventory-trans-report.js"><\/script>');
+
+        document.write('<script src="/' + appConfig.root + '/shopon/service/sales/customer-service.js"><\/script>');
+        document.write('<script src="/' + appConfig.root + '/shopon/service/product/item-service.js"><\/script>');
+        document.write('<script src="/' + appConfig.root + '/shopon/service/report/dynareport-service.js"><\/script>');
+        document.write('<script src="/' + appConfig.root + '/shopon/service/w3data/w3data.js"><\/script>');
+        document.write('<script src="/' + appConfig.root + '/shopon/service/inventory/inventory-service.js"><\/script>');
+        document.write('<script src="/' + appConfig.root + '/shopon/service/purchase/purchase-service.js"><\/script>');
+
+        document.write('<script src="/' + appConfig.root + '/shopon/service/report/report-service.js"><\/script>');
+
+        document.write('<script src="/' + appConfig.root + '/shopon/service/report/report-api.js"><\/script>');
+        document.write('<script src="/' + appConfig.root + '/shopon/service/product/item-api.js"><\/script>');
+        document.write('<script src="/' + appConfig.root + '/login/service/store-api.js"><\/script>');
+        document.write('<script src="/' + appConfig.root + '/login/service/user-permission-api.js"><\/script>');
+    </script>
+
+
+    <!--<script src="service/member-service.js"></script>
+        <script src="service/payment-service.js"></script>
+        <script src="service/product/item-service.js"></script>
+    -->
+
+
+</head>
+
+
+<body control="page.inventoryTrans" controlId="inventoryTrans">
+
+
+
+    <div control="inventoryTrans.masterPage" controlId="inventoryTransMaster"></div>
+        <div control="inventoryTrans.messagePanel" controlid="msgPanel" class="message-panel" style="display:none; margin-top:40px;"></div>
+    <div class="container-fluid">
+        <div class="content-area row" style="margin-left:100px">
+            <div class="content-area col-lg-12">
+
+                <div class="row col-lg-11">
+                    <div class="col-sm-12">
+                        <br /><br />
+
+                        <h1 align="center">Inventory Transaction Report</h1>
+                        <br /><br />
+                    </div>
+                    <!--<div class="col-sm-4">
+                        <span class="label col-sm-4">View Mode</span>
+                        <select class="col-sm-8" control="inventoryTrans.dropDownList" controlid="ddlViewMode">
+                            <option>ItemWise</option>
+
+                        </select>
+                    </div>
+                    -->
+                </div>
+                <br /><br />
+                <div class="row col-lg-11" style="margin-bottom:20px;">
+                    <div class="col-sm-3">
+                        <span class="label col-sm-4" rlabel="View Mode">View Mode</span>
+                        <select class="col-sm-8" tabindex="1" control="inventoryTrans.dropDownList" controlid="ddlViewMode"></select>
+                    </div>
+                    <div class="col-sm-3">
+                        <span class="label col-sm-4" rlabel="Start Date">Start Date</span>
+                        <input class="col-sm-8" type="text" control="inventoryTrans.dateSelector" controlid="txtStartDate" />
+                    </div>
+
+                    <div class="col-sm-3">
+                        <span class="label col-sm-4" rlabel="End Date">End Date</span>
+                        <input class="col-sm-8" type="text" control="inventoryTrans.dateSelector" controlid="txtEndDate" />
+                    </div>
+
+                    
+                    <div class="col-sm-3"  control="inventoryTrans.htmlControl" controlid="pnlItem">
+                        <span class="label col-sm-4" rlabel="Item">Item</span>
+                        <select class="col-sm-8" control="inventoryTrans.dropDownList" controlid="ddlItem"></select>
+                    </div>
+                    <div class="col-xs-12"><span>&nbsp;</span></div>
+                    <div class="col-sm-3">
+                        <span class="label col-sm-4" rlabel="Store">Store</span>
+                        <select class="col-sm-8" control="inventoryTrans.dropDownList" controlid="ddlStore"></select>
+                    </div>
+                    <div class="col-sm-3" control="inventoryTrans.htmlControl" controlid="pnlLanguage">
+                        <span class="label col-sm-4" rlabel="Language">Language</span>
+                        <select class="col-sm-8" control="inventoryTrans.dropDownList" controlid="ddlLanguage"> </select>
+                    </div>
+                    <div class="col-sm-2">
+                        <input value="Generate Report" rlabel="Generate Report" control="inventoryTrans.primaryWriteButton" controlid="btnGenerate" event="click:btnGenerate_click" class="col-xs-12"/>
+                    </div>
+                    <div class="col-sm-2" style="display:none;">
+                        <input value="Print" rlabel="Print" control="inventoryTrans.primaryWriteButton" controlid="btnPrint" event="click:btnPrint_click" class="col-xs-12" />
+                    </div>
+                    <div class="col-sm-2">
+                        <input value="Report" rlabel="Report" control="inventoryTrans.primaryWriteButton" controlid="btnReport" event="click:btnReport_click" class="col-xs-12" />
+                    </div>
+                    <br /><br /><br />
+                    <div style="width:100%; overflow-x:auto; overflow-y:hidden;margin-top:50px">
+                        <div control="inventoryTrans.grid" controlid="grdTransactions"></div>
+                    </div>
+                </div>
+            </div>
+            <div controlId="pnlPrintingPopup" control="inventoryTrans.popup" style="display:none">
+                <div class="row col-sm-12">
+                    &nbsp;
+                </div>
+                <div class="row col-sm-12">
+                    <span class="label col-sm-4" rlabel="Export Type">Export Type</span>
+                    <select style="margin-left:15px;" class="col-sm-4" control="inventoryTrans.dropDownList" controlid="ddlExportType">
+                        <option>PDF</option>
+                        <option>EXCEL</option>
+                        <option>WORD</option>
+                        <option>PPT</option>
+                        <option>CSV</option>
+                        <option>HTML</option>
+                    </select>
+                    <input class="col-xs-12 col-lg-2" style="float:right;" value="Go" rlabel="Go" controlId="btnPrintJasperBill" control="inventoryTrans.primaryWriteButton" event="click:btnPrintJasperBill_click" />
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

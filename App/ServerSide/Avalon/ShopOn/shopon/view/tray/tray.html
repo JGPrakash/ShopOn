@@ -1,0 +1,213 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+
+    <script src="/config/config.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        document.write('<script src="/' + appConfig.root + '/core/master.js" type="text/javascript" > <\/script> ');
+
+        document.write('<link href="/' + appConfig.root + '/shopon/view/tray/tray.css" rel="stylesheet" />');
+        document.write('<script src="/' + appConfig.root + '/shopon/view/tray/tray.js"><\/script>');
+        document.write('<script src="/' + appConfig.root + '/shopon/service/sales/sales-service.js"><\/script>');
+        document.write('<script src="/' + appConfig.root + '/shopon/service/sales/bill-service.js"><\/script>');
+        document.write('<script src="/' + appConfig.root + '/shopon/service/vendor/vendor-service.js"><\/script>');
+        document.write('<script src="/' + appConfig.root + '/shopon/service/vendor/vendor-api.js"><\/script>');
+        document.write('<script src="/' + appConfig.root + '/shopon/service/account/accounting-service.js"><\/script>');
+        document.write('<script src="/' + appConfig.root + '/shopon/service/sales/tray-service.js"><\/script>');
+        document.write('<script src="/' + appConfig.root + '/shopon/service/sales/tray-api.js"><\/script>');
+        document.write('<script src="/' + appConfig.root + '/shopon/service/sales/tray-transaction-api.js"><\/script>');
+        document.write('<script src="/' + appConfig.root + '/shopon/service/sales/customer-api.js"><\/script>');
+
+
+        document.write('<script src="/' + appConfig.root + '/shopon/service/inventory/inventory-service.js"><\/script>');
+        document.write('<script src="/' + appConfig.root + '/shopon/service/purchase/purchase-service.js"><\/script>');
+        document.write('<script src="/' + appConfig.root + '/shopon/service/w3data/w3data.js"><\/script>');
+        //Tamil Font
+        document.write('<script src="/' + appConfig.root + '/core/tamil-common.js" type="text/javascript" > <\/script> ');
+        document.write('<script src="/' + appConfig.root + '/core/tamil.js" type="text/javascript" > <\/script> ');
+    </script>
+
+</head>
+
+
+<body control="page.eggTray" controlId="eggTray">
+
+
+
+
+    <div control="eggTray.masterPage" controlId="masterPage"></div>
+
+    <div style="margin-top:40px">
+
+        <!--Load Content Area-->
+        <div class="container-fluid">
+
+            <div class="content-area row">
+                <div control="eggTray.messagePanel" controlid="msgPanel" class="message-panel" style="display:none">
+                </div>
+                <div class="search-panel col-sm-4" default-button="btnSearch">
+
+                    <div class="search-action">
+                        <hr>
+                        <input type="button" value="Search" rlabel="Search" control="eggTray.primaryReadButton" controlId="btnSearch" event="click:btnSearch_click" class="" role="button">
+
+                    </div>
+                    <div class="search-filter">
+                        <div>
+                            
+                            <input type="text" class="textBox" tabindex="1"  controlId="txtTraySearch" control="eggTray.textBox" rlabel="Enter Tray No or Name" placeholder="Enter Tray No or Name">
+                        </div>
+
+
+                    </div>
+                    <div class="search-result">
+                        <div control="eggTray.grid" controlid="grdTrayResult"></div>
+                    </div>
+                    <div class="col-sm-12" style="height:50px;">
+                        <span class="label" rlabel="F1 - New"> F1 - New </span>
+                        <span class="label" rlabel="F2 - Save"> F2 - Save </span>
+                        <span class="label" rlabel="Ctrl + R - Remove"> Ctrl + R - Remove </span>
+                    </div>
+                </div>
+                <div class="detail-panel  col-sm-8">
+
+                    <div class="detail-action">
+
+                        <input type="button" value="New" rlabel="New" control="eggTray.primaryWriteButton" controlId="btnNewTray" event="click:btnNewTray_click">
+                        <input type="button" value="Save" rlabel="Save" control="eggTray.primaryWriteButton" controlId="btnSaveTray" event="click:btnSaveTray_click">
+                        <input type="button" value="Remove" rlabel="Remove" control="eggTray.secondaryButton" controlid="btnRemoveTray" event="click:btnRemoveTray_click">
+                        <span style="padding-left: 5px;padding-right: 5px; margin-top: 5px;float:left" id="eremove"> |</span>
+                        <input type="button" value="Customer Report"  rlabel="Customer Report" control="eggTray.secondaryButton" controlid="btnCustomerTray" event="click:btnCustomerTray_click">
+                    </div>
+                    
+                    <div class="detail-info container-fluid" style="display:none">
+
+                        <div class="detail-basic row">
+                            <span class="label col-sm-12" rlabel="Manage Tray"><b>Manage Tray</b></span>
+                            <div class="col-sm-12">
+                                <div class="col-sm-6">
+                                    <span class="label col-sm-4" rlabel="Tray No">Tray No</span>
+                                    <span class="col-sm-8 label-value" controlId="lblTrayNo" control="eggTray.htmlControl"></span>
+                                </div>
+                                <div class="col-sm-6">
+                                    <span class="label col-sm-4" tabindex="2" rlabel="Tray Name">Tray Name<span style="color:red;">*</span></span>
+                                    <input class="col-sm-8" type="text" controlId="txtTrayName2" control="eggTray.textBox">
+                                </div>
+                            </div>
+                            <div class="col-sm-12">
+                                <div class="col-sm-6">
+                                    <span class="label col-sm-4" tabindex="3" rlabel="Tray Desc">Tray Desc</span>
+                                    <input class="col-sm-8" type="text" controlId="txtTrayDesc1" control="eggTray.textBox">
+                                </div>
+
+                                <div class="col-sm-6">
+                                    <span class="label col-sm-4" rlabel="Tray Total Count">Tray Total Count</span>
+                                    <span class="col-sm-8 label-value" controlId="lblTrayTotalCount" control="eggTray.htmlControl"></span>
+                                </div>
+                            </div>
+                            <div class="col-sm-12">
+                                <div class="col-sm-6">
+                                    <span class="label col-sm-4" rlabel="Current Stock">Current Stock</span>
+                                    <span class="col-sm-8 label-value" controlId="lblTrayCount" control="eggTray.htmlControl"></span>
+                                </div>
+                            </div>
+                                <div class="col-sm-12">
+                                    <span class="label col-sm-6" rlabel="My Transactions"><b>My Transactions</b></span>
+                                    <div class="col-sm-6">
+                                        <input type="button" value="Add" rlabel="Add" control="eggTray.secondaryButton" controlId="btnAddTransaction" event="click:btnAddTransaction_click" style="float:right;">
+                                    </div>
+                                </div>
+                                <div class="col-sm-12">
+                                    <div style="width:100%; overflow-x:auto; overflow-y:hidden;margin-top:10px">
+                                        <div class="itemGrid" control="eggTray.grid" controlid="grdTransactions"></div>
+                                    </div>
+                                </div>
+                            </div>
+
+                       
+
+
+
+                        </div>
+
+                </div>
+            </div>
+
+            <div controlId="pnlCustomerViewPopup" control="eggTray.popup" style="display:none">
+                <div class="itemGrid" control="eggTray.grid" controlid="grdCustView"></div>
+            </div>
+            <div controlId="pnlNewTrayPopup" control="eggTray.popup" style="display:none">
+                <div style="width:100%; margin-bottom:10px;display: inline-block;">
+                    <input value="Save" rlabel="Save" style="float:right;" controlId="btnAddTrayOK" control="eggTray.primaryWriteButton" event="click:btnAddTrayOK_click" />
+                </div>
+
+                <div class="detail-basic detail-full">
+                    <div style="">
+                        <span class="label" rlabel="Tray Name">Tray Name <span style="color:red;">*</span></span>
+                        <input type="text" controlId="txtTrayName" control="eggTray.textBox">
+                    </div>
+                    <div style="">
+                        <span class="label" rlabel="Tray Description">Tray Description</span>
+                        <input type="text" controlId="txtTrayDesc" control="eggTray.textBox">
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div controlId="pnlTransactionPayPopup" control="eggTray.popup" style="display:none">
+                <div style="width:100%;margin-bottom:10px;display: inline-block;">
+                    <input value="Save" rlabel="Save" style="float:right;" controlId="btnTransactionPayOK" control="eggTray.primaryWriteButton" event="click:btnTransactionPayOK_click" />
+                </div>
+
+                <div class="detail-basic detail-full">
+                    <div>
+                        <span class="label" rlabel="Payment Type">Payment Type </span>
+
+                        <select control="eggTray.dropDownList" controlid="ddlPayType">
+
+                            <option>Customer Sales</option>
+                            <option>Customer Return</option>
+                            <option>Vendor Purchase</option>
+                            <option>Vendor Return</option>
+                            <option>Manual Stock</option>
+                            <option>Manual Return</option>
+
+                        </select>
+                    </div>
+
+                    <div controlId="pnlCustVend" control="eggTray.htmlControl" style="display:none">
+                        <span class="label" controlId="lblCustVend" control="eggTray.htmlControl" rlabel="Customer">Customer </span>
+                        <select type="text" controlId="ddlCustomer" control="eggTray.dropDownList"></select>
+
+                    </div>
+                    <div controlId="pnlInvoiceNo" control="eggTray.htmlControl" style="display:none">
+                        <span class="label" rlabel="Invoice No">Invoice No<span style="color:red;">*</span></span>
+                        <input type="text" tabindex="5" controlId="txtBillId" control="eggTray.textBox">
+
+                    </div>
+                    <div style="">
+                        <span class="label" rlabel="Tray Count">Tray Count<span style="color:red;">*</span></span>
+                        <input type="text" tabindex="6" controlId="txtTrayCount" control="eggTray.textBox">
+
+                    </div>
+                    <div>
+                        <span class="label"  rlabel="Transaction Date">Transaction Date<span style="color:red;">*</span></span>
+                        <input controlId="dsBillPayDate" tabindex="7" control="eggTray.dateSelector" />
+                    </div>
+
+
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+
+</body>
+
+</html>

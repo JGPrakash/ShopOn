@@ -1,0 +1,47 @@
+﻿<!doctype html>
+<html>
+
+<head>
+
+    <script src="/config/config.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        document.write('<script src="/' + appConfig.root + '/core/master.js" type="text/javascript" > <\/script> ');
+        document.write('<script src="/' + appConfig.root + '/login/service/user/user-service.js"><\/script>');
+
+        document.write('<link href="/' + appConfig.root + '/user/users-config/users-config.css" rel="stylesheet" />');
+        document.write('<script src="/' + appConfig.root + '/user/users-config/users-config.js"><\/script>');
+        document.write('<script src="/' + appConfig.root + '/shopon/service/w3data/w3data.js"><\/script>');
+        document.write('<link href="/' + appConfig.root + '/shopon/view/simple-entity-manage/simple-entity-manage.css" rel="stylesheet" />');
+        document.write('<script src="/' + appConfig.root + '/shopon/view/simple-entity-manage/simple-entity-manage.js"><\/script>');
+    </script>
+
+</head>
+
+
+<body control="page.masterconfig" controlId="masterconfig">
+
+
+    <div control="masterconfig.masterPage" controlId="masterPage"></div>
+
+    <div class="content-area">
+        <!-- Page Left Search Panel-->
+
+        <div event="click:lnkMenuMasterConfig_Click">
+            <h1 align="center">User, Group, Object and permission Management</h1>
+            <nav id="navigation" class="clearfix" style="margin-top: 60px; margin-left: 100px; margin-right: 20px;">
+
+            </nav>
+        </div>
+        <div class="main-setting-menu">
+        <input type="button" value="User Management" controlid="btnUserManagement" control="masterconfig.primaryWriteButton" event="click:btnUserManagement_click"/>
+        <input type="button" value="Group Management" controlid="btnGroupManagement" control="masterconfig.primaryWriteButton" event="click:btnGroupManagement_click"/>
+        <input type="button" value="User-Group Configuration" controlid="btnUserGroupConfiguration" control="masterconfig.primaryWriteButton" event="click:btnUserGroupConfiguration_click"/>
+        <input type="button" value="Permission Management" controlid="btnPermissionManagement" control="masterconfig.primaryWriteButton" event="click:btnPermissionManagement_click"/>
+        <input type="button" value="Object Configuration" controlid="btnObjectConfiguration" control="masterconfig.primaryWriteButton" event="click:btnObjectConfiguration_click"/>
+        <input type="button" value="User, Object & Permission Management" controlid="btnUserObjectPermission" control="masterconfig.primaryWriteButton" event="click:btnUserObjectPermission_click"/>
+        <!-- Edited By Anto-->
+        <input type="button" value="User Settings" controlid="btnUserSettings" control="masterconfig.primaryWriteButton" event="click:btnUserSettings_click" />
+
+        </div>
+    </div>
+    </div>

@@ -1,0 +1,114 @@
+﻿[controlid=pnlAccountTitle] > div > span{
+        font-size: 36px;
+    line-height: 40px;
+    letter-spacing: 1px;
+}
+[controlid=pnlAccountTitle] > div > button{
+    background: #ff7600;
+    border: none;
+    border-radius: 0px;
+    font-size: 18px;
+    padding: 5px;
+    letter-spacing: 1px;
+    color: white;
+    text-align: center;
+    padding-left:10px;
+    padding-right:10px;
+    float:right;
+}
+.notificaltion{
+    font-size:18px;
+    letter-spacing:1px;
+}
+.text{
+    font-size:20px !important;
+    letter-spacing:1px !important;
+    padding-left:0px !important;
+    line-height:40px !important;
+}
+.value{
+    font-size: 18px !important;
+    letter-spacing: 1px;
+    height: 40px !important;
+    border-radius:0px !important;
+}
+.cart-button{
+    background: #ff7600 !important;
+    border: none !important;
+    border-radius: 10px !important;
+    font-size: 18px !important;
+    padding: 5px !important;
+    letter-spacing: 1px !important;
+    color: white !important;
+    border-radius:0px !important;
+}
+.attribute-button{
+    float: right;
+    font-size: 14px;
+    color: blue;
+    background: transparent;
+    border: none;
+}
+[controlid=lblAlertContent], .success-message{
+    font-size:18px;
+    letter-spacing:1px;
+    line-height:30px;
+}
+[controlid=btnCloseAlert],[controlid=btnCloseSuccess]{
+    float:right;
+}
+.otp-title{
+    font-size:26px;
+    letter-spacing:1px;
+    line-height:35px;
+}
+[controlid=btnCancelPassword]{
+    background: #ff7600;
+    border: none;
+    border-radius: 0px;
+    font-size: 18px;
+    padding: 5px;
+    letter-spacing: 1px;
+    color: white;
+    text-align: center;
+    padding-left:10px;
+    padding-right:10px;
+    float: right;
+}
+ [controlid=btnChangePassword]{
+    background: #ff7600;
+    border: none;
+    border-radius: 0px;
+    font-size: 18px;
+    padding: 5px;
+    letter-spacing: 1px;
+    color: white;
+    text-align: center;
+    padding-left:10px;
+    padding-right:10px;
+    float: left;
+}
+ [controlid=btnCloseAlert]{
+    background: #ff7600 !important;
+    border: none !important;
+    border-radius: 0px !important;
+    font-size: 20px !important;
+    padding: 5px !important;
+    letter-spacing: 1px !important;
+    color: white !important;
+    text-align: center !important;
+    padding-left:10px !important;
+    padding-right:10px !important;
+    float: right !important;
+ }
+
+ @media only screen and (max-width: 650px) {
+    [controlid=pnlAccountTitle] > div > span{
+        font-size:26px;
+    }
+}
+@media only screen and (min-device-width: 650px) and (max-device-width: 1000px) and (-webkit-min-device-pixel-ratio: 1) {
+    [controlid=pnlAccountTitle] > div > span{
+        font-size:26px;
+    }
+}

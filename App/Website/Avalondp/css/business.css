@@ -1,0 +1,94 @@
+﻿body{
+    
+}
+.content-panel{
+    /*background: #f7f5f5;*/
+    border: 2px solid #dad6d6;
+    padding: 15px;
+    background-image: url('../image/business.jpg');
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+}
+.signin-panel{
+    background: rgba(255,255,255,0.8);
+    padding: 20px;
+    color: #49494a;
+    font-weight: inherit;
+    line-height: 1.5em;
+}
+.header-text{
+    font-size: 28px;
+    padding: 10px 0px 15px 0px;
+        display: block;
+    line-height: 1em;
+    font-weight:700;
+}
+.span-label{
+    display: block;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    font-size:18px;
+    line-height: 26px;
+}
+}
+h3{
+        text-align: center;
+    font-size: 32px;
+    letter-spacing: 1px;
+    line-height: 40px;
+}
+.notificaltion{
+    font-size:18px;
+    letter-spacing:1px;
+}
+.text{
+    font-size:20px;
+    letter-spacing:1px;
+    padding-left:0px;
+    line-height:40px;
+    padding-left: 15px;
+}
+.value{
+    font-size: 18px !important;
+    letter-spacing: 1px;
+    height: 40px !important;
+    border-radius:0px !important;
+}
+.cart-button{
+    background: #ff7600;
+    border: none;
+    border-radius: 5px;
+    font-size: 18px;
+    padding: 5px;
+    letter-spacing: 1px;
+    color: white;
+    border-radius:0px;
+}
+.attribute-button{
+    float: right;
+    font-size: 14px;
+    color: blue;
+    background: transparent;
+    border: none;
+}
+[controlid=lblAlertContent], .success-message{
+    font-size:18px;
+    letter-spacing:1px;
+    line-height:30px;
+}
+[controlid=btnCloseAlert],[controlid=btnCloseSuccess]{
+    float:right;
+}
+.otp-title{
+    font-size:26px;
+    letter-spacing:1px;
+    line-height:35px;
+}
+[controlid=btnForgetPassword]{
+    background: transparent;
+    border: none;
+    color: blue;
+    float: right;
+}

@@ -1,0 +1,300 @@
+﻿<div id="mySidenav" class="sidenav">
+    <p href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</p>
+    <p control="masterPage.htmlControl" controlId="lblMobileUser"><a href="../../pages/signin.html" style="padding-left:0px;"><i class="fa fa-user"></i>&nbsp;&nbsp;&nbsp;Log in Or Register</a></p>
+    <hr />
+    <button class="main-mobile-menu">
+        Products &nbsp;&nbsp;
+        <i class="fa fa-caret-down"></i>
+    </button>
+    <div class="" style="display:none;" control="masterPage.htmlControl" controlId="lblMobileProducts">
+        <button class="sub-mobile-menu">
+            Dropdown &nbsp;&nbsp;
+            <i class="fa fa-caret-down"></i>
+        </button>
+        <div class="menu-mobile-link" style="display:none;">
+            <a href="#">Link 1</a>
+            <a href="#">Link 2</a>
+            <a href="#">Link 3</a>
+        </div>
+    </div>
+    <button class="main-mobile-menu">
+        Brands &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <i class="fa fa-caret-down"></i>
+    </button>
+    <div class="" style="display:none;" control="masterPage.htmlControl" controlId="lblMobileBrands">
+        <button class="sub-mobile-menu">
+            Dropdown &nbsp;&nbsp;
+            <i class="fa fa-caret-down"></i>
+        </button>
+        <div class="menu-mobile-link" style="display:none;">
+            <a href="#">Link 1</a>
+            <a href="#">Link 2</a>
+            <a href="#">Link 3</a>
+        </div>
+    </div>
+    <button class="main-mobile-menu">
+        Deals &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <i class="fa fa-caret-down"></i>
+    </button>
+    <div class="" style="display:none;" control="masterPage.htmlControl" controlId="lblMobileDeals">
+        <button class="sub-mobile-menu">
+            Dropdown &nbsp;&nbsp;
+            <i class="fa fa-caret-down"></i>
+        </button>
+        <div class="menu-mobile-link" style="display:none;">
+            <a href="#">Link 1</a>
+            <a href="#">Link 2</a>
+            <a href="#">Link 3</a>
+        </div>
+    </div>
+    <button class="main-mobile-menu">
+        Services &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <i class="fa fa-caret-down"></i>
+    </button>
+    <div class="menu-mobile-link" style="display:none;" control="masterPage.htmlControl" controlId="lblMobileServices">
+        <a href="../../pages/services-history.html">My Service History</a>
+        <a href="../../pages/service-request.html">New Service Request</a>
+    </div>
+    <hr />
+    <a href="../../pages/cart-details.html"><i class="fa fa-shopping-cart"></i>&nbsp;&nbsp;&nbsp;Cart</a>
+    <a href="../../pages/business.html"><i class="fa fa-gear"></i>&nbsp;&nbsp;&nbsp;For Your Business</a>
+    <hr />
+    <a href="../../pages/orders.html"><i class="fa fa-first-order"></i>&nbsp;&nbsp;&nbsp;Order History</a>
+    <a href="../../pages/customer-reward.html"><i class="fa fa-graduation-cap"></i>&nbsp;&nbsp;&nbsp;Rewards</a>
+    <a href="../../pages/account.html"><i class="fa fa-file-code-o"></i>&nbsp;&nbsp;&nbsp;Manage Your Accounts</a>
+    <a href="../../pages/address-book.html"><i class="fa fa-home"></i>&nbsp;&nbsp;&nbsp;Address Book</a>
+    <a href="#"><i class="fa fa-retweet"></i>&nbsp;&nbsp;&nbsp;Return Policy</a>
+    <a href="#"><i class="fa fa-exclamation-circle"></i>&nbsp;&nbsp;&nbsp;Help Center</a>
+
+
+    <hr />
+</div>
+
+
+
+
+
+
+
+
+<div class="col-xs-12 padding-top-zero margin-top-zero header padding-zero margin-zero" style="z-index:99;">
+    <nav class="navbar navbar-inverse">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" onclick="openNav()" style="border:none;float:left;">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="../../index.html"><img src="../../image/logo.png" width="15%;" /></a>
+                <span class="navbar-toggle header-icon-1"><a href="../../pages/cart-details.html"><i class="fa fa-shopping-cart"></i></a></span>
+                <span class="navbar-toggle header-icon-2"><a href="../../pages/account.html"><i class="fa fa-user"></i></a></span>
+            </div>
+            <div class="collapse navbar-collapse navbar-right" id="myNavbar">
+                <ul class="nav navbar-nav">
+                    <li><a href="../../pages/business.html"><span control="masterPage.htmlControl" controlId="lblBusiness">For Your Business</span></a> </li>
+                    <li>
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#"><i class="fa fa-user"></i>&nbsp;Account<span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li control="masterPage.htmlControl" controlId="lblUser"><a href="../../pages/signin.html">Login or Register</a></li>
+                            <li><a href="../../pages/orders.html">Order History</a></li>
+                            <li><a href="../../pages/customer-reward.html">Rewards</a></li>
+                            <li><a href="../../pages/account.html">Manage Your Account</a></li>
+                            <li><a href="../../pages/address-book.html">Address Book</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="../../pages/cart-details.html" style="padding-left:5px;">Cart</a></li>
+                    <li style="text-align:right;width:4%;"><img src="../../image/shopping-cart.png" width="75%" style="margin-top:10px;" /></li>
+                </ul>
+            </div>
+        </div>
+        <div class="container-fluid menu-div">
+            <span class="top-space-styl1 col-xs-12">&nbsp;</span>
+            <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 padding-zero">
+                <div class="menu-panel col-xs-12 col-sm-12 col-md-2 col-lg-2">
+                    <span>Products</span>
+                    <div class="col-xs-12 col-sm-12 col-m3 col-lg-3 sub-menu-panel" control="masterPage.htmlControl" controlId="pnlProducts">
+                        <h4>Desktop Computer1</h4>
+                        <span>Lenova1</span>
+                    </div>
+                </div>
+                <div class="menu-panel col-xs-12 col-sm-12 col-md-2 col-lg-2">
+                    <span>Brands</span>
+                    <div class="col-xs-12 col-sm-12 col-m3 col-lg-3 sub-menu-panel" control="masterPage.htmlControl" controlId="pnlBrands">
+                        <h4>Desktop Computer1</h4>
+                        <span>Lenova1</span>
+                    </div>
+                </div>
+                <div class="menu-panel col-xs-12 col-sm-12 col-md-2 col-lg-2">
+                    <span>Deals</span>
+                    <div class="col-xs-12 col-sm-12 col-m3 col-lg-3 sub-menu-panel" control="masterPage.htmlControl" controlId="pnlDeals">
+                        <h4>Desktop Computer1</h4>
+                        <span>Lenova1</span>
+                    </div>
+                </div>
+                <div class="menu-panel col-xs-12 col-sm-12 col-md-2 col-lg-2">
+                    <span>Services</span>
+                    <div class="col-xs-12 col-sm-12 col-m3 col-lg-3 sub-menu-panel" style="display:none; width:300px !important;overflow-y:hidden !important;height:150px !important;" control="masterPage.htmlControl" controlId="pnlServices">
+                        <span class="col-xs-12" style="height:2px;">&nbsp;</span>
+                        <span>Avalon Services</span>
+                        <hr class="col-xs-12" />
+                        <h4 style="line-height:24px;"><a href="../../pages/services-history.html">Service History</a></h4>
+                        <h4><a href="../../pages/service-request.html">New Service Request</a></h4>
+                    </div>
+                </div>
+            </div>
+            <div  class="col-xs-12 col-sm-12 col-md-6 col-lg-6 padding-zero">
+                <input type="button" value="Search" control="masterPage.primaryReadButton" controlId="btnSearch" event="click:btnSearch_click" />
+                <input type="text" placeholder="Search Avalon" control="masterPage.textBox" controlId="txtSearch" />
+                
+            </div>
+            <span class="col-xs-12 space-style-2">&nbsp;</span>
+        </div>
+        <!--<div  class="container-fluid">
+            <div class="navbar-header" control="masterPage.htmlControl" controlId="lblLeftSideMenu">
+                <ul class="nav navbar-nav">
+                    <li class="dropdown-submenu">
+                        <a class="test" tabindex="-1" href="#">Products <span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li class="dropdown-submenu">
+                                <a class="test" href="#">Another sdjhjasdhsjdhj jhhuhasd jhjhdajsds dropdown <span class="caret"></span></a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="#">3rd level dropdown</a></li>
+                                    <li><a href="#">3rd level dropdown</a></li>
+                                    <li class="dropdown-submenu">
+                                        <a class="test" href="#">Another dropdown <span class="caret"></span></a>
+                                        <ul class="dropdown-menu">
+                                            <li><a href="#">3rd level dropdown</a></li>
+                                            <li><a href="#">3rd level dropdown</a></li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                            Products
+                            <span class="caret"></span>
+                        </a>
+                        <ul class="dropdown-menu left-side-menu">
+                            <li>
+                                <h5 class="menu-heading">All Categories</h5>
+                            </li>
+                            <li>
+                                <div class="col-xs-12">
+                                    <div class="col-xs-3">
+                                        <img src="../../image/no-image.png" width="100%" />
+                                    </div>
+                                    <a href="#" class="col-xs-9 menu-heading-content">Computes</a>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="col-xs-12">
+                                    <div class="col-xs-3">
+                                        <img src="../../image/no-image.png" width="100%" />
+                                    </div>
+                                    <a href="#" class="col-xs-9 menu-heading-content">Computes</a>
+                                </div>
+                            </li>
+                        </ul>
+                        <ul class="dropdown-menu left-side-title" style="display:none;">
+                            <li class="col-xs-12">
+                                <div class="col-xs-2">
+                                    <img src="../../image/no-image.png" width="100%" />
+                                </div>
+                                <h4 class="menu-title col-xs-10">Computers</h4>
+                            </li>
+                            <li class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+                                <h5 class="menu-sub-title">All Categories 123</h5>
+                                <a href="#" class="menu-sub-title-content">Computes</a>
+                            </li>
+                            <li class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+                                <h5 class="menu-title-content">All Categories 123</h5>
+                                <a href="#" class="menu-sub-title-content">Computes</a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+            <div class="collapse navbar-collapse navbar-right" id="myNavbar">
+                <ul class="nav navbar-nav">
+                    <li class="dropdown">
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                            Page 1
+                            <span class="caret"></span>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#">Page 1-1</a></li>
+                            <li><a href="#">Page 1-2</a></li>
+                            <li><a href="#">Page 1-3</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>-->
+    </nav>
+    <!--<span class="col-xs-4 col-sm-4 col-md-4 col-lg-4 padding-top-zero margin-top-zero menu-bar" style="" onclick="openNav()"><i class="fa fa-bars"></i></span>-->
+</div>
+
+
+
+
+<a href="#" id="myBtn" title="Go to top" style="display:none;"><img src="../../image/arrow.png" width="100%" style="float:right;" /></a>
+
+
+
+<div class="loader col-xs-12" style="display:none;">
+    <div class="col-xs-12 col-sm-12 col-md-4 col-lg-5"><span>&nbsp;</span></div>
+    <div class="col-xs-12 col-sm-12 col-md-4 col-lg-2">
+        <img src="../../image/loading4.gif" width="100%" />
+    </div>
+    <div class="col-xs-12 col-sm-12 col-md-4 col-lg-5"><span>&nbsp;</span></div>
+</div>
+<div class="action-loader col-xs-12" style="display:none;">
+    <div class="col-xs-12 col-sm-12 col-md-4 col-lg-5"><span>&nbsp;</span></div>
+    <div class="col-xs-12 col-sm-12 col-md-4 col-lg-2">
+        <img src="../../image/loading4.gif" width="100%" />
+    </div>
+    <div class="col-xs-12 col-sm-12 col-md-4 col-lg-5"><span>&nbsp;</span></div>
+</div>
+
+<script>
+$(document).ready(function(){
+  $('.dropdown-submenu a.test').on("click", function(e){
+    $(this).next('ul').toggle();
+    e.stopPropagation();
+    e.preventDefault();
+  });
+});
+
+var dropdown = document.getElementsByClassName("main-mobile-menu");
+var i;
+for (i = 0; i < dropdown.length; i++) {
+    dropdown[i].addEventListener("click", function () {
+        this.classList.toggle("active");
+        var dropdownContent = this.nextElementSibling;
+        if (dropdownContent.style.display === "block") {
+            dropdownContent.style.display = "none";
+        } else {
+            dropdownContent.style.display = "block";
+        }
+    });
+}
+setTimeout(function () {
+    var dropdown1 = document.getElementsByClassName("sub-mobile-menu");
+    var j;
+    for (j = 0; j < dropdown1.length; j++) {
+        dropdown1[j].addEventListener("click", function () {
+            this.classList.toggle("active");
+            var dropdownContent = this.nextElementSibling;
+            if (dropdownContent.style.display === "block") {
+                dropdownContent.style.display = "none";
+            } else {
+                dropdownContent.style.display = "block";
+            }
+        });
+    }
+}, 5000);
+</script>
+

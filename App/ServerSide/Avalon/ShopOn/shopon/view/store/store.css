@@ -1,0 +1,63 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+
+
+/* 
+    Created on : Sep 23, 2016, 9:46:30 AM
+    Author     : admin
+*/
+
+
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+
+
+/* 
+    Created on : Sep 20, 2016, 11:45:09 AM
+    Author     : admin
+*/
+.detail-basic {
+     margin-top: 15px;
+}
+
+.search-panel {
+    width: 500px;
+}
+
+input[controlid="txtSearchInput"] {
+    width: calc(100% - 50px);
+}
+
+.search-action>hr {
+}
+
+.detail-panel {
+}
+
+.basic-panel>div>span {
+    display: inline-block;
+    width: 33%;
+}
+
+.basic-panel {
+    width: 300px;
+}
+
+.basic-panel>div {
+    margin-bottom: 10px;
+}
+
+.basic-panel>div>input {
+    display: inline-block;
+    width: 63%;
+}
+
+.detail-action>hr {
+    width: 580px;
+}

@@ -1,0 +1,121 @@
+﻿<!doctype html>
+<html>
+
+<head>
+
+    <script src="/config/config.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        document.write('<script src="/' + appConfig.root + '/core/master.js" type="text/javascript" > <\/script> ');
+
+        document.write('<script src="/' + appConfig.root + '/shopon/service/doctor/doctor-service.js"><\/script>');
+
+        document.write('<link href="/' + appConfig.root + '/shopon/view/doctor/doctor.css" rel="stylesheet" />');
+        document.write('<script src="/' + appConfig.root + '/shopon/view/doctor/doctor.js"><\/script>');
+    </script>
+
+
+</head>
+
+
+<body control="page.doctor" controlId="doctor">
+
+    <div control="doctor.masterPage" controlId="masterPage"></div>
+
+    <div style="margin-top:40px">
+
+        <!--Load Content Area-->
+        <div class="container-fluid">
+            <div class="content-area row">
+                <div control="doctor.messagePanel" controlid="msgPanel" class="message-panel" style="display:none"></div>
+                <div class="search-panel col-sm-4" default-button="btnSearch">
+
+                    <div class="search-action">
+                        <hr>
+                        <input type="button" tabindex="20" value="Search" control="doctor.primaryReadButton" controlId="btnSearch" event="click:btnSearch_click" class="" role="button">
+
+                    </div>
+
+                    <div class="search-filter">
+                        <div>
+                            <!--<span>Customer</span>-->
+                            <input type="text" tabindex="19" controlId="txtCustomerSearch" placeholder="Enter Name, Sales Executive no, Phone no" control="doctor.textBox">
+                        </div>
+
+
+                    </div>
+                    <div class="search-result">
+                        <div control="doctor.grid" controlid="grdCustomer"></div>
+                    </div>
+                    <div class="col-sm-12">
+                        <span class="label"> F1 - New </span>
+                        <span class="label"> F2 - Save </span>
+                        <span class="label"> Ctrl + R - Remove </span>
+                        <span class="label"> Ctrl + P - Print </span>
+                    </div>
+                </div>
+                <div class="detail-panel  col-sm-8">
+
+                    <div class="detail-action">
+                        <input value="New" tabindex="16" control="doctor.primaryWriteButton" controlid="btnNewCustomer" event="click:btnNewCustomer_click">
+                        <input value="Save" tabindex="17" control="doctor.primaryWriteButton" controlid="btnSave" event="click:btnSave_click">
+                        <input value="Remove" tabindex="18" control="doctor.secondaryButton" controlid="btnRemove" event="click:btnRemove_click">
+                    </div>
+                    <div class="detail-info">
+
+                        <div class="basic-info row">
+
+                            <span class="label col-xs-12" style="margin-bottom: 5px"><b>Doctor Details</b></span>
+
+                            <div class="col-xs-12 col-lg-6 ">
+                                <span class="label  col-xs-12 col-lg-5">Name<span style="color:red;">*</span></span>
+                                <input type="hidden" controlId="hdnCustNo" control="doctor.htmlControl" />
+                                <input class="col-xs-12 col-lg-7" placeholder="Doctor Name" tabindex="1" controlId="txtFirstName" control="doctor.textBox" />
+                            </div>
+                            <div class="col-xs-12 col-lg-6 ">
+                                <span class="label  col-xs-12 col-lg-5">Clinic Name</span>
+                                <input class="col-xs-12 col-lg-7" placeholder="Clinic Name" tabindex="2" controlId="txtCompanyName" control="doctor.textBox" />
+                            </div>
+                            <div class="col-xs-12 col-lg-6 ">
+                                <span class="label  col-xs-12 col-lg-5">Register No</span>
+                                <input class="col-xs-12 col-lg-7" placeholder="Register No" tabindex="3" controlId="txtCompany" control="doctor.textBox" />
+                            </div>
+                            <div class="col-xs-12 col-lg-6 ">
+                                <span class="label  col-xs-12 col-lg-5">Date Of Birth</span>
+                                <input class="col-xs-12 col-lg-7" placeholder="Date Of Birth" tabindex="4" controlId="txtDOB" control="doctor.dateSelector" />
+                            </div>
+                            <div class="col-xs-12 col-lg-6 ">
+                                <span class="label  col-xs-12 col-lg-5">Mobile no</span>
+                                <input class="col-xs-12 col-lg-7" placeholder="Mobile no" tabindex="5" controlId="txtPhone" maxlength="10" control="doctor.textBox" />
+                            </div>
+                            <div class="col-xs-12 col-lg-6 ">
+                                <span class="label  col-xs-12 col-lg-5">Email</span>
+                                <input class="col-xs-12 col-lg-7" placeholder="Email" tabindex="6" controlId="txtEmail" control="doctor.textBox" />
+                            </div>
+                            <div class="col-xs-12  col-lg-6">
+                                <span class="label col-xs-12 col-lg-5">Doctor</span>
+                                <span class="col-xs-12 col-lg-4"><input type="checkbox" tabindex="7" controlId="chkActive" control="doctor.chkBox" name="cus_active"><span class="label" style="margin-top:-22px;margin-left:5px;">Active</span></span>
+                            </div>
+                            <span class="label col-xs-12" style="margin-bottom: 5px"><b>Address</b></span>
+
+                            <div class="col-xs-12 col-lg-6 ">
+                                <span class="label  col-xs-12 col-lg-5">Address</span>
+                                <input class="col-xs-12 col-lg-7" placeholder="Address" tabindex="8" controlId="txtAddressLine2" control="doctor.textBox" />
+                            </div>
+                            <div class="col-xs-12 col-lg-6 ">
+                                <span class="label  col-xs-12 col-lg-5">Area</span>
+                                <input class="col-xs-12 col-lg-7" placeholder="Area" tabindex="9" controlId="txtArea" control="doctor.textBox" />
+                            </div>
+                        </div>
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <br />
+    <br />
+
+</body>
+
+</html>

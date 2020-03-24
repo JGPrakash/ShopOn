@@ -1,0 +1,170 @@
+﻿<!doctype html>
+<html>
+<head>
+    <meta charset="UTF-8">
+
+    <script src="/config/config.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        
+        document.write('<script src="/'+ appConfig.root + '/core/master.js" type="text/javascript" > <\/script> ');
+        document.write('<script src="/' + appConfig.root + '/login/service/user/user-service.js"><\/script>');
+        document.write('<script src="/' + appConfig.root + '/login/service/register-api.js"><\/script>');
+        document.write('<script src="/' + appConfig.root + '/login/service/store-api.js"><\/script>');
+        document.write('<script src="/' + appConfig.root + '/login/service/token-api.js"><\/script>');
+        document.write('<script src="/' + appConfig.root + '/login/service/user-permission-api.js"><\/script>');
+        document.write('<script src="/' + appConfig.root + '/login/service/company-product-api.js"><\/script>');
+        document.write('<script src="/' + appConfig.root + '/login/service/instances-api.js"><\/script>');
+        document.write('<script src="/' + appConfig.root + '/login/service/user-permission-api.js"><\/script>');
+        document.write('<link href="/' + appConfig.root + '/login/view/login-page/login-page.css" rel="stylesheet" />');
+        document.write('<script src="/' + appConfig.root + '/login/view/login-page/login-page.js"><\/script>');
+    </script>
+
+</head>
+<!--
+<body control="page.loginPage" controlId="loginPage" style="background-size:auto">
+ 
+    <div class="login-form">
+        <div class="login-form-header">
+            Login Information
+        </div>
+        <div class="login-form-input" default-button="btnLogin">
+            <div>
+                <span class="label">User Id</span>
+                <input control="loginPage.textBox" controlId="txtUserId">
+            </div>
+            <div>
+                <span class="label">Password</span>
+                <input type="password" control="loginPage.htmlControl" controlId="txtPassword">
+            </div>
+            <div>
+                <input value="Login" control="loginPage.primaryWriteButton" controlId="btnLogin" event="click:btnLogin_click" />
+            </div>
+        </div>
+    </div>
+
+
+</body>-->
+
+<body control="page.loginPage" controlId="loginPage" style="background-size:auto;">
+    
+    <!--<div class="login-form container-fluid">-->
+    <div class="content-area" style="margin-top:10%;">
+        <div class="row">
+            <div class="col-xs-12 col-lg-6" style="background: transparent" id="right-side">
+                <div class="col-lg-2">
+                    <span></span>
+                </div>
+                <div class="col-lg-10">
+                    <span class="info">Get ready to sell<br />Smarter, Better And Faster</span>
+                </div>
+            </div>
+            <!--<div class="col-xs-12 col-lg-4">
+                <div class="login-form-header col-xs-12 col-lg-12">
+                    Login Information
+                </div>
+                <div class="login-form-input col-xs-11 col-lg-11" default-button="btnLogin">
+                    <div class="row">
+                        <span class="label col-xs-4 col-lg-4">User Id</span>
+                        <input control="loginPage.textBox" controlId="txtUserId" class="col-xs-7 col-lg-7">
+                    </div>
+
+                    <div class="row">
+                        <span class="label col-xs-4 col-lg-4">Password</span>
+                        <input type="password" control="loginPage.htmlControl" controlId="txtPassword" class="col-xs-7 col-lg-7">
+                    </div>
+                    <div class="row">
+                        <input value="Login" style="float:right" control="loginPage.primaryWriteButton" controlId="btnLogin" event="click:btnLogin_click" class="col-xs-12" />
+                    </div>
+                </div>
+            </div>-->
+            <div class="col-xs-12 col-lg-4" style="background: transparent;">
+                <div class="col-xs-11 col-lg-11" default-button="btnLogin">
+                    <div class="top1 col-xs-12 col-sm-12 col-md-10 col-lg-10">
+                        <span>Login Information</span>
+                    </div>
+                    <form name="loginForm">
+                        <div class="top col-xs-12 col-sm-12 col-md-10 col-lg-10">
+                            <input control="loginPage.textBox" id="input" controlId="txtUserId" class="col-xs-12 col-lg-12" placeholder="ShopOn Id Or Mobile No Or Email Id" style="margin:10px;" required>
+                        </div>
+                        <div class="top col-xs-12 col-sm-12 col-md-10 col-lg-10">
+                            <input type="password" control="loginPage.htmlControl" controlId="txtPassword" class="col-xs-12 col-lg-12" placeholder="Your Password" style="border-bottom-color: white;background: transparent;height: 50px;border: 0px;border-bottom: 1px solid white;color: white;margin:10px;">
+                        </div>
+                        <div class="top col-xs-12 col-sm-12 col-md-10 col-lg-10">
+                            <input type="submit"  value="Login" style="background:red;font-family:Calibri; font-weight:bold; font-size:22px;padding: 0px 0px 0px 0px;margin-left: 11px;margin-top: 10px;box-shadow:0px 0px 0px;" control="loginPage.primaryWriteButton" controlId="btnLogin" event="click:btnLogin_click" class="col-xs-12" />
+                        </div>
+                    </form>
+                    <div class="col-xs-12 col-sm-12 col-md-10 col-lg-10" style="margin-top:10px;">
+                        <!--<input value="Need Help?" control="loginPage.secondaryButton" id="back-button" controlId="btnBack" event="click:btnBack_click" class="col-xs-6 col-sm-6 col-md-5 col-lg-5" style="margin:10px; float:right" />-->
+                        
+                        <input value="Forgot Password?" id="forget-button" style="text-decoration:underline; color: white;font-family: Calibri;font-size: 14px;margin-left: 10px;" control="loginPage.secondaryButton" controlId="btnForgetPwd" event="click:btnForgetPwd_click" class="" />
+                        <input value="Sign Up" id="back-button" style="font-weight:normal;font-family: Calibri;font-size: 14px;text-align:right;" control="loginPage.secondaryButton" controlId="btnSignUp" event="click:btnSignUp_click" class="" />
+                        
+
+                    </div>
+                   
+                </div>
+            </div>
+            <div class="col-xs-12 col-lg-2"></div>
+        </div>
+    </div>
+    <!--<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+        <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4" style="background-image:url(images/left-side.jpg); height:100%;">
+            <span>&nbsp;</span>
+        </div>
+        <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+            <span>&nbsp;</span>
+        </div>
+        <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                <h3>Login Information</h3>
+            </div>
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                <span>User Name</span>
+                <input control="loginPage.textBox" controlId="txtUserId">
+            </div>
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                <span>Password</span>
+                <input type="password" control="loginPage.htmlControl" controlId="txtPassword">
+            </div>
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                <input value="Login" style="float:right" control="loginPage.primaryWriteButton" controlId="btnLogin" event="click:btnLogin_click" />
+            </div>
+            
+        </div>
+
+    </div>-->
+
+    <div controlId="pnlGetUserDetails" control="loginPage.popup" style="display:none" default-button="btnConfirmDetails">
+        <div style="width:100%;margin-bottom:10px;display: inline-block;">
+            <input value="Confirm" style="float:right;" id="btnConfirmDetails" controlId="btnConfirmDetails" control="loginPage.primaryReadButton" event="click:btnConfirmDetails_click" />
+            <input value="Add Store" style="float:right;margin-right:5%;display:none;" id="btnAddStore" controlId="btnAddStore" control="loginPage.secondaryButton" event="click:btnAddStore_click" />
+        </div>
+        <div class="detail-basic detail-full ">
+            <div>
+                <span class="label">Company Name  *</span>
+                <select id="ddlCompanyName" controlId="ddlCompanyName" control="loginPage.dropDownList"></select>
+            </div>
+            <div>
+                <span class="label">Store Name  *</span>
+                <select id="ddlStoreName" controlId="ddlStoreName" control="loginPage.dropDownList"></select>
+            </div>
+            <div>
+                <span class="label">Register With</span>
+                <select id="ddlRegister" controlId="ddlRegister" control="loginPage.dropDownList"></select>
+            </div>
+        </div>
+    </div>
+    <div controlId="pnlAddStore" control="loginPage.popup" style="display:none">
+        <div style="width:100%;margin-bottom:10px;display: inline-block;">
+            <input value="Confirm" style="float:right;" id="btnAddStoreConfirm" controlId="btnAddStoreConfirm" control="loginPage.primaryReadButton" event="click:btnAddStoreConfirm_click" />
+        </div>
+        <div class="detail-basic detail-full ">
+            <span class="label">Store Name <span style="color:red">*</span></span>
+            <input control="loginPage.textBox" id="txtStoreName" controlId="txtStoreName" class="col-lg-12">
+        </div>
+    </div>
+
+
+</body>
+
+</html>

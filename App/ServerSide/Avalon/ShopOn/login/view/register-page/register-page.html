@@ -1,0 +1,101 @@
+﻿<!doctype html>
+<html>
+<head>
+    <!--<meta charset="UTF-8">-->
+
+    <script src="/config/config.js" type="text/javascript"></script>
+    <script type="text/javascript">
+
+        document.write('<script src="/'+ appConfig.root + '/core/master.js" type="text/javascript" > <\/script> ');
+        document.write('<script src="/' + appConfig.root + '/login/service/user/user-service.js"><\/script>');
+
+        document.write('<link href="/' + appConfig.root + '/login/view/register-page/register-page.css" rel="stylesheet" />');
+        document.write('<script src="/' + appConfig.root + '/login/view/register-page/register-page.js"><\/script>');
+        document.write('<script src="/' + appConfig.root + '/login/service/user/company-service.js"><\/script>');
+        document.write('<script src="/' + appConfig.root + '/cloud/service/product-api.js"><\/script>');
+        document.write('<script src="/' + appConfig.root + '/cloud/service/priceplan-api.js"><\/script>');
+        document.write('<script src="/' + appConfig.root + '/cloud/service/instances-api.js"><\/script>');
+        document.write('<script src="/' + appConfig.root + '/cloud/service/company-api.js"><\/script>');
+        document.write('<script src="/' + appConfig.root + '/cloud/service/company-product-api.js"><\/script>');
+        document.write('<script src="/' + appConfig.root + '/cloud/service/cloud-integration-api.js"><\/script>');
+        document.write('<script src="/' + appConfig.root + '/cloud/service/group-api.js"><\/script>');
+        document.write('<script src="/' + appConfig.root + '/cloud/service/user-group-api.js"><\/script>');
+        document.write('<script src="/' + appConfig.root + '/cloud/service/object-permissions-api.js"><\/script>');
+    </script>
+
+
+</head>
+
+<body control="page.registerPage" controlId="registerPage" style="background-size:auto">
+    
+    <div class="content-area">
+        <div class="col-xs-12 col-lg-12">
+            <span class="top-text col-xs-12 col-lg-12">ShopOn Core is free for lifetime</span>
+            <div control="registerPage.messagePanel" controlid="msgPanel" class="message-panel col-xs-12 col-sm-12 col-md-12 col-lg-12" style="display:none; background-color:transparent; color: white; font-size:20px;"></div>
+        </div>
+        <div class="col-xs-12 col-lg-12">
+            <span class="sub-heading-text col-xs-12 col-lg-12">Please fill in the form below in order for us to set up your online company.</span>
+        </div>
+        <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4" style="margin-top:5%">
+            <span class="top-details-text col-xs-12 col-lg-12">Get ready to sell Smarter, Better And Faster</span>
+            <span class="left-details-text col-xs-12 col-sm-12 col-md-12 col-lg-12">Reach out to prospects at the right moment, engage them across every channel, and close more deals the smarter way. Woto CRM is ready. Are you?</span>
+        </div>
+        <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+            <span class="top col-xs-12 col-sm-12">User Details</span>
+            <input control="registerPage.textBox" controlId="txtFullName" class="input col-xs-12 col-lg-12" placeholder="Full Name*" style="margin:10px;">
+            <input control="registerPage.textBox" controlId="txtEmailId" class="input col-xs-12 col-lg-12" placeholder="Email Id*" style="margin:10px;">
+            <input type="text" max="10" control="registerPage.textBox" controlId="txtPhoneNo" class="input col-xs-12 col-lg-12" placeholder="Mobile No*" maxlength="10" style="margin:10px;">
+            <input type="password" control="registerPage.textBox" controlId="txtPassword" class="input col-xs-12 col-lg-12" placeholder="Password*" style="margin:10px;">
+            <input type="password" control="registerPage.textBox" controlId="txtConfirmPassword" class="input col-xs-12 col-lg-12" placeholder="Confirm Password*" style="margin:10px;">
+        </div>
+        <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+            <span class="top col-xs-12 col-sm-12">Company Details</span>
+            <input control="registerPage.textBox" controlId="txtProductName" class="input col-xs-12 col-lg-12" placeholder="Company Name*" style="margin:10px;">
+            <input control="registerPage.textBox" controlId="txtCompanyName" class="input col-xs-12 col-lg-12" placeholder="Branch Name*" style="margin:10px;">
+            <input control="registerPage.textBox" controlId="txtUserName" class="input col-xs-12 col-lg-12" placeholder="Domain Name*" style="margin:10px;">
+            <select class="dropDown input col-xs-12 col-lg-12" control="registerPage.dropDownList" controlid="ddlProducts" style="margin:10px;display:none;"></select>
+            <select class="dropDown input col-xs-12 col-lg-12" control="registerPage.dropDownList" controlid="ddlIndustry" style="margin:10px;">
+                <!--<option value="1">SUPER MARKET</option>
+                <option value="2">PHARMACY</option>
+                <option value="3">HARDWARES</option>
+                <option value="4">RENTAL</option>
+                <option value="5">EMI</option>
+                <option value="6">AGENCY</option>
+                <option value="7">SUBSCRIPTION</option>
+                <option value="8">TEXTILES</option>
+                <option value="9">COSMETICS</option>
+                <option value="10">GAS</option>
+                <option value="11">RESTAURANT</option>
+                <option value="12">BACKERY</option>-->
+            </select>
+        </div>
+        <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+            <span class="top col-xs-12 col-sm-12">Price Plan</span>
+            <select class="dropDown input col-xs-12 col-lg-12" control="registerPage.dropDownList" controlid="ddlPricePlan" style="margin:10px;">
+                <!--<option value="1">Mini</option>
+                <option value="2">Basic</option>
+                <option value="3">Basic +</option>
+                <option value="4">Standard</option>
+                <option value="5">Standard +</option>
+                <option value="6">Premier</option>
+                <option value="7">Premier +</option>-->
+            </select>
+            <select class="dropDown input col-xs-12 col-lg-12" control="registerPage.dropDownList" controlid="ddlInstances" style="margin:10px; display:none;"></select>
+
+            <input value="Register" control="registerPage.primaryReadButton" id="input-button" controlId="btnRegister" event="click:btnRegister_click" class="col-xs-12 col-sm-12 col-md-6 col-lg-6" />
+            <span class="col-xs-12">&nbsp;</span>
+            <input value="Sign In" control="registerPage.secondaryButton" id="back-button" controlId="btnBack" event="click:btnBack_click" class="" style="margin:10px; float:right" />
+        </div>
+
+        <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4" style="display:none;">
+            <span class="top col-xs-12 col-sm-12">ShopOn Details</span>
+            <input control="registerPage.textBox" controlId="txtGstNo" class="input col-xs-12 col-lg-12" placeholder="GST No*" style="margin:10px;">
+            <input control="registerPage.textBox" controlId="txtAddressLine1" class="input col-xs-12 col-lg-12" placeholder="Address Line1*" style="margin:10px;">
+            <input control="registerPage.textBox" controlId="txtAddressLine2" class="input col-xs-12 col-lg-12" placeholder="Address Line2*" style="margin:10px;">
+        </div>
+     </div>
+
+
+</body>
+
+</html>

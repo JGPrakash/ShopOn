@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+         <!--<base href="/ShopOn/">
+    <script src="core/master.js" type="text/javascript"></script>-->
+    
+        <script src="/config/config.js" type="text/javascript"></script>
+        <script type="text/javascript">
+
+            document.write('<script src="/'+ appConfig.root + '/core/master.js" type="text/javascript" > <\/script> ');
+            document.write('<script src="/' + appConfig.root + '/shopon/service/manufacture/manufacture-service.js"><\/script>');
+            document.write('<script src="/' + appConfig.root + '/shopon/service/manufacture/manufacture-api.js"><\/script>');
+            document.write('<link href="/' + appConfig.root + '/shopon/view/manufacture/manufacture.css" rel="stylesheet" />');
+            document.write('<script src="/' + appConfig.root + '/shopon/view/manufacture/manufacture.js"><\/script>');
+            //Tamil Font
+            document.write('<script src="/' + appConfig.root + '/core/tamil-common.js" type="text/javascript" > <\/script> ');
+            document.write('<script src="/' + appConfig.root + '/core/tamil.js" type="text/javascript" > <\/script> ');
+            document.write('<script src="/' + appConfig.root + '/shopon/service/sales/customer-service.js"><\/script>');
+            document.write('<script src="/' + appConfig.root + '/shopon/service/sales/city-api.js"><\/script>');
+            document.write('<script src="/' + appConfig.root + '/shopon/service/sales/citystate-api.js"><\/script>');
+        </script>
+
+    </head>
+    
+<body control="page.manufacturePage" controlId="manufacturePage">
+
+    <div control="manufacturePage.masterPage" controlId="masterPage"></div>
+
+    <div style="margin-top:40px">
+
+        <!--Load Content Area-->
+        <div class="container-fluid">
+
+            <div class="content-area row">
+                <div control="manufacturePage.messagePanel" controlid="msgPanel" class="message-panel" style="display:none">
+                </div>
+                <div class="search-panel col-sm-4" default-button="btnSearch">
+
+                    <div class="search-action">
+                        <hr>
+                        <input type="button" value="Search" rlabel="Search" control="manufacturePage.primaryReadButton" controlId="btnSearch" event="click:btnSearch_click" />
+
+                    </div>
+                    
+                    <div class="search-filter">
+                        <div>
+                            <input type="text" control="manufacturePage.textBox" controlId="txtSearchInput" rlabel="Enter Manufature No or Name" placeholder="Enter Manufature No or Name">
+                        </div>
+                    </div>
+                    <div class="search-result">
+                        <div control="manufacturePage.grid" controlId="grdSearchResult"> </div>
+                    </div>
+                    <div class="col-sm-12 padding-left-zero">
+                        <span class="label"> F1 - New </span>
+                        <span class="label"> F2 - Save </span>
+                        <span class="label"> Ctrl + R - Remove </span>
+                    </div>
+                </div>
+                <div class="detail-panel col-sm-8">
+
+                    <div class="detail-action">
+                        <input type="button" value="New" rlabel="New" control="manufacturePage.primaryWriteButton" controlId="btnNew" event="click:btnNew_click" />
+
+                        <input type="button" value="Save" rlabel="Save" control="manufacturePage.primaryWriteButton" controlId="btnSave" event="click:btnSave_click" />
+
+                        <input type="button" value="Remove" rlabel="Remove" control="manufacturePage.secondaryButton" controlId="btnDelete" event="click:btnBeforeDelete_click" />
+                    </div>
+                    
+                    <div class="detail-info container-fluid">
+                        <div class="detail-basic row">
+                            <div class="col-xs-12 header-style-1 padding-left-zero">
+                                <span class="label col-sm-12 header-style-1" control="manufacturePage.label" controlid="lblDetails" rlabel="Details"><b>Details:</b></span>
+                            </div>
+                            <div class="col-sm-6 padding-left-zero">
+                                <span class="label col-sm-5" control="manufacturePage.label" controlid="lblManuName" rlabel="Manufacturer Name">Manufacturer Name <span style="color:red;">*</span></span>
+                                <input  class="col-sm-7" type="text" control="manufacturePage.textBox" controlId="txtManufactureName" placeholder="Manufacturer Name">
+
+                            </div>
+                            <div class="col-sm-6 padding-left-zero">
+                                <span class="label col-sm-5" control="manufacturePage.label" controlid="lblMobile no" rlabel="Mobile no">Mobile No</span>
+                                <input class="col-sm-7" type="text" control="manufacturePage.textBox" maxlength="10" controlId="txtManufacturePhoneNo" placeholder="Mobile No">
+
+                            </div>
+                            <div class="col-sm-6 padding-left-zero">
+                                <span class="label col-sm-5" control="manufacturePage.label" controlid="lblEmail"  rlabel="Email">Email</span>
+                                <input class="col-sm-7" type="text" control="manufacturePage.textBox" controlId="txtManufactureEmail" placeholder="Email">
+
+                            </div>
+                            <div class="col-sm-6" style="display:none;">
+                                <span class="label col-sm-4" control="manufacturePage.label" controlid="lblAddress" rlabel="Address">Address</span>
+                                <input  class="col-sm-7" type="text" control="manufacturePage.textBox" controlId="txtManufactureAddress">
+                            </div>
+                            <div class="col-sm-6 padding-left-zero">
+                                <span class="label col-sm-5" control="manufacturePage.label" controlid="lblManufacturer" rlabel="Manufacturer">Manufacturer</span>
+                                <span class="col-sm-7"><input type="checkbox" controlId="chkActive" control="manufacturePage.chkBox" name="man_active"><span class="label" rlabel="Active" style="margin-top:-22px;margin-left:5px;">Active</span></span>
+                            </div>
+                            <div class="image-panel col-xs-12 col-lg-6 col-sm-12 col-md-6" align="center" controlId="pnlImg" control="manufacturePage.htmlControl">
+                                <div class="col-lg-12">
+                                    <img id="output" style="max-width:150px; max-height:150px;" />
+                                    <div class="col-md-10">
+                                        <div>
+                                            <label for="fileUpload" class="label" rlabel="Select File to Upload:">
+                                                Select File to Upload:
+                                            </label>
+
+                                            <input type="file" id="fileUpload" accept="image/*" onchange="loadFile(event)">
+                                            <br />
+                                            <input id="btnUploadFile" class="btn btn-sm btn-success" control="manufacturePage.primaryReadButton" type="button" value="Upload File" rlabel="Upload File" controlid="btnUploadImage" event="click:btnUploadImage_click" />
+                                        </div>
+                                        <script>
+                                        var loadFile = function (event) {
+                                            var output = document.getElementById('output');
+                                            output.src = URL.createObjectURL(event.target.files[0]);
+                                        };
+                                        </script>
+                                    </div>
+                                </div>
+                            </div>
+                            <div style="display:none;" class="col-sm-6 padding-left-zero">
+                                <span class="label col-xs-12 header-style-1" style="margin-bottom: 5px" rlabel="Address"><b>Address</b></span>
+                                <div class="col-xs-12 col-lg-6 padding-left-zero">
+                                    <span class="label  col-xs-12 col-lg-5" rlabel="Address Line">Address Line</span>
+                                    <input class="col-xs-12 col-lg-7" rlabel="Address Line" controlId="txtAddressLine1" control="manufacturePage.textBox" />
+                                </div>
+                                <div class="col-xs-12 col-lg-6 padding-left-zero">
+                                    <span class="label  col-xs-12 col-lg-5" rlabel="Street">Street</span>
+                                    <input class="col-xs-12 col-lg-7" rlabel="Street" controlId="txtAddressLine2" control="manufacturePage.textBox" />
+                                </div>
+                                <div class="col-xs-12 col-lg-6 padding-left-zero">
+                                    <span class="label  col-xs-12 col-lg-5" rlabel="Pincode">Pincode</span>
+                                    <input class="col-xs-12 col-lg-7" rlabel="Pincode" controlId="txtPincode" control="manufacturePage.autoCompleteList" />
+                                </div>
+                                <div class="col-xs-12 col-lg-6 padding-left-zero">
+                                    <span class="label  col-xs-12 col-lg-5" rlabel="City">City</span>
+                                    <input class="col-xs-12 col-lg-7" rlabel="City" controlId="txtCity" control="manufacturePage.autoCompleteList" spellcheck="true" />
+                                </div>
+
+                                <div class="col-xs-12 col-lg-6 padding-left-zero">
+                                    <span class="label  col-xs-12 col-lg-5" rlabel="State">State</span>
+                                    <input class="col-xs-12 col-lg-7" rlabel="State" controlId="txtState" control="manufacturePage.autoCompleteList" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <div controlId="pnlRemoveAlertPopup" control="manufacturePage.popup" style="display:none">
+            <div class="row col-sm-12">
+                <input style="float:right;" value="Close" controlId="btnRemoveAlertPopupClose" control="manufacturePage.primaryReadButton" event="click:btnRemoveAlertPopupClose_click" />
+            </div>
+            <span class="col-xs-12">&nbsp;</span>
+            <div class="row col-sm-12">
+                <img src="../../../ui/ui/images/alert.png" width="100%" class="col-xs-3" style="margin-top: -13px;" />
+                <span class="label-value col-xs-9" style="background:transparent;border:none;">If You Delete This Manufacture It Can Be Affected On Products</span>
+            </div>
+        </div>
+
+        <div controlId="pnlRemoveConfirmPopup" control="manufacturePage.popup" style="display:none">
+            <div class="row col-sm-12">
+                <input style="float:right;" value="Cancel" controlId="btnRemoveConfirmPopupClose" control="manufacturePage.primaryReadButton" event="click:btnRemoveConfirmPopupClose_click" />
+                <input style="float:right;padding-right:10px;" value="Ok" controlId="btnRemoveAlertPopupSave" control="manufacturePage.secondaryButton" event="click:btnDelete_click" />
+            </div>
+            <span class="col-xs-12">&nbsp;</span>
+            <div class="row col-sm-12">
+                <img src="../../../ui/ui/images/alert.png" width="100%" class="col-xs-3" style="margin-top: -13px;" />
+                <span class="label-value col-xs-9" style="background:transparent;border:none;">If You Delete This Manufacture It Can Be Affected On Products</span>
+            </div>
+        </div>
+
+    </div>
+    <br />
+
+</body>
+</html>

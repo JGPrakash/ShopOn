@@ -1,0 +1,1568 @@
+@font-face {
+  font-family: Bamini;
+  src: url('/ShopOn/BAMINI.TTF');
+}
+
+:root {
+  --label-color: dimgray;
+  --label-font: normal 12px Calibri;
+  --label-header-color: #303030;
+  --label-header-font: normal 22px Calibri;
+  --input-color: #303030;
+  --input-font:normal 18px Calibri;
+  --input-text-font:normal 14px Calibri;
+  --input-text-back-color:white;
+  --input-text-border:1px solid black,
+  --input-button-read-color:white;
+  --input-button-read-back-color: linear-gradient(to bottom,gray,dimgray);
+  --input-button-read-hover-color: linear-gradient(to bottom,gray,#505050);
+  --input-button-write-color: white;
+  --input-button-write-back-color: linear-gradient(to bottom,gray,dimgray);
+  --input-button-write-hover-color: linear-gradient(to bottom,gray,#505050);
+  --input-button-height:30px;
+  --input-button-sec-color: white;
+  --input-button-sec-back-color: linear-gradient(to bottom,gray,dimgray);
+  --grid-header-font:normal 18px Calibri;
+  --grid-row-font: normal 16px Calibri;
+  --tab-header-font:normal 18px Calibri;
+  --tab-back-color:lightgray;
+  --tab-sel-color:white;
+  --tab-color:#202020;
+  --msg-panel-color: rgb(213, 254, 206);
+  --grid-back-color: white;
+  --grid-header-color: gray;
+  --input-sbutton-read-color: gray;
+  --grid-odd-row-color: gray;
+  --grid-even-row-color: white;
+  --body-background-color: white;
+}
+
+body {
+    margin: 0;
+    background:var(--body-background-color);
+}
+
+
+span.label {
+    line-height: 30px;
+    vertical-align: middle;
+    display:inline-block;
+    color: var(--label-color);
+    font:var(--label-font);
+    padding-left: 0px;
+    text-align: left;
+    font-weight: 200;
+}
+
+span.header-label {
+    line-height: 40px;
+    vertical-align: middle;
+    display:inline-block;
+    color: var(--label-header-color);
+    font:var(--label-header-font);
+    padding-left: 0px;
+    text-align: left;
+    margin-top: 5px;
+    font-weight: bold;
+}
+
+
+input ,select  {
+    border: 1px solid #bab9b9;
+    height: 30px;
+    padding-left: 5px;
+    color: var(--input-color);
+    font: var(--input-font);
+    font-weight: 100;
+    background-color: var(--input-text-back-color);
+}
+
+input[type=text]{
+    font: var(--input-text-font);
+}
+
+input:focus , input[type=button]:hover , select:focus {
+     border: solid 1px gray;
+}
+
+
+.secondaryButton {
+    background: transparent none repeat scroll 0 0;
+    border: medium none;
+    cursor: pointer;
+    display: inline-block;
+    padding: 0px;
+    text-align: center; 
+    color:var(--input-sbutton-read-color); 
+}
+input.secondaryButton:hover,input.secondaryButton:focus {
+    text-decoration: underline;
+     border:none;
+       background: none;
+}
+
+
+.primaryReadButton {
+    background: var(--input-button-read-back-color);
+    border: none;
+    border-radius: 5px;
+    box-shadow: 2px 2px 2px lightgray;
+    cursor: pointer;
+    display: inline-block;
+    padding: 4px 14px;
+    text-align: center;
+    color:var(--input-button-read-color);
+    height:var(--input-button-height);
+}
+
+input.primaryReadButton:hover,input.primaryReadButton:focus {
+    text-decoration: none;
+    border:none;
+    background: var(--input-button-write-hover-color);
+}
+
+.primaryWriteButton {
+    background: var(--input-button-read-back-color);
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    display: inline-block;
+    padding: 4px 14px;
+    text-align: center;
+    color:var(--input-button-read-color);
+    height:var(--input-button-height);
+}
+
+input.primaryWriteButton:hover,input.primaryWriteButton:focus {
+    text-decoration: none;
+    border:none;
+    background: var(--input-button-write-hover-color);
+}
+
+
+
+#pnlProgress {
+    width: 100%;
+    height: 10px;
+    position: relative;
+    float: left;
+    display: none;
+}
+
+.pnlProgressExpand {
+    width: 100%;
+    height: 10px;
+    position: relative;
+    float: left;
+    top: -50px;
+    display: none;
+}
+
+#pnlProgress > span {
+    position: absolute;
+    float: left;
+    top: -4px;
+    left: 400px;
+}
+
+#pnlProgress > a {
+    position: absolute;
+    font-size: 11px;
+    z-index: 99999;
+    float: left;
+    left: 550px;
+    color: red;
+}
+
+#pnlProgress > img {
+    position: absolute;
+    top: 1px;
+    left: 160px;
+}
+
+
+
+
+.message-panel {
+    background-color : var(--msg-panel-color);
+    width:100%;
+    padding:10px;
+    position: fixed;
+    top: 0px;
+    z-index: 100;
+    width: auto;
+    padding: 5px;
+    margin: auto;
+    left: calc(50% - 100px);
+}
+
+
+
+
+/*#region Tab Control CSS*/
+.tab {
+    border: medium none;
+    border-collapse: collapse;
+    list-style: outside none none;
+    margin-bottom: 0;
+      margin-top: 0;
+    margin-left: 0;
+    padding: 0;
+    position: relative;
+    z-index: 43;
+}
+.tab li {
+    background-color: var(--tab-back-color);
+    border-collapse: collapse;
+    border-color: gray;
+    border-style: solid solid none;
+    border-top-left-radius: 3px;
+    border-top-right-radius: 3px;
+    border-width: 1px 1px medium;
+    display: inline-block;
+    margin-top: 0;
+    padding: 0;
+    position: relative;
+}
+.tab li a {
+    background: var(--tab-back-color);
+    border-bottom: 1px solid whitesmoke;
+    color:  var(--tab-color);
+    cursor: pointer;
+    display: inline-block;
+    margin-top: 3px;
+    padding: 5px;
+    text-decoration: none;
+    font: var(--tab-header-font);
+}
+.tab li a:hover {
+    background: white none repeat scroll 0 0;
+    border-collapse: collapse;
+}
+.tab li a.tabSelected {
+    background: var(--tab-back-sel-color);
+    border-bottom: 1px solid transparent;
+    border-collapse: collapse;
+    margin-bottom: 0;
+    position: relative;
+}
+.tab li.tabSelected {
+    background-color: var(--tab-sel-color);
+    border-bottom: medium none;
+    position: relative;
+    z-index: 99999999;
+}
+.tabSelected {
+    background: var(--tab-sel-color);
+    border-collapse: collapse;
+}
+.tab li {
+    margin-left: 5px;
+}
+.tab hr {
+    border-bottom: medium none;
+    border-top: 1px solid gray;
+    margin: -1px 0 0;
+    padding: 0;
+    position: relative;
+    z-index: 99990;
+}
+
+
+/*.tab {
+    border-bottom: 1px solid black;
+    list-style: outside none none;
+    padding: 0;
+    font-size:12px;
+}
+
+    .tab li {
+        display: inline-block;
+        padding: 0;
+    }
+
+        .tab li a {
+            background: none repeat scroll 0 0 lightgrey;
+            border-bottom: medium solid transparent;
+            color: black;
+            display: inline-block;
+            padding: 5px;
+            text-decoration: none;
+        }
+
+            .tab li a:hover {
+                background: none repeat scroll 0 0 white;
+                border-bottom: medium solid black;
+                border-collapse: collapse;
+            }
+
+            .tab li a.tabSelected {
+                background: none repeat scroll 0 0 white;
+                border-bottom: medium solid black;
+                border-collapse: collapse;
+            }*/
+
+/*TODO : Try to remove this*/
+.tabSelected {
+    background: var(--tab-sel-color);
+    border-bottom: medium solid black;
+    border-collapse: collapse;
+}
+
+/*#endregion*/
+
+
+/*#region Grid Control CSS*/
+.grid {
+    border: 1px solid lightgray;
+    display: block;
+    width: 100%;
+    font-size: 18px;
+    background-color:var(--grid-back-color);
+    display:inline-block;
+}
+
+.grid > div:first-child {
+        background: var(--grid-header-color);
+        border-bottom: 1px solid lightgray;
+        display: inline-block;
+        height: auto;
+        vertical-align: middle;
+        width: 100%;
+        font: var(--grid-header-font);
+        min-height: 25px;
+        font-weight:bold /*1200*/;
+}
+.grid > div:first-child > div {
+    display: inline-block;
+    margin: 5px 6px 2px;
+}
+
+    .grid .grid_edit {
+        display: inline-block;
+        width: 100%;
+    }
+     .grid .grid_edit  input{
+    border: 1px solid #bab9b9;
+    background-color: var(--input-text-back-color);
+    }
+.grid .grid_data {
+    margin: 0;
+    overflow-y: auto;
+    padding: 0;
+    white-space: nowrap;
+    width: 100%;
+    font:var(--grid-row-font);
+}
+.grid .grid_data > div,.grid .grid_filter  {
+     display: inline-block;
+     float: left;
+     min-height: 35px;
+     padding-top: 0;
+     width: 100%;
+     font-weight: 100;
+}
+.grid .grid_data > div .odd-row {
+   background-color: var(--grid-odd-row-color);
+}
+.grid .grid_data > div .even-row {
+    background-color: var(--grid-even-row-color);
+}
+.grid .grid_data > div > div , .grid .grid_filter > div {
+    display: inline-block;
+    float: left;
+    font: var(--grid-ro-font);
+    margin: 5px 6px 2px;
+    overflow: hidden;
+}
+
+.grid .grid_page_standard {
+    display: inline-block;
+    font-size: 12px;
+    padding: 5px;
+    float: left;
+}
+
+.grid .grid_page_standard select{
+    height:25px
+}
+
+.grid .grid_header:last-child{
+    display: inline-block;
+    width: 100%;
+    float: left;
+}
+
+  
+
+.grid input[type="checkbox"] {
+    margin: 0;
+    vertical-align: baseline;
+}
+.even-row {
+    background-color: var(--grid-even-row-color);
+}
+
+.total_record {
+font-size:15px;
+font-family:Calibri;
+font-weight:100;
+    padding-top: 5px;
+}
+/*#endregion*/
+
+
+/*#region Tree Control CSS*/
+/*TODO : Try to optmize the css more*/
+.tree {
+    border: 1px solid black;
+    -webkit-box-shadow: 5px 5px 5px #888888;
+    -ms-box-shadow: 5px 5px 5px #888888;
+    box-shadow: 5px 5px 5px #888888;
+    float: left;
+    margin-top: 10px;
+    overflow: auto;
+}
+
+    .tree, .tree ul {
+        padding: 0;
+        list-style: none;
+    }
+
+        .tree ul {
+            position: relative;
+        }
+
+            .tree ul ul {
+                margin-left: .5em;
+            }
+
+
+            .tree ul:before {
+                content: "";
+                display: block;
+                width: 0;
+                position: absolute;
+                top: 0;
+                bottom: 0;
+                left: 0;
+                border: none;
+            }
+
+            .tree ul li:first-child:before {
+                margin-top: 13px;
+            }
+
+
+        .tree li {
+            margin: 0;
+            padding: 0 0.5em;
+            color: black;
+            position: relative;
+        }
+
+            .tree li span:first-child {
+                width: auto;
+            }
+
+            .tree li:first-child {
+                background-color: lightgray;
+                border: 1px solid grey;
+                font-weight: bold;
+                height: 20px;
+                padding-bottom: 3px;
+                padding-top: 3px;
+            }
+
+
+
+            .tree li > a:first-of-type {
+                display: inline-block;
+                height: 20px;
+                padding: 0;
+                margin-bottom: 2px;
+                margin-top: 2px;
+                white-space: nowrap;
+            }
+
+                .tree li > a:first-of-type > span, .tree li > a:first-of-type > input {
+                    display: inline-block;
+                    margin: 0;
+                    margin-right: 10px;
+                    overflow: hidden;
+                    vertical-align: middle;
+                }
+
+.tree_data_img, .tree_header_img {
+    margin: 4px 4px 0 0;
+}
+
+.tree_data_chk, .tree_header_chk {
+    margin: 2px 0 0;
+    vertical-align: top;
+}
+
+.tree_header {
+    display: inline-block;
+    height: 20px;
+    margin-bottom: 2px;
+    margin-top: 2px;
+    padding: 0;
+    white-space: nowrap;
+    cursor: pointer;
+}
+
+.tree .tree_header {
+    margin-top: 0;
+    border-top: none;
+    border-left: none;
+}
+
+    .tree .tree_header > span {
+        display: inline-block;
+        margin: 0;
+        margin-right: 10px;
+        overflow: hidden;
+        vertical-align: middle;
+    }
+
+.tree > ul .tree_root, .tree > ul .tree_child {
+    max-height: 200px;
+    overflow-y: auto;
+}
+
+
+.tree_root, .tree_child {
+    border: solid 1px black;
+    margin-top: 10px;
+}
+
+.tree > .tree_root, .tree > .tree_child {
+    border: none;
+    margin-top: 0;
+}
+
+
+/*#endregion*/
+
+
+/*#region Menu CSS Start  */
+
+
+.menu {
+    margin-top: 25px;
+}
+
+    .menu ul {
+        list-style: none;
+        position: relative;
+        float: left;
+        margin: 0;
+        padding: 0;
+    }
+
+        .menu ul a {
+            color: white;
+            display: block;
+            font-size: 10px;
+            line-height: 27px;
+            padding: 0 15px;
+            text-decoration: none;
+        }
+
+
+        .menu ul li {
+            position: relative;
+            float: left;
+            margin: 0;
+            padding: 0;
+        }
+
+            .menu ul li.current-menu-item {
+                background: #ddd;
+            }
+
+        .menu ul ul li:hover {
+            background: white;
+        }
+
+        .menu ul > li:hover {
+            background: #006699;
+        }
+
+        .menu ul ul {
+            background: none repeat scroll 0 0 #fff;
+            border: 1px solid black;
+            display: none;
+            left: 0;
+            padding: 0;
+            position: absolute;
+            top: 100%;
+            z-index: 9999;
+        }
+
+            .menu ul ul li {
+                float: none;
+                width: 200px;
+            }
+
+            .menu ul ul a {
+                color: black;
+                height: 10px;
+                padding: 0 15px 15px;
+            }
+
+            .menu ul ul ul {
+                top: 0;
+                left: 100%;
+            }
+
+        .menu ul li:hover > ul {
+            display: block;
+        }
+
+
+/*.mainMenu {
+    position: relative;
+    margin: 0;
+    padding: 0;
+    float: left;
+    height: 33px; 
+    -moz-min-width: 130px;
+    -ms-min-width: 130px;
+    -o-min-width: 130px;
+    -webkit-min-width: 130px;
+    min-width: 130px; 
+    margin-left: 15px;
+}
+
+.mainMenu {
+    -moz-min-width: 200px;
+    -ms-min-width: 200px;
+    -o-min-width: 200px;
+    -webkit-min-width: 200px;
+    min-width: 200px;
+    display: none;
+    list-style: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    padding: 0;
+    margin: 0;
+    background-color: #b8b5b5;
+    border: 1px solid black;
+}
+
+
+    .mainMenu > a {
+        background-color: white;
+        -ms-border-radius: 15px;
+        border-radius: 15px;
+        font-size: 13px;
+        padding: 5px 15px;
+        position: absolute;
+        text-align: center;
+        top: 2px;
+    }
+
+
+
+    .mainMenu ul ul {
+        top: 0;
+        left: 100%;
+    }
+
+    .mainMenu ul li {
+        position: relative;
+        margin: 0;
+        padding: 0;
+    }
+
+    .mainMenu ul a {
+        display: block;
+        padding: 5px 15px 5px 15px;
+    }
+
+    .mainMenu:hover > ul, .mainMenu ul li:hover > ul {
+        display: block;
+    }
+
+    .mainMenu li a {
+        border-right: 2px solid black;
+    }*/
+
+/*#endregion */
+
+
+/*#region Autocomplete Control CSS*/
+
+.ui-autocomplete {
+    max-height: 100px;
+    overflow-y: auto;
+}
+
+
+/*.grid-button {
+    background-color: transparent;
+    border: medium none;
+    box-shadow: none;
+    color: #585858;
+    cursor: pointer;
+    margin-top: -3px;
+}
+.tab {
+    border-bottom: 1px solid black;
+    list-style: outside none none;
+    padding: 0;
+    font-size:12px;
+}
+.tab li {
+    display: inline-block;
+    padding: 0;
+}
+.tab li a {
+    background: lightgrey none repeat scroll 0 0;
+    border-bottom: medium solid transparent;
+    color: black;
+    display: inline-block;
+    padding: 5px;
+    text-decoration: none;
+}
+.tab li a:hover {
+    background: white none repeat scroll 0 0;
+    border-bottom: medium solid black;
+    border-collapse: collapse;
+}
+.tab li a.tabSelected {
+    background: white none repeat scroll 0 0;
+    border-bottom: medium solid black;
+    border-collapse: collapse;
+}
+.tabSelected {
+    background: white none repeat scroll 0 0;
+    border-bottom: medium solid black;
+    border-collapse: collapse;
+}
+.grid {
+    background-color: white;
+    border: 1px solid gray;
+    display: block;
+    font-size: 12px;
+    width: 100%;
+}
+.grid > div:first-child {
+    background: lightgray none repeat scroll 0 0;
+    border-bottom: 1px solid lightgray;
+    display: inline-block;
+    font-weight: bold;
+    height: 25px;
+    vertical-align: middle;
+    width: 100%;
+}
+.grid > div:first-child > div {
+    display: inline-block;
+    margin: 5px 6px 2px;
+}
+.grid .grid_edit {
+    display: inline-block;
+    width: 100%;
+}
+.grid .grid_edit input {
+    background-color: #fbfbfb;
+    border: medium none;
+}
+.grid .grid_data {
+    margin: 0;
+    overflow-y: scroll;
+    padding: 0;
+    white-space: nowrap;
+    width: 100%;
+}
+.grid .grid_data > div {
+    display: inline-block;
+    float: left;
+    min-height: 30px;
+    padding-top: 3px;
+    width: 100%;
+}
+.grid .grid_data > div .odd-row {
+    background-color: #73736d;
+}
+.grid .grid_data > div .even-row {
+    background-color: #945993;
+}
+.grid .grid_data > div > div {
+    display: inline-block;
+    float: left;
+    font-size: 11px;
+    margin: 5px 6px 2px;
+    overflow: hidden;
+}
+.grid input[type="checkbox"] {
+    margin: 0;
+    vertical-align: baseline;
+}
+.even-row {
+    background-color: whitesmoke;
+}
+.tree {
+    border: 1px solid black;
+    box-shadow: 5px 5px 5px #888888;
+    float: left;
+    margin-top: 10px;
+    overflow: auto;
+}
+.tree, .tree ul {
+    list-style: outside none none;
+    padding: 0;
+}
+.tree ul {
+    position: relative;
+}
+.tree ul ul {
+    margin-left: 0.5em;
+}
+.tree ul::before {
+    border: medium none;
+    bottom: 0;
+    content: "";
+    display: block;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 0;
+}
+.tree ul li:first-child::before {
+    margin-top: 13px;
+}
+.tree li {
+    color: black;
+    margin: 0;
+    padding: 0 0.5em;
+    position: relative;
+}
+.tree li span:first-child {
+    width: auto;
+}
+.tree li:first-child {
+    background-color: lightgray;
+    border: 1px solid grey;
+    font-weight: bold;
+    height: 20px;
+    padding-bottom: 3px;
+    padding-top: 3px;
+}
+.tree li > a:first-of-type {
+    display: inline-block;
+    height: 20px;
+    margin-bottom: 2px;
+    margin-top: 2px;
+    padding: 0;
+    white-space: nowrap;
+}
+.tree li > a:first-of-type > span, .tree li > a:first-of-type > input {
+    display: inline-block;
+    margin: 0 10px 0 0;
+    overflow: hidden;
+    vertical-align: middle;
+}
+.tree_data_img, .tree_header_img {
+    margin: 4px 4px 0 0;
+}
+.tree_data_chk, .tree_header_chk {
+    margin: 2px 0 0;
+    vertical-align: top;
+}
+.tree_header {
+    cursor: pointer;
+    display: inline-block;
+    height: 20px;
+    margin-bottom: 2px;
+    margin-top: 2px;
+    padding: 0;
+    white-space: nowrap;
+}
+.tree .tree_header {
+    border-left: medium none;
+    border-top: medium none;
+    margin-top: 0;
+}
+.tree .tree_header > span {
+    display: inline-block;
+    margin: 0 10px 0 0;
+    overflow: hidden;
+    vertical-align: middle;
+}
+.tree > ul .tree_root, .tree > ul .tree_child {
+    max-height: 200px;
+    overflow-y: auto;
+}
+.tree_root, .tree_child {
+    border: 1px solid black;
+    margin-top: 10px;
+}
+.tree > .tree_root, .tree > .tree_child {
+    border: medium none;
+    margin-top: 0;
+}
+.menu {
+    margin-top: 25px;
+}
+.menu ul {
+    float: left;
+    list-style: outside none none;
+    margin: 0;
+    padding: 0;
+    position: relative;
+}
+.menu ul a {
+    color: white;
+    display: block;
+    font-size: 10px;
+    line-height: 27px;
+    padding: 0 15px;
+    text-decoration: none;
+}
+.menu ul li {
+    float: left;
+    margin: 0;
+    padding: 0;
+    position: relative;
+}
+.menu ul li.current-menu-item {
+    background: #ddd none repeat scroll 0 0;
+}
+.menu ul ul li:hover {
+    background: white none repeat scroll 0 0;
+}
+.menu ul > li:hover {
+    background: #006699 none repeat scroll 0 0;
+}
+.menu ul ul {
+    background: #fff none repeat scroll 0 0;
+    border: 1px solid black;
+    display: none;
+    left: 0;
+    padding: 0;
+    position: absolute;
+    top: 100%;
+    z-index: 9999;
+}
+.menu ul ul li {
+    float: none;
+    width: 200px;
+}
+.menu ul ul a {
+    color: black;
+    height: 10px;
+    padding: 0 15px 15px;
+}
+.menu ul ul ul {
+    left: 100%;
+    top: 0;
+}
+.menu ul li:hover > ul {
+    display: block;
+}
+.ui-autocomplete {
+    max-height: 100px;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+.buttonMain {
+    background-color: #79c865;
+    border-radius: 3px;
+    box-shadow: 2px 2px 2px #888888;
+    color: white;
+    display: inline-block;
+    font-weight: bold;
+    padding: 5px 12px;
+    text-align: center;
+}
+.buttonNormal {
+    background-color: #5bb2d6;
+    border-radius: 3px;
+    box-shadow: 2px 2px 2px #888888;
+    color: white;
+    display: inline-block;
+    float: right;
+    font-weight: bold;
+    padding: 5px 12px;
+    text-align: center;
+}
+.ui-dropping {
+    background-color: yellow;
+}
+.ui-widget-content .buttonMain {
+    color: white;
+}
+.ui-widget-content .buttonNormal {
+    color: white;
+}
+.ui-datepicker-close {
+    display: none;
+}
+.formPanel {
+    border: 1px solid gray;
+    float: left;
+    margin-bottom: 10px;
+    margin-right: 40px;
+    width: 500px;
+}
+.formPanel select {
+    border: medium none;
+    color: dimgray;
+    font-size: 11px;
+    height: 31px;
+    padding: 2px;
+    width: calc(60% - 6px);
+}
+.formPanel input {
+    border: medium none;
+    color: dimgray;
+    float: left;
+    font-size: 11px;
+    height: 27px;
+    margin: 0;
+    padding: 0 0 0 5px;
+    width: calc(60% - 12px);
+}
+.formPanel div {
+    border-bottom: 1px solid gray;
+    float: left;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+}
+.formPanel span.label-value {
+    display: inline-block;
+    font-size: 11px;
+    line-height: 25px;
+    padding-left: 5px;
+    width: calc(100% - 211px);
+}
+.formPanel span.label {
+    background-color: whitesmoke;
+    border-bottom: medium none;
+    border-right: 1px solid gray;
+    display: inline-block;
+    float: left;
+    line-height: 30px;
+    margin: 0;
+    padding: 0 0 0 5px;
+    width: 200px;
+}
+.formPanel > div:first-child {
+    background-color: lightgray;
+    display: inline-block;
+    font-size: 12px;
+    font-weight: bold;
+    line-height: 25px;
+}
+.form_row_add {
+    background-color: whitesmoke;
+    float: left;
+    padding: 5px;
+    width: 100%;
+}
+.form_row_add div {
+    float: left;
+    margin-right: 10px;
+}
+.form_row_add div span {
+    margin-right: 5px;
+}
+
+    /* prevent horizontal scrollbar */
+    overflow-x: hidden;
+}
+ /*#endregion*/*/
+
+
+/*#region Label & Input Control*/
+
+/*Search Button*/
+/*.buttonSearch {
+    background-color: #5bb2d6;
+    -ms-border-radius: 3px;
+    border-radius: 3px;
+    -webkit-box-shadow: 2px 2px 2px #888888;
+    -ms-box-shadow: 2px 2px 2px #888888;
+    box-shadow: 2px 2px 2px #888888;
+    color: white;
+    float: right; /*Search button should always start from right
+    font-weight: bold;
+    padding: 5px;
+    text-align: center;
+    display: inline-block;
+}*/
+/*Important Action Button*/
+.buttonMain {
+    background-color: #79c865;
+    -ms-border-radius: 3px;
+    border-radius: 3px;
+    -webkit-box-shadow: 2px 2px 2px #888888;
+    -ms-box-shadow: 2px 2px 2px #888888;
+    box-shadow: 2px 2px 2px #888888;
+    color: white;
+    font-weight: bold;
+    padding: 5px 12px;
+    text-align: center;
+    display: inline-block;
+}
+
+/*Normal Action Button*/
+.buttonNormal {
+    background-color: #5bb2d6;
+    -ms-border-radius: 3px;
+    border-radius: 3px;
+    -webkit-box-shadow: 2px 2px 2px #888888;
+    -ms-box-shadow: 2px 2px 2px #888888;
+    box-shadow: 2px 2px 2px #888888;
+    color: white;
+    display: inline-block;
+    float: right;
+    font-weight: bold;
+    padding: 5px 12px;
+    text-align: center;
+}
+
+
+/*a {
+    cursor: pointer;
+}
+
+span {
+    display: inline-block;
+    margin: 5px auto 0;
+    font-family: verdana,arial;
+    font-size: 11px;
+}
+
+
+input[type='radio'] {
+    -ms-border-radius: 3px;
+    border-radius: 3px;
+    border-width: 1px;
+    display: inline-block;
+    margin: 5px auto 0;
+    width: auto;
+}
+
+
+input, select {
+    display: inline-block;
+    margin: 5px auto 0;
+    font-family: verdana,arial;
+    font-size: 11px;
+    padding: 2px;
+    background-color: #fff;
+    background-image: none;
+    border: 1px solid #ccc;
+    -webkit-box-shadow: 0 1px 1px #000000 inset;
+    -ms-box-shadow: 0 1px 1px #000000 inset;
+    box-shadow: 0 1px 1px #000000 inset;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset;
+    -moz-transition: border-color 0.15s ease-in-out 0, box-shadow 0.15s ease-in-out 0;
+    -o-transition: border-color 0.15s ease-in-out 0, box-shadow 0.15s ease-in-out 0;
+    -webkit-transition: border-color 0.15s ease-in-out 0, box-shadow 0.15s ease-in-out 0;
+    -ms-transition: border-color 0.15s ease-in-out 0, box-shadow 0.15s ease-in-out 0;
+    transition: border-color 0.15s ease-in-out 0, box-shadow 0.15s ease-in-out 0;
+}
+
+    input:focus, select:focus {
+        border-color: #66afe9;
+        -webkit-box-shadow: 0 1px 1px #000000 inset, 0 0 8px #66afe9;
+        -ms-box-shadow: 0 1px 1px #000000 inset, 0 0 8px #66afe9;
+        box-shadow: 0 1px 1px #000000 inset, 0 0 8px #66afe9;
+        box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset, 0 0 8px rgba(102, 175, 233, 0.6);
+        outline: 0 none;
+    }
+
+    input::-moz-placeholder, select::-moz-placeholder {
+        color: #777;
+        -ms-opacity: 1;
+        opacity: 1;
+    }
+
+    input[disabled], input[readonly], select[disabled] {
+        background-color: #eee;
+        cursor: not-allowed;
+        -ms-opacity: 1;
+        opacity: 1;
+    }*/
+
+/*#endregion*/
+
+
+/*For overriding drag and drop*/
+.ui-dropping {
+    background-color: yellow;
+}
+
+/*Fix for jquery dialog */
+.ui-widget-content .buttonMain {
+    color: white;
+}
+
+.ui-widget-content .buttonNormal {
+    color: white;
+}
+
+.ui-datepicker-close {
+    display: none
+}
+
+
+
+
+
+
+
+
+
+
+/*.formPanel {
+    border: 1px solid gray;
+    display: inline-block;
+    width: 300px;
+}
+.formPanel > div:first-child {
+    background-color: gray;
+    display: inline-block;
+    font-size: 14px;
+    font-weight: bold;
+    line-height: 25px;
+}
+.formPanel span.label {
+    background-color: whitesmoke;
+    border-bottom: 1px solid gray;
+    border-right: 1px solid gray;
+    display: inline-block;
+    float: left;
+    line-height: 30px;
+    margin: 0;
+    padding: 0 0 0 5px;
+    width: 100px;
+}
+.formPanel span.label-value {
+    display: inline-block;
+    line-height: 25px;
+    padding-left: 5px;
+    width: calc(100% - 111px);
+}
+.formPanel div {
+    float: left;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+}
+.formPanel input {
+    border: medium none;
+    float: left;
+    height: 27px;
+    margin: 0;
+    padding: 0 0 0 5px;
+    width: calc(100% - 111px);
+}*/
+
+
+.formPanel {
+    border: 1px solid gray;
+    float: left;
+    margin-bottom: 10px;
+      margin-top: 10px;
+    margin-right: 40px;
+    width: 500px;
+}
+
+.formPanel select {
+    border: medium none;
+    color: dimgray;
+    font-size: 11px;
+    height: 31px;
+    padding: 2px;
+    width: calc(60% - 6px);
+}
+
+
+.formPanel input {
+    border: medium none;
+    color: dimgray;
+    float: left;
+    font-size: 11px;
+    height: 27px;
+    margin: 0;
+    padding: 0 0 0 5px;
+    width: calc(60% - 12px);
+}
+
+.formPanel div {
+    border-bottom: 1px solid gray;
+    float: left;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+}
+
+.formPanel span.label-value {
+    display: inline-block;
+    font-size: 11px;
+    line-height: 25px;
+    padding-left: 5px;
+    width: calc(100% - 211px);
+}
+
+.formPanel span.label {
+    border-bottom: none;
+    background-color: whitesmoke;
+    border-right: 1px solid gray;
+    display: inline-block;
+    float: left;
+    line-height: 30px;
+    margin: 0;
+    padding: 0 0 0 5px;
+    width: 200px;
+}
+
+.formPanel > div:first-child {
+    background-color: lightgray;
+    display: inline-block;
+    font-size: 12px;
+    font-weight: bold;
+    line-height: 25px;
+}
+
+.form_row_add {
+    background-color: whitesmoke;
+    float: left;
+    padding: 5px;
+    width: 100%;
+}
+
+.form_row_add div {
+  
+    float: left;
+    margin-right:10px;
+}
+
+.form_row_add div span {
+     margin-right:5px;
+}
+
+
+.label-value {
+    line-height: 30px;
+    vertical-align: middle;
+    min-height: 30px;
+    padding-left: 0px;
+    border: solid 1px lightgray;
+    background-color: whitesmoke;
+    padding-left: 10px;
+    display:inline-block;
+    font-weight: 100;
+}
+.ui-dialog .ui-dialog-title {
+    font-size: 12px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*
+.search-panel {
+    float: left;
+    margin-left: 10px;
+}
+
+.search-action {
+    display: inline-block;
+    margin-top: 10px;
+    width: 100%;
+}
+.search-action hr {
+    border: 1px solid lightgray;
+    display: inline-block;
+    float: left;
+    margin-top: 12px;  
+}
+.search-action [value="Search"] {
+    float: right;
+    width: auto;
+}
+
+
+
+.search-filter {
+    border-radius: 4px;
+    width: 100%;
+}
+
+.search-filter > div {
+    margin-bottom: 5px;
+    display:inline-block;
+      width: 100%;
+}
+
+
+
+.search-result {
+    margin-top: 15px;
+    width: 100%;
+}
+
+
+.detail-panel {
+    float: left; width: calc(100% - 360px); margin-left: 40px; margin-right: 20px;
+}
+
+
+
+.detail-info {
+    display: inline-block;
+    margin-top: -3px;
+    width: 100%;
+}
+
+.detail-action {
+    width: 100%;margin-bottom:10px;margin-top:10px; display: inline-block;
+}
+
+    .detail-action > hr {
+        display: inline-block; float: left; margin-top: 16px; border: 1px solid lightgray; margin-left: 10px; 
+    }
+    .detail-action > input[value=New] {
+        margin-right 10px;float:left
+    }
+    .detail-action > input[value=Save] {
+        float:right;margin-right:0px;margin-left:5px
+    }
+
+
+.tab-panels {
+          border-bottom: 1px solid gray;
+    border-left: 1px solid gray;
+    border-right: 1px solid gray;
+    margin-bottom: 20px;
+    padding: 10px;
+    display:inline-block;
+
+}
+
+
+.grid-action {
+    display: inline-block;
+    margin-bottom: 3px;
+    margin-top: 10px;
+    width: 100%;
+}
+
+.grid-action hr {
+    border: 1px solid lightgray;
+    display: inline-block;
+    float: left;
+   
+    margin-top: 8px;
+}
+.grid-action input {
+    float: right;
+    padding:0px;
+}
+
+    .grid-action .seperator {
+            color: gray;
+    float: right;
+    margin-left: 5px;
+    margin-right: 5px;
+    }*/
+
+
+
+
+
+
+.remove_border {
+border:none;
+}
+.disable_style {
+    color:silver !important;
+}
+
+
+.tab-panels {
+    border-bottom: 1px solid gray;
+    border-left: 1px solid gray;
+    border-right: 1px solid gray;
+    height: auto;
+    margin-bottom: 20px;
+    min-height: 425px;
+}
+
+
+
+/*QR Code Purpose*/
+#v {
+    width: 320px;
+    height: 240px;
+}
+#qr-canvas {
+    display: none;
+}
+#qrfile {
+    width: 320px;
+    height: 240px;
+}
+#mp1 {
+    text-align: center;
+    font-size: 35px;
+}
+#imghelp {
+    position: relative;
+    left: 0px;
+    top: -160px;
+    z-index: 100;
+    font: 18px arial,sans-serif;
+    background: #f0f0f0;
+    margin-left: 35px;
+    margin-right: 35px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border-radius: 20px;
+}
+#outdiv {
+    width: 320px;
+    height: 240px;
+    border: solid;
+    border-width: 3px 3px 3px 3px;
+}
+#result {
+    border: solid;
+    border-width: 1px 1px 1px 1px;
+    padding: 20px;
+    width: 70%;
+}
+.tsel {
+    padding: 0;
+}
+
+/*.showcss{ display:block;}
+  .hidecss{ display:none;}*/
+
+
+

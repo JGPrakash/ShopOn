@@ -1,0 +1,211 @@
+﻿<!doctype html>
+<html>
+
+<head>
+
+
+    <script src="/config/config.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        document.write('<script src="/' + appConfig.root + '/core/master.js" type="text/javascript" > <\/script> ');
+        document.write('<link href="/' + appConfig.root + '/shopon/view/collection-report/collection-report.css" rel="stylesheet" />');
+        document.write('<script src="/' + appConfig.root + '/shopon/view/collection-report/collection-report.js"><\/script>');
+
+        document.write('<script src="/' + appConfig.root + '/shopon/service/sales/customer-service.js"><\/script>');
+        document.write('<script src="/' + appConfig.root + '/shopon/service/product/item-service.js"><\/script>');
+        document.write('<script src="/' + appConfig.root + '/shopon/service/w3data/w3data.js"><\/script>');
+        document.write('<script src="/' + appConfig.root + '/shopon/service/report/dynareport-service.js"><\/script>');
+        document.write('<script src="/' + appConfig.root + '/shopon/service/purchase/purchase-service.js"><\/script>');
+
+        document.write('<script src="/' + appConfig.root + '/shopon/service/report/report-service.js"><\/script>');
+
+        document.write('<script src="/' + appConfig.root + '/shopon/service/sales/bill-service.js"><\/script>');
+
+        document.write('<script src="/' + appConfig.root + '/shopon/service/report/report-api.js"><\/script>');
+        document.write('<script src="/' + appConfig.root + '/shopon/service/sales/customer-api.js"><\/script>');
+        document.write('<script src="/' + appConfig.root + '/login/service/store-api.js"><\/script>');
+        document.write('<script src="/' + appConfig.root + '/shopon/service/subscription-api.js"><\/script>');
+        document.write('<script src="/' + appConfig.root + '/login/service/user-permission-api.js"><\/script>');
+    </script>
+
+</head>
+
+
+<body control="page.collectionReport" controlId="collectionReport">
+
+    <div control="collectionReport.masterPage" controlId="collectionReportMaster"></div>
+    <!--<div class="content-area container-fluid">-->
+    <div control="collectionReport.messagePanel" controlid="msgPanel" class="message-panel" style="display:none; margin-top:40px;"></div>
+    <div class="container-fluid" style="margin-top:40px;">
+        <div class="row">
+            <div class="col-xs-12 report-header">
+                <span class="report-title">Collection Report</span>
+                <input rlabel="Export" value="Export" control="collectionReport.primaryWriteButton" controlid="btnReport" event="click:btnReport_click" />
+                <input rlabel="Preview" value="Preview" control="collectionReport.primaryWriteButton" controlid="btnGenerate" event="click:btnGenerate_click" />
+                <select control="collectionReport.dropDownList" controlid="ddlViewMode">
+                    <option>Standard</option>
+                </select>
+                <span class="label" style="float: right;margin-top: 5px;font-weight: bold;"> F2 - Export </span>
+                <span class="label" style="float: right;margin-top: 5px;font-weight: bold;"> F1 - Preview </span>
+                
+            </div>
+        </div>
+        <div class="filter-panel">
+            <div class="col-sm-3">
+                <span class="label" rlabel="Start Date">Start Date</span>
+                <input type="text" control="collectionReport.dateSelector" controlid="txtStartDate" />
+            </div>
+            <div class="col-sm-3">
+                <span class="label" rlabel="End Date">End Date</span>
+                <input type="text" control="collectionReport.dateSelector" controlid="txtEndDate" />
+            </div>
+            <div class="col-sm-3">
+                <span class="label" rlabel="Customer">Customer</span>
+                <select control="collectionReport.dropDownList" controlid="ddlCustomer"></select>
+            </div>
+            <div class="col-sm-3" control="collectionReport.htmlControl" controlid="pnlArea">
+                <span class="label" rlabel="Area">Area</span>
+                <select control="collectionReport.dropDownList" controlid="ddlArea"> </select>
+            </div>
+            <div class="col-sm-3" style="display:none;">
+                <span class="label" rlabel="Bill Type">Bill Type</span>
+                <select control="collectionReport.dropDownList" controlid="ddlBillType">
+                    <option>All</option>
+                    <option>Sale</option>
+                    <option>SaleReturn</option>
+                </select>
+            </div>
+            <div class="col-sm-3" control="collectionReport.htmlControl" controlid="pnlStatus">
+                <span class="label" rlabel="Status">Status</span>
+                <select control="collectionReport.dropDownList" controlid="ddlState">
+                    <option>All</option>
+                    <option>Open</option>
+                    <option>Paid</option>
+                    <option>DueDate Missing Bill</option>
+                </select>
+            </div>
+            <div class="col-sm-3" style="display:none;">
+                <span class="label" rlabel="Store">Store</span>
+                <select control="collectionReport.dropDownList" controlid="ddlStore"></select>
+            </div>
+            <div class="col-sm-3" control="collectionReport.htmlControl" controlid="pnlTax" style="display:none;">
+                <span class="label" rlabel="Bill Tax">Bill Tax</span>
+                <select control="collectionReport.dropDownList" controlid="ddlTax">
+                    <option value="">All</option>
+                    <option value="Tax">Tax Bill</option>
+                    <option value="NoTax">No Tax Bill</option>
+                </select>
+            </div>
+            <div class="col-sm-3" control="collectionReport.htmlControl" controlid="pnlPlanBillType">
+                <span class="label" rlabel="Plan Bill Type">Plan Bill Type</span>
+                <select control="collectionReport.dropDownList" controlid="ddlPlanBillType">
+                    <option value="">All</option>
+                    <option value="1">PrePaid</option>
+                    <option value="0">PostPaid</option>
+                </select>
+            </div>
+            <div class="col-sm-3">
+                <span class="label" rlabel="Payment Mode">Payment Mode</span>
+                <select control="collectionReport.dropDownList" controlid="ddlEMIPayMode">
+                    <option>All</option>
+                    <option>Cash</option>
+                    <option>Card</option>
+                    <option>Net Bank</option>
+                    <option>Cheque</option>
+                </select>
+            </div>
+        </div>
+        <div class="col-xs-12 summary-panel" style="display:none;" control="collectionReport.htmlControl" controlid="pnlSummary">
+            <h2 class="col-xs-12">Summary</h2>
+            <div class="col-sm-4">
+                <span class="label" rlabel="Total Collection Amount">Total Collection Amount</span>
+                <p control="collectionReport.labelValue" controlid="lblTotalCollection"></p>
+            </div>
+            <div class="col-sm-4">
+                <span class="label" rlabel="Total Collection Payment">Total Collection Payment</span>
+                <p control="collectionReport.labelValue" controlid="lblTotalCollectionPayment"></p>
+            </div>
+            <div class="col-sm-4">
+                <span class="label" rlabel="Total Collection Balance">Total Collection Balance</span>
+                <p control="collectionReport.labelValue" controlid="lblTotalCollectionPending"></p>
+            </div>
+        </div>
+        <div class="col-xs-12" style="margin-top:10px;" control="collectionReport.htmlControl" controlid="pnlGrid">
+            <div style="margin-top:0px;width:100%; margin-bottom:2%;margin-left:0px; overflow-x:auto; overflow-y:hidden;">
+                <div control="collectionReport.grid" style="" controlid="grdTransactions"></div>
+            </div>
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12" style="display:none;" control="collectionReport.htmlControl" controlid="pnlEmptyGrid">
+            <div style="width:100%; overflow-x:auto; overflow-y:hidden;">
+                <img src="../../../../ShopOn/ui/ui/images/no_result_image.png" style="padding-left:35%;padding-bottom:50px;height:200px;" />
+            </div>
+        </div>
+        <!--<div class="content-area row" style="margin-left:100px">
+            <div class="content-area col-lg-12">
+                <div class="row col-lg-11">
+                    <div class="col-sm-12">
+                        <br /><br />
+                        <h1 align="center">Collection Report</h1>
+                        <br /><br />
+                    </div>
+                    <div class="col-sm-4">
+                        <span class="label col-sm-4" rlabel="View Mode">View Mode</span>
+                        <select class="col-sm-8" control="collectionReport.dropDownList" controlid="ddlViewMode"></select>
+                    </div>
+                    <div class="col-sm-2">
+                        <input value="Generate Report" rlabel="Generate Report" control="collectionReport.primaryWriteButton" controlid="btnGenerate" event="click:btnGenerate_click" class="col-sm-12" />
+                    </div>
+                    <div class="col-sm-2">
+                        <input value="Report" rlabel="Report" control="collectionReport.primaryWriteButton" controlid="btnReport" event="click:btnReport_click" class="col-sm-12" />
+                    </div>
+                </div>
+                <div class="col-xs-12"><span>&nbsp;</span></div>
+                <div class="row col-sm-11">
+                    
+                </div>
+                <div class="row col-sm-11">
+                    
+                </div>
+                <div class="row col-sm-11" style="margin-top:10px;">
+                    <div class="col-sm-6">
+                        <div class="col-sm-12">
+                            <span class="label col-sm-4" style="font-weight:bold" rlabel="Summary">Summary</span>
+
+                        </div>
+                        
+                    </div>
+                </div>
+
+                <div class="col-lg-12">
+                    <div style="width:1500px; overflow-x:auto; overflow-y:hidden;margin-top:10px;margin-left:-100px;">
+                        <div control="collectionReport.grid" style="margin-top:40px;" controlid="grdTransactions"></div>
+                    </div>
+                </div>
+                
+            </div>
+
+        </div>-->
+
+    </div>
+    <div controlId="pnlPrintingPopup" control="collectionReport.popup" style="display:none">
+        <div class="row col-sm-12">
+            &nbsp;
+        </div>
+        <div class="row col-sm-12">
+            <span class="label col-sm-4" rlabel="Export Type">Export Type</span>
+            <select style="margin-left:15px;" class="col-sm-4" control="collectionReport.dropDownList" controlid="ddlExportType">
+                <!--<option>PDF</option>
+                <option>EXCEL</option>
+                <option>WORD</option>
+                <option>PPT</option>
+                <option>CSV</option>
+                <option>HTML</option>-->
+            </select>
+            <input class="col-xs-12 col-lg-2" style="float:right;" value="Go" rlabel="Go" controlId="btnPrintJasperBill" control="collectionReport.primaryWriteButton" event="click:btnPrintJasperBill_click" />
+        </div>
+    </div>
+    <!--<div class="col-xs-12" style="height:50px;">
+        <span class="col-xs-12">&nbsp;</span>
+    </div>-->
+</body>
+
+</html>

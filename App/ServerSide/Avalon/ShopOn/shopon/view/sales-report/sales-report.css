@@ -1,0 +1,171 @@
+﻿.filter-panel{
+    background-color: lightgray;
+    display: inline-block;
+    width: calc(100% - 40px);
+    margin: 20px;
+     padding-top: 10px;
+    padding-bottom: 20px;
+}
+
+.filter-panel > div {
+    margin-top : 10px;
+}
+.filter-panel span{
+float:left;
+text-align:right;
+width: calc(30% - 5px );
+margin-right:5px;
+margin-top:4px
+}
+
+.filter-panel select{
+float:left;
+width:70%;
+}
+.filter-panel input{
+float:left;
+width:70%;
+}
+.report-header {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    background-color: lightblue;
+    border-bottom: solid 1px cadetblue;
+}
+.report-header input {
+    float:right;
+    margin-left:10px;
+}
+.report-header span {
+    float:left;
+}
+.report-header select {
+    background: aliceblue;
+    border: none;
+    float: right;
+    outline:none;
+    color:rgb(51, 51, 51);
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+    
+
+.report-title {
+    font-size:24px;
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif
+}
+.summary-panel{
+    background-color: lightgray;
+    display: inline-block;
+    width: calc(100% - 40px);
+    margin: 20px;
+     padding-top: 10px;
+    padding-bottom: 20px;
+    margin-top:0px;
+}
+.summary-panel h2{
+    font-size: 18px;
+    padding: 0px;
+    margin: 0px;
+    font-weight: bold;
+}
+.summary-panel h3{
+    font-size: 16px;
+    font-weight: bold;
+    padding:0px;
+}
+.summary-panel span{
+    float:left;
+    text-align:right;
+    width: calc(30% - 5px );
+    margin-right:5px;
+    margin-top:4px;
+    overflow: hidden;
+}
+.summary-panel input{
+    float:left;
+    width:70%;
+}
+.summary-panel p{
+    float:left;
+    width:70%;
+}
+.input{
+    float:left !important;
+    width:70% !important;
+}
+
+.search-panel {
+    width: 280px;
+}
+.search-action hr {
+    width: calc(100% - 70px);
+}
+.search-filter > div .label {
+    width: 90px;
+}
+.search-filter > div input {
+    width: 160px;
+}
+.search-filter > div select {
+    width: 165px;
+}
+.detail-action > hr {
+    width: calc(100% - 130px);
+}
+.detail-action > [controlid="btnCopyAcademic"] {
+    float: right;
+    margin-top: 6px;
+    padding: 0;
+}
+.tab-panels {
+    height: 500px;
+}
+.grid-action hr {
+    width: calc(100% - 300px);
+}
+.fee-panel .grid-action hr {
+    width: calc(100% - 240px);
+}
+.detail-basic {
+    margin-left: 25%;
+    margin-top: 10px;
+}
+.detail-basic input {
+    width: 180px;
+}
+.detail-basic select {
+    width: 185px;
+}
+.detail-basic .label {
+    width: 120px;
+}
+#groupbycust{
+    font-size:20px;
+    /*text-transform:uppercase;*/
+}
+@media all {
+    .page-break { display: none; }
+}
+
+@media print {
+    .page-break { display: block; page-break-before: always; }
+}
+
+.wrapper1, .wrapper2 {
+  width: 300px;
+  overflow-x: scroll;
+  overflow-y:hidden;
+}
+
+.wrapper1 { }
+.wrapper2 { }
+
+.div1 {
+  width:100%;
+}
+
+.div2 {
+  width:100%;
+  overflow: auto;
+}
+

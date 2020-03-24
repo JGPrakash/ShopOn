@@ -1,0 +1,37 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+	<meta charset="utf-8" />
+    <script>
+        function printMe() {
+            //window.print();
+            w = window.open('print.rtf');
+            w.print();
+            //window.print('print.rtf');
+        }
+    </script>
+</head>
+<body>
+    <h1>Woto Tech</h1>
+    <h4>Bill No : 100</h4>
+    <h5>Customer : Jebas</h5>
+    <h6>CASH BILL</h6>
+    <h6>Bill Details</h6>
+    <h6>Sl No  Item Name    Qty     Price       Amount</h6>
+    <p>------------------------------------------------</p>
+    <h6>Sl No  Item Name    Qty     Price       Amount</h6>
+    <p>------------------------------------------------</p>
+    <h5>Sub Total : 1000</h5>
+    <h5>Discount : 100</h5>
+    <h5>Tax : 10</h5>
+    <p>-----------------</p>
+    <h3>Total Qty : 20</h3>
+    <h3>Total Amount : 2000</h3>
+    <p>------------------</p>
+    <img src="BackgroundImage/barcode.png" />
+    <p>------------------</p>
+    <p>Thank You Visit Again</p>
+    <button onclick="printMe()">Click</button>
+</body>
+</html>

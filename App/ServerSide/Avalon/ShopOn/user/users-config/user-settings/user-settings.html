@@ -1,0 +1,366 @@
+﻿<!doctype html>
+<html>
+
+<head>
+    <base href="/ShopOn/">
+    <script src="/config/config.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        document.write('<script src="/' + appConfig.root + '/core/master.js" type="text/javascript" > <\/script> ');
+        document.write('<script src="/' + appConfig.root + '/shopon/service/w3data/w3data.js"><\/script>');
+        //document.write('<link href="/' + appConfig.root + '/user/users-config/users/users.css" rel="stylesheet" />');
+        //document.write('<script src="/' + appConfig.root + '/user/users-config/users/users.js"><\/script>');
+        //document.write('<script src="/' + appConfig.root + '/login/service/user/user-service.js"><\/script>');
+        document.write('<link href="/' + appConfig.root + '/user/users-config/user-settings/user-settings.css" rel="stylesheet" />');
+        document.write('<script src="/' + appConfig.root + '/user/users-config/user-settings/user-settings.js"><\/script>');
+        document.write('<script src="/' + appConfig.root + '/shopon/service/setting-service.js"><\/script>');
+        document.write('<link href="/' + appConfig.root + '/shopon/view/simple-entity-manage/simple-entity-manage.css" rel="stylesheet" />');
+        document.write('<script src="/' + appConfig.root + '/shopon/view/simple-entity-manage/simple-entity-manage.js"><\/script>');
+        document.write('<script src="/' + appConfig.root + '/finfacts/service/revenue-service.js"><\/script>');
+        document.write('<script src="/' + appConfig.root + '/finfacts/service/accaccount-service.js"><\/script>');
+        document.write('<script src="/' + appConfig.root + '/shopon/service/tax/salestax-service.js"><\/script>');
+    </script>
+
+</head>
+
+<body control="page.settingsManagePage" controlId="settingsManagePage">
+
+    <!--Master Page-->
+    <div control="settingsManagePage.masterPage" controlId="masterPage"></div>
+
+    <div class="content-panel" style="margin-top: 60px; margin-left: 70px; margin-right: 20px;">
+        <br />
+        <div class="detail-info">
+
+            <div control="settingsManagePage.messagePanel" controlid="msgPanel" class="message-panel" style="display:none">
+
+            </div>
+          <!--  <input type="button" value="Reset Data" control="settingsManagePage.primaryReadButton" controlId="btnReset" event="click:btnReset_click" class="" role="button">
+            <br />
+            <div class="detail-basic">
+
+
+                <div>
+                    <span class="label"><b>Company</b></span>
+
+                    <select control="settingsManagePage.dropDownList" controlid="ddlCompany"></select>
+                </div>
+                <div>
+                    <span class="label"><b>Current Period</b></span>
+
+                    <select control="settingsManagePage.dropDownList" controlid="ddlPeriod"></select>
+                </div>
+            </div>
+            <div class="detail-basic">
+                <div>
+                    <span class="label"><b>Sales Account</b></span>
+
+
+                    <select control="settingsManagePage.dropDownList" controlid="ddlSalesAccount"></select>
+                </div>
+                <div>
+
+                    <span class="label"><b>Purchase Acct</b></span>
+
+                    <select control="settingsManagePage.dropDownList" controlid="ddlPurchaseAccount"></select>
+                </div>
+
+            </div>
+            <div class="detail-basic">
+                <div>
+                    <span class="label"><b>Background</b></span>
+
+                    <input id="background-color" type="color" name="background-color" />
+                </div>
+            </div>
+            <input value="Save Changes" control="settingsManagePage.primaryWriteButton" controlid="btnUpdate" event="click:btnUpdate_click">
+            -->
+
+
+            <!--New Setting Screen Design-->
+            <div class="detail-basic" style="margin-top:20px;">
+                <div class="detail-panel col-xs-12 col-sm-12 col-lg-12">
+                    <!-- Page Content-->
+                    <div class="detail-edit" style="display:none" controlid="pnlDetail" control="settingsManagePage.htmlControl">
+                        <ul class="tab" control="settingsManagePage.tab" controlId="tabChurch" style="display: block;margin-top: 0;">
+                            <li>
+                                <a target="#pnlGeneral">General</a>
+                            </li>
+                            <li>
+                                <a target="#pnlFinfacts" >Finfacts</a>
+                            </li>
+                            <li>
+                                <a target="#pnlModules" class="tab tabSelected">Modules</a>
+                            </li>
+                            <li>
+                                <a target="#pnlPrinter">ShopOn Printers</a>
+                            </li>
+                            <li>
+                                <a target="#pnlPrinterAccess">Printer Access</a>
+                            </li>
+                            <li>
+                                <a target="#pnlInventory">Inventory</a>
+                            </li>
+                            <li>
+                                <a target="#pnlPurchase">Purchase</a>
+                            </li>
+                            <li>
+                                <a target="#pnlSales">Sales</a>
+                            </li>
+                            <li>
+                                <a target="#pnlLayout">Layout and Themes</a>
+                            </li>
+                            <li>
+                                <a target="#pnlSystemParameter">System Parameter</a>
+                            </li>
+                            <hr />
+                        </ul>
+                        <div class="tab-panels">
+                            <div class="detail-info" id="pnlGeneral" style="margin-left:30px;">
+                                <div class="container-fluid">
+                                    <div class="detail-basic row" style="margin-top:30px;">
+                                        <div>
+                                            <input value="Save" control="settingsManagePage.primaryWriteButton" controlid="btnSaveGen" event="click:btnSaveGen_click">
+                                        </div>
+                                        <div>
+                                            <span class="label" style="width:150px"><b>Company Name</b></span>
+                                            <input type="text" style="width:250px;" control="settingsManagePage.textBox" controlId="txtCompanyGen" placeholder="Enter company name">
+                                        </div>
+                                        <div>
+                                            <span class="label" style="width:150px;"><b>Owner Name</b></span>
+                                            <input type="text" style="width:250px;" control="settingsManagePage.textBox" controlId="txtOwnerGen" placeholder="Enter owner name">
+                                        </div>
+                                        <div>
+                                            <span class="label" style="width:150px;"><b>Phone No</b></span>
+                                            <input type="text" style="width:250px;" control="settingsManagePage.textBox" controlId="txtPhoneNo" maxlength="10" placeholder="Enter phone no">
+                                        </div>
+                                        <div>
+                                            <span class="label" style="width:150px;"><b>E-mail</b></span>
+                                            <input type="text" style="width:250px;" control="settingsManagePage.textBox" controlId="txtEmail" placeholder="Enter email address">
+                                        </div>
+                                        <div>
+                                            <span class="label"  style="width:150px;display:block"><b>Company Address</b></span>
+                                            <textarea rows="7" cols="80" style="width:250px;display:block;margin-left:155px;margin-top:-20px;height:100px" control="settingsManagePage.textarea" controlId="txtCmpnyAddGen" placeholder="Enter Address" ></textarea>
+                                        </div>  
+                                        <div>
+                                            <span class="label" style="width:150px;"><b>Logo Name</b></span>
+                                            <input type="text" style="width:250px;" control="settingsManagePage.textBox" controlId="txtLogoName" placeholder="Enter logo name">
+                                        </div>
+
+                                        <div class="image-panel col-xs-12 col-lg-6" align="center" controlId="pnlImg" control="settingsManagePage.htmlControl">
+                                        <div class="container">
+                                        <div class="row">
+                                        <div class="col-lg-4 ">
+                                        <img id="output" style="max-width:150px; max-height:150px;" />
+                                        <div class="col-md-10">
+                                        <div>
+                                            <label for="fileUpload">
+                                                Select File to Upload:
+                                            </label>
+                                            <input type="file" id="fileUpload" accept="image/*" onchange="loadFile(event)">
+                                            <br />
+                                            <input id="btnUploadFile" class="btn btn-sm btn-success" control="settingsManagePage.primaryReadButton" type="button" value="Upload File" controlid="btnUploadImage" event="click:btnUploadImage_click" />
+                                        </div>
+                                        <script>
+                                        var loadFile = function (event) {
+                                            var output = document.getElementById('output');
+                                            output.src = URL.createObjectURL(event.target.files[0]);
+                                        };
+                                        </script>
+                                        </div>
+                                        </div>
+                                        </div>
+                                        </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="detail-info" id="pnlFinfacts" style="margin-left:30px;">
+                                <div class="container-fluid">
+                                    <div class="detail-basic row" style="margin-top:30px;">
+                                        <div>
+                                            <input value="Save" control="settingsManagePage.primaryWriteButton" controlid="btnUpdate" event="click:btnUpdate_click">
+                                            <input type="button" value="Reset Data" control="settingsManagePage.secondaryButton" controlId="btnReset" event="click:btnReset_click" class="" role="button">
+                                        </div>
+                                        <br /><br />
+                                        <div>
+                                            <span class="label" style="width:220px;"><b>Company</b></span>
+
+                                            <select style="width:250px;" control="settingsManagePage.dropDownList" controlid="ddlCompany"></select>
+                                        </div>
+                                        <div>
+                                            <span class="label" style="width:220px;"><b>Current Period</b></span>
+
+                                            <select style="width:250px;" control="settingsManagePage.dropDownList" controlid="ddlPeriod"></select>
+                                        </div>
+                                        <div>
+                                            <span class="label" style="width:220px;"><b>Sales Account (Cash)</b></span>
+
+
+                                            <select style="width:200px;" control="settingsManagePage.dropDownList" controlid="ddlSalesAccount"></select>
+                                        </div>
+                                        <div>
+
+                                            <span class="label" style="width:220px;"><b>Purchase Account  (Cash)</b></span>
+
+                                            <select style="width:200px;" control="settingsManagePage.dropDownList" controlid="ddlPurchaseAccount"></select>
+                                        </div>
+
+                                        <div>
+                                            <span class="label" style="width:220px;"><b>Sales Account  (Bank)</b></span>
+
+
+                                            <select style="width:200px;" control="settingsManagePage.dropDownList" controlid="ddlSalesAccountBank"></select>
+                                        </div>
+                                        <div>
+
+                                            <span class="label" style="width:220px;"><b>Purchase Account  (Bank)</b></span>
+
+                                            <select style="width:200px;" control="settingsManagePage.dropDownList" controlid="ddlPurchaseAccountBank"></select>
+                                        </div>
+
+                                        <div>
+                                            <span class="label" style="width:220px;"><b>Sales Account  (Reward)</b></span>
+
+
+                                            <select style="width:200px;" control="settingsManagePage.dropDownList" controlid="ddlSalesAccountReward"></select>
+                                        </div>
+                                        <div>
+
+                                            <span class="label" style="width:220px;"><b>Purchase Account  (Reward)</b></span>
+
+                                            <select style="width:200px;" control="settingsManagePage.dropDownList" controlid="ddlPurchaseAccountReward"></select>
+                                        </div>
+
+
+                                        <div>
+                                            <span class="label" style="width:220px;"><b>Sales Account  (Coupon)</b></span>
+
+
+                                            <select style="width:200px;" control="settingsManagePage.dropDownList" controlid="ddlSalesAccountCoupon"></select>
+                                        </div>
+                                        <div>
+
+                                            <span class="label" style="width:220px;"><b>Purchase Account  (Coupon)</b></span>
+
+                                            <select style="width:200px;" control="settingsManagePage.dropDownList" controlid="ddlPurchaseAccountCoupon"></select>
+                                        </div>
+
+                                        <!--<div>
+                                            <span class="label" style="width:150px;"><b>Background</b></span>
+
+                                            <input style="width:200px;" id="background-color" type="color" name="background-color" />
+                                        </div>-->
+                                        <div>
+                                            <span class="label" style="width:220px;"><b>Sales Tax</b></span>
+
+                                            <select style="width:250px;" control="settingsManagePage.dropDownList" controlid="ddlDefaultTax"></select>
+                                        </div>
+                                        
+                                    </div>
+                                </div>
+                            </div>
+
+
+                            <div class="detail-info" id="pnlModules">
+                                <div class="container-fluid">
+                                    <div class="detail-basic row">
+                                        <span ><b>Global Application Module Settings</b></span>
+
+                                        <div control="settingsManagePage.simpleEntityManage" controlId="ucModuleEntityManage"></div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="detail-info" id="pnlPrinter">
+                                <div class="container-fluid">
+                                    <div class="detail-basic row">
+                                        <span><b>Global Application Printer Settings</b></span>
+
+                                        <div control="settingsManagePage.simpleEntityManage" controlId="ucPrinterEntityManage"></div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="detail-info" id="pnlPrinterAccess">
+                                <div class="container-fluid">
+                                    <div class="detail-basic row">
+                                        <span><b>Global Application Printer Access Settings</b></span>
+
+                                        <div control="settingsManagePage.simpleEntityManage" controlId="ucPrinterAccessEntityManage"></div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="detail-info" id="pnlInventory">
+                                <div class="container-fluid">
+                                    <div class="detail-basic row">
+                                        <span><b>Global Application Inventory Settings</b></span>
+
+                                        <div control="settingsManagePage.simpleEntityManage" controlId="ucInventoryEntityManage"></div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="detail-info" id="pnlPurchase">
+                                <div class="container-fluid">
+                                    <div class="detail-basic row">
+                                        <span><b>Global Application Purchase Settings</b></span>
+
+                                        <div control="settingsManagePage.simpleEntityManage" controlId="ucPurchaseEntityManage"></div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="detail-info" id="pnlSales">
+                                <div class="container-fluid">
+                                    <div class="detail-basic row">
+                                        <span><b>Global Application Sales Settings</b></span>
+
+                                        <div control="settingsManagePage.simpleEntityManage" controlId="ucSalesEntityManage"></div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="detail-info" id="pnlLayout">
+                                <div class="container-fluid">
+                                    <div class="detail-basic row">
+                                        <span><b>Global Application Layout and Themes Settings</b></span>
+
+                                        <div control="settingsManagePage.simpleEntityManage" controlId="ucLayoutEntityManage"></div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="detail-info" id="pnlSystemParameter">
+                                <div class="container-fluid">
+                                    <div class="detail-basic row">
+                                        <span><b>Global Application Ststem Parameter Settings</b></span>
+
+                                        <div control="settingsManagePage.simpleEntityManage" controlId="ucSystemParameterEntityManage"></div>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                        </div>
+                    </div>
+                </div>
+                </div>
+           <!-- 
+            <input value="" control="settingsManagePage.primaryWriteButton" controlid="btnUpdate1">
+                <div control="settingsManagePage.simpleEntityManage" controlId="ucSettingEntityManage"></div>-->
+
+            <span><b> </b></span>
+
+
+
+
+
+            </div>
+
+                </div>
+
+</body>
+
+</html>

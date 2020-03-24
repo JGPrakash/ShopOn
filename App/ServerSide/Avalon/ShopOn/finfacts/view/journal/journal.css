@@ -1,0 +1,140 @@
+﻿.content-area {
+    padding: 10px;
+    width: calc(100% - 20px);
+    margin-top: 40px;
+    height:auto;
+}
+
+.journal-view {
+}
+
+[controlid=btnNewJournalShowMore] {
+    display: block;
+    margin-top: 21px;
+}
+[controlid=btnNewJournalShowLess] {
+    display: block;
+    margin-top: 21px;
+}
+
+.journal-new .label,.income-new .label,.expense-new .label,.receipt-new .label, .payment-new .label {
+    display: block;
+}
+
+.journal-new , .income-new , .expense-new , .receipt-new , .payment-new {
+    background-color: aliceblue;
+    border-color: blue;
+    display: inline-block;
+    margin-bottom: 5px;
+    /*padding: 10px;
+    width: calc(100% - 20px);*/
+}
+.journal-new > div , .income-new > div , .expense-new > div ,.receipt-new > div , .payment-new > div {
+    float: left;
+    /*margin-right: 20px;*/
+}
+.journal-new input[type="text"] , .income-new input[type="text"] , .expense-new input[type="text"] ,.receipt-new input[type="text"] ,.payment-new input[type="text"] {
+    display: block;
+    /*height: 20px;*/
+    /*margin-bottom: 3px;*/
+}
+
+
+/*[controlid="aclTranAccount1"] {
+    width: 250px;
+}
+[controlid="aclMainAccount"] {
+    width: 250px;
+}*/
+
+
+[controlid="txtDescription"] {
+    width: 250px;
+}
+[controlid="ddlViewMode"] {
+    /*border: medium none;
+    font-size: 14px;*/
+    width:250px;
+    float:right;
+}
+.journal-view > select {
+    width: 150px;
+}
+.journal-view {
+    display: inline-block;
+    margin-bottom: 5px;
+}
+.journal-action {
+    display: inline-block;
+    margin-bottom: 5px;
+}
+/*[controlid="aclTranAccount2"] {
+    width: 250px;
+}*/
+[controlid="ddlCompanyName"] {
+    width: 150px;
+    margin-right: 20px;
+}
+[controlid="ddlPeriod"] {
+    width: 150px;
+}
+
+#top-panel{
+    border: 1px solid gray;
+    background-color:whitesmoke;
+    padding-top:10px;
+    padding-bottom:15px;
+}
+
+.active_menu{
+    font-weight: bold;
+}
+
+
+.dropdown-submenu {
+    position: relative;
+}
+
+.dropdown-submenu>.dropdown-menu {
+    top: 0;
+    left: 0%;
+    margin-top: 0px;
+    margin-left: -10px;
+    -webkit-border-radius: 0 6px 6px 6px;
+    -moz-border-radius: 0 6px 6px;
+    border-radius: 0 6px 6px 6px;
+}
+
+.dropdown-submenu:hover>.dropdown-menu {
+    display: block;
+}
+
+.dropdown-submenu>a:after {
+    display: block;
+    content: " ";
+    float: left;
+    width: 0;
+    height: 0;
+    border-color: transparent;
+    border-style: solid;
+    border-width: 5px 0 5px 5px;
+    border-left-color: #ccc;
+    margin-top: 5px;
+    margin-right: -10px;
+}
+
+.dropdown-submenu:hover>a:after {
+    border-left-color: #fff;
+}
+
+.dropdown-submenu.pull-left {
+    float: none;
+}
+
+.dropdown-submenu.pull-left>.dropdown-menu {
+    left: -0%;
+    margin-left: 10px;
+    -webkit-border-radius: 6px 0 6px 6px;
+    -moz-border-radius: 6px 0 6px 6px;
+    border-radius: 6px 0 6px 6px;
+}

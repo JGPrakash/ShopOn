@@ -1,0 +1,139 @@
+<!doctype html>
+<html>
+
+<head>
+
+    <script src="/config/config.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        document.write('<script src="/' + appConfig.root + '/core/master.js" type="text/javascript" > <\/script> ');
+        document.write('<link href="/' + appConfig.root + '/shopon/view/item-hierarchy/item-hierarchy.css" rel="stylesheet" />');
+        document.write('<script src="/' + appConfig.root + '/shopon/view/item-hierarchy/item-hierarchy.js"><\/script>');
+        document.write('<script src="/' + appConfig.root + '/shopon/service/item-hierarchy/itemAttrCacheAPI.js"><\/script>');
+        document.write('<script src="/' + appConfig.root + '/shopon/service/item-hierarchy/itemHierarchyAPI.js"><\/script>');
+        document.write('<script src="/' + appConfig.root + '/shopon/service/item-hierarchy/itemCategoryAPI.js"><\/script>');
+        document.write('<script src="/' + appConfig.root + '/shopon/service/item-hierarchy/itemAttributeAPI.js"><\/script>');
+        //Tamil Font
+        document.write('<script src="/' + appConfig.root + '/core/tamil-common.js" type="text/javascript" > <\/script> ');
+        document.write('<script src="/' + appConfig.root + '/core/tamil.js" type="text/javascript" > <\/script> ');
+
+    </script>
+
+
+</head>
+
+
+<body control="page.itemHierarchyPage" controlId="itemHierarchyPage">
+
+    <div control="itemHierarchyPage.masterPage" controlId="masterPage"></div>
+
+    <div style="margin-top:40px">
+
+        <!--Load Content Area-->
+        <div class="container-fluid">
+            <div class="content-area row">
+                <div control="itemHierarchyPage.messagePanel" controlid="msgPanel" class="message-panel" style="display:none"></div>
+                <div class="search-panel col-sm-4" default-button="btnSearch">
+
+                    <div class="search-action">
+                        <hr>
+                        <input type="button" tabindex="34" value="Search" rlabel="Search" control="itemHierarchyPage.primaryReadButton" controlId="btnSearch" event="click:btnSearch_click" class="" role="button">
+
+                    </div>
+
+                    <div class="search-filter">
+                        <div>
+                            <input type="text" tabindex="1" controlId="txtSearch" rlabel="Enter item,main product type, product type " placeholder="Enter item,main product type, product type" control="itemHierarchyPage.textBox">
+                        </div>
+                        <div>
+                            <select controlId="ddlType" control="itemHierarchyPage.dropDownList">
+                                <!--<option>All</option>-->
+                                <option>MPT</option>
+                                <option>PT</option>
+                                <option>ITEM</option>
+                            </select>
+                        </div>
+
+                    </div>
+                    <div class="search-result">
+                        <div control="itemHierarchyPage.grid" controlid="grditemHierarchy"></div>
+                    </div>
+                    <div class="col-sm-12">
+                        <span class="label" rlabel="F1 - New"> F1 - New </span>
+                        <span class="label" rlabel="F2 - Save"> F2 - Save </span>
+                        <span class="label" rlabel="Ctrl + R - Remove"> Ctrl + R - Remove </span>
+                        <span class="label" rlabel="Ctrl + P - Print"> Ctrl + P - Print </span>
+                    </div>
+                </div>
+                <div class="detail-panel  col-sm-8">
+
+                    <div class="detail-action">
+                    </div>
+                    <div class="detail-info">
+
+                        <div class="basic-info row" style="display:none">
+                            <span class="label col-xs-12" style="margin-bottom: 20px;font-weight: bold;text-transform: uppercase;" rlabel="Category"><b>CATEGORY</b></span>                            
+                            <div class="col-xs-12">
+                                <!--<input type="button" style="float:right" value="Remove" rlabel="Remove" control="itemHierarchyPage.secondaryButton" controlId="btnRemoveCategory" event="click:btnRemoveCategory_click" class="" role="button">-->
+                                <!--<span style="padding-right: 10px; margin-top: 3px;float:right;padding-left: 10px;" id="spnCategory"> | </span>-->
+                                <input type="button" style="float:right;margin-bottom:10px" value="Add" rlabel="Add" control="itemHierarchyPage.primaryReadButton" controlId="btnAddCategory" event="click:btnAddCategory_click" class="" role="button">
+                                <div control="itemHierarchyPage.grid" controlid="grditemCategory"></div>
+                            </div>
+                            <span class="label col-xs-12" style="margin-bottom: 20px" rlabel="Attribute"><b>ATTRIBUTE</b></span>
+                            <div class="col-xs-12">
+                                <!--<input type="button" style="float:right" value="Remove" rlabel="Remove" control="itemHierarchyPage.secondaryButton" controlId="btnRemoveAttribute" event="click:btnRemoveAttribute_click" class="" role="button">
+                                <span style="padding-right: 10px; margin-top: 3px;float:right;padding-left: 10px;" id="spnAttribute"> | </span>-->
+                                <input type="button" style="float:right" value="Save" rlabel="Save" control="itemHierarchyPage.primaryReadButton" controlId="btnSaveAttr" event="click:btnSaveAttr_click" class="" role="button">
+                                <div style="margin-top:10px" control="itemHierarchyPage.grid" controlid="grditemAttributes"></div>
+                            </div>
+                            
+                        </div>
+
+                    </div>
+                    <div controlId="pnlCategoryPopup" control="itemHierarchyPage.popup" style="display:none">
+                        <div class="col-xs-12 col-lg-12" style="margin-top:10px;">
+                            <input type="button" value="Save" rlabel="Save" style="float:right" control="itemHierarchyPage.primaryReadButton" controlid="btnSaveCategory" event="click:btnSaveCategory_click">
+                        </div>
+                        <div class="col-xs-12 col-lg-12 " style="margin-top:10px;">
+                            <span class="label  col-xs-12 col-lg-5">Category<span style="color:red;">*</span></span>
+                            <select class="col-xs-12 col-lg-7" controlId="ddlCategory" control="itemHierarchyPage.dropDownList"></select>
+                        </div>
+                        <!--<div class="col-xs-12 col-lg-12 " style="margin-top:10px;">
+                            <span class="label  col-xs-12 col-lg-5">Attribute<span style="color:red;">*</span></span>
+                            <select class="col-xs-12 col-lg-7" controlId="ddlLinkAttribute" control="itemHierarchyPage.dropDownList"></select>
+                        </div>-->
+                        <!--<div class="col-xs-12 col-lg-12 " style="margin-top:10px;">
+                            <span class="label  col-xs-12 col-lg-5">Attribute Text<span style="color:red;">*</span></span>
+                            <input class="col-xs-12 col-lg-7" type="text" controlId="txtAttributeText" placeholder="Enter Category Name" control="itemHierarchyPage.textBox" />
+                        </div>-->
+                    </div>
+                    <div controlId="pnlAttributePopup" control="itemHierarchyPage.popup" style="display:none">
+                        <div class="col-xs-12 col-lg-12" style="margin-top:10px;">
+                            <input type="button" value="Save" rlabel="Save" style="float:right" control="itemHierarchyPage.primaryReadButton" controlid="btnSaveAttrRemove" event="click:btnSaveAttrRemove_click">
+                        </div>
+                        <div class="col-xs-12 col-lg-12 " style="margin-top:10px;">
+                            <span class="label  col-xs-12 col-lg-5">Category<span style="color:red;">*</span></span>
+                            <select class="col-xs-12 col-lg-7" controlId="ddlAttrCategory" control="itemHierarchyPage.dropDownList"></select>
+                        </div>
+                        <div class="col-xs-12 col-lg-12 " style="margin-top:10px;">
+                            <span class="label  col-xs-12 col-lg-5">Attribute<span style="color:red;">*</span></span>
+                            <select class="col-xs-12 col-lg-7" controlId="ddlAttribute" control="itemHierarchyPage.dropDownList"></select>
+                        </div>
+                        <div class="col-xs-12 col-lg-12 " style="margin-top:10px;">
+                            <span class="label  col-xs-12 col-lg-5">Attribute Value<span style="color:red;">*</span></span>
+                            <input class="col-xs-12 col-lg-7" type="text" controlId="txtAttrValue" placeholder="Enter Attribute Value" control="itemHierarchyPage.textBox" />
+                        </div>
+                        <div class="col-xs-12 col-lg-12 " style="margin-top:10px;">
+                            <span class="label  col-xs-12 col-lg-5">Attribute Text<span style="color:red;">*</span></span>
+                            <input class="col-xs-12 col-lg-7" type="text" controlId="txtAttrAttributeText" placeholder="Enter Attribute Text" control="itemHierarchyPage.textBox" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <br />
+    <br />
+
+</body>
+
+</html>

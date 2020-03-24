@@ -1,0 +1,274 @@
+﻿<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+
+<head>
+    <meta charset="UTF-8">
+
+    <script src="/config/config.js" type="text/javascript"></script>
+    <!-- <script src="/assets/config/config.js" type="text/javascript"></script>-->
+    
+	<script type="text/javascript">
+        document.write('<script src="/' + appConfig.root + '/core/master.js" type="text/javascript" > <\/script> ');
+        document.write('<script src="/' + appConfig.root + '/login/service/user/user-service.js"><\/script>');
+
+        document.write('<link href="/' + appConfig.root + '/shopon/view/sales/sales.css" rel="stylesheet" />');
+        document.write('<script src="/' + appConfig.root + '/shopon/view/sales/sales.js"><\/script>');
+        document.write('<script src="/' + appConfig.root + '/shopon/service/sales/customer-service.js"><\/script>');
+
+
+        document.write('<script src="/' + appConfig.root + '/finfacts/service/revenue-service.js"><\/script>');
+        document.write('<script src="/' + appConfig.root + '/finfacts/service/account/accounting-service.js"><\/script>');
+
+        document.write('<script src="/' + appConfig.root + '/shopon/service/vendor/vendor-service.js"><\/script>');
+        document.write('<script src="/' + appConfig.root + '/shopon/service/sales/tray-service.js"><\/script>');
+
+        document.write('<script src="/' + appConfig.root + '/shopon/service/sales/sales-service.js"><\/script>');
+        document.write('<script src="/' + appConfig.root + '/shopon/service/sales/bill-service.js"><\/script>');
+        document.write('<script src="/' + appConfig.root + '/shopon/service/product/item-service.js"><\/script>');
+
+        document.write('<script src="/' + appConfig.root + '/shopon/service/inventory/inventory-service.js"><\/script>');
+        document.write('<script src="/' + appConfig.root + '/shopon/service/report/dynareport-service.js"><\/script>');
+    </script>
+  <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">-->
+
+</head>
+
+<body control="page.salesEntryPage" controlId="salesEntryPage">
+   
+    <div style="margin-top: 10px; width:100%; margin-top:50px;">
+        <input type="button" value="Download" control="salesEntryPage.primaryWriteButton" controlId="btnDownload" event="click:btnDownload_click" />
+        <input type="button" value="Upload" control="salesEntryPage.primaryWriteButton" controlId="btnUpload" event="click:btnUpload_click" />
+    </div>
+    <div control="salesEntryPage.masterPage" controlId="masterPage"></div>
+     <div control="salesEntryPage.messagePanel" controlid="msgPanel" class="message-panel" style="display:none; margin: 10px;"></div>
+    <div class="content-area">
+        <div class="detail-basic">
+            
+            <div>
+                <span class="label">Customer Name  </span>
+                <input class="col-xs-12 col-lg-12" controlId="txtCustomerName" control="salesEntryPage.autoCompleteList" placeholder="No Customer Selected">
+            </div>
+          
+        </div>
+
+
+        <div class="detail-area col-lg-12" style="display:none">
+            <div>
+                <input class="col-xs-5 col-lg-3" type="button" value="Payment" control="salesEntryPage.primaryWriteButton" controlid="btnPaymentSO" event="click:btnPaymentSO_click" style="margin:1%;">
+                <input class="col-xs-6 col-lg-3" type="button" value="My Transaction" control="salesEntryPage.primaryWriteButton" controlid="btnmytransaction" event="click:btnmytransaction_click" style="margin:1%;">
+                <input class="col-xs-5 col-lg-3" type="button" value="Sales" control="salesEntryPage.primaryWriteButton" controlid="btnSalesSO" event="click:btnSalesSO_click" style="margin:1%;">
+                <input class="col-xs-5 col-lg-3" type="button" value="Tray" control="salesEntryPage.primaryWriteButton" controlid="btnTraySO" event="click:btnTraySO_click" style="margin:1%;">
+            </div>
+            <div class="detail-info">
+                <div class="detail-basic">
+                    <div>
+                        <span class="label">Customer Name:</span>
+                        <span class="label-value" control="salesEntryPage.label" id="lblCustName" name="lblCustName" controlid="lblCustName"></span>
+                    </div>
+                    <div style="display:none">
+                        <span class="label">Sales Statement for the year</span>
+                        <span class="label-value" control="salesEntryPage.label" id="lblPeriod" name="lblPeriod" controlid="lblPeriod"></span>
+                    </div>
+                </div>
+                <div class="detail-basic" control="salesEntryPage.htmlControl" controlid="pnlSalesToday">
+                    <div>
+                        <span class="head-sales">
+                            <b>Sales Today : </b>
+                        </span>
+                    </div>
+                    <div style="">
+                        <span class="label">Sales  : </span>
+                        <span class="label-value" controlId="lblSalesToday" id="lblTotalPaidToday" name="lblTotalPaidToday" control="salesEntryPage.htmlControl"></span>
+                    </div>
+                    <div style="">
+                        <span class="label">Paid  : </span>
+                        <span class="label-value" controlId="lblTotalPaidToday" id="lblTotalPaidToday" name="lblTotalPaidToday" control="salesEntryPage.htmlControl"></span>
+                    </div>
+                    <div style="">
+                        <span class="label">Pending  : </span>
+                        <span class="label-value" controlId="lblPendingToday" id="lblTotalPaidToday" name="lblTotalPaidToday" control="salesEntryPage.htmlControl"></span>
+                    </div>
+                    <div style="display:none">
+                        <span class="label">Tray In : </span>
+                        <span class="label-value" controlId="lblTrayIn" id="lblTrayIn" name="lblTrayIn" control="salesEntryPage.htmlControl"></span>
+                    </div>
+                    <div style="display:none">
+                        <span class="label">Tray Out : </span>
+                        <span class="label-value" controlId="lblTrayOut" id="lblTrayOut" name="lblTrayOut" control="salesEntryPage.htmlControl"></span>
+                    </div>
+                </div>
+                <div class="detail-basic" control="salesEntryPage.htmlControl" controlid="pnlAllGrid">
+                    <div>
+                        <span class="head-sales">
+                            <b>Summary  </b>
+                        </span>
+                    </div>
+                    <div class="col-xs-12">
+                        <span class="label col-xs-6 col-lg-6">Total Sales: </span>
+                        <span class="label-value col-xs-6 col-lg-6" controlId="lblTotalSales" id="lblTotalSales" name="lblTotalSales" control="salesEntryPage.htmlControl"></span>
+                    </div>
+                    <div  class="col-xs-12">
+                        <!--<span style="display:none" class="label">Sales This Month : </span>-->
+                        <input type="button" class="col-xs-6 col-lg-6" style="width:40%;float:left;" value="Monthly Sales" control="salesEntryPage.secondaryButton" controlid="btnMonthlySales" event="click:btnMonthlySales_click">
+                        <span class="label-value col-xs-6 col-lg-6" style="width:40%;margin-left:10%;" controlId="lblCurrentSales" id="lblCurrentSales" name="lblCurrentSales" control="salesEntryPage.htmlControl"></span>
+                    </div>
+                    <div  class="col-xs-12">
+                        <span class="label col-xs-6 col-lg-6">Pending: </span>
+                        <span class="label-value col-xs-6 col-lg-6" controlId="lblSalesPending" id="lblSalesPending" name="lblSalesPending" control="salesEntryPage.htmlControl"></span>
+                    </div>
+                    <div style="display:none">
+                        <input type="button" value="Total Tray" control="salesEntryPage.secondaryButton" controlid="btnTrayTransaction" event="click:btnTrayTransaction_click">
+                        <span style="display:none" class="label">Total Tray : </span>
+                        <span class="label-value" controlId="lblTotalTray" id="lblTotalTray" name="lblTotalTray" control="salesEntryPage.htmlControl"></span>
+                    </div>
+                    
+                </div>
+               
+            </div>
+        </div>
+    </div>
+
+    <div>
+        <div control="salesEntryPage.popup" controlid="pnlMonthlySalesPopup" style="display:none">
+            <span class="label">Montly Sales Details</span>
+            <div control="salesEntryPage.grid" controlid="grdSales"></div>
+            <div style="font-size: 16px; margin-bottom: 30px">
+                <span style="font-size:16px">
+                        <b>Net Sales : </b>
+                    </span>
+                <span class="label-value" controlId="lblNetSales" id="lblNetSales" name="lblNetSales" control="salesEntryPage.htmlControl"></span>
+            </div>
+            <div style="font-size: 16px; margin-bottom: 30px">
+                <span style="font-size:16px">
+                        <b>Balance To Pay :</b>
+                    </span>
+                <span class="label-value" controlId="lblBalToPay" id="lblBalToPay" name="lblBalToPay" control="salesEntryPage.htmlControl"></span>
+            </div>
+        </div>
+        <div control="salesEntryPage.popup" controlid="pnlTransactionPayPopup" style="display:none">
+            <span class="label">Tray Transaction Details</span>
+            <div control="salesEntryPage.grid" controlid="grdTray"></div>
+            <div style="font-size: 16px; margin-bottom: 30px">
+                <span style="font-size:16px">
+                        <b>Balance Tray : </b>
+                    </span>
+                <span class="label-value" controlId="lblBalanceTray" id="lblBalanceTray" name="lblBalanceTray" control="salesEntryPage.htmlControl"></span>
+            </div>
+        </div>
+        <div control="salesEntryPage.popup" controlid="pnlSalesPopup" style="display:none">
+            <div style="width:100%;display: inline-block; ">
+                <input type="button" value="Save" control="salesEntryPage.primaryWriteButton" controlid="btnSaveSales" event="click:btnSaveSales_click" style="float: right" />
+            </div>
+            <div class="detail-basic">
+                <div>
+                    <span class="label">Date</span>
+                    <input placeholder="Sale Date" controlId="txtDate" control="salesEntryPage.dateSelector" />
+                    <!--<input placeholder="Sale Date" controlId="txtDate" control="salesEntryPage.dateSelector"/>-->
+                </div>
+                <div>
+                    <span class="label" controlId="lblItem" control="salesEntryPage.htmlControl">Items </span>
+                    <select type="text" controlId="ddlItem" control="salesEntryPage.dropDownList"></select>
+                </div>
+                <div>
+                    <span class="label">Price</span>
+                    <input type="text" control="salesEntryPage.textBox" controlid="txtPrice" />
+                </div>
+                <div>
+                    <span class="label">Quantity</span>
+                    <input type="text" control="salesEntryPage.textBox" controlid="txtQuantity" />
+                </div>
+                <div>
+                    <span class="label">Total Amount</span>
+                    <input type="text" control="salesEntryPage.textBox" controlid="txtAmount" />
+                </div>
+            </div>
+        </div>
+        <div control="salesEntryPage.popup" controlid="pnlPaymentPopup" style="display:none">
+            <div style="width:100%;display: inline-block;">
+                <input type="button" value="Save" control="salesEntryPage.primaryWriteButton" controlid="btnSavePayment" event="click:btnSavePayment_click" style="float: right" />
+            </div>
+            <div class="detail-basic">
+                <div>
+                    <span class="label">Date</span>
+                    <input placeholder="Pay Date" controlId="txtDate1" control="salesEntryPage.dateSelector" />
+                </div>
+                <div>
+                    <span class="label">Amount</span>
+                    <input type="text" control="salesEntryPage.textBox" controlid="txtAmount1" />
+                </div>
+            </div>
+        </div>
+        <div controlId="pnlTrayPopup" control="salesEntryPage.popup" style="display:none">
+            <div style="width:100%;margin-bottom:10px;display: inline-block;">
+                <span class="label-value" controlId="lblAndroidInfo"  control="salesEntryPage.htmlControl"></span><br />
+
+                <input value="Save" style="float:right;" controlId="btnTransactionPayOK" control="salesEntryPage.primaryWriteButton" event="click:btnTransactionPayOK_click" />
+            </div>
+            <div class="detail-basic detail-full " controlId="pnlTrayShow" control="salesEntryPage.htmlControl">
+                <div>
+                    <span class="label" controlId="lblTray" control="salesEntryPage.htmlControl">Tray </span>
+                    <select type="text" controlId="ddlTray" control="salesEntryPage.dropDownList"></select>
+                </div>
+                <div style="">
+                    <span class="label">Current Stock  </span>
+                    <span class="label-value" controlId="lblCustomerStock" id="lblTotalPaidToday" name="lblTotalPaidToday" control="salesEntryPage.htmlControl"></span>
+
+                </div>
+                <div style="">
+                    <span class="label">Tray In </span>
+                    <input type="text" controlId="txtTrayIn" control="salesEntryPage.textBox">
+                </div>
+                <div style="">
+                    <span class="label">Tray Out </span>
+                    <input type="text" controlId="txtTrayOut" control="salesEntryPage.textBox">
+                </div>
+                <div>
+                    <span class="label">Transaction Date *</span>
+                    <input controlId="dsBillPayDate" control="salesEntryPage.dateSelector" />
+                </div>
+            </div>
+        </div>
+        <div control="salesEntryPage.popup" controlid="pnlMyTransactionPopup" style="display:none">
+            <span class="label">My Transaction Details</span>
+            <div>
+                <span class="label">Tray Name  </span>
+                <select controlId="ddlTray1" control="salesEntryPage.dropDownList"></select>
+            </div>
+            <div class="detail-basic">
+                    <span class="label"><b>Manage Egg Tray</b></span>
+                    <div style="">
+                        <span class="label">Tray No</span>
+                        <span class="label-value" controlId="lblTrayNo" control="salesEntryPage.htmlControl"></span>
+                    </div>
+
+                    <div style="">
+                        <span class="label">Tray Name</span>
+                        <span class="label-value" controlId="lblTrayName" control="salesEntryPage.htmlControl"></span>
+                    </div>
+
+                    <div style="">
+                        <span class="label">Tray Total Count</span>
+                        <span class="label-value" controlId="lblTrayTotalCount" control="salesEntryPage.htmlControl"></span>
+                    </div>
+
+                    <div style="">
+                        <span class="label">Current Stock</span>
+                        <span class="label-value" controlId="lblTrayCount" control="salesEntryPage.htmlControl"></span>
+                    </div>
+                </div>
+
+                <span class="label"><b>My Transactions</b></span>
+            <div style="width:100%; overflow-x:auto; overflow-y:hidden;margin-top:10px">
+                <div class="itemGrid" control="salesEntryPage.grid.grid" controlid="grdTransactions"></div>
+            </div>
+        </div>
+    </div>
+            
+</body>
+
+</html>

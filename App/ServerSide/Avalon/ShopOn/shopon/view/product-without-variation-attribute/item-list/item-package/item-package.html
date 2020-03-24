@@ -1,0 +1,27 @@
+﻿<div control="itemPackage.messagePanel" controlid="msgPanel" class="message-panel" style="display:none">
+</div>
+<div class="row" style="margin-top:10px;">
+    <div class="col-xs-6">
+        <span class="header-label" rlabel="Item Package" controlId="Item Package" control="itemPackage.label">Item Package</span>
+    </div>
+
+    <div class="col-xs-6">
+        <input style="float:right;margin-left:10px;margin-top:2px" type="button" event="click:btnSavePackage_click" control="itemPackage.secondaryButton" controlid="btnSavePackage" value="Save" rlabel="Save">
+        <span style="padding-left: 5px;padding-right: 5px; margin-top: 6px;float:right" id="line1"> |</span>
+        <input style="float:right;margin-top:2px" type="button" event="click:btnNewPackage_click" control="itemPackage.secondaryButton" controlid="btnNewPackage" value="New" rlabel="New">
+    </div>
+</div>
+<div class="row col-xs-12" style="display:none;" control="itemPackage.htmlControl" controlid="pnlProductDetails">
+    <span class="label col-xs-12 col-lg-1" rlabel="Total Count">Total Count</span>
+    <input class="col-xs-12 col-lg-3" type="number" rlabel="Item Count" controlId="txtItemCount" control="itemPackage.textBox" name="Item Count" />
+    <span class="label col-xs-12 col-lg-1">&nbsp;</span>
+    <span class="label col-xs-12 col-lg-1" rlabel="Items" controlId="lblItemName" control="itemPackage.label">Item Name</span>
+    <input class="col-xs-12 col-lg-4" rlabel="Name" controlId="txtProductName" control="itemPackage.autoCompleteList" name="Item Name"/>
+    <input style="margin-left:10px" type="button" event="click:btnAddItem_click" control="itemPackage.secondaryButton" controlid="btnAddItem" value="Add" rlabel="Add">
+</div>
+<div class="row col-xs-12" style="margin-top:10px;">
+    <div style="width:100%;overflow-x:auto; overflow-y:hidden;">
+        <div controlId="grdItemPackage" control="itemPackage.grid"> </div>
+    </div>
+</div>
+

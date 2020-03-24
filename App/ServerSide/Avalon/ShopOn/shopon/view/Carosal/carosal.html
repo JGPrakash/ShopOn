@@ -1,0 +1,136 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+
+
+    <script src="/config/config.js" type="text/javascript"></script>
+    <script type="text/javascript">
+
+
+        document.write('<script src="/'+ appConfig.root + '/core/master.js" type="text/javascript" > <\/script> ');
+        document.write('<link href="/' + appConfig.root + '/shopon/view/Carosal/carosal.css" rel="stylesheet" />');
+        document.write('<script src="/' + appConfig.root + '/shopon/view/Carosal/carosal.js"><\/script>');
+        document.write('<script src="/' + appConfig.root + '/shopon/service/carosal-api.js"><\/script>');
+        document.write('<script src="/' + appConfig.root + '/shopon/service/carosal-item-api.js"><\/script>');
+        document.write('<script src="/' + appConfig.root + '/shopon/service/collection-api.js"><\/script>');
+
+        document.write('<script src="/' + appConfig.root + '/shopon/service/w3data/w3data.js"><\/script>');
+        //Tamil Font
+        document.write('<script src="/' + appConfig.root + '/core/tamil-common.js" type="text/javascript" > <\/script> ');
+        document.write('<script src="/' + appConfig.root + '/core/tamil.js" type="text/javascript" > <\/script> ');
+        document.write('<script src="/' + appConfig.root + '/shopon/service/product/sales-item-api.js?version=' + appConfig.app_version + '" type="text/javascript"><\/script>');
+
+    </script>
+
+</head>
+
+
+<body control="page.carosalPage" controlId="carosalPage">
+
+
+
+    <div control="carosalPage.masterPage" controlId="masterPage"></div>
+    <div style="margin-top:40px">
+
+        <!--Load Content Area-->
+        <div class="container-fluid">
+
+
+            <div class="content-area row">
+                <div control="carosalPage.messagePanel" controlid="msgPanel" class="message-panel" style="display:none">
+                </div>
+                <div class="search-panel col-sm-4" default-button="btnSearch">
+
+                    <div class="search-action">
+                        <hr>
+                        <input type="button" value="Search" rlabel="Search" control="carosalPage.primaryReadButton" controlId="btnSearch" event="click:btnSearch_click" />
+
+                    </div>
+
+                    <div class="search-filter">
+                        <div>
+
+                            <input type="text" control="carosalPage.textBox" controlId="txtSearchInput" rlabel="Enter carosal no or name" placeholder="Enter carosal no or name">
+                        </div>
+
+
+
+                    </div>
+                    <div class="search-result">
+                        <div control="carosalPage.grid" controlId="grdSearchResult"> </div>
+                    </div>
+                    <div class="col-sm-12">
+                        <span class="label" rlabel="F1 - New"> F1 - New </span>
+                        <span class="label" rlabel="F2 - Save"> F2 - Save </span>
+                        <span class="label" rlabel="Ctrl + R - Remove"> Ctrl + R - Remove </span>
+                    </div>
+                </div>
+                <div class="detail-panel  col-sm-8">
+
+                    <div class="detail-action">
+                        <input type="button" value="New" rlabel="New" control="carosalPage.primaryReadButton" controlId="btnNew" event="click:btnNew_click" />
+
+                        <input type="button" value="Save" rlabel="Save" control="carosalPage.primaryReadButton" controlId="btnSave" event="click:btnSave_click" />
+
+                        <input type="button" value="Remove" rlabel="Remove" control="carosalPage.secondaryButton" controlId="btnDelete" event="click:btnDelete_click" />
+
+                    </div>
+
+                    <div class="detail-info container-fluid">
+                        <div class="detail-basic row col-xs-12 col-lg-6 col-sm-12 col-md-6">
+                            <span class="label row col-sm-12"><b>Details:</b></span>
+                            <div class="row">
+                                <span class="label col-sm-5" rlabel="Carosal Name">Caosal Name<span style="color:red;">*</span></span>
+                                <input class="col-sm-6" type="text" control="carosalPage.textBox" controlId="txtCarosalName">
+                            </div>
+                            <span class="col-xs-12"style="height:10px;">&nbsp;</span>
+                            <div class="row">
+                                <span class="label col-sm-5" rlabel="Collection Name">Collection Name<span style="color:red;">*</span></span>
+                                <select class="col-sm-6" control="carosalPage.dropDownList" controlid="ddlCollectionName"></select>
+                            </div>
+                        </div>
+                        <div class="image-panel col-xs-12 col-lg-6 col-sm-12 col-md-6" align="center" controlId="pnlImg" control="carosalPage.htmlControl">
+                            <div class="col-lg-12">
+                                <img id="output" style="max-width:150px; max-height:150px;" />
+                                <div class="col-md-10">
+                                    <div>
+                                        <label for="fileUpload" class="label" rlabel="Select File to Upload:">
+                                            Select File to Upload:
+                                        </label>
+
+                                        <input type="file" id="fileUpload" accept="image/*" onchange="loadFile(event)">
+                                        <br />
+                                        <input id="btnUploadFile" class="btn btn-sm btn-success" control="carosalPage.primaryReadButton" type="button" value="Upload File" rlabel="Upload File" controlid="btnUploadImage" event="click:btnUploadImage_click" />
+                                    </div>
+                                    <script>
+                                        var loadFile = function (event) {
+                                            var output = document.getElementById('output');
+                                            output.src = URL.createObjectURL(event.target.files[0]);
+                                        };
+                                    </script>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xs-12" style="display:none;">
+                            <div class="col-xs-6" style="padding:0px;margin-top:10px;display:none;">
+                                <span class="label  col-xs-12 col-lg-4">Chosse Item</span>
+                                <input class="col-xs-12 col-lg-5" rlabel="State" controlId="txtItem" control="carosalPage.autoCompleteList" />
+                                <span class="col-xs-1">&nbsp;</span>
+                                <input class="col-lg-1" value="+" controlId="btnAddItemCarosal" control="carosalPage.primaryReadButton" event="click:btnAddItemCarosal_click" />
+                            </div>
+                            <div class="col-xs-6" style="padding:0px;margin-top:10px;display:none;">
+                                <input class="col-xs-5" type="text" control="carosalPage.textBox" controlId="txtCarosalKeyword" placeholder="Keyword">
+                                <span class="col-xs-2">&nbsp;</span>
+                                <input class="col-xs-5" type="text" control="carosalPage.textBox" controlId="txtCarosalSortOrder" placeholder="Sort Order">
+                            </div>
+                            <div class="col-xs-12" style="margin-top:10px;"><div control="carosalPage.grid" controlId="grdCarosalItems"> </div></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div><br />
+
+
+</body>
+</html>

@@ -1,0 +1,55 @@
+﻿body{
+    font-family:hp-simplified-regular;
+}
+.label-para-style-4{
+    font-size: 18px !important;
+    color: #544a4a !important;
+    margin: 0 auto;
+    text-align:left;
+    padding-top:20px;
+}
+.label-para-style-1{
+    font-size: 18px !important;
+    color: #544a4a !important;
+    margin: 0 auto;
+    text-align:left;
+    padding-top:20px;
+}
+.padding-zero{
+    padding:0px;
+}
+.margin-zero{
+    margin:0px;
+}
+.label-head-style-1{
+    font-size: 50px;
+    color: #4d4d4d;
+    font-family: hp-simplified-bold;
+    text-transform: uppercase;
+    line-height: 60px;
+    font-weight: bold;
+}
+.label-style-2{
+       font-size: 22px;
+       line-height:24px;
+    }
+.link{
+    color:blue;
+}
+
+.label-para-style-2 {
+    font-size: 16px !important;
+     text-align: left !important; 
+    color: #504f4f !important;
+    line-height: 30px !important;
+}
+@media screen and (max-width:736px) {
+    .label-head-style-1{
+      font-size: 22px;
+      line-height:22px;
+    }
+    .label-style-2{
+       font-size: 14px;
+       line-height:14px;
+    }
+}

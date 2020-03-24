@@ -1,0 +1,135 @@
+﻿<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+<head>
+    <!--<base href="/ShopOn/">
+    <script src="core/master.js" type="text/javascript"></script>-->
+    <script src="/config/config.js" type="text/javascript"></script>
+    <script type="text/javascript">
+            document.write('<script src="/'+ appConfig.root + '/core/master.js" type="text/javascript" > <\/script> ');
+            document.write('<script src="/' + appConfig.root + '/shopon/service/item-hierarchy/itemCategoryAPI.js"><\/script>');
+            document.write('<script src="/' + appConfig.root + '/shopon/service/item-hierarchy/itemAttributeAPI.js"><\/script>');
+            document.write('<link href="/' + appConfig.root + '/shopon/view/Category/Category.css" rel="stylesheet" />');
+            document.write('<script src="/' + appConfig.root + '/shopon/view/Category/Category.js"><\/script>');
+            //Tamil Font
+            document.write('<script src="/' + appConfig.root + '/core/tamil-common.js" type="text/javascript" > <\/script> ');
+            document.write('<script src="/' + appConfig.root + '/core/tamil.js" type="text/javascript" > <\/script> ');
+    </script>
+</head>
+<body control="page.CategoryPage" controlId="CategoryPage">
+    <div control="CategoryPage.masterPage" controlId="masterPage"></div>
+    <div style="margin-top:40px">
+        <!--Load Content Area-->
+        <div class="container-fluid">
+            <div class="content-area row">
+                <div control="CategoryPage.messagePanel" controlid="msgPanel" class="message-panel" style="display:none">
+                </div>
+                <div class="search-panel col-xs-12 col-sm-4 col-md-4 col-lg-4" default-button="btnSearch">
+
+                    <div class="search-action">
+                        <hr>
+                        <input type="button" tabindex="2"  value="Search" rlabel="Search" control="CategoryPage.primaryReadButton" controlId="btnSearch" event="click:btnSearch_click" />
+                    </div>
+                    <div class="search-filter">
+                        <div>
+                            <input type="text" tabindex="1" control="CategoryPage.textBox" controlId="txtSearchInput" rlabel="Enter Category Name" placeholder="Enter Category Name">
+                        </div>
+                    </div>
+                    <div class="search-result">
+                        <div control="CategoryPage.grid" tabindex="3" controlId="grdSearchResult"> </div>
+                    </div>
+                    <div class="col-sm-12" style="margin-bottom:20px;">
+                        <span class="label"> F1 - New </span>
+                        <span class="label"> F2 - Save </span>
+                        <!--<span class="label"> Ctrl + Enter - Add Attribute </span>-->
+                        <span class="label"> Ctrl + R - Remove </span>
+                    </div>
+                </div>
+                <div class="detail-panel col-xs-12 col-sm-8 col-md-8 col-lg-8">
+                    <div class="detail-action">
+                        <input type="button" value="New" tabindex="4" rlabel="New" control="CategoryPage.primaryWriteButton" controlId="btnNew" event="click:btnNew_click" />
+                        <input type="button" value="Save" tabindex="11" rlabel="Save" control="CategoryPage.primaryWriteButton" controlId="btnSave" event="click:btnSave_click" />
+                        <input type="button" value="Remove" tabindex="12" rlabel="Remove" control="CategoryPage.secondaryButton" controlId="btnDelete" event="click:btnDelete_click" />
+                    </div>
+                    <div class="detail-info container-fluid">
+                        <div class="detail-basic row">
+                            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                                <span class="label col-xs-12 col-sm-12 col-md-12 col-lg-12" rlabel="Details" style="font-size: 18px;"><b>Category Details:</b></span>
+                            </div>
+                            <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+                                <span class="label col-xs-12 col-sm-5 col-md-5 col-lg-5">Category Name <span style="color:red;">*</span></span>
+                                <input class="col-xs-12 col-sm-12 col-md-7 col-lg-7" type="text" control="CategoryPage.textBox" controlId="txtCategoryName">
+                            </div>
+                            <span class="col-xs-12">&nbsp;</span>
+                            <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6" style="margin-top:10px;">
+                                <span class="col-xs-12 col-sm-5 col-md-5 col-lg-5 header-label">Values</span>
+                                <input type="text" class="col-xs-12 col-sm-12 col-md-7 col-lg-7" control="CategoryPage.textBox" controlId="txtCaterogyValue" placeholder="Values" />
+                            </div>
+                            <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6" style="margin-top:10px;">
+                                <input type="button" value="+" control="CategoryPage.primaryWriteButton" controlId="btnAddCaterogyValue" event="click:btnAddCaterogyValue_click" />
+                                <input type="button" value="(New)" control="CategoryPage.secondaryButton" controlId="btnNewCategoryValue" event="click:btnNewCategoryValue_click" style="margin-left:10px;" />
+                            </div>
+                            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12" style="">
+                                <div control="CategoryPage.grid" controlId="grdCategoryValue"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <br />
+    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 margin-bottom-5" style="display:none;">
+        <span class="label col-xs-12 col-sm-5 col-md-5 col-lg-5" rlabel="Seq No">Seq No <span style="color:red;">*</span></span>
+        <input class="col-xs-12 col-sm-12 col-md-7 col-lg-7" tabindex="5" type="text" control="CategoryPage.textBox" controlId="txtSeqNo">
+    </div>
+    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 margin-bottom-5" controlid="pnlParentCategory" style="display:none" control="CategoryPage.htmlControl">
+        <span class="label col-xs-12 col-sm-5 col-md-5 col-lg-5" rlabel="Parent Category">Parent Category</span>
+        <select class="col-xs-12 col-sm-12 col-md-7 col-lg-7" tabindex="7" control="CategoryPage.dropDownList" controlid="ddlParentCategory">
+            <option>Select</option>
+            <option>Category 1</option>
+            <option>Category 2 </option>
+        </select>
+    </div>
+    <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6" style="display:none;">
+        <span class="label col-xs-12 col-sm-5 col-md-5 col-lg-5" rlabel="Category Image" style="/*margin-top: 30px;*/">Category Image</span>
+        <div class="image-panel col-xs-12 col-sm-12 col-md-7 col-lg-7" align="center" controlid="pnlImg" control="CategoryPage.htmlControl" style="margin-top:10px;">
+            <img control="CategoryPage.htmlControl" controlId="outputImg" id="output" style="max-width:90%; max-height:100px;" />
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                <label for="fileUpload_patient_details">
+                    Select File to Upload
+                </label>
+                <input type="file" id="fileUpload" accept="image/*" tabindex="6" onchange="loadFile(event)" style="border-color:#ffffff">
+                <br>
+            </div>
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                <input id="action-upload-button" style="display:none;" class="primaryReadButton" control="CategoryPage.primaryReadButton" type="button" value="Upload File" controlid="btnUploadPatientImage" event="click:btnUploadPatientImage_click">
+            </div>
+            <script>
+                                        var loadFile = function (event) {
+                                            var output = document.getElementById('output');
+                                            output.src = URL.createObjectURL(event.target.files[0]);
+                                        };
+            </script>
+        </div>
+    </div>
+    <div class="col-xs-12" style="display:none;">
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12" id="bottom">
+            <span class="label col-xs-12 col-sm-6 col-md-8 col-lg-8" rlabel="Attributes" style="font-size: 18px;">Attributes</span>
+            <input value="+" control="CategoryPage.primaryWriteButton" class="col-xs-2 col-sm-2 col-md-1 col-lg-1" tabindex="9" controlId="btnAddAttributes" event="click:btnAddAttributes_click" type="button" style="float: right;width: 31px;">
+            <select class="col-xs-10 col-sm-4 col-md-3 col-lg-3" tabindex="8" control="CategoryPage.dropDownList" controlid="ddlAttributes" id="ddlAttributes" style="float: right;margin-right: 1%;">
+                <option>Select</option>
+                <option>Attribute 1</option>
+                <option>Attribute 2 </option>
+            </select>
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12" style="">
+            <div control="CategoryPage.grid" controlId="grdCatattribute" tabindex="10"></div>
+        </div>
+    </div>
+</body>
+</html>

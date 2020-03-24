@@ -1,0 +1,328 @@
+.grid_bill_footer {
+
+    background: var(--grid-header-color);
+    border-bottom: 1px solid lightgray;
+    display: inline-block;
+    height: auto;
+    vertical-align: middle;
+    width: 100%;
+    font: var(--grid-header-font);
+    min-height: 25px;
+    font-weight: 300;
+
+}
+  .showcss{ display:block;}
+  .hidecss{ display:none;}
+.grid_bill_footer > div {
+    display: inline-block;
+    margin: 5px 6px 2px;
+}
+
+.main-action-panel {
+    display: inline-block;
+    /* margin-left: 0 !important;
+    position: relative;*/
+    width: 100%;
+}
+
+.main-action-panel>input[controlid="btnNewBill"] {
+    float: left;
+}
+
+.main-action-panel>input[controlid="btnReturnBill"] {
+    float: right;
+}
+
+.content-area>div {
+    display: inline-block;
+    width: 100%;
+}
+
+.content-area {
+    height:auto;
+}
+
+div[controlId=grdTouchAdvSearchItem] .grid_data > div {
+   
+    width: 25%;
+    font-size:smaller;
+    background-color: white;
+}
+.payment-label{
+    /*padding:0px;*/
+}
+.left-panel{
+    vertical-align: baseline;
+    box-sizing: border-box;
+    margin-left: -20px;
+    padding: 20px;
+}
+.right-panel{
+    box-sizing: border-box;
+    margin-left: -20px;
+    padding: 20px;
+}
+
+.top-panel{
+    vertical-align: baseline;
+    box-sizing: border-box;
+    margin-left: -20px;
+    padding: 20px;
+}
+.shopon_grid_header {
+    background-color: whitesmoke;
+    border-bottom: 1px solid lightgray;
+    display: inline-block;
+    font-weight: bold;
+    height: 35px;
+    width: 100%;
+}
+
+.shopon_grid_header>div {
+    display: inline-block;
+    float: left;
+    height: 100%;
+    margin-left: 10px;
+    width: 30px;
+}
+
+.shopon_grid_header>div>span {
+    margin: 10px auto auto;
+    vertical-align: bottom;
+}
+
+.shopon_grid_header>div:first-child>input {
+    margin: 10px auto auto;
+    vertical-align: bottom;
+}
+
+.shopon_grid_row {
+    height: 35px;
+}
+
+.shopon_grid_template {
+    display: none;
+}
+
+.shopon_grid_row {
+    display: inline-block;
+}
+
+.shopon_grid_row>div {
+    display: inline-block;
+    float: left;
+    height: 100%;
+    margin-left: 10px;
+    width: 50px;
+}
+
+.shopon_grid_row>div:first-child>input[type="checkbox"] {
+    margin: 10px auto auto;
+    vertical-align: bottom;
+}
+
+.shopon_grid_row>div>input[type="text"] {
+    border: medium none;
+    box-shadow: none;
+    display: inline-block;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+}
+
+.shopon_grid_row>div>input[type="text"]:focus {
+    border-color: #66afe9;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset, 0 0 8px rgba(102, 175, 233, 0.6);
+    outline: 0 none;
+}
+input[controlid="pnlManualDiscountPopUp"] {
+    position: absolute;
+    height: auto;
+    width: 300px;
+    top: 261.008px;
+    left: 704.012px;
+    display: block;
+    z-index: 102;
+}
+.shopon_grid_row>div>div {
+    display: inline-block;
+    margin: 10px auto auto;
+}
+
+input[controlid="btnDeleteBill"] {
+    float: right;
+    margin-left: 10px;
+}
+
+input[controlid="btnPrintBill"] {
+    float: right;
+    margin-left: 10px;
+}
+.grid input[type="checkbox"]{
+    /*display:none;*/
+}
+.advanceSearch{
+    display:none;
+}
+.qrscan{
+    background-image:url("BackgroundImage/qr-code.png");
+    height:50px;
+}
+input[controlid="btnPayment1"] {
+    background:transparent;
+    border:none;
+}
+input[controlid="btnPayment2"] {
+    background:transparent;
+    border:none;
+}
+input[controlid="btnPayment3"] {
+    background:transparent;
+    border:none;
+}
+input[controlid="btnPayment4"] {
+    background:transparent;
+    border:none;
+}
+.payment-panel{
+    margin-top:5px;
+}
+#prdItemName span{
+    font-size:14px;
+}
+
+.pending-style-1{
+    font-size: 20px !important;
+    word-break: break-word !important;
+    white-space: pre-wrap !important;
+    font-weight:bold !important;
+}
+/*#orgTblItem >tbody >tr > td,#dupTblItem >tbody >tr > td{
+    border-left: 1px solid #ddd;    padding: 8px;    text-align: left;    border-right: 1px solid #ddd;}
+#orgTblItem{
+    border:5px;
+}*/
+/*
+.sales-cust-panel {
+   /* background-color: whitesmoke;
+    border: 1px solid lightgray;
+    box-shadow: 1px 1px 1px lightgray;*/
+  /*  display: inline-block;
+    margin: 10px;
+    padding-top: 5px;
+    height: 180px;
+    width: 100%;
+}
+
+.sales-cust-panel input[controlid="txtCustomerName"] {
+    width: 25px;
+}
+
+.sales-cust-panel input[controlid="txtCustomerName"] {
+    background-color: #fbfbfb;
+    border: 1px solid lightgray;
+    color: dimgray;
+    line-height: 25px;
+    padding: 2px 6px;
+    float: left;
+    margin-right: 10px;
+}
+
+.sales-cust-panel>div:last-of-type {
+}
+.sales-cust-panel>div {
+    display: inline-block;
+    float: left;
+    margin-top: 3px;
+}
+
+.sales-cust-panel span {
+}
+
+.sales-cust-panel .label {text-align: right;float: left;margin-left: 20px;}
+
+.sales-item-search {
+    display: inline-block;
+    margin-bottom: 0px;
+    margin-top: 0px;
+    padding-top: 10px;
+}
+
+.sales-item-search input:first-of-type {
+    width: 314px;
+}
+
+.sales-item-search input:last-of-type {
+    margin-right: 10px;
+}
+
+.sales-item-search span {
+    font-weight: bold;
+}
+
+.sales-summary-panel {
+    /*background-color: whitesmoke;
+    border: 1px solid lightgrey;
+    box-shadow: 1px 1px 1px lightgray;*/
+ /*   float: right;
+    text-align: center;
+    margin: 10px;
+    width: 100%;
+    height: 180px;
+}
+
+.sales-summary-panel div {
+    display: inline-block;
+    padding: 5px 5px;
+    width: 100%;
+}
+
+.sales-summary-panel .label {
+    display: inline-block;
+    font-weight: bold;
+    text-align: right;
+    font-size: 20px;
+}
+
+.sales-summary-panel .label-value {
+    color: gray;
+    display: inline-block;
+    font-size: 16px;
+    font-weight: bold;
+    margin-left: 20px;
+    text-align: left;
+}
+
+.sales-summary-panel>div:last-of-type>.label {
+    color: black;
+    font-size: 22px;
+    vertical-align: inherit;
+}
+
+.sales-summary-panel>div:last-of-type>.label-value {
+    color: black;
+    font-size: 22px;
+}
+
+input[controlid=btnPayment] {
+    height: 35px;
+}
+input[controlid=btnReturn] {
+    height: 40px;
+}
+
+.sales-summary-panel .buttonSearch {
+    font-size: 20px;
+    font-weight: bold;
+    padding: 10px;
+}
+
+.sales-item-panel {
+    width: 100%;
+    float: left;
+    font-size: 12px;
+    height: auto;
+    padding: 10px;
+}padding: 10px;
+}

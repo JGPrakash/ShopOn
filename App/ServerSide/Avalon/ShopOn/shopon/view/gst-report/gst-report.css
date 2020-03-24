@@ -1,0 +1,134 @@
+﻿
+.search-panel {
+    width: 280px;
+}
+.search-action hr {
+    width: calc(100% - 70px);
+}
+.search-filter > div .label {
+    width: 90px;
+}
+.search-filter > div input {
+    width: 160px;
+}
+.search-filter > div select {
+    width: 165px;
+}
+.detail-action > hr {
+    width: calc(100% - 130px);
+}
+.detail-action > [controlid="btnCopyAcademic"] {
+    float: right;
+    margin-top: 6px;
+    padding: 0;
+}
+.tab-panels {
+    height: 500px;
+    width: 100%;
+}
+.grid-action hr {
+    width: calc(100% - 300px);
+}
+.fee-panel .grid-action hr {
+    width: calc(100% - 240px);
+}
+.detail-basic {
+    margin-left: 25%;
+    margin-top: 10px;
+}
+.detail-basic input {
+    width: 180px;
+}
+.detail-basic select {
+    width: 185px;
+}
+.detail-basic .label {
+    width: 120px;
+}
+#groupbycust{
+    font-size:20px;
+    /*text-transform:uppercase;*/
+}
+.summary-report{
+    margin-top: 10px;
+    padding-top: 10px;
+    border-top: 1px solid #0000002b;
+    /* margin-bottom: 10px; */
+    padding-bottom: 10px;
+    border-bottom: 1px solid #0000002b;
+}
+
+.summary-panel{
+    margin-top: 10px;
+    padding-top: 10px;
+    border-top: 1px solid #0000002b;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #0000002b;
+    font-size:16px;
+}
+.summary-panel h2{
+    font-size: 18px;
+    padding: 0px;
+    margin: 0px;
+    font-weight: bold;
+}
+.summary-panel h3{
+    font-size: 16px;
+    font-weight: bold;
+    padding:0px;
+}
+.summary-panel span{
+    float:left;
+    text-align:right;
+    width: calc(30% - 5px );
+    margin-right:5px;
+    margin-top:4px;
+    overflow: hidden;
+    font-size:16px;
+}
+.summary-panel input{
+    float:left;
+    width:70%;
+}
+.summary-panel p{
+    float:left;
+    width:70%;
+    padding-top:5px;
+}
+@media all {
+    .page-break { display: none; }
+}
+
+@media print {
+    .page-break { display: block; page-break-before: always; }
+}
+.container .row >div{
+    float: left;
+    margin-bottom: 5px;
+    min-height: 35px;
+}
+.tab li a {
+    border: 0px solid;
+}
+    .tab li {
+    background: var(--tab-back-color);
+    border: 0px solid;
+    color: var(--tab-color);
+    cursor: pointer;
+    display: inline-block;
+    margin-top: 3px;
+    padding: 5px;
+    text-decoration: none;
+    font: var(--tab-header-font);
+    
+}
+.tab li a.tabSelected {
+        border-bottom: 3px solid #0E4BE4;
+        outline: none;
+}
+.tab li a:hover {
+        outline: none;
+}
+.B2CLInvoices .selected{
+    background-color:red;
+}

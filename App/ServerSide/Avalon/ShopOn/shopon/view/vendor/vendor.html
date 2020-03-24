@@ -1,0 +1,175 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+
+
+    <script src="/config/config.js" type="text/javascript"></script>
+    <script type="text/javascript">
+
+
+        document.write('<script src="/'+ appConfig.root + '/core/master.js" type="text/javascript" > <\/script> ');
+        document.write('<link href="/' + appConfig.root + '/shopon/view/vendor/vendor.css" rel="stylesheet" />');
+        document.write('<script src="/' + appConfig.root + '/shopon/view/vendor/vendor.js"><\/script>');
+        document.write('<script src="/' + appConfig.root + '/shopon/service/vendor/vendor-api.js"><\/script>');
+
+
+       document.write('<script src="/' + appConfig.root + '/shopon/service/w3data/w3data.js"><\/script>');
+       //Tamil Font
+       document.write('<script src="/' + appConfig.root + '/core/tamil-common.js" type="text/javascript" > <\/script> ');
+       document.write('<script src="/' + appConfig.root + '/core/tamil.js" type="text/javascript" > <\/script> ');
+    </script>
+
+</head>
+
+
+<body control="page.vendorPage" controlId="vendorPage">
+
+
+
+    <div control="vendorPage.masterPage" controlId="masterPage"></div>
+    <div style="margin-top:40px">
+
+        <!--Load Content Area-->
+        <div class="container-fluid">
+
+
+            <div class="content-area row">
+                <div control="vendorPage.messagePanel" controlid="msgPanel" class="message-panel" style="display:none">
+                </div>
+                <div class="search-panel col-sm-4" default-button="btnSearch">
+
+                    <div class="search-action">
+                        <hr>
+                        <input type="button" value="Search" rlabel="Search"  control="vendorPage.primaryReadButton" controlId="btnSearch" event="click:btnSearch_click" />
+                    </div>
+                    
+                    <div class="search-filter">
+                        <div>
+                            <input type="text" rlabel="Enter supplier no or name" placeholder="Enter supplier no or name" control="vendorPage.textBox" controlId="txtSearchInput">
+                        </div>
+                    </div>
+                    <div class="search-result">
+                        <div control="vendorPage.grid" controlId="grdSearchResult"> </div>
+                    </div>
+                    <div class="col-sm-12 padding-left-zero">
+                        <span class="label" rlabel="F1 - New"> F1 - New </span>
+                        <span class="label" rlabel="F2 - Save"> F2 - Save </span>
+                        <span class="label" rlabel="Ctrl + R - Remove"> Ctrl + R - Remove </span>
+                    </div>
+                </div>
+                <div class="detail-panel  col-sm-8">
+                    <div class="detail-action">
+                        <input type="button" value="New" rlabel="New" control="vendorPage.primaryReadButton" controlId="btnNew" event="click:btnNew_click" />
+                        <input type="button" value="Save" rlabel="Save" control="vendorPage.primaryReadButton" controlId="btnSave" event="click:btnSave_click" />
+                        <input type="button" value="Remove" rlabel="Remove" control="vendorPage.secondaryButton" controlId="btnDelete" event="click:btnBeforeDelete_click" style="margin-right: 0px;" />
+                        <span style="padding-left: 5px;padding-right: 5px; margin-top: 5px;float:left;">|</span>
+                        <input type="button" value="Report" rlabel="Report" control="vendorPage.secondaryButton" controlId="btnReport" event="click:btnReport_click" />
+                    </div>
+                    
+                    <div class="detail-info container-fluid">
+                        <div class="detail-basic row">
+                            <span class="label col-xs-12 header-style-1" rlabel="Supplier Details">Supplier Details</span>
+                            <div class="col-sm-6 padding-left-zero">
+                                <span class="label col-sm-4" rlabel="Supplier Name"> Supplier Name<span style="color:red;">*</span></span>
+                                <input class="col-sm-8" type="text" control="vendorPage.textBox" controlId="txtVendorName" placeholder="Supplier Name">
+                            </div>
+                            <div class="col-sm-6 padding-left-zero">
+                                <span class="label col-sm-4" rlabel="Mobile no">Mobile no</span>
+                                <input  class="col-sm-8" type="text" control="vendorPage.textBox" controlId="txtPhoneno" maxlength="10" placeholder="Mobile No">
+                            </div>
+                            <div class="col-sm-6 padding-left-zero">
+                                <span class="label col-sm-4" rlabel="Landline no">Landline no</span>
+                                <input class="col-sm-8" type="text" control="vendorPage.textBox" controlId="txtLandline" maxlength="15" placeholder="Landline no">
+                            </div>
+                            <div class="col-sm-6 padding-left-zero">
+                                <span class="label col-sm-4" rlabel="Email">Email</span>
+                                <input class="col-sm-8" type="text" control="vendorPage.uniqueTextBox" controlId="txtEmail" placeholder="Email" >
+                            </div>
+                            <div class="col-sm-6 padding-left-zero" style="display:none;">
+                                <span class="label col-sm-4" rlabel="Created Date">Created Date</span>
+                                <span class="col-sm-8"  control="vendorPage.labelValue" controlid="lblCreatedDate" id="lblCreatedDate" name="lblCreatedDate"></span>
+                            </div>
+                            <div class="col-sm-6 padding-left-zero">
+                                <span class="label col-sm-4" rlabel="Supplier">Supplier</span>
+                                <span class="col-sm-8"><input type="checkbox" controlId="chkActive" control="vendorPage.chkBox" name="active_comm"><span class="label" style="margin-top:-22px;margin-left:5px;">Active</span></span>
+                            </div>
+                            <span class="label col-xs-12 header-style-1" rlabel="Address Details">Address Details</span>
+                            <div class="col-sm-6 padding-left-zero">
+                                <span class="label col-sm-4" rlabel="Address">Address</span>
+                                <input class="col-sm-8" type="text" control="vendorPage.textBox" controlId="txtAddress" placeholder="Address">
+                            </div>
+                            <div class="col-sm-6 padding-left-zero">
+                                <span class="label col-sm-4" rlabel="Area">Area</span>
+                                <input class="col-sm-8" type="text" control="vendorPage.textBox" controlId="txtArea" placeholder="Area" >
+                            </div>
+                            <div class="col-sm-6">
+                                <span class="label col-sm-12"></span>
+                            </div>
+                            <div class="col-sm-6">
+                                <span class="label col-sm-12"></span>
+                            </div>
+                            <span class="label col-xs-12 header-style-1" rlabel="Bank Details">Bank Details</span>
+                            <div class="col-sm-6 padding-left-zero">
+                                <span class="label col-sm-4" rlabel="Bank Name">Bank Name</span>
+                                <input class="col-sm-8" type="text" control="vendorPage.textBox" controlId="txtBankName" placeholder="Bank Name">
+                            </div>
+                            <div class="col-sm-6 padding-left-zero">
+                                <span class="label col-sm-4" rlabel="Account no">Account no</span>
+                                <input class="col-sm-8" type="text" control="vendorPage.textBox" controlId="txtAccountNo" placeholder="Account no">
+                            </div>
+                                <div class="col-sm-6 padding-left-zero">
+                                    <span class="label col-sm-4" rlabel="IFSC Code">IFSC Code</span>
+                                    <input class="col-sm-8" type="text" control="vendorPage.textBox" controlId="txtIFSCCode" placeholder="IFSC Code">
+                                </div>
+                            <div class="col-sm-6 padding-left-zero">
+                                <span class="label col-sm-4" rlabel="GST No">GST No</span>
+                                <input class="col-sm-8" type="text" control="vendorPage.textBox" controlId="txtgstno" placeholder="GST No">
+                            </div>
+                            <div class="col-sm-6 padding-left-zero">
+                                <span class="label col-sm-4" rlabel="TIN No">TIN No</span>
+                                <input class="col-sm-8" type="text" control="vendorPage.textBox" controlId="txtTinNo" placeholder="TIN No">
+                            </div>
+                            <div class="col-sm-6 padding-left-zero">
+                                <span class="label col-sm-4" rlabel="D.LNo">D.LNo</span>
+                                <input class="col-sm-8" type="text" control="vendorPage.textBox" controlId="txtlicenseno" placeholder="D.LNo">
+                            </div>
+                            </div>
+                    </div>
+                </div>
+                <div controlId="pnlReportPopup" control="vendorPage.popup" style="display:none">
+                    <div class="row col-sm-12">
+                        &nbsp;
+                    </div>
+                    <div class="row col-sm-12">
+                        <span class="label col-sm-4" rlabel="Export Type">Export Type</span>
+                        <select style="margin-left:15px;" class="col-sm-4" control="vendorPage.dropDownList" controlid="ddlExportType">
+                            <!--<option>PDF</option>
+                            <option>EXCEL</option>
+                            <option>WORD</option>
+                            <option>PPT</option>
+                            <option>CSV</option>
+                            <option>HTML</option>-->
+                        </select>
+                        <input class="col-xs-12 col-lg-2" style="float:right;" value="Go" rlabel="Go" controlId="btnPrintJasperBill" control="vendorPage.primaryWriteButton" event="click:btnGetReportVendor_click" />
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div controlId="pnlRemoveConfirmPopup" control="vendorPage.popup" style="display:none">
+            <div class="row col-sm-12">
+                <input style="float:right;" value="Cancel" controlId="btnRemoveConfirmPopupClose" control="vendorPage.primaryReadButton" event="click:btnRemoveConfirmPopupClose_click" />
+                <input style="float:right;padding-right:10px;" value="Ok" controlId="btnRemoveAlertPopupSave" control="vendorPage.secondaryButton" event="click:btnDelete_click" />
+            </div>
+            <span class="col-xs-12">&nbsp;</span>
+            <div class="row col-sm-12">
+                <img src="../../../ui/ui/images/alert.png" width="100%" class="col-xs-3" style="margin-top: -13px;" />
+                <span class="label-value col-xs-9" style="background:transparent;border:none;">If You Delete This Supplier It Can Be Affected On Bill</span>
+            </div>
+        </div>
+
+    </div><br />
+
+
+</body>
+</html>

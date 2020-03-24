@@ -1,0 +1,44 @@
+﻿<div class="header-area" >
+    <!-- ICON -->
+    <div controlid="pnlMenu" control="masterPage.shopOnMenu" class="menu-shopon-icon">
+        <img src="/RAC/ui/ui/images/menu_grid-128.png">
+    </div>
+
+    <!-- APP NAME -->
+    <span controlid="lblAppName" control="masterPage.secondaryButton" event="click:lblAppName_click" style="color: lightgray; font-size: 20px; font-weight: bold; font-family: -moz-fixed; margin-top: 8px; margin-left: 20px;float:left" id=""></span>
+
+
+
+    <!-- RIGHT END MENUS-->
+    <div style="display: inline-block; float: right; width: 300px;">
+        <div style="width: 100%; display: inline-block;margin-top: 3px">
+            <span controlid="lblUserName" control="masterPage.htmlControl" style="color: white; float: right;line-height:20px;  margin-right: 20px; font-size: 12px; margin-top:6px;"></span>
+            <span style="float: right; color: white; margin-top: 1px; margin-right: 5px; margin-left: 5px;line-height:20px; margin-top:4px;">|</span>
+            <input style="color: white; float: right; font-size: 14px; padding: 0px;" value="logout" controlid="btnLogout" control="masterPage.secondaryButton" event="click:btnLogout_click" />
+            <span style="color: white; float: right; font-size: 10px;padding:0px;display:none" controlid="btnTasks" control="masterPage.secondaryButton" event="click:btnTasks_click"> Tasks | &nbsp;</span>
+        </div>
+    </div>
+
+</div>
+
+<!-- Menu Box and its temeplates-->
+<div class="menu-shopon" style="display:none">
+    <!-- Place holder for menu-->
+    <div controlid="pnlMenuPlaceHolder" control="masterPage.htmlControl">
+
+    </div>
+
+    <div controlid="pnlMenuMainTeplate" control="masterPage.htmlControl" style="display:none;">
+        <div>
+            <span>{MainMenu}</span>
+            {SubMenu}
+        </div>
+    </div>
+    <div controlid="pnlMenuTeplate" control="masterPage.htmlControl" style="display:none;">
+        <div menu="{Menu}" URL="{URL}">
+            <span>{Menu}</span>
+        </div>
+    </div>
+
+
+</div>

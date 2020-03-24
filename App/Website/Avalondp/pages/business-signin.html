@@ -1,0 +1,65 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <script src="/config/config.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        document.write('<script src="/' + appConfig.greentivity_root + '/core/master.js" type="text/javascript" > <\/script> ');
+        document.write('<link href="../css/index.css" rel="stylesheet" />');
+        document.write('<link href="../css/business-signin.css" rel="stylesheet" />');
+        document.write('<script src="../js/view/business-signin.js"><\/script>');
+    </script>
+
+</head>
+
+
+<body control="page.businessSignInPage" controlId="businessSignInPage">
+    <div control="businessSignInPage.masterPage" controlId="masterPage"></div>
+    <span class="col-xs-12 top-space">&nbsp;</span>
+    
+    <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4"><span>&nbsp;</span></div>
+    <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 content-panel">
+        <h3>Sign In</h3>
+        <hr class="col-xs-12" />
+
+        <span class="text col-xs-12">Email Id Or Mobile Number<span style="color:red">*</span></span>
+        <input type="text" placeholder="Email Id Or Mobile Number" class="col-xs-12 value" control="businessSignInPage.textBox" controlId="txtUserId" />
+
+        <span class="col-xs-12">&nbsp;</span>
+
+        <span class="text col-xs-12">Password<span style="color:red">*</span>
+            <span class="attribute-button" control="businessSignInPage.htmlControl" controlId="btnShowPassword" event="click:btnShowPassword_click">Show</span>
+            <span class="attribute-button" control="businessSignInPage.htmlControl" controlId="btnHidePassword" event="click:btnHidePassword_click" style="display:none;">Hide</span>
+        </span>
+        <input type="password" placeholder="Password" class="col-xs-12 value" control="businessSignInPage.textBox" controlId="txtPassword" />
+
+        <span class="col-xs-12">&nbsp;</span>
+
+        <button class="cart-button col-xs-12" control="businessSignInPage.htmlControl" controlId="btnSignIn" event="click:btnSignIn_click">Sign In &nbsp;&nbsp;&nbsp;<i class="fa fa-arrow-right"></i></button>
+
+        <span class="col-xs-12">&nbsp;</span>
+
+        <input type="button" value="Dont have account? Register" control="businessSignInPage.htmlControl" controlId="btnSignUp" event="click:btnSignUp_click" />
+        <input type="button" value="Forget Password?" control="businessSignInPage.htmlControl" controlId="btnForgetPassword" event="click:btnForgetPassword_click" />
+
+    </div>
+    <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4"><span>&nbsp;</span></div>
+    
+    <span class="col-xs-12 space">&nbsp;</span>
+    <div class="col-xs-12 footer">
+    </div>
+
+    <div control="businessSignInPage.popup" controlid="pnlAlert" style="display:none">
+        <div class="col-xs-4">
+            <img src="../image/alert.png" width="100%" />
+        </div>
+        <div class="col-xs-8">
+            <span class="col-xs-12" control="businessSignInPage.htmlControl" controlid="lblAlertContent"></span>
+            <hr class="col-xs-12" />
+            <button class="cart-button" control="businessSignInPage.htmlControl" controlid="btnCloseAlert" event="click:btnCloseAlert_click">Ok</button>
+        </div>
+    </div>
+
+
+
+</body>
+</html>

@@ -1,0 +1,236 @@
+.txtLbl{
+    background: transparent;
+    border: none;
+    float: right;
+    text-align: right;
+    height: auto;
+    padding: 0px;
+    margin: 0px;
+    width: auto;
+    line-height: 0px;
+    color: grey;
+}
+.label-head{
+    /*font-weight: bold;*/
+    font-size: 10px;
+}
+.detail-sub-panel hr {
+    display: inline-block;
+    float: left;
+    width: calc(100% - 200px);
+    margin-top: 20px;
+    margin-left:20px;
+}
+.label-sub-title{
+    font-weight:bold;
+    text-transform:uppercase;
+}
+.detail-tab-action {
+    margin-top: 5px;
+    display: inline-block;
+   
+    width: 100%;
+}
+
+.detail-tab-action>input[type=button] {
+    margin-right: 20px;
+    border: solid 1px dimgray;
+    border-bottom: none;
+    background-color: transparent;
+    border: none;
+    outline: none;
+    font-size: 20px;
+    margin-top: 10px;
+}
+
+    .detail-tab-action > input:hover,.detail-tab-action > input:focus {
+        border-bottom:solid 1px green;
+        outline: none;
+    }
+.search-panel hr {
+    display: inline-block;
+    float: left;
+    width: calc(100% - 200px);
+    margin-top: 10px;
+}
+
+.item-detail>.basic-info {
+}
+
+.item-detail>.image-panel {
+    display: inline-block;
+    float: left;
+    margin-bottom: 20px;
+    margin-right: 10px;
+    width: 130px;
+}
+
+.item-detail>.image-panel img[controlid="imgItem"] {
+    border: 1px solid whitesmoke;
+    margin-left: 10px;
+    width: 120px;
+}
+
+.attr-panel {
+    margin-left: 140px;
+    width: calc(100% - 140px);
+}
+
+[view] {
+    display: none !important;
+}
+
+.item-invent .basic-info {
+}
+
+.simple-action {
+}
+
+.simple-action input {
+    margin-bottom: 10px;
+}
+
+[controlid="pnlContainerPage"] {
+    display: inline-block;
+}
+
+[controlid="grdItemInventory"] {
+}
+
+[controlid=grdItemSelected] {
+    margin-left: 0px;
+    margin-top: 20px;
+}
+
+@media only screen and (min-width: 500px) {
+    [controlid=grdItemSelected] {
+        margin-left: 20px;
+        margin-top: 0px;
+    }
+}
+
+.label-value {
+}
+
+[controlid="grdItemPrice"] {
+    margin-top: 10px;
+}
+.detail-action input {
+    margin-right: 0px;
+}
+input[value="Save"], input[value="New"] {
+    margin-right: 10px;
+}
+input[value="Details"], input[value="Inventory"], input[value="Price"] {
+    font-size: 18px;
+}
+.margin-top{
+    padding:0px;
+    margin-top:10px;
+    margin-bottom:0px;
+}
+select[control="itemInventory.dropDownList"] {
+    font-size: 14px;
+    font-family: Calibri;
+}
+
+
+
+div[controlid=grdVariation] .grid_header:last-child{
+
+    display:none;
+}
+
+div[controlid=grdVariation] .grid_header{
+
+    border:none;
+}
+
+ .dashed-border{
+        border: dashed 1px #544d4d;
+    padding: 10px 20px;
+}
+
+ .prd-img{
+    position: relative;
+    float: left;
+    width:  100%;
+    height: 100px;
+    background-position: 50% 50%;
+    background-repeat:   no-repeat;
+    background-size:     cover;
+}
+.prd-img-upload{
+    /*background: whitesmoke;
+    border: solid 1px #d8d2d2;*/
+    margin-right: 5px;
+    margin-top: 5px;
+    position: relative;
+    float: left;
+    width:  100%;
+    height: 100px;
+    background-position: 50% 50%;
+    background-repeat:   no-repeat;
+    background-size:     cover;
+}
+.active-img-div{
+   opacity: 1 !important;
+}
+.prd-img-upload-div{
+       /*padding-right: 5px;
+    margin-top: 5px;
+    background: whitesmoke;
+    border: solid 1px #d8d2d2;*/
+    
+    cursor: pointer;
+    height: 100px;
+    width: 100px;
+    margin: 0 2px;
+    background-color: transparent;
+    /* border-radius: 50%; */
+    display: inline-block;
+    transition: background-color 0.6s ease;
+    border: 1px solid #ddd;
+    opacity: 0.3;
+    padding: 4px;
+    background-repeat: no-repeat;
+}
+.prd-img-upload-big{
+    /*background: whitesmoke;
+    border: solid 1px #d8d2d2;*/
+    margin-right: 5px;
+    margin-top: 5px;
+    position: relative;
+    float: left;
+    width:  100%;
+    /*height: 300px;*/
+        max-height: 405px;
+    background-position: 50% 50%;
+    background-repeat:   no-repeat;
+    background-size:     cover;
+}
+.product-list:hover{
+    cursor:pointer;
+    -webkit-box-shadow: 0 10px 30px 0 rgba(58, 87, 135, .15);
+    -moz-box-shadow: 0 10px 30px 0 rgba(58, 87, 135, .15);
+    box-shadow: 0 10px 30px 0 rgba(58, 87, 135, .15);
+}
+.product-list{
+    background: white;
+    /*border: solid 1px lightgrey;*/
+}
+.grid-slider-images {
+    text-align: left;
+    /*width: 800px;*/
+}
+.grid-slider {
+    overflow-x: scroll;
+    overflow-y: hidden;
+    width: 100%;
+}
+body{
+    overflow-y: hidden;
+}
+.detail-panel{
+    padding-right:0px;
+}

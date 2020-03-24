@@ -1,0 +1,138 @@
+﻿.detail-tab-action {
+    margin-top: 15px;
+    display: inline-block;
+    border-bottom: solid 1px gray;
+    width: 100%
+}
+
+.detail-tab-action>input {
+    margin-right: 20px;
+    border: solid 1px dimgray;
+    border-bottom: none;
+}
+
+.search-panel hr {
+    display: inline-block;
+    float: left;
+    width: calc(100% - 80px);
+    margin-top: 10px;
+    ;
+}
+
+.item-detail>.basic-info {
+    width: calc(100% - 140px);
+}
+
+.item-detail>.image-panel {
+    display: inline-block;
+    float: left;
+    margin-bottom: 20px;
+    margin-right: 10px;
+    width: 130px;
+}
+
+.item-detail>.image-panel img[controlid="imgItem"] {
+    border: 1px solid whitesmoke;
+    margin-left: 10px;
+    width: 120px;
+}
+
+.attr-panel {
+    margin-left: 140px;
+    width: calc(100% - 140px);
+}
+
+[view] {
+    display: none !important;
+}
+
+.item-invent .basic-info {
+    width: 80%;
+}
+
+.simple-action {
+    display: inline-block;
+    width: 100px;
+}
+
+.simple-action input {
+    margin-bottom: 10px;
+}
+
+[controlid="pnlContainerPage"] {
+    margin-top: 20px;
+}
+
+[controlid="grdItemInventory"] {
+    margin-top: 10px;
+}
+
+[controlid=grdItemSelected] {
+    margin-left: 0px;
+    margin-top: 20px;
+}
+
+@media only screen and (min-width: 500px) {
+    [controlid=grdItemSelected] {
+        margin-left: 20px;
+        margin-top: 0px;
+    }
+}
+[controlid=btnReset]
+{
+    margin-left:20px;
+}
+.label-value {
+    background-color: lightgray
+}
+
+[controlid="grdItemPrice"] {
+    margin-top: 10px;
+}
+
+
+
+
+
+
+.detail-panel {
+    float: left;
+}
+
+.detail-panel .detail-action {
+    display: inline-block;
+    margin-bottom: 10px;
+    margin-top: 10px;
+    width: 100%;
+}
+
+.detail-panel .detail-action>hr {
+    border: 1px solid lightgray;
+    display: inline-block;
+    float: left;
+    margin-left: 10px;
+    margin-top: 13px;
+    width: calc(100% - 185px);
+}
+
+
+.detail-panel .detail-edit .tab-panels {
+    border-bottom: 1px solid gray;
+    border-left: 1px solid gray;
+    border-right: 1px solid gray;
+    height: auto;
+    margin-bottom: 20px;
+    min-height: 425px;
+}
+
+
+.grid .grid_data [type="button"]{
+    width:60px;
+}
+
+.detail-basic row div>span{
+    width:50px;
+}
+.detail-basic row div>select{
+    width:100px;
+}

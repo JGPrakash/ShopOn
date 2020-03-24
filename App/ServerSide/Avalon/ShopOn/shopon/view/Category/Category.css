@@ -1,0 +1,25 @@
+﻿
+.search-panel hr {
+    display: inline-block;
+    float: left;
+    width: calc(100% - 80px);
+    margin-top: 10px;
+    
+}
+span.label {
+    line-height: 30px;
+    vertical-align: middle;
+    display: inline-block;
+    color: var(--label-color);
+    font: var(--label-font);
+    padding-left: 0px;
+    text-align: left;
+    font-weight: bold;
+}
+
+.detail-info {
+    margin-top: 22px;
+}
+.margin-bottom-5 {
+    margin-bottom: 5px;
+}

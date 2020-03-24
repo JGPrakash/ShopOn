@@ -1,0 +1,122 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <script src="/config/config.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        document.write('<script src="/' + appConfig.greentivity_root + '/core/master.js" type="text/javascript" > <\/script> ');
+        document.write('<link href="../css/index.css" rel="stylesheet" />');
+        document.write('<link href="../css/business-signup.css" rel="stylesheet" />');
+        document.write('<script src="../js/view/business-signup.js"><\/script>');
+
+    </script>
+
+    <!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">-->
+    <!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>-->
+</head>
+
+
+<body control="page.businessSignUpPage" controlId="businessSignUpPage">
+    <div control="businessSignUpPage.masterPage" controlId="masterPage"></div>
+    <span class="col-xs-12 top-space">&nbsp;</span>
+    
+    <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4"><span>&nbsp;</span></div>
+    <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 content-panel">
+        <h3>Create Your Business Account With Us</h3>
+        <span class="notificaltion col-xs-12">Please fill all the details below</span>
+        <hr class="col-xs-12" />
+
+        <span class="text col-xs-12">User Name<span style="color:red">*</span></span>
+        <input type="text" placeholder="User Name" class="col-xs-12 value" control="businessSignUpPage.textBox" controlId="txtUserName" />
+
+        <span class="col-xs-12">&nbsp;</span>
+
+        <span class="text col-xs-12">Shop Name<span style="color:red">*</span></span>
+        <input type="text" placeholder="Shop Name" class="col-xs-12 value" control="businessSignUpPage.textBox" controlId="txtShopName" />
+
+        <span class="col-xs-12">&nbsp;</span>
+
+        <span class="text col-xs-12">Mobile Number<span style="color:red">*</span></span>
+        <input type="number" placeholder="Mobile Number" class="col-xs-12 value" control="businessSignUpPage.textBox" controlId="txtMobileNo" />
+
+        <span class="col-xs-12">&nbsp;</span>
+
+        <span class="text col-xs-12">Email Id<span style="color:red">*</span></span>
+        <input type="text" placeholder="Email Id" class="col-xs-12 value" control="businessSignUpPage.textBox" controlId="txtEmailId" />
+
+        <span class="col-xs-12">&nbsp;</span>
+
+        <span class="text col-xs-12">GST Number<span style="color:red">*</span></span>
+        <input type="text" placeholder="GST Number" class="col-xs-12 value" control="businessSignUpPage.textBox" controlId="txtGstNo" />
+
+        <span class="col-xs-12">&nbsp;</span>
+
+        <span class="text col-xs-12">Address<span style="color:red">*</span></span>
+        <textarea class="col-xs-12" rows="5" controlId="txtAddress" control="businessSignUpPage.textBox" placeholder="Address"></textarea>
+
+        <span class="col-xs-12">&nbsp;</span>
+
+        <span class="text col-xs-12">Password<span style="color:red">*</span>
+            <span class="attribute-button" control="businessSignUpPage.htmlControl" controlId="btnShowPassword" event="click:btnShowPassword_click">Show</span>
+            <span class="attribute-button" control="businessSignUpPage.htmlControl" controlId="btnHidePassword" event="click:btnHidePassword_click" style="display:none;">Hide</span>
+        </span>
+        <input type="password" placeholder="Password" class="col-xs-12 value" control="businessSignUpPage.textBox" controlId="txtPassword" />
+
+        <span class="col-xs-12">&nbsp;</span>
+
+        <span class="text col-xs-12">Retype Password<span style="color:red">*</span></span>
+        <input type="password" placeholder="Retype Password" class="col-xs-12 value" control="businessSignUpPage.textBox" controlId="txtRetypePassword" />
+
+        <span class="col-xs-12">&nbsp;</span>
+
+        <button class="cart-button col-xs-12" control="businessSignUpPage.htmlControl" controlId="btnSignUp" event="click:btnSendOTP_click">Continue &nbsp;&nbsp;&nbsp;<i class="fa fa-arrow-right"></i></button>
+
+        <span class="col-xs-12">&nbsp;</span>
+
+        <input type="button" value="SignIn" control="businessSignUpPage.htmlControl" controlId="btnSignIn" event="click:btnSignIn_click" />
+    </div>
+    <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4"><span>&nbsp;</span></div>
+    
+    <span class="col-xs-12 space">&nbsp;</span>
+    <div class="col-xs-12 footer">
+    </div>
+
+    <div control="businessSignUpPage.popup" controlid="pnlAlert" style="display:none">
+        <div class="col-xs-4">
+            <img src="../image/alert.png" width="100%" />
+        </div>
+        <div class="col-xs-8">
+            <span class="col-xs-12" control="businessSignUpPage.htmlControl" controlid="lblAlertContent"></span>
+            <hr class="col-xs-12" />
+            <button class="cart-button" control="businessSignUpPage.htmlControl" controlid="btnCloseAlert" event="click:btnCloseAlert_click">Ok</button>
+        </div>
+    </div>
+
+    <div control="businessSignUpPage.popup" controlid="pnlSuccess" style="display:none">
+        <div class="col-xs-4">
+            <img src="../image/order-success.png" width="100%" />
+        </div>
+        <div class="col-xs-8">
+            <span class="col-xs-12 success-message">You Have Successfully Registered In Avalon, We Will Reach You Soon, And Activate Your Account</span>
+            <hr class="col-xs-12" />
+            <button class="cart-button" control="businessSignUpPage.htmlControl" controlid="btnCloseSuccess" event="click:btnCloseSuccess_click">Ok</button>
+        </div>
+    </div>
+
+    <div control="businessSignUpPage.popup" controlid="pnlOTPVerification" style="display:none">
+        <div class="col-xs-12">
+            <h4 class="otp-title">OTP Verification</h4>
+            <span class="col-xs-12 success-message">Please Enter The Received OTP Number</span>
+            <hr class="col-xs-12" />
+            <input type="number" placeholder="OTP Number" control="businessSignUpPage.textBox" controlId="txtOTP" class="col-xs-12 value" />
+            <span class="col-xs-12">&nbsp;</span>
+            <button class="cart-button col-xs-12" control="businessSignUpPage.htmlControl" controlid="btnCheckOTP" event="click:btnCheckOTP_click">Sign Up</button>
+            <span class="col-xs-12">&nbsp;</span>
+            <input type="button" value="Resend OTP" control="businessSignUpPage.htmlControl" controlId="btnResendOTP" event="click:sendOTP_click" />
+        </div>
+    </div>
+
+
+</body>
+</html>

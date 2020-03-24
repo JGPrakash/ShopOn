@@ -1,0 +1,526 @@
+﻿
+<div style="margin-top:10px">
+
+    <!--Load Content Area-->
+    <div class="container-fluid">
+        <div class="content-area row">
+            <div control="subscriptionCust.messagePanel" controlid="msgPanel" class="message-panel" style="display:none"></div>
+            <!--<div class="search-panel col-sm-4" default-button="btnSearch">
+
+                <div class="search-action">
+                    <hr>
+                    <input type="button" tabindex="34" value="Search" control="subscriptionCust.primaryReadButton" controlId="btnSearch" event="click:btnSearch_click" class="" role="button">
+
+                </div>
+                <div class="search-filter">
+                    <input type="text" tabindex="32" controlId="txtSearch" control="subscriptionCust.textBox" placeholder="Enter Sub id">
+                </div>-->
+            <div controlId="pnlConnGridPopup" control="subscriptionCust.popup" style="display:none">
+                <span class="label" controlId="lblConnections" control="subscriptionCust.label" rlabel="Connections"><b>Connections</b></span>
+                <input value="Start Connection" rlabel="Start Connection" style="float:right;" control="subscriptionCust.secondaryButton" controlid="btnPnlStartConnection" event="click:btnPnlStartConnection_click">
+                <span style="float:right;margin-left:5px;margin-right:5px;margin-top:5px;">|</span>
+                <input value="Stop Connection" rlabel="Stop Connection" style="float:right;" control="subscriptionCust.secondaryButton" controlid="btnPnlStopConnection" event="click:btnPnlStopConnection_click">
+                <span style="float:right;margin-left:5px;margin-right:5px;margin-top:5px;">|</span>
+                <input value="Close Connection" rlabel="Close Connection" style="float:right;" control="subscriptionCust.secondaryButton" controlid="btnCloseConnection" event="click:btnCloseConnection_click">
+                <span style="float:right;margin-top:5px;margin-left:5px;margin-right:5px;">|</span>
+                <input value="Add Connection" rlabel="Add Connection" style="float:right;" control="subscriptionCust.secondaryButton" controlid="btnAdd" event="click:btnAdd_click">
+
+                <div class="search-result">
+                    <div control="subscriptionCust.grid" id="grdSubscription" controlid="grdSubscription"></div>
+                </div>
+            </div>
+
+            <div class="detail-panel  col-sm-8" controlId="pnlConnDetailPopup" control="subscriptionCust.popup" style="display:none; width:1230px">
+                <!--<h2><b>Connection Details</b></h2>-->
+                <span style="margin-bottom:20px;" class="label" rlabel="Details" controlId="lblDetails" control="subscriptionCust.label">Details</span>
+                <input type="button" value="Save" style="float:right;margin-bottom:20px;" control="subscriptionCust.primaryWriteButton" tabindex="65" controlid="btnSubSave" event="click:btnSubSave_click">
+                <span style="float:right;margin-top:5px;margin-left:5px;margin-right:5px;margin-bottom:20px">|</span>
+                <input value="Back"  style="float:right;margin-right:5px;margin-bottom:20px" control="subscriptionCust.secondaryButton" controlid="btnBack" event="click:btnBack_click">
+
+                <div class="detail-info">
+                    <div class="col-xs-12 col-lg-6 " style="margin-bottom:30px;">
+                        <span class="label  col-xs-12 col-lg-5" rlabel="Connection Name">Connection Name<span style="color:red;">*</span></span>
+                        <input class="col-xs-12 col-lg-7" tabindex="35" controlId="txtConnectionName" control="subscriptionCust.textBox" />
+                    </div>
+                    <!--<div class="col-xs-12 col-lg-6 " style="margin-bottom:30px;">
+                        <span class="label  col-xs-12 col-lg-5" rlabel="Start Date">Start Date<span style="color:red;">*</span></span>
+                        <input class="col-xs-12 col-lg-7" tabindex="36" controlId="dsSubConnStartDate" control="subscriptionCust.dateSelector" />
+                    </div>-->
+                    <div controlId="pnlAddSubscriptionPlan" control="subscriptionCust.htmlControl">
+                        <div class="col-xs-12 col-lg-6">
+                            <span class="label  col-xs-12 col-lg-5" rlabel="Plan">Plan<span style="color:red;">*</span></span>
+                            <select class="col-xs-12 col-lg-7" controlId="ddlSubPlan" control="subscriptionCust.dropDownList"></select>
+                        </div>
+                        <div class="col-xs-12 col-lg-6" style="">
+                            <span class="label  col-xs-12 col-lg-5" rlabel="Price">Price<span style="color:red;">*</span></span>
+                            <input type="text" controlId="txtSubPrice" rlabel="Price" placeholder="Price" control="subscriptionCust.textBox"class="col-xs-12 col-lg-7">
+                            <select class="col-xs-12 col-lg-7" controlId="ddlSubPrice" control="subscriptionCust.dropDownList" style="display:none;"></select>
+                        </div>
+                        <div class="col-xs-12 col-lg-6 " style="margin-top:20px;">
+                            <span class="label  col-xs-12 col-lg-5" rlabel="Start Date">Start Date<span style="color:red;">*</span></span>
+                            <input class="col-xs-12 col-lg-7" tabindex="36" controlId="dsSubConnStartDate" control="subscriptionCust.dateSelector" />
+                        </div>
+                        <div class="col-xs-12 col-lg-6" style="margin-top:20px;">
+                            <span class="label  col-xs-12 col-lg-5" rlabel="End Date">End Date</span>
+                            <input class="col-xs-12 col-lg-7" tabindex="36" id="dsSubSaveConnEndDate" controlId="dsSubSaveConnEndDate" control="subscriptionCust.dateSelector" />
+                        </div>
+                        <div class="col-xs-12">
+                            <input value="Generate Bill Now" style="float:right;" control="subscriptionCust.secondaryButton" controlid="btnBillNow" event="click:btnbtnBillNow_click">
+                        </div>
+                        <div class="col-xs-12 col-lg-6 " style="margin-top:10px;">
+                            <span class="label  col-xs-12 col-lg-5" rlabel="Bill Date">Bill Date<span style="color:red;">*</span></span>
+                            <select control="subscriptionCust.dropDownList" controlid="ddlSubBillDate" class="col-xs-12 col-lg-7">
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5">5</option>
+                                <option value="6">6</option>
+                                <option value="7">7</option>
+                                <option value="8">8</option>
+                                <option value="9">9</option>
+                                <option value="10">10</option>
+                                <option value="11">11</option>
+                                <option value="12">12</option>
+                                <option value="13">13</option>
+                                <option value="14">14</option>
+                                <option value="15">15</option>
+                                <option value="16">16</option>
+                                <option value="17">17</option>
+                                <option value="18">18</option>
+                                <option value="19">19</option>
+                                <option value="20">20</option>
+                                <option value="21">21</option>
+                                <option value="22">22</option>
+                                <option value="23">23</option>
+                                <option value="24">24</option>
+                                <option value="25">25</option>
+                                <option value="26">26</option>
+                                <option value="27">27</option>
+                                <option value="28">28</option>
+                                <option value="29">29</option>
+                                <option value="30">30</option>
+                                <option value="31">31</option>
+                            </select>
+                        </div>
+                        <div class="col-xs-12 col-lg-6" style="margin-top:10px;">
+                            <span class="label  col-xs-12 col-lg-5" rlabel="Payment Mode">Payment Mode<span style="color:red;">*</span></span>
+                            <select class="col-xs-12 col-lg-7" controlId="ddlSubPayMode" control="subscriptionCust.dropDownList">
+                                <option value="1">PrePaid</option>
+                                <option value="0">PostPaid</option>
+                            </select>
+                        </div>
+                        <div class="col-xs-12 col-lg-6" style="margin-top:10px;">
+                            <span class="label  col-xs-12 col-lg-5" rlabel="Store">Store<span style="color:red;">*</span></span>
+                            <select class="col-xs-12 col-lg-7" controlId="ddlSubStore" control="subscriptionCust.dropDownList">
+                            </select>
+                        </div>
+                    </div>
+                    <!--<div class="col-xs-12 col-lg-6 ">
+            <span class="label  col-xs-12 col-lg-5" >End Date</span>
+            <input class="col-xs-12 col-lg-7"  controlId="dsSubConnEndDate" control="subscriptionCust.dateSelector" />
+        </div>-->
+                    <div class=""  controlId="pnlIpDetails" control="subscriptionCust.htmlControl" style=""><!--It Is Used Only For Advertisement-->
+
+                        <span class="label col-xs-12" style="margin-bottom: 5px"><b>IP Details</b></span>
+
+                        <div class="col-xs-12 col-lg-6 ">
+                            <span class="label  col-xs-12 col-lg-5">No.of.IP's Required</span>
+                            <input class="col-xs-12 col-lg-7" tabindex="37" controlId="txtRequiredIP" control="subscriptionCust.textBox" />
+                        </div>
+                        <div class="col-xs-12 col-xs-6">
+                            <span class="label col-xs-5">Static Router</span>
+                            <div class="col-xs-6" id="pnlStaticRouting">
+                                <fieldset>
+                                    <div class="col-xs-6" tabindex="38">
+                                        <input type="radio" class="radio col-xs-3" name="x" value="y" id="radiodStaticRouterYes" style="margin:0px" />
+                                        <span class="col-xs-3" for="radiodStaticRouterYes" style="margin-top:2px;">Yes</span>
+                                    </div>
+                                    <div class="col-xs-6" tabindex="39">
+                                        <input type="radio" class="radio  col-xs-3" name="x" value="z" id="radiodStaticRouterNo" checked="checked" style="margin:0px" />
+                                        <span class="col-xs-3" for="radiodStaticRouterNo" style="margin-top:2px;">No</span>
+                                    </div>
+                                </fieldset>
+                            </div>
+                        </div>
+                        <div class="col-xs-12  col-xs-6">
+                            <span class="label col-xs-5">BGP</span>
+                            <div class="col-xs-6" id="pnlBGP">
+                                <fieldset>
+                                    <div class="col-xs-6" tabindex="40">
+                                        <input type="radio" class="radio col-xs-3" name="a" value="b" id="radiodBGPYes" style="margin:0px" />
+                                        <span class="col-xs-3" for="radiodBGPYes" style="margin-top:2px;">Yes</span>
+                                    </div>
+                                    <div class="col-xs-6" tabindex="41">
+                                        <input type="radio" class="radio col-xs-3" name="a" value="c" id="radiodBGPNo" checked="checked" style="margin:0px" />
+                                        <span class="col-xs-3" for="radiodBGPNo" style="margin-top:2px;">No</span>
+                                    </div>
+                                </fieldset>
+                            </div>
+                        </div>
+                        <!--<div class="col-xs-12 col-lg-6 ">
+                <span class="label  col-xs-12 col-lg-5" rlabel="Plan">Plan<span style="color:red;">*</span></span>
+                <input class="col-xs-12 col-lg-7" rlabel="Plan" controlId="txtPlan" tabindex="16" control="subscriptionCust.textBox" />
+            </div>-->
+
+                    </div>
+                    <div class="" style="" controlId="pnlLastMileDetails" control="subscriptionCust.htmlControl">
+
+                        <span class="label col-xs-12" style="margin-bottom: 5px"><b>Last Mile Details</b></span>
+
+                        <div class="col-xs-12 col-lg-6 ">
+                            <span class="label  col-xs-12 col-lg-5">Service Provider</span>
+                            <input class="col-xs-12 col-lg-7" tabindex="42" controlId="txtServiceProvider" control="subscriptionCust.textBox" />
+                        </div>
+                        <div class="col-xs-12 col-lg-6 ">
+                            <span class="label  col-xs-12 col-lg-5">Media</span>
+                            <input class="col-xs-12 col-lg-7" tabindex="43" controlId="txtMedia" control="subscriptionCust.textBox" />
+                        </div>
+                        <div class="col-xs-12 col-lg-6 ">
+                            <span class="label  col-xs-12 col-lg-5">Interface</span>
+                            <input class="col-xs-12 col-lg-7" tabindex="44" controlId="txtInterface" control="subscriptionCust.textBox" />
+                        </div>
+                        <div class="col-xs-12 col-lg-6 ">
+                            <span class="label  col-xs-12 col-lg-5">Equipment By</span>
+                            <input class="col-xs-12 col-lg-7" tabindex="45" controlId="txtEquipmentBy" control="subscriptionCust.textBox" />
+                        </div>
+
+                    </div>
+
+                    <div class="" style="" controlId="pnlBillingDetails" control="subscriptionCust.htmlControl">
+
+                        <span class="label col-xs-12" style="margin-bottom: 5px"><b>Billing/Collection Details</b></span>
+                        <!--   <span class="col-sm-6" style="float:right" control="subscriptionCust.secondaryButton" controlid="btnInstallationAddress" event="click:btnInstallationAddress_click">Installation Address</span>-->
+
+                        <div class="col-xs-12 col-lg-6 ">
+                            <span class="label  col-xs-12 col-lg-5">Address</span>
+                            <input class="col-xs-12 col-lg-7" tabindex="46" controlId="txtSubBillAddress" control="subscriptionCust.textBox" />
+                        </div>
+                        <div class="col-xs-12 col-lg-6 ">
+                            <span class="label  col-xs-12 col-lg-5">City</span>
+                            <input class="col-xs-12 col-lg-7" tabindex="47" controlId="txtSubBillCity" control="subscriptionCust.textBox" />
+                        </div>
+                        <div class="col-xs-12 col-lg-6 ">
+                            <span class="label  col-xs-12 col-lg-5">District</span>
+                            <input class="col-xs-12 col-lg-7" tabindex="48" controlId="txtSubBillDist" control="subscriptionCust.autoCompleteList" />
+                        </div>
+                        <div class="col-xs-12 col-lg-6 ">
+                            <span class="label  col-xs-12 col-lg-5">Pin Code</span>
+                            <input class="col-xs-12 col-lg-7" maxlength="6" tabindex="49" controlId="txtSubBillPincode" control="subscriptionCust.textBox" />
+                        </div>
+                        <div class="col-xs-12 col-lg-6 ">
+                            <span class="label  col-xs-12 col-lg-5">State</span>
+                            <input class="col-xs-12 col-lg-7" tabindex="50" controlId="txtSubBillState" control="subscriptionCust.autoCompleteList" />
+                        </div>
+                        <div class="col-xs-12 col-lg-6 ">
+                            <span class="label  col-xs-12 col-lg-5">Area</span>
+                            <input class="col-xs-12 col-lg-7" tabindex="51" controlId="txtSubBillArea" control="subscriptionCust.textBox" />
+                        </div>
+                        <div class="col-xs-12 col-lg-6 ">
+                            <span class="label  col-xs-12 col-lg-5">Contact Person</span>
+                            <input class="col-xs-12 col-lg-7" tabindex="52" controlId="txtSubBillCP" control="subscriptionCust.textBox" />
+                        </div>
+                        <div class="col-xs-12 col-lg-6 ">
+                            <span class="label  col-xs-12 col-lg-5">Email</span>
+                            <input class="col-xs-12 col-lg-7" tabindex="53" controlId="txtSubBillEmail" control="subscriptionCust.textBox" />
+                        </div>
+                        <div class="col-xs-12 col-lg-6 ">
+                            <span class="label  col-xs-12 col-lg-5">Phone</span>
+                            <input class="col-xs-12 col-lg-7" tabindex="53" max="10" controlId="txtSubBillPhone" maxlength="10" control="subscriptionCust.textBox" />
+                        </div>
+                        <div class="col-xs-12 col-lg-6" style="display:none;">
+                            <span class="label  col-xs-12 col-lg-5">Collection Type</span>
+                            <select control="subscriptionCust.dropDownList" tabindex="54" controlid="ddlSubCollectionType" class="col-xs-12 col-lg-7">
+                                <option value="Daily">Daily</option>
+                                <option value="Weekly">Weekly</option>
+                                <option value="Monthly">Monthly</option>
+                            </select>
+                        </div>
+                        <div class="col-xs-12 col-lg-6">
+                            <span class="label  col-xs-12 col-lg-5" id="pnlDays">Days</span>
+                       <!--         <input type="text" control="subscriptionCust.textBox" controlId="txtSubCollDay" class="col-xs-12 col-lg-7" placeholder="Enter Days">-->
+                            <select control="subscriptionCust.dropDownList" tabindex="55" controlid="ddlSubWeekly" class="col-xs-12 col-lg-7">
+                                <option value="1">Sunday</option>
+                                <option value="2">Monday</option>
+                                <option value="3">Tuesday</option>
+                                <option value="4">Wednesday</option>
+                                <option value="5">Thursday</option>
+                                <option value="6">Friday</option>
+                                <option value="7">Saturday</option>
+                            </select>
+                            <select control="subscriptionCust.dropDownList" tabindex="56" controlid="ddlSubMonthly" class="col-xs-12 col-lg-7">
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5">5</option>
+                                <option value="6">6</option>
+                                <option value="7">7</option>
+                                <option value="8">8</option>
+                                <option value="9">9</option>
+                                <option value="10">10</option>
+                                <option value="11">11</option>
+                                <option value="12">12</option>
+                                <option value="13">13</option>
+                                <option value="14">14</option>
+                                <option value="15">15</option>
+                                <option value="16">16</option>
+                                <option value="17">17</option>
+                                <option value="18">18</option>
+                                <option value="19">19</option>
+                                <option value="20">20</option>
+                                <option value="21">21</option>
+                                <option value="22">22</option>
+                                <option value="23">23</option>
+                                <option value="24">24</option>
+                                <option value="25">25</option>
+                                <option value="26">26</option>
+                                <option value="27">27</option>
+                                <option value="28">28</option>
+                                <option value="29">29</option>
+                                <option value="30">30</option>
+                                <option value="31">31</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="" style="" controlId="pnlInstallationAddress" control="subscriptionCust.htmlControl">
+
+                        <span class="label col-xs-12" style="margin-bottom: 5px"><b>Installation Address</b></span>
+
+                        <div class="col-xs-12 col-lg-6 ">
+                            <span class="label  col-xs-12 col-lg-5">Address</span>
+                            <input class="col-xs-12 col-lg-7" tabindex="57" controlId="txtSubInsAddress" control="subscriptionCust.textBox" />
+                        </div>
+                        <div class="col-xs-12 col-lg-6 ">
+                            <span class="label  col-xs-12 col-lg-5">City</span>
+                            <input class="col-xs-12 col-lg-7" tabindex="58"controlId="txtSubInsCity" control="subscriptionCust.textBox" />
+                        </div>
+                        <div class="col-xs-12 col-lg-6 ">
+                            <span class="label  col-xs-12 col-lg-5">District</span>
+                            <input class="col-xs-12 col-lg-7" tabindex="59" controlId="txtSubInsDist" control="subscriptionCust.autoCompleteList" />
+                        </div>
+                        <div class="col-xs-12 col-lg-6 ">
+                            <span class="label  col-xs-12 col-lg-5">Pin Code</span>
+                            <input class="col-xs-12 col-lg-7" tabindex="60" maxlength="6" controlId="txtSubInsPincode" control="subscriptionCust.textBox" />
+                        </div>
+                        <div class="col-xs-12 col-lg-6 ">
+                            <span class="label  col-xs-12 col-lg-5">State</span>
+                            <input class="col-xs-12 col-lg-7" tabindex="61" controlId="txtSubInsState" control="subscriptionCust.autoCompleteList" />
+                        </div>
+                        <div class="col-xs-12 col-lg-6 ">
+                            <span class="label  col-xs-12 col-lg-5">Contact Person</span>
+                            <input class="col-xs-12 col-lg-7" tabindex="62" controlId="txtSubInsCP" control="subscriptionCust.textBox" />
+                        </div>
+                        <div class="col-xs-12 col-lg-6 ">
+                            <span class="label  col-xs-12 col-lg-5">Email</span>
+                            <input class="col-xs-12 col-lg-7" tabindex="63" controlId="txtSubInsEmail" control="subscriptionCust.textBox" />
+                        </div>
+                        <div class="col-xs-12 col-lg-6 ">
+                            <span class="label  col-xs-12 col-lg-5">Phone</span>
+                            <input class="col-xs-12 col-lg-7" tabindex="64" max="10" controlId="txtSubInsPhone" maxlength="10" control="subscriptionCust.textBox" />
+                        </div>
+                    </div>
+                    <div controlId="pnlConnPlanPopup" control="subscriptionCust.htmlControl">
+                        <span class="label col-lg-1" controlId="lblMyPlanHistory" control="subscriptionCust.label" rlabel="My Plan History"><b>My Plan History</b></span>
+                        <!--<input value="Change" style="float:right;margin-right:3px;" control="subscriptionCust.secondaryButton" controlid="btnChange" event="click:btnChange_click">-->
+                        <input value="Start Plan" rlabel="Start Plan" style="float:right;" control="subscriptionCust.secondaryButton" controlid="btnPnlStartPlan" event="click:btnPnlStartPlan_click">
+                        <span style="float:right;margin-left:5px;margin-right:5px;margin-top:3px;">|</span>
+                        <input value="Stop Plan" rlabel="Stop Plan" style="float:right;" control="subscriptionCust.secondaryButton" controlid="btnPnlStopPlan" event="click:btnPnlStopPlan_click">
+                        <span style="float:right;margin-left:5px;margin-right:5px;margin-top:3px;">|</span>
+                        <input value="Close Plan" rlabel="Close Plan" style="float:right;" control="subscriptionCust.secondaryButton" controlid="btnEndPlan" event="click:btnClosePlan_click">
+                        <span style="float:right;margin-left:5px;margin-right:5px;margin-top:3px;">|</span>
+                        <input value="Edit Plan" rlabel="Edit Plan" style="float:right;" control="subscriptionCust.secondaryButton" controlid="btnEditPlan" event="click:btnEditPlan_click">
+                        <span style="float:right;margin-left:5px;margin-right:5px;margin-top:3px;">|</span>
+                        <input value="New Plan" rlabel="New Plan" style="float:right;" control="subscriptionCust.secondaryButton" controlid="btnAddPlan" event="click:btnAddPlan_click">
+
+                        <div class="plan-history">
+                            <div control="subscriptionCust.grid" controlid="grdPlanHistory"></div>
+                        </div>
+                    </div>
+                    <div controlId="pnlStopPlanPopup" control="subscriptionCust.popup" style="display:none">
+
+                        <input class="col-xs-12 col-lg-2" type="button" value="Ok" style="float:right;margin-bottom:20px;" control="subscriptionCust.primaryWriteButton" controlid="btnStopPlan" event="click:btnStopPlan_click">
+                        <div class="row col-sm-12">
+                            <div class="col-xs-14 col-lg-10 ">
+                                <span class="label  col-xs-12 col-lg-5">End Date</span>
+                                <input class="col-xs-12 col-lg-7" controlId="dsSubPlanEndDate" control="subscriptionCust.dateSelector" />
+                            </div>
+                        </div>
+                    </div>
+                    <!--<div controlId="pnlStopPlanPopup" control="subscriptionCust.popup" style="display:none">
+                        <!--<div class="row col-sm-12">
+                &nbsp;
+                <span class="label col-sm-4" rlabel="Stop Plan">Stop Plan</span>
+            </div>-->
+                        <!--<div class="row col-sm-12">
+                            <div class="col-xs-12 col-lg-6 ">
+                                <span class="label  col-xs-12 col-lg-5">End Date</span>
+                                <input class="col-xs-12 col-lg-7" controlId="dsPlanEndDate" control="subscriptionCust.dateSelector" />
+                            </div>
+                            <div class="col-xs-12 col-lg-6 ">
+                                <span class="label  col-xs-12 col-lg-5">Reason</span>
+                                <input class="col-xs-12 col-lg-7" controlId="txtReason" control="subscriptionCust.textBox" />
+                            </div>
+                            <input class="col-xs-12 col-lg-2" style="float:right;" value="Save" controlId="btnSubSave" control="subscriptionCust.primaryWriteButton" event="click:btnSubSave_click" />
+                        </div>
+                    </div>-->
+                    <div controlId="pnlAddPlanPopup" control="subscriptionCust.popup" style="display:none">
+                        <input class="col-xs-12 col-lg-2" style="float:right;margin-bottom:20px" rlabel="Save Plan" value="Save Plan" controlId="btnSubSavePlan" control="subscriptionCust.primaryWriteButton" event="click:btnSubSavePlan_click" />
+                        <div class="row col-sm-12">
+                            <div class="col-xs-12 col-lg-6 ">
+                                <span class="label  col-xs-12 col-lg-5">Plan<span style="color:red;">*</span></span>
+                                <select class="col-xs-12 col-lg-7" controlId="ddlPlan" control="subscriptionCust.dropDownList"></select>
+                            </div>
+                            <div class="col-xs-12 col-lg-6 ">
+                                <span class="label  col-xs-12 col-lg-5">Price<span style="color:red;">*</span></span>
+                                <input type="text" controlId="txtPlanPrice" rlabel="Price" placeholder="Price" control="subscriptionCust.textBox" class="col-xs-12 col-lg-7">
+                                <select class="col-xs-12 col-lg-7" controlId="ddlPrice" control="subscriptionCust.dropDownList" style="display:none;"></select>
+                            </div>
+                            <div class="col-xs-12 col-lg-6 " style="margin-top:10px;">
+                                <span class="label  col-xs-12 col-lg-5">Bill Date<span style="color:red;">*</span></span>
+                                <select control="subscriptionCust.dropDownList" controlid="ddlBillDate" class="col-xs-12 col-lg-7">
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                    <option value="5">5</option>
+                                    <option value="6">6</option>
+                                    <option value="7">7</option>
+                                    <option value="8">8</option>
+                                    <option value="9">9</option>
+                                    <option value="10">10</option>
+                                    <option value="11">11</option>
+                                    <option value="12">12</option>
+                                    <option value="13">13</option>
+                                    <option value="14">14</option>
+                                    <option value="15">15</option>
+                                    <option value="16">16</option>
+                                    <option value="17">17</option>
+                                    <option value="18">18</option>
+                                    <option value="19">19</option>
+                                    <option value="20">20</option>
+                                    <option value="21">21</option>
+                                    <option value="22">22</option>
+                                    <option value="23">23</option>
+                                    <option value="24">24</option>
+                                    <option value="25">25</option>
+                                    <option value="26">26</option>
+                                    <option value="27">27</option>
+                                    <option value="28">28</option>
+                                    <option value="29">29</option>
+                                    <option value="30">30</option>
+                                    <option value="31">31</option>
+                                </select>
+                            </div>
+                            <div class="col-xs-12 col-lg-6 " style="margin-top:10px;">
+                                <span class="label  col-xs-12 col-lg-5">Start Date<span style="color:red;margin-top:10px;">*</span></span>
+                                <input class="col-xs-12 col-lg-7" controlId="dsSubPlanStartDate" control="subscriptionCust.dateSelector" />
+                            </div>
+                            <div class="col-xs-12 col-lg-6 " style="margin-top:10px;">
+                                <span class="label  col-xs-12 col-lg-5">End Date<span style="color:red;margin-top:10px;">*</span></span>
+                                <input class="col-xs-12 col-lg-7" controlId="dsSubSavePlanEndDate" control="subscriptionCust.dateSelector" />
+                            </div>
+                            <div class="col-xs-12 col-lg-6 " style="margin-top:10px;">
+                                <span class="label  col-xs-12 col-lg-5">Payment Mode<span style="color:red;">*</span></span>
+                                <select class="col-xs-12 col-lg-7" controlId="ddlPayMode" control="subscriptionCust.dropDownList">
+                                    <option value="1">PrePaid</option>
+                                    <option value="0">PostPaid</option>
+                                </select>
+                            </div>
+                            <!--<div class="col-xs-12 col-lg-6 ">
+                    <span class="label  col-xs-12 col-lg-5">End Date</span>
+                    <input class="col-xs-12 col-lg-7" controlId="dsSubPlanEndDate" control="subscriptionCust.dateSelector" />
+                </div>-->
+
+                        </div>
+                    </div>
+                    <div controlId="pnlEditPlanPopup" control="subscriptionCust.popup" style="display:none">
+                        <input class="col-xs-12 col-lg-2" style="float:right;margin-bottom:20px" rlabel="Save Plan" value="Save Plan" controlId="btnEditSavePlan" control="subscriptionCust.primaryWriteButton" event="click:btnEditSavePlan_click" />
+                        <div class="row col-sm-12">
+                            <div class="col-xs-12 col-lg-6 ">
+                                <span class="label  col-xs-12 col-lg-5">Plan<span style="color:red;">*</span></span>
+                                <select class="col-xs-12 col-lg-7" controlId="ddlEditPlan" control="subscriptionCust.dropDownList"></select>
+                            </div>
+                            <div class="col-xs-12 col-lg-6 ">
+                                <span class="label  col-xs-12 col-lg-5">Price<span style="color:red;">*</span></span>
+                                <input type="text" controlId="txtEditPlanPrice" rlabel="Price" placeholder="Price" control="subscriptionCust.textBox" class="col-xs-12 col-lg-7">
+                                <select class="col-xs-12 col-lg-7" controlId="ddlEditPrice" control="subscriptionCust.dropDownList" style="display:none;"></select>
+                            </div>
+                            <div class="col-xs-12 col-lg-6 " style="margin-top:10px;">
+                                <span class="label  col-xs-12 col-lg-5">Bill Date<span style="color:red;">*</span></span>
+                                <select control="subscriptionCust.dropDownList" controlid="ddlEditBillDate" class="col-xs-12 col-lg-7">
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                    <option value="5">5</option>
+                                    <option value="6">6</option>
+                                    <option value="7">7</option>
+                                    <option value="8">8</option>
+                                    <option value="9">9</option>
+                                    <option value="10">10</option>
+                                    <option value="11">11</option>
+                                    <option value="12">12</option>
+                                    <option value="13">13</option>
+                                    <option value="14">14</option>
+                                    <option value="15">15</option>
+                                    <option value="16">16</option>
+                                    <option value="17">17</option>
+                                    <option value="18">18</option>
+                                    <option value="19">19</option>
+                                    <option value="20">20</option>
+                                    <option value="21">21</option>
+                                    <option value="22">22</option>
+                                    <option value="23">23</option>
+                                    <option value="24">24</option>
+                                    <option value="25">25</option>
+                                    <option value="26">26</option>
+                                    <option value="27">27</option>
+                                    <option value="28">28</option>
+                                    <option value="29">29</option>
+                                    <option value="30">30</option>
+                                    <option value="31">31</option>
+                                </select>
+                            </div>
+                            <div class="col-xs-12 col-lg-6 " style="margin-top:10px;">
+                                <span class="label  col-xs-12 col-lg-5">Start Date<span style="color:red;margin-top:10px;">*</span></span>
+                                <input class="col-xs-12 col-lg-7" controlId="dsSubPlanEditStartDate" control="subscriptionCust.dateSelector" />
+                            </div>
+                            <div class="col-xs-12 col-lg-6 " style="margin-top:10px;">
+                                <span class="label  col-xs-12 col-lg-5">End Date<span style="color:red;margin-top:10px;">*</span></span>
+                                <input class="col-xs-12 col-lg-7" controlId="dsSubPlanEditEndDate" control="subscriptionCust.dateSelector" />
+                            </div>
+                            <div class="col-xs-12 col-lg-6 " style="margin-top:10px;">
+                                <span class="label  col-xs-12 col-lg-5">Payment Mode<span style="color:red;">*</span></span>
+                                <select class="col-xs-12 col-lg-7" controlId="ddlEditPayMode" control="subscriptionCust.dropDownList">
+                                    <option value="1">PrePaid</option>
+                                    <option value="0">PostPaid</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <!--<div controlId="pnlAddPlanPopup" control="subscriptionCust.popup" style="display:none">
+                        <input class="col-xs-12 col-lg-2" style="float:right;margin-bottom:20px" value="SavePlan" controlId="btnSubSavePlan" control="subscriptionCust.primaryWriteButton" event="click:btnSubSavePlan_click" />
+                        <div class="row col-sm-12">
+                            <div class="col-xs-12 col-lg-6 ">
+                                <span class="label  col-xs-12 col-lg-5">Plan<span style="color:red;">*</span></span>
+                                <select class="col-xs-12 col-lg-7" controlId="ddlPlan" control="subscriptionCust.dropDownList"></select>
+                            </div>-->
+                    <div controlId="pnlCloseConnPopup" control="subscriptionCust.popup" style="display:none">
+
+                        <input class="col-xs-12 col-lg-2" type="button" value="Ok" style="float:right;margin-bottom:20px;" control="subscriptionCust.primaryWriteButton" controlid="btnOK" event="click:btnOK_click">
+                        <div class="row col-sm-12">
+                            <div class="col-xs-14 col-lg-10 ">
+                                <span class="label  col-xs-12 col-lg-5">End Date</span>
+                                <input class="col-xs-12 col-lg-7" controlId="dsSubConnEndDate" control="subscriptionCust.dateSelector" />
+                            </div>
+                            </div>
+                        </div>
+                    </div>
+                    </div>
+
+                </div>
+    </div>
+</div>
+
+

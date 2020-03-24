@@ -1,0 +1,85 @@
+
+/*.search-panel {
+    float: left;
+    margin-left: 10px;
+    top: 48px;
+    width: 380px;
+}
+.search-action {
+    display: inline-block;
+    margin-top: 5px;
+    width: 100%;
+}
+[controlid="txtSearch"] {
+    width: 100%;
+}
+.search-action hr {
+    border: 1px solid lightgray;
+    display: inline-block;
+    float: left;
+    margin-top: 12px;
+}
+.search-action [value="Search"] {
+    float: right;
+    width: auto;
+}
+.detail-panel {
+    float: left;
+    margin-left: 450px;
+    margin-top: 10px;
+    width: 750px;
+}
+.basic-panel {
+    margin-top: 30px;
+    width: 300px;
+}
+.basic-panel > div {
+    margin-bottom: 10px;
+    margin-left: 50px;
+}
+.basic-panel > div > span {
+    display: inline-block;
+    width: 33%;
+}
+.basic-panel > div > input {
+    display: inline-block;
+    width: 63%;
+}
+.detail-action > hr {
+    display: inline-block;
+    width: 570px;
+}
+.search-action > hr {
+    width: 310px;
+}*/
+.content-area {
+}
+[controlid="btnSave"] {
+    float: right;
+    margin-right: 5px;
+}
+
+[controlid="grdTransactions"] {
+    margin-top: 10px;
+}
+[id="btnNew"] {
+    float: left;
+}
+[controlid="ddlGroups"] {
+    width: 63%;
+}
+.period-panel {
+    margin-top: 20px;
+}
+[controlid="btnAddPeriod"] {
+    float: right;
+    margin-right: 35px;
+}
+[controlid="btnRemPeriod"] {
+    float: right;
+    margin-right: 5px;
+}
+[controlid="pnlAddPeriodPopup"] span {
+    margin: 5px;
+    width: 120px;
+}

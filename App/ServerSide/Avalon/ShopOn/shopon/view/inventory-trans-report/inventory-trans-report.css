@@ -1,0 +1,46 @@
+﻿
+.search-panel {
+    width: 280px;
+}
+.search-action hr {
+    width: calc(100% - 70px);
+}
+.search-filter > div .label {
+    width: 90px;
+}
+.search-filter > div input {
+    width: 160px;
+}
+.search-filter > div select {
+    width: 165px;
+}
+.detail-action > hr {
+    width: calc(100% - 130px);
+}
+.detail-action > [controlid="btnCopyAcademic"] {
+    float: right;
+    margin-top: 6px;
+    padding: 0;
+}
+.tab-panels {
+    height: 500px;
+}
+.grid-action hr {
+    width: calc(100% - 300px);
+}
+.fee-panel .grid-action hr {
+    width: calc(100% - 240px);
+}
+.detail-basic {
+    margin-left: 25%;
+    margin-top: 10px;
+}
+.detail-basic input {
+    width: 180px;
+}
+.detail-basic select {
+    width: 185px;
+}
+.detail-basic .label {
+    width: 120px;
+}

@@ -1,0 +1,140 @@
+﻿[controlid=pnlAddressTitle] > span{
+        font-size: 26px;
+    line-height: 30px;
+    letter-spacing: 1px;
+}
+[controlid=pnlAddressTitle] > button{
+        float: right;
+    background: #ff7600;
+    border: none;
+    border-radius: 0px;
+    font-size: 18px;
+    padding: 5px;
+    letter-spacing: 1px;
+    color: white;
+    text-align: center;
+    padding-left:10px;
+    padding-right:10px;
+}
+[controlid=pnlNewAddress] > div > span{
+    font-size: 22px;
+    line-height: 30px;
+    letter-spacing: 1px;
+}
+[controlid=pnlNewAddress] > div > input, [controlid=pnlNewAddress] > div > select{
+    height:35px;
+    font-size: 18px;
+    line-height: 30px;
+    letter-spacing: 1px;
+    margin-bottom:10px;
+}
+[controlid=pnlNewAddress] > div > button{
+        float: right;
+    background: #ff7600;
+    border: none;
+    border-radius: 0px;
+    font-size: 20px;
+    padding: 5px;
+    letter-spacing: 1px;
+    color: white;
+    text-align: center;
+}
+[controlid=lblAlertContent]{
+    font-size:18px;
+    letter-spacing:1px;
+    line-height:30px;
+}
+.cart-button{
+    background: #ff7600;
+    border: none;
+    border-radius: 5px;
+    font-size: 18px;
+    padding: 5px;
+    letter-spacing: 1px;
+    color: white;
+    text-align: center;
+    float: right;
+    margin-top: 5px;
+}
+h4{
+    font-size: 22px;
+    line-height: 22px;
+    letter-spacing: 1px;
+    margin-top: 0px;
+}
+[controlid=lblDeliveryAddress],[controlid=lblNoDeliveryAddress]{
+    height:50px;
+    font-size: 18px;
+    line-height: 30px;
+    letter-spacing: 1px;
+    margin-bottom:10px;
+}
+.address-panel > span{
+    font-size:22px;
+    letter-spacing:1px;
+}
+
+div[controlId=grdAddress] .grid_data  {
+    background-color: white;
+    }
+div[controlId=grdAddress]  {
+        /*padding-top: 20px;*/
+    padding-bottom: 20px;
+    background: transparent;
+    /*border: none;*/
+}
+div[controlId=grdAddress] .grid_data  {
+    overflow-y: auto;
+    }
+div[controlId=grdAddress] .grid_header{
+   background: transparent;
+   border:none;
+   display:none;
+}
+div[controlId=grdAddress] .grid_data > div{
+    /*width:25%;*/
+    background:white !important;
+    /*height: 400px;*/
+    overflow: hidden;
+}
+
+@media only screen and (max-width: 650px) {
+    [controlid=pnlAddressTitle] > span{
+        font-size: 24px;
+    }
+    [controlid=pnlAddressTitle] > button{
+        font-size: 16px;
+    }
+    .address-panel > span{
+        font-size: 16px;
+    }
+    .delivery-address-panel{
+        margin-top:10px;
+    }
+    .delivery-address-panel > h4{
+        font-size: 26px;
+    }
+    [controlid=lblDeliveryAddress], [controlid=lblNoDeliveryAddress]{
+        height:300px;
+    }
+}
+@media only screen and (min-device-width: 650px) and (max-device-width: 1000px) and (-webkit-min-device-pixel-ratio: 1) {
+    [controlid=pnlAddressTitle] > span{
+        font-size: 24px;
+    }
+    [controlid=pnlAddressTitle] > button{
+        font-size: 16px;
+    }
+    .address-panel > span{
+        font-size: 16px;
+    }
+    .delivery-address-panel{
+        margin-top:10px;
+    }
+    .delivery-address-panel > h4{
+        font-size: 26px;
+    }
+    [controlid=lblDeliveryAddress], [controlid=lblNoDeliveryAddress]{
+        height:300px;
+    }
+}

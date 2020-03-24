@@ -1,0 +1,89 @@
+﻿<!doctype html>
+<html>
+<head>
+    <!--<meta charset="UTF-8">-->
+
+    <script src="/config/config.js" type="text/javascript"></script>
+    <script type="text/javascript">
+
+        document.write('<script src="/'+ appConfig.root + '/core/master.js" type="text/javascript" > <\/script> ');
+        document.write('<script src="/' + appConfig.root + '/login/service/user/user-service.js"><\/script>');
+
+        document.write('<link href="/' + appConfig.root + '/finfacts/view/register-page/register-page.css" rel="stylesheet" />');
+        document.write('<script src="/' + appConfig.root + '/finfacts/view/register-page/register-page.js"><\/script>');
+        document.write('<script src="/' + appConfig.root + '/finfacts/service/user/company-service.js"><\/script>');
+        document.write('<script src="/' + appConfig.root + '/finfacts/service/user/business-service.js"><\/script>');
+    </script>
+
+
+</head>
+
+<body control="page.finfactsRegisterPage" controlId="finfactsRegisterPage" style="background-size:auto">
+    <!--Load Master Page-->
+    <!--<div control="finfactsRegisterPage.masterPage" controlId="masterPage"></div>-->
+
+    <div class="content-area">
+        
+        <div class="col-xs-offset-0 col-sm-offset-0 col-md-8 col-lg-8" style="background: transparent">
+            <div class="top col-xs-12 col-sm-12 col-md-10 col-lg-10">
+                <span class="left-text col-xs-12 col-sm-12 col-md-10 col-lg-10">Get ready to sell<br />Smarter, Better, Faster</span>
+            </div>
+            <div class="top col-xs-12 col-sm-12 col-md-10 col-lg-10">
+                <span class="left-bottom-text col-xs-12 col-sm-12 col-md-10 col-lg-10">Reach out to prospects at the right moment, engage them across every channel, and close more deals the smarter way. Woto CRM is ready. Are you?</span>
+            </div>
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4" style="background: transparent">
+            <div class="top col-xs-12 col-sm-12 col-md-10 col-lg-10">
+                <span class="col-xs-12 col-sm-12 col-md-10 col-lg-10">Free Trial. Get started now</span>
+            </div>
+            <div control="finfactsRegisterPage.messagePanel" controlid="msgPanel" class="message-panel col-xs-12 col-sm-12 col-md-12 col-lg-12" style="display:none; background-color:transparent; color: white; font-size:20px;"></div>
+            <div class="bottom col-xs-12 col-sm-12 col-md-10 col-lg-10">
+                <input control="finfactsRegisterPage.textBox" controlId="txtCompanyName" id="input" class="col-xs-10 col-sm-10 col-md-11 col-lg-11" placeholder="Company Name" style="margin:10px;">
+                <input control="finfactsRegisterPage.textBox" controlId="txtEmail" id="input" class="col-xs-10 col-sm-10 col-md-11 col-lg-11" placeholder="Your Email" style="margin:10px;">
+                <input control="finfactsRegisterPage.textBox" controlId="txtPhone" id="input" class="col-xs-10 col-sm-10 col-md-11 col-lg-11" placeholder="Your Mobile No" style="margin:10px;">
+                <input control="finfactsRegisterPage.textBox" controlId="txtName" id="input" class="col-xs-10 col-sm-10 col-md-11 col-lg-11" placeholder="Your Name" style="margin:10px;">
+                <!--<input control="finfactsRegisterPage.textBox" controlId="txtTemplateName" class="col-xs-12 col-sm-12 col-md-12 col-lg-12" placeholder="Template Name">-->
+                <select class="dropDown col-xs-10 col-sm-10 col-md-11 col-lg-11" id="input" control="finfactsRegisterPage.dropDownList" controlid="ddlBusiness" style="margin:10px;">
+                </select>
+                <input type="password" control="finfactsRegisterPage.textBox" id="input" controlId="Password" class="col-xs-10 col-sm-10 col-md-11 col-lg-11" placeholder="Password" style="margin:10px;">
+                <div class="col-xs-12 col-sm-12 col-md-11 col-lg-11">
+                    <input value="Register" control="finfactsRegisterPage.primaryReadButton" id="input-button" controlId="btnRegister" event="click:btnRegister_click" class="col-xs-12 col-sm-12 col-md-12 col-lg-12"/>
+                    <input value="May be later" control="finfactsRegisterPage.secondaryButton" id="back-button" controlId="btnBack" event="click:btnBack_click" class="col-xs-6 col-sm-6 col-md-5 col-lg-5" style="margin:10px; float:right" />
+                </div>
+            </div>
+            
+        </div>
+     </div>
+
+
+        <!--<div class="login-form container-fluid">
+            <div class="row">
+                <div class="col-xs-12 col-lg-7"></div>
+                <div class="col-xs-12 col-lg-4">
+                    <div class="login-form-header col-xs-12 col-lg-12">
+                        Login Information
+                    </div>
+                    <div class="login-form-input col-xs-11 col-lg-11" default-button="btnLogin">
+                        <div class="row">
+                            <span class="label col-xs-4 col-lg-4">User Id</span>
+                            <input control="finfactsRegisterPage.textBox" controlId="txtUserId" class="col-xs-7 col-lg-7">
+                        </div>
+
+                        <div class="row">
+                            <span class="label col-xs-4 col-lg-4">Password</span>
+                            <input type="password" control="finfactsRegisterPage.htmlControl" controlId="txtPassword" class="col-xs-7 col-lg-7">
+                        </div>
+                        <div class="row">
+                            <input value="Login" style="float:right" control="finfactsRegisterPage.primaryWriteButton" controlId="btnLogin" event="click:btnLogin_click" class="col-xs-12" />
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xs-12 col-lg-1"></div>
+            </div>
+
+        </div>-->
+
+
+</body>
+
+</html>

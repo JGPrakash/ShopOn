@@ -1,0 +1,1373 @@
+@font-face{
+    font-family: hp-simplified-bold;
+    src: url(../../../fonts/hp-simplified-bold.ttf);
+}
+@font-face{
+    font-family:hp-simplified-regular;
+    src:url(../../../fonts/hp-simplified-regular.ttf);
+}
+
+
+:root{
+    --detail-color: white;
+    --action-color:#f1f1f1;
+    --search-color: #38294db5;
+    --font-text-family:hp-simplified-regular,
+}
+
+
+
+/*.footer{
+   
+bottom: 0;
+   
+text-align:center;
+   
+width: 100%;
+   
+z-index: 1;
+   
+text-align: center;
+   
+padding-top: 4px;
+   
+height: 2em;
+   
+background-color: black;
+   
+color: white;
+   
+font-size: 12px;
+
+position:fixed;
+}*/
+
+
+
+
+/*.footer a{
+ color: white;
+}*/
+
+
+/* Header Section which has menu icon , name, logout etc*/
+.header-area {
+    background-color: black;
+    font-size: 9px;
+    height: 0px;
+    left: 0;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 99999;
+}
+.header-area .menu-shopon-icon {
+    background: black none repeat scroll 0 0;
+    cursor: pointer;
+    display: inline-block;
+    height: 0px;
+    margin-left: 5px;
+    margin-top: 5px;
+    width: 30px;
+    float:left;
+}
+
+.header-area .menu-shopon-icon img {
+    height: 0px;
+    margin-left: 4px;
+    margin-top: 5px;
+}
+
+
+/* Menu Design Panel*/
+.menu-shopon {
+    background-color: rgb(51, 51, 51);
+    border-right: 1px solid gray;
+    height: auto;
+    left: 0;
+    position: fixed;
+    top: 40px;
+    width: 100%;
+    z-index: 999999999; 
+    overflow: hidden;
+     border-right: 1px solid gray; 
+    padding: 5px;
+}
+
+.menu-shopon [controlid=pnlMenuPlaceHolder] > div {
+    display:inline-block;
+    float:left;
+    width:200px;
+}
+.menu-shopon [controlid=pnlMenuPlaceHolder] > div > div {
+    margin-left : 30px;
+}
+
+.menu-shopon [controlid="pnlMenuPlaceHolder"] > div > span:first-of-type {
+    font-size: 16px;
+}
+.menu-shopon [controlid="pnlMenuPlaceHolder"] span {
+    color: white;
+    display: inline-block;
+    font-family: fontawesome;
+    font-size: 14px;
+    margin: 4px;
+}
+
+.menu-shopon [controlid="pnlMenuPlaceHolder"] span:hover {
+    text-decoration:underline;
+    cursor:pointer;
+}
+
+.menu-shopon [controlid="pnlMenuPlaceHolder"]  {
+    margin-left: 20px;
+    margin-top: 5px;
+}
+
+.menu-panel{
+    font-size: 20px;
+    color: white;
+    letter-spacing: 1px;
+}
+.sub-menu-panel{
+    width: 900px;
+    position: absolute;
+    left: 0%;
+    z-index: 1000;
+    color:black;
+    height:250px;
+    overflow-y:scroll;
+    background:white;
+    display:none;
+}
+.sub-menu-panel > div > h4{
+    font-size:18px;
+    font-weight:bold;
+    letter-spacing:2px;
+}
+.sub-menu-panel > div > h6{
+    font-size:16px;
+    padding-left:10%;
+}
+.menu-hover-color{
+    color:#ff7600;
+}
+[controlid=pnlProducts],[controlid=pnlBrands]{
+    height:500px;
+}
+[controlid=pnlBrands]{
+    height:400px;
+}
+[controlid=pnlBrands] > h4, [controlid=pnlDeals] > h4{
+    text-align: center;
+    font-size: 28px;
+    letter-spacing:2px;
+}
+
+/*.left-side-menu{
+    width:300px;
+}
+.left-side-title{
+    width:600px;
+}
+.menu-title{
+    padding-left: 0px;
+    font-size: 34px;
+}
+.menu-heading{
+    padding-left: 30px;
+    font-size: 20px;
+    font-weight: 600;
+    letter-spacing: 1px;
+}
+.menu-heading-content{
+    font-size: 18px;
+    padding-top: 5px;
+    padding-left: 0px;
+    margin-left: 0px;
+    font-weight: 100;
+    letter-spacing: 1px;
+}
+.menu-sub-title{
+    padding-left: 10px;
+    font-size: 20px;
+    font-weight: 600;
+    letter-spacing: 1px;
+}
+.menu-sub-title-content{
+    font-size: 18px;
+    padding-top: 5px;
+    padding-left: 0px;
+    margin-left: 0px;
+    font-weight: 100;
+    letter-spacing: 1px;
+}
+.dropdown-submenu {
+  position: relative;
+}
+
+.dropdown-submenu .dropdown-menu {
+  top: 15px;
+    left: 100%;
+    margin-top: -1px;
+}
+.dropdown-submenu .dropdown-menu:first-child{
+    top: 100%;
+    left: 0%;
+    margin-top: -1px;
+}*/
+
+.navbar-inverse{
+    background-color: rgb(56, 41, 77);
+    border-color: rgb(56, 41, 77);
+    font-weight:bold;
+    /*height: 70px;*/
+}
+.navbar-nav>.open>a{
+    background-color: rgb(51, 66, 90) !important;
+    border-color: rgb(51, 66, 90) !important;
+    border-top:2px solid groove !important;
+}
+.dropdown-menu>li>a:hover{
+    background-color: rgb(51, 66, 90) !important;
+    font-weight:bold;
+}
+.search-button-style1{
+    width: 50px;
+    float: left !important;
+    border-radius: 5px;
+    margin-left: -10px;
+    border: 1px solid white !important;
+    background-color: white;
+}
+.search-button-style1 > img{
+    background: white;
+    padding: 5px;
+    height: 40px;
+}
+.item-search{
+    width:50%;
+}
+[controlid=txtSearch]{
+    width:80%;
+    height:30px !important;
+    padding-left:10px;
+    font-size:28px;
+    float:right;
+}
+[controlid=btnSearch]{
+    background: #ff7600;
+    box-shadow: none !important;
+    height:30px;
+    float:right;
+    margin-left:1%;
+    
+}
+/* Content Area to work*/
+.content-area {}
+
+.space-style-2{
+        height:10px;
+    }
+
+.search-panel {
+    float: left;
+    padding: 15px;
+    background-color: var(--search-color);
+}
+
+@media only screen and (min-width: 500px) {
+     .search-panel {
+      }   
+}
+
+/*.search-panel > div{
+    margin-top: 10px;
+    display:inline-block;
+    float:left;
+    width:100%;
+}*/
+
+.search-panel > .search-action [control$=".primaryReadButton"]{
+    float:right;
+    width: 80px;
+}
+
+
+.search-panel .search-filter > div {
+    margin-bottom: 5px;
+    display:inline-block;
+    width: 100%;
+}
+
+.search-panel .search-filter  span {
+    display:inline-block;
+    float:left;
+    width: 100%;
+}
+
+.search-panel .search-filter  input {
+    display:inline-block;
+    float:left;
+    width: 100%;
+}
+
+.search-panel .search-filter  select {
+    display:inline-block;
+    float:left;
+    width: 100%;
+}
+
+.search-panel .search-result {
+    width: 100%;
+}
+
+
+.search-panel hr{
+    display:inline-block;
+    float:left;
+    width : calc(100% - 80px);
+    margin-top:10px;;
+}
+
+
+.detail-panel {
+    float: left;
+    background-color: var(--detail-color);
+}
+
+@media only screen and (min-width: 500px) {
+     .detail-panel {
+      }   
+}
+
+.detail-panel > div{width: 100%;float: left;}
+
+.detail-action > input:hover{
+}
+
+.detail-action  input{
+    float:left;
+    margin-right: 10px;
+}
+
+
+.action-panel {
+    background-color: var(--action-color);
+    border-bottom: 1px solid lightgray;
+    padding: 5px 10px;  
+    width: 100%;
+}
+
+.action-panel input{
+    margin-right : 10px;
+}
+
+.detail-basic {}
+.detail-basic > div {
+    margin-bottom: 5px;
+}
+.detail-basic .label {
+}
+
+
+.detail-basic .label-value {
+}
+.detail-basic input {
+   min-height:20px;
+}
+input[type="text"]:focus {
+    border: 1px solid lightblue;
+    box-shadow: 1px 1px 1px whitesmoke;
+}
+.detail-basic select {
+}
+
+.detail-info > span {
+   width: 100%;
+   display: inline-block;
+   margin-top:20px;
+}
+
+.detail-basic > span.label,.detail-info> span.label {}
+
+.detail-panel{
+
+    padding-top:40px;
+} 
+
+@media only screen and (min-width: 500px) {
+    .detail-panel{
+
+    padding-top:0px;
+} 
+    .detail-panel{
+        margin-top:10px;
+    }
+    .detail-basic .label {
+    }
+
+    .detail-basic input {
+    }
+    .detail-basic .label-value {
+    }
+
+     .detail-basic select {
+    }
+
+    .detail-basic {
+    }
+    .detail-basic > span.label {
+    }
+
+    .detail-full {
+        width: 100%;
+    }
+
+      .detail-full .label {      
+        width: 100%;
+    }
+
+    .detail-full input {
+         width: 100%;
+    }
+    .detail-full .label-value {
+         width: 100%;
+    }
+
+     .detail-full select {
+        width: 100%;
+    }
+
+
+
+}
+
+
+/* Footer Area*/
+/*.footer-area {
+
+}*/
+
+
+
+
+.header{
+        position: fixed;
+    z-index: 9;
+}
+
+
+.basic-info {
+    padding: 15px;
+}
+
+.basic-info > span {
+    display:inline-block;
+    margin-top:10px;
+}
+
+.basic-info > span:first-of-type {
+    margin-top:0px;
+}
+
+.basic-info > div {
+    float: left;
+    margin-bottom: 5px;
+    min-height: 35px;
+}
+.basic-info > div > input {
+    float: left;
+}
+.basic-info > div > select {
+    float: left;
+}
+.basic-info > div > .label {
+    display: inline-block;
+    float: left;
+}
+
+
+.navbar-toggle{
+    padding-top:15px;
+}
+.navbar-brand{
+    font-size:20px;
+    width: 85%;
+    position: fixed;
+    top: 0px;
+}
+.navbar-inverse .navbar-brand{
+    color:white;
+}
+.navbar-inverse .navbar-nav>li>a{
+    color:white;
+    font-size: 16px;
+    letter-spacing:2px;
+    font-weight:100;
+}
+.dropdown-menu>li>a:hover{
+    background:black;
+    color:white;
+}
+.navbar{
+    margin-bottom:0px !important;
+}
+.dropdown-menu>li>a{
+    font-size:16px;
+}
+/*.dropdown-menu{
+    background: #ece6e6;
+}*/
+
+
+.sidenav {
+  height: 100%;
+  width: 0;
+  position: fixed;
+  z-index: 999;
+  top: 0;
+  left: 0;
+  background-color:rgb(56, 41, 77);
+  overflow-x: hidden;
+  transition: 0.5s;
+  padding-top: 60px;
+}
+
+.sidenav a {
+  padding: 8px 8px 8px 32px;
+  text-decoration: none;
+  font-size: 16px;
+  color: white;
+  display: block;
+  transition: 0.3s;
+  /*border-bottom:1px solid white;*/
+}
+.dropdown-btn{
+    padding: 8px 8px 8px 32px;
+  text-decoration: none;
+  font-size: 18px;
+  color: white;
+  display: block;
+  transition: 0.3s;
+  background: transparent;
+  border: none;
+}
+.sub-menu-div{
+    padding: 0px;
+  text-decoration: none;
+  font-size: 18px;
+  color: white;
+  display: block;
+  transition: 0.3s;
+  border-bottom:1px solid white;
+  width:100%;
+}
+.dropdown-btn:hover,.dropdown-container:hover,.fa-caret-down:hover{
+    border:none;
+    color: white;
+}
+.dropdown-btn:active,.dropdown-container:active,.fa-caret-down:active{
+    border:none;
+}
+.sub-menu-div:hover{
+    color: white;
+  border-bottom:1px solid green;
+}
+
+.sidenav a:hover {
+    /*font-size:24px;*/
+  /*color: green;
+  border-bottom:1px solid green;*/
+}
+
+.sidenav .closebtn {
+  position: absolute;
+  top: 0;
+  color:white;
+  right: 5px;
+  font-size: 36px;
+  margin-left: 50px;
+}
+.sub-menu{
+        padding-left: 10px;
+    padding-top: 5px;
+}
+
+/*.dropdown-btn {
+  padding: 6px 8px 6px 16px;
+  text-decoration: none;
+  font-size: 20px;
+  color: #818181;
+  display: block;
+  border: none;
+  background: none;
+  width: 100%;
+  text-align: left;
+  cursor: pointer;
+  outline: none;
+}*/
+.dropdown-container {
+  display: none;
+  background-color:  rgb(0, 82, 174);
+  padding-left: 8px;
+}
+.fa-caret-down {
+  float: right;
+  padding-right: 8px;
+}
+
+
+@media screen and (max-height: 450px) {
+  .sidenav {padding-top: 50px;}
+  .sidenav a {font-size: 18px;}
+}
+
+
+/*-----------------------Common CSS Start-------------------------------------*/
+
+body{
+    font-family:hp-simplified-regular;
+}
+.menu-icon{
+    height:100px;
+    width:70px;
+}
+.menu-background{
+    background:white;
+}
+#myBtn {
+    display: none;
+    width:75px;
+    position: fixed;
+    bottom: 20px;
+    right: 0px;
+    z-index: 99;
+    font-size: 18px;
+    border: none;
+    outline: none;
+    /*background-color: red;
+    color: white;*/
+    cursor: pointer;
+    padding: 15px;
+    border-radius: 4px;
+    /*background-image:url(/app/app_files/Images/arrow.png);*/
+}
+.space{
+    height:15px;
+}
+.space-style-1{
+    height:10px;
+}
+a{
+    color:black;
+}
+a:focus,a:hover{
+    text-decoration:none;
+}
+.image-div1{
+    background: #00000070;
+    padding: 10px;
+    border-radius: 10px;
+    top:50%;
+    left:35%;
+    position:absolute;
+    font-weight:bold;
+}
+.image-text{
+    color:white;
+    font-size: 50px;
+    line-height:55px;
+    text-transform: uppercase;
+}
+.image-text-1{
+    color:white;
+    font-size: 24px;
+    line-height:28px;
+    text-transform: uppercase;
+}
+.image-div2{
+    background: #00000070;
+    padding: 10px;
+    border-radius: 10px;
+    top:50%;
+    left:35%;
+    position:absolute;
+    font-weight:bold;
+}
+.hide{
+    display:none;
+}
+.menu-bar{
+    font-size:40px;cursor:pointer;float:right;text-align:right;
+}
+.margin-top-style-1{
+    margin-top:15px !important;
+}
+.padding-top-zero{
+    padding-top:0px;
+}
+.margin-top-zero{
+    margin-top:0px;
+}
+.padding-zero{
+    padding:0px;
+}
+.margin-zero{
+    margin:0px;
+}
+.navbar-nav>li{
+    float: right !important;
+}
+input[type=text]{
+    height: 35px;
+    border-radius: 5px;
+}
+/*-----------------------Common CSS End-------------------------------------*/
+/*--------------------------------Label Style Start---------------------------------*/
+.label-style-1{
+    font-family: hp-simplified-bold;
+    color: #858484;
+    text-transform: uppercase;
+    font-size: 24px;
+    line-height: 24px;
+    margin: 0 0 10px 0;
+    font-weight: bold;
+}
+.label-style-2{
+    font-size: 26px;
+    color: #6a6a6a;
+    font-family: hp-simplified-bold;
+    line-height: 24px;
+    font-weight: bold;
+}
+/*--------------------------------Label Style End---------------------------------*/
+
+/*--------------------------------Label Head Start---------------------------------*/
+.label-head-style-1{
+    font-size: 60px;
+    color: #4d4d4d;
+    font-family: hp-simplified-bold;
+    text-transform: uppercase;
+    line-height: 60px;
+    font-weight: bold;
+}
+.label-head-style-2{
+    font-size: 24px;
+    color: #303030;
+    line-height: 26px;
+    margin: 0 0 10px 0;
+    text-align:center;
+}
+.label-head-style-3{
+    text-align:center;
+    font-size: 60px;
+    color: #4d4d4d;
+    font-family: hp-simplified-bold;
+    text-transform: uppercase;
+    line-height: 60px;
+    font-weight: bold;
+}
+.label-head-style-4{
+    font-size: 18px;
+    color: #3b3a3a;
+    text-transform: uppercase;
+    font-family: hp-simplified-bold;
+    line-height: 18px;
+    margin: 0 0 7px 0;
+    display: block;
+}
+.label-head-style-5{
+    font-size: 40px;
+    color: #4d4d4d;
+    font-family: hp-simplified-bold;
+    text-transform: uppercase;
+    line-height: 40px;
+    font-weight: bold;
+}
+.label-head-style-6{
+    font-size: 26px;
+    color: #6a6a6a;
+    line-height: 26px;
+    font-weight: bold;
+    font-family: hp-simplified-bold;
+}
+.label-head-style-7{
+    font-size: 18px;
+    line-height: 22px;
+    color: #303030;
+    margin: 0 0 10px;
+}
+.label-head-style-8{
+    font-size: 24px;
+    line-height: 24px;
+    color: #4d4d4d;
+    margin: 0 0 0px;
+    font-weight:bold;
+    text-transform: uppercase;
+}
+/*--------------------------------Label Head End---------------------------------*/
+
+hr{
+    height:10px;
+    border-bottom:2px solid #dad6d6;
+    border-top:none;
+    margin-top:0px;
+    padding-right:0px !important;
+    padding-left:0px !important;
+}
+/*--------------------------------Label Para Start---------------------------------*/
+.label-para-style-1{
+    font-size: 16px;
+    text-align:left;
+    color: #969595;
+    line-height: 20px;
+}
+.label-para-style-2{
+     font-size: 16px;
+    text-align:center;
+    color: #969595;
+    line-height: 20px;
+}
+.label-para-style-3{
+    font-size: 14px;
+    color: #7f7e7e;
+    margin: 0 auto;
+    text-align:center;
+}
+.label-para-style-4{
+    font-size: 18px;
+    color: whitesmoke;
+    margin: 0 auto;
+    text-align:left;
+    padding-top: 50px;
+    padding-bottom: 20px;
+}
+.label-para-style-5{
+    font-size: 18px;
+    text-align: left;
+    color: #5a5959;
+    line-height: 25px;
+}
+/*--------------------------------Label Para End---------------------------------*/
+/*--------------------------------Label Button Start---------------------------------*/
+.button-style-1{
+        background: #0052ae;
+    border-radius: 100%;
+    color: #fff;
+    display: block;
+    font-size: 24px;
+    height: 36px;
+    line-height: 35px;
+    text-align: center;
+    width: 36px;
+    position: relative;
+    font-family: 'arial';
+}
+.button-style-1:hover{
+    box-shadow: 0 0 0 4px #0384c6;
+    background: rgba(3, 132, 198, 0.5);
+    color: #fff;
+}
+/*--------------------------------Label Button End---------------------------------*/
+
+/*---------------------------------Div Style Start---------------------------------*/
+ .div-style-1{
+     border-left:2px solid #dad6d6;
+ }
+ .div-style-2{
+    background: #eef2f8;
+    border-top: 5px solid #38294d;
+    padding: 20px 30px;
+ }
+ /*---------------------------------Div Style End---------------------------------*/
+
+ /*---------------------------------Text Field Style Start------------------------*/
+ .text-style-1{
+    padding: 8px 20px;
+    color: black;
+    font-size: 16px;
+    background: transparent;
+    border: 1px solid #ccc;
+    transition: 0.4s;
+ }
+  .text-style-1:focus{
+      outline: -webkit-focus-ring-color auto 1px;
+      outline-offset: -2px;
+      -webkit-writing-mode: horizontal-tb !important;
+  }
+ /*---------------------------------Text Field Style End--------------------------*/
+
+ /*--------------------------------Icon Style Start---------------------------*/
+ .icon-style-1{
+    font-size: 18px;
+    font-weight: bold;
+    color: #0052ae;
+ }
+ /*--------------------------------Icon Style End-----------------------------*/
+
+@media screen and (max-width:736px){
+    .menu-icon{
+        height: 50px;
+    width: 40px;
+    }
+    .image-text{
+        font-size:20px;
+        line-height:25px;
+    }
+    .image-text-1{
+        font-size: 18px;
+        line-height: 18px;
+    }
+    .image-div2{
+        height: 100px;
+        overflow-y: scroll;
+        top: 45%;
+        left: 0%;
+    }
+
+
+    .label-style-1{
+        font-size: 16px;
+        line-height:16px;
+    }
+    .label-style-2{
+       font-size: 18px;
+       line-height:18px;
+    }
+
+
+    .label-head-style-1{
+      font-size: 22px;
+      line-height:22px;
+    }
+    .menu-bar{
+        font-size: 22px;
+      line-height:22px;
+    }
+    .label-head-style-3{
+      font-size: 22px;
+      line-height:22px;
+    }
+    .label-head-style-5{
+        font-size: 22px;
+        line-height:22px;
+    }
+    .label-head-style-6{
+        font-size: 22px;
+        line-height:22px;
+    }
+    label-head-style-8{
+        font-size: 20px;
+        line-height:20px;
+    }
+    .label-head-style-4{
+        margin:0px
+    }
+
+    .label-para-style-4{
+        padding-top:5px;
+    }
+
+    .div-style-1{
+         border-left:none;
+     }
+    .mobile-space-1{
+        margin-top:15px;
+    }
+}
+
+
+/*-------------------------------Footer CSS Start--------------------------------*/
+.footer{
+    background:rgb(56, 41, 77);
+    padding-top:10px;
+}
+.footer-panel > h5{
+    margin-bottom: 16px;
+    color: #fff;
+    font-weight: 700;
+    text-transform: uppercase;
+        margin: 0;
+    padding: 0;
+    border: 0;
+    outline: 0;
+    font-weight: inherit;
+    font-style: normal;
+    font-family: inherit;
+    text-decoration: none;
+    font-size: 16px;
+    line-height: 20px;
+}
+.footer-panel{
+    padding-top:1%;
+    padding-bottom:0%;
+}
+.footer-panel > h6{
+    margin-bottom: 8px;
+    line-height:20px;
+    margin-top:5%;
+    color: white;
+    font-size: 14px;
+}
+.footer-panel > h6 > a{
+    color: whitesmoke;
+    font-size: 14px;
+}
+.footer-icon-panel{
+        text-align: right;
+    padding-top: 50px;
+    padding-bottom: 20px;
+}
+.footer-icon-style-1{
+        padding-right: 10px;
+    color: blue;
+    font-size: 20px !important;
+}
+.footer-icon-style-2{
+    padding-right: 10px;
+    color: red;
+    font-size: 20px !important;
+}
+.footer-empty-panel{
+    padding-right:20px;
+}
+/*-------------------------------Footer CSS End--------------------------------*/
+
+
+/*-------------------------------Enquire Form Design Start------------------------------*/
+.enduire-form-panel{
+    position: fixed;
+    right: 0px;
+    top: 25%;
+    z-index: 9;
+    display: block;
+    transition: 0.5s all ease;
+    cursor: pointer;
+    /*z-index: 99;*/
+    padding-right:0px;
+}
+.enquire-form{
+    background:#0052ae;
+    padding:10px;
+    width:calc(100% - 41px);
+    float:right;
+}
+.leftcontent{
+    /*width:15%;*/
+    float:right;
+}
+[controlid=btnEnquirySubmit]{
+    margin-top:5px;
+    float:right;
+    background: #0052ae;
+    border: none;
+    box-shadow: none;
+    border: 2px solid white;
+    border-radius: 0px;
+    height: 40px;
+    font-weight: bold;
+    font-family:hp-simplified-bold;
+}
+/*-------------------------------Enquire Form Design End--------------------------------*/
+
+/*-------------------------------Loading Style Start------------------------------------*/
+.loader{
+    position:fixed;
+    top:30%;
+    z-index:999;
+}
+.action-loader{
+    position:fixed;
+    top:30%;
+    z-index:999;
+}
+/*.loader {
+  border: 16px solid #f3f3f3;
+  border-radius: 50%;
+  border-top: 16px solid blue;
+  border-right: 16px solid green;
+  border-bottom: 16px solid red;
+  border-left: 16px solid pink;
+  width: 120px;
+  height: 120px;
+  -webkit-animation: spin 2s linear infinite;
+  animation: spin 2s linear infinite;
+      top: 45%;
+    left: 40%;
+        position: fixed;
+    z-index: 99999;
+}
+@-webkit-keyframes spin {
+  0% { -webkit-transform: rotate(0deg); }
+  100% { -webkit-transform: rotate(360deg); }
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+@media screen and (max-width:736px) {
+        .loader {
+            top: 40%;
+            left: 32%;
+        }
+    }*/
+
+/*-------------------------------Loading Style End--------------------------------------*/
+/*--------------------------Panel CSS Start---------------------------*/
+/*.ui-dialog-titlebar{
+    display:none !important;
+}*/
+/*[controlid=pnlAlert]{
+    top:25% !important;
+}
+[controlid=pnlAlert] > div > p{
+    font-family:hp-simplified-regular;
+}
+[controlid=pnlAlert] > div > input{
+    color: white !important;
+    border-radius: 5px !important;
+    float:right;
+}
+[controlid=pnlAlert] > div > input:focus{
+    color: white !important;
+    border-radius: 5px !important;
+}*/
+.ui-dialog {
+    top:35% !important;
+}
+/*--------------------------Panel CSS Ens-----------------------------*/
+/*.menubtnblk {
+    width: 52px;
+    height: 62px;
+    margin: 0 0 0 24px;
+    position: relative;
+    background: #00b8c9;
+}
+.ibvm {
+    display: inline-block;
+    vertical-align: middle;
+}
+.menubtnblk .sprite {
+    background: url(../../../../image/sprite.png) no-repeat -214px -1px;
+    width: 16px;
+    height: 16px;
+    left: 0;
+    right: 0;
+    margin: auto;
+    top: 0;
+    bottom: 0;
+    position: absolute;
+}*/
+
+
+
+
+/*------------Master Page CSS Start--------------*/
+.header-icon-1{
+    border: none;
+    background: transparent;
+    color: white;
+    font-size: 25px;
+    margin-top: 3px;
+    padding: 0px;
+    margin-left: -10px;
+    margin-right: 0px;
+    position:absolute;
+    right:20%;
+}
+.header-icon-1 > a > i{
+    color: white !important;
+}
+.header-icon-2 {
+    border: none;
+    background: transparent;
+    color: white;
+    font-size: 25px;
+    margin-left: 30px;
+    float: right;
+    position: absolute;
+    margin: 0px;
+    margin-left: 25px;
+    margin-top: -12px;
+    right:5%;
+}
+.header-icon-2 > a > i{
+    color: white !important;
+}
+[controlid=lblMobileUser]{
+    position:absolute;
+    top:10px;
+    color: white;
+    font-size: 18px;
+    padding: 8px 8px 8px 32px;
+}
+[controlid=lblMobileMenu]{
+    color: white;
+    font-size: 18px;
+    padding: 8px 8px 8px 32px;
+}
+
+.top-space{
+    height:100px;
+}
+.top-space-styl1{
+    height:10px;
+}
+.bottom-space{
+    height:50px;
+    display:none;
+}
+.main-mobile-menu{
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 16px;
+    color: white;
+    display: block;
+    transition: 0.3s;
+    background:transparent;
+    border:none;
+}
+.main-mobile-menu:hover{
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 16px;
+    color: orange;
+    display: block;
+    transition: 0.3s;
+    background:transparent;
+    border:none;
+}
+.sub-mobile-menu{
+    padding: 8px 8px 8px 45px;
+    text-decoration: none;
+    font-size: 16px;
+    color: white;
+    display: block;
+    transition: 0.3s;
+    background:transparent;
+    border:none;
+}
+.sub-mobile-menu:hover{
+    padding: 8px 8px 8px 45px;
+    text-decoration: none;
+    font-size: 16px;
+    color: orange;
+    display: block;
+    transition: 0.3s;
+    background:transparent;
+    border:none;
+}
+.menu-mobile-link{
+    padding: 8px 8px 8px 55px !important;
+}
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 650px) {
+    .navbar-brand > img {
+        padding-left: 0px;
+        width: 50%;
+        margin-left: -25px;
+    }
+
+    .navbar-header > button {
+        padding-right: 0px;
+        padding-top: 18px;
+    }
+
+    .navbar-inverse {
+        height: 50px;
+    }
+    .top-space{
+        height:100px;
+    }
+    .top-space-styl1, .menu-panel{
+        display:none;
+    }
+    [controlid=txtSearch]{
+        width:100%;
+    }
+    [controlid=btnSearch]{
+        display:none;
+    }
+    .menu-div{
+        background: rgb(56, 41, 77);
+        padding: 10px;
+            margin-top: -2px;
+    margin-left: -2px;
+    margin-right: -2px;
+    }
+    .space-style-2{
+        height:5px;
+    }
+    .collection-heading{
+            font: 400 30px 'Open Sans Condensed','Helvetica Narrow',arial,helvetica,sans-serif !important;
+    }
+    .collection-button{
+        font-size: 18px !important;
+    }
+}
+
+/* Small devices (portrait tablets and landscape) */
+@media only screen 
+  and (min-device-width: 650px) 
+  and (max-device-width: 1000px) 
+  and (-webkit-min-device-pixel-ratio: 1) {
+    .top-space{
+        height:100px;
+    }
+    .top-space-styl1, .menu-panel{
+        display:none;
+    }
+    [controlid=txtSearch]{
+        width:100%;
+    }
+    .menu-div{
+        background: rgb(56, 41, 77);
+        padding: 10px;
+        margin-top: -2px;
+        margin-left: -2px;
+        margin-right: -2px;
+    }
+    .space-style-2{
+        height:5px;
+    }
+    /*.collection-heading{
+            font: 400 30px 'Open Sans Condensed','Helvetica Narrow',arial,helvetica,sans-serif !important;
+    }
+    .collection-button{
+        font-size: 18px !important;
+    }*/
+}
+
+/* Medium devices (landscape tablets, 768px and up) */
+/*@media only screen and (min-width: 768px) {
+    .top-space{
+        height:50px;
+    }
+}*/
+
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 992px) {
+    .top-space{
+        height:100px;
+    }
+}
+
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+@media only screen and (min-width: 1200px) {
+    .top-space{
+        height:100px;
+    }
+}
+
+/*------------Master Page CSS Stop---------------*/
+
+
+
+
+
+
+
+
+

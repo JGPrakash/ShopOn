@@ -1,0 +1,882 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="/config/config.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        document.write('<script src="/' + appConfig.root + '/core/master.js" type="text/javascript" > <\/script> ');
+        document.write('<script src="/' + appConfig.root + '/login/service/user/user-service.js"><\/script>');
+
+        document.write('<link href="/' + appConfig.root + '/shopon/view/sales-order/sales-order.css" rel="stylesheet" />');
+        document.write('<script src="/' + appConfig.root + '/shopon/view/sales-order/sales-order.js"><\/script>');
+
+        document.write('<script src="/' + appConfig.root + '/shopon/service/sales/customer-service.js"><\/script>');
+        document.write('<script src="/' + appConfig.root + '/shopon/service/sales/sales-service.js"><\/script>');
+        document.write('<script src="/' + appConfig.root + '/shopon/service/sales/bill-service.js"><\/script>');
+       // document.write('<script src="/' + appConfig.root + '/shopon/service/Promotion/Promotion-service.js"><\/script>');
+        document.write('<script src="/' + appConfig.root + '/finfacts/service/account/accounting-service.js"><\/script>');
+        document.write('<script src="/' + appConfig.root + '/shopon/service/purchase/purchase-service.js"><\/script>');
+        document.write('<script src="/' + appConfig.root + '/shopon/service/product/item-service.js"><\/script>');
+        document.write('<script src="/' + appConfig.root + '/finfacts/service/finfacts-service.js"><\/script>');
+        document.write('<script src="/' + appConfig.root + '/finfacts/service/account/finfacts-entry-service.js"><\/script>');
+        document.write('<script src="/' + appConfig.root + '/shopon/service/inventory/inventory-service.js"><\/script>');
+        document.write('<script src="/' + appConfig.root + '/shopon/service/report/dynareport-service.js"><\/script>');
+        document.write('<script src="/' + appConfig.root + '/shopon/service/sales/tray-service.js"><\/script>');
+        document.write('<script src="/' + appConfig.root + '/shopon/service/w3data/w3data.js"><\/script>');
+        document.write('<script src="/' + appConfig.root + '/shopon/service/Reward/reward-service.js"><\/script>');
+        document.write('<script src="/' + appConfig.root + '/shopon/view/bill-view/bill-view.js"><\/script>');
+        document.write('<script src="/' + appConfig.root + '/shopon/service/stock-api.js"><\/script>');
+        document.write('<script src="/' + appConfig.root + '/shopon/service/maximum-id-api.js"><\/script>');
+        //Dummy For UC Pages purpose only
+        document.write('<script src="/' + appConfig.root + '/shopon/service/purchase/purchase-bill-service.js"><\/script>');
+        document.write('<script src="/' + appConfig.root + '/shopon/service/tax/taxclass-service.js"><\/script>');
+        //QR Code Scan
+        document.write('<script src="/' + appConfig.root + '/core/QRCode/instascan.min.js"><\/script>');
+        document.write('<script src="/' + appConfig.root + '/shopon/service/Reward/sales-executive-reward-service.js"><\/script>');
+    </script>
+
+
+</head>
+
+
+<body control="page.salesOrder" controlId="salesOrder">
+
+
+
+
+    <div control="salesOrder.masterPage" controlId="masterPage"></div>
+
+    <div style="margin-top:40px">
+
+        <!--Load Content Area-->
+        <div class="container-fluid">
+
+
+            <div class="content-area row">
+
+
+                <div control="salesOrder.messagePanel" controlid="msgPanel" class="message-panel  col-sm-12" style="display:none">
+
+                </div>
+
+                <div class="col-sm-12" control="salesOrder.htmlControl" controlId="pnlSearch">
+                    <!--default-button="btnSearch" -->
+                    <div style="margin-top:15px;margin-bottom:10px" default-button="btnSearch">
+
+                        <input type="button" value="New Sales Order" control="salesOrder.primaryReadButton" controlId="btnNewSO" event="click:btnNewSO_click">
+                        <span style="margin-left:5px;margin-right:5px;">|</span>
+                        <input value="Pending Payment" controlid="btnPendingPayment" control="salesOrder.secondaryButton" event="click:btnPendingPayment_click">
+
+                        <input type="button" style="float:right;margin-right:10px" value="Search" control="salesOrder.primaryReadButton" controlId="btnSearch" event="click:btnSearch_click" class="" role="button">
+                        <input type="text" style="width:250px;float:right;" class="textBox" controlId="txtSOSearch" control="salesOrder.textBox" placeholder="Enter Order No or Cust Id or Cust Name">
+                        <select class="dropDown" style="float:right;margin-right:10px" control="salesOrder.dropDownList" controlid="ddlState"></select>
+                    </div>
+
+                    <div class="search-result">
+                        <div control="salesOrder.grid" controlid="grdSOResult"></div>
+                    </div>
+
+
+                </div>
+                <div class="detail-panel  col-sm-12" control="salesOrder.htmlControl" controlId="pnlDetail">
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="detail-action col-xs-12 col-lg-5 ">
+                                <input type="button" value="Order" control="salesOrder.primaryReadButton" controlid="btnOrderSO" event="click:btnOrderSO_click">
+
+                                <input type="button" value="Fulfill" control="salesOrder.primaryReadButton" controlid="btnFulfillSO" event="click:btnFulfillSO_click">
+
+                                <input type="button" value="Deliver" control="salesOrder.primaryReadButton" controlid="btnDeliveredSO" event="click:btnDeliveredSO_click">
+
+                                <input type="button" class="printButton" value="Confirm" control="salesOrder.primaryReadButton" controlid="btnConfirmedSO" event="click:btnConfirmedSO_click">
+
+                                <input type="button" value="Completed" control="salesOrder.primaryReadButton" controlid="btnCompletedSO" event="click:btnCompletedSO_click">
+
+                                <input type="button" value="Add Item" control="salesOrder.primaryReadButton" controlId="btnAddItemToSO" event="click:btnAddItemToSO_click">
+
+                                <input type="button" value="Save SO" control="salesOrder.primaryReadButton" controlId="btnSaveSO" event="click:btnSaveSO_click">
+
+                                <input type="button" class="printButton" value="ReCreate&nbsp&nbsp&nbsp&nbsp|" control="salesOrder.secondaryButton" controlid="btnReCreateSO" event="click:btnRecreateSO_click">
+
+                                <input type="button" value="Add To Fulfill" control="salesOrder.primaryReadButton" controlid="btnPartialFulfillSO" event="click:btnPartialFulfillSO_click">
+                                <input type="button" value="Add To Delivery" control="salesOrder.primaryReadButton" controlid="btnDeliverySO" event="click:btnDeliverySO_click">
+                                <input type="button" value="Return Delivery" control="salesOrder.primaryReadButton" controlid="btnReturnDeliverySO" event="click:btnReturnDeliverySO_click">
+
+                                <input type="button" style="margin-left:20px;" value="Send Mail" control="salesOrder.primaryReadButton" controlid="btnSendMail" event="click:btnSendMail_click">
+                                <input type="button" style="margin-left:20px;" value="Return" control="salesOrder.primaryReadButton" controlid="btnReturnSO" event="click:btnReturnSO_click">
+                                <input type="button" class="printButton" value="Return Print" control="salesOrder.primaryReadButton" controlid="btnReturnPrintSO" event="click:btnReturnPrintSO">
+
+                                <input type="button" value="Cancel SO" control="salesOrder.secondaryButton" controlid="btnCancelSO" event="click:btnCancelSO_click">
+                                <span style="padding-left: 5px;padding-right: 5px;    margin-top: 5px;float:left"> |</span>
+                                <input type="button" class="printButton" value="Pay" control="salesOrder.secondaryButton" controlid="btnPayInvoiceAmount" event="click:btnPayInvoiceAmount_click">
+                                <span style="padding-left: 5px;padding-right: 5px;    margin-top: 5px;float:left"> |</span>
+                                <input type="button" class="printButton" value="Settle" control="salesOrder.secondaryButton" controlid="btnReturnPayInvoiceAmount" event="click:btnReturnPayInvoiceAmount_click">
+                                <span style="padding-left: 5px;padding-right: 5px;    margin-top: 5px;float:left"> |</span>
+                                <input type="button" value="Invoice Paid" control="salesOrder.secondaryButton" controlid="btnInvoicePaySO" event="click:btnInvoicePaySO_click">
+                                <span style="padding-left: 5px;padding-right: 5px;    margin-top: 5px;float:left"> |</span>
+                                <input type="button" value="Remove SO" control="salesOrder.secondaryButton" controlid="btnRemoveSO" event="click:btnRemoveSO_click">
+                                <span style="padding-left: 5px;padding-right: 5px;    margin-top: 5px;float:left"> |</span>
+                                <input type="button" class="printButton" value="Invoice" control="salesOrder.secondaryButton" controlid="btnInvoiceSO" event="click:btnInvoiceSO_click">
+                                <span style="padding-left: 5px;padding-right: 5px;    margin-top: 5px;float:left"> |</span>
+                                <input type="button" value="Back" control="salesOrder.secondaryButton" controlid="btnBack" event="click:btnBack_click">
+
+                            </div>
+                            <div class="col-xs-12 col-lg-7 status-flow" style="text-align:right">
+                                <span style="font-size: 15px" class="label-value" controlId="lblCreatedDisplay" id='lblCreatedDisplay' name='lblCreatedDisplay' control="salesOrder.htmlControl"> <i class="fa fa-cogs" aria-hidden="true"></i> Created  ></span>
+                                <span style="font-size: 15px" class="label-value" controlId="lblOrderedDisplay" id='lblOrderedDisplay' name='lblOrderedDisplay' control="salesOrder.htmlControl"><i class="fa fa-shopping-cart" aria-hidden="true"></i> Ordered  ></span>
+                                <span style="font-size: 15px" class="label-value" controlId="lblConfirmedDisplay" id='lblConfirmedDisplay' name='lblConfirmedDisplay' control="salesOrder.htmlControl"><i class="fa fa-server" aria-hidden="true"></i> Confirmed ></span>
+                                <span style="font-size: 15px" class="label-value" controlId="lblFulfilledDisplay" id='lblFulfilledDisplay' name='lbFulfilledDisplay' control="salesOrder.htmlControl"><i class="fa fa-server" aria-hidden="true"></i> Fulfilled ></span>
+                                <span style="font-size: 15px" class="label-value" controlId="lblDeliveredDisplay" id='lblDeliveredDisplay' name='lblDeliveredDisplay' control="salesOrder.htmlControl"><i class="fa fa-truck" aria-hidden="true"></i> Delivered ></span>
+                                <span style="font-size: 15px" class="label-value" controlId="lblReturnDisplay" id='lblReturnDisplay' name='lblReturnDisplay' control="salesOrder.htmlControl"><i class="fa fa-external-link" aria-hidden="true"></i> Cancelled</span>
+                                <span style="font-size: 15px" class="label-value" controlId="lblPaidDisplay" id='lblPaidDisplay' name='lblPaidDisplay' control="salesOrder.htmlControl"><i class="fa fa-money" aria-hidden="true"></i> Paid</span>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="detail-info container-fluid" style="display:none;margin-top:15px">
+
+                        <div class="row">
+                            <div class="col-xs-12">
+                                <span class="header-label"><b>Sales Order</b></span>
+                            </div>
+                            <div class="col-xs-12 col-lg-2">
+                                <span class="label  col-xs-12">Customer *</span>
+                                <select class="col-xs-12" controlId="ddlSOCustomer" control="salesOrder.dropDownList"></select>
+                            </div>
+                            <div class="col-xs-12 col-lg-2 ">
+                                <span class="label  col-xs-12">Expected Date</span>
+                                <input class="col-xs-12" type="text" controlId="dsSOExpectedDate" control="salesOrder.dateSelector" />
+                            </div>
+                            <div class="col-xs-12 col-lg-2 ">
+                                <span class="label  col-xs-12">Invoice No</span>
+                                <span class="label-value  col-xs-12" controlId="lblSOIBillNo" control="salesOrder.htmlControl" style="display:none;"></span>
+                                <span class="label-value  col-xs-12" controlId="lblTempSOIBillNo" control="salesOrder.htmlControl"></span>
+                            </div>
+                            <div class="col-xs-12 col-lg-2 ">
+                                <span class="label  col-xs-12">Invoice Date</span>
+                                <input controlId="txtSOIBillDate" control="salesOrder.dateSelector" class="col-xs-12" />
+                                <!--<span class="label-value  col-xs-12" controlId="lblSOIBillDate" control="salesOrder.htmlControl"></span>-->
+                            </div>
+                            <div class="col-xs-12 col-lg-2 ">
+                                <span class="label  col-xs-12">SO No</span>
+                                <span class="label-value  col-xs-12" controlId="lblSONo" control="salesOrder.htmlControl" style="display:none;"></span>
+								                                <span class="label-value  col-xs-12" controlId="lblTempSONo" control="salesOrder.htmlControl"></span>
+                            </div>
+
+                            <div class="col-xs-12 col-lg-2 ">
+                                <span class="label  col-xs-12 ">Status</span>
+                                <span class="label-value  col-xs-12" controlId="lblSOState" control="salesOrder.htmlControl"></span>
+                            </div>
+
+                            <div style="display:none">
+                                <span class="label  col-xs-12 col-lg-5">Journal Id</span>
+                                <span class="label-value  col-xs-12 col-lg-7" controlId="lblJournalId" control="salesOrder.htmlControl"></span>
+                            </div>
+
+
+
+
+                            <div class="col-xs-12" style="margin-top:20px">
+                                <span class="header-label"><b>Sales Order Items</b></span>
+                                <div style="float:right">
+                                    <div control="salesOrder.htmlControl" controlId="pnlAddToDeliveryActions">
+                                        <input type="button" value="Cancel" control="salesOrder.secondaryButton" controlId="btnAddToDeliveryCancel" event="click:btnAddToDeliveryCancel_click">
+                                        <span style="padding-left: 5px;padding-right: 5px;"> |</span>
+                                        <input type="button" value="Confirm Delivery" control="salesOrder.secondaryButton" controlId="btnAddToDeliveryConfirm" event="click:btnAddToDeliveryConfirm_click">
+
+                                    </div>
+                                    <div control="salesOrder.htmlControl" controlId="pnlAddToFullfillActions">
+                                        <input type="button" value="Cancel" control="salesOrder.secondaryButton" controlId="btnAddToFullfillCancel" event="click:btnAddToFullfillCancel_click">
+                                        <span style="padding-left: 5px;padding-right: 5px;"> |</span>
+                                        <input type="button" value="Confirm Fulfill" control="salesOrder.secondaryButton" controlId="btnAddToFullfillConfirm" event="click:btnAddToFullfillConfirm_click">
+                                        <!--<span style="padding-left: 5px;padding-right: 5px;"> |</span>
+                                        <input type="button" value="Confirm Free Fulfill" control="salesOrder.secondaryButton" controlId="btnAddToFreeFullfillConfirm" event="click:btnAddToFreeFullfillConfirm_click">-->
+
+                                    </div>
+
+                                    <div control="salesOrder.htmlControl" controlId="pnlReturnDeliveryActions">
+                                        <input type="button" value="Cancel" control="salesOrder.secondaryButton" controlId="btnReturnDeliveryCancel" event="click:btnReturnDeliveryCancel_click">
+                                        <span style="padding-left: 5px;padding-right: 5px;"> |</span>
+                                        <input type="button" value="Confirm Return Delivery" control="salesOrder.secondaryButton" controlId="btnAddReturnDelivery" event="click:btnReturnDeliverySO_click">
+
+                                    </div>
+
+                                    <div control="salesOrder.htmlControl" controlId="pnlAddToTrayActions">
+                                        <input type="button" value="Cancel" control="salesOrder.secondaryButton" controlId="btnAddToTrayCancel" event="click:btnAddToTrayCancel_click">
+                                        <span style="padding-left: 5px;padding-right: 5px;"> |</span>
+                                        <input type="button" value="Confirm Tray" control="salesOrder.secondaryButton" controlId="btnAddToTrayConfirm" event="click:btnAddToTrayConfirm_click">
+
+                                    </div>
+                                    <div control="salesOrder.htmlControl" controlId="pnlReturnTrayActions">
+                                        <input type="button" value="Cancel" control="salesOrder.secondaryButton" controlId="btnReturnTrayCancel" event="click:btnReturnTrayCancel_click">
+                                        <span style="padding-left: 5px;padding-right: 5px;"> |</span>
+                                        <input type="button" value="Confirm Tray" control="salesOrder.secondaryButton" controlId="btnReturnTrayConfirm" event="click:btnReturnTrayConfirm_click">
+
+                                    </div>
+
+                                    <div control="salesOrder.htmlControl" controlId="pnlItemActions">
+                                        <input type="button" value="Add to Fulfill" control="salesOrder.secondaryButton" controlId="btnAddToFullfill" event="click:btnAddToFullfillAction_click">
+                                        <span style="padding-left: 5px;padding-right: 5px;"> |</span>
+                                        <input type="button" value="Add to Delivery" control="salesOrder.secondaryButton" controlId="btnAddToDelivery" event="click:btnAddToDeliveryAction_click">
+                                        <span style="padding-left: 5px;padding-right: 5px;"> |</span>
+                                        <input type="button" value="Add to Tray" control="salesOrder.secondaryButton" controlId="btnAddToTray" event="click:btnAddToTrayAction_click">
+
+                                        <span style="padding-left: 5px;padding-right: 5px;"> |</span>
+                                        <input type="button" value="Return Delivery" control="salesOrder.secondaryButton" controlId="btnReturnDelivery" event="click:btnReturnDelivery_click">
+                                        <span style="padding-left: 5px;padding-right: 5px;"> |</span>
+                                        <input type="button" value="Return Tray" control="salesOrder.secondaryButton" controlId="btnReturnTray" event="click:btnReturnTray_click">
+                                        <span style="padding-left: 5px;padding-right: 5px;  "> |</span>
+                                        <input type="button" value="Return" control="salesOrder.secondaryButton" controlid="btnReturnPOItem" event="click:btnReturnSO_click">
+
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="sales-item-search col-xs-12" controlId="pnlItemSearch" control="salesOrder.htmlControl" style="display:none">
+                                <!--default-button="btnSearchItem"-->
+                                <span class="label"> Item Search </span>
+                                <input controlId="txtItemSearch" control="salesOrder.autoCompleteList" type="text" value="" placeholder="Search by Item no, Item name, Item code, Default vendor, manufacturer, Tax" style="width:300px;">
+                                <input value="QR Scan" controlid="btnQrScan" control="salesOrder.secondaryButton" event="click:btnQrScan_click">
+                                <select controlId="ddlRate" control="salesOrder.dropDownList" style="margin-left:5px;">
+                                    <option value="1">Rate A</option>
+                                    <option value="2">Rate B</option>
+                                    <option value="3">Rate C</option>
+                                </select>
+                                <input value="Search" controlid="btnSearchItem" control="salesOrder.primaryReadButton" event="click:btnAdvSearchItem_click" style="display:none;">
+                                <input value="Advance Search" controlid="btnAdvSearchItem" style="display:none" control="salesOrder.secondaryButton" event="click:btnAdvSearchItem_click">
+                            </div>
+                            <div class="col-xs-12">
+                                <div style="width:100%; overflow-x:auto; overflow-y:hidden;margin-top:10px">
+                                    <div class="itemGrid" controlId="grdSOItems" control="salesOrder.grid">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-xs-12" style="margin-top:20px">
+                                <span class="header-label"><b>Customer Details</b></span>
+                            </div>
+
+
+                            <div class="col-xs-12 col-lg-3 ">
+                                <span class="label  col-xs-12">Company Name</span>
+
+                                <input class="col-xs-12" type="text" controlId="txtSOCompany" control="salesOrder.textBox">
+                            </div>
+                            <div class="col-xs-12 col-lg-3 ">
+                                <span class="label  col-xs-12">Delivery Address</span>
+                                <input class="col-xs-12" type="text" controlId="txtDeliveryAddress" control="salesOrder.textBox">
+
+                            </div>
+                            <div class="col-xs-12 col-lg-3 ">
+                                <span class="label  col-xs-12">Contact No *</span>
+                                <input class="col-xs-12" type="text" controlId="txtContactNo" control="salesOrder.textBox">
+
+                            </div>
+                            <div class="col-xs-12 col-lg-3 ">
+                                <span class="label  col-xs-12">Email *</span>
+                                <input class="col-xs-12" type="text" controlId="txtEmail" control="salesOrder.textBox">
+
+                            </div>
+                            <div style="display:none">
+                                <span class="label  col-xs-12">Shipping Address *</span>
+                                <input class="col-xs-12" type="text" controlId="txtShippingAddress" control="salesOrder.textBox">
+
+                            </div>
+
+                            <div class="col-xs-12 col-lg-3">
+                                <span class="label  col-xs-12 ">Total Sales</span>
+                                <span class="label-value col-xs-12" controlId="lblTotalSales" control="salesOrder.htmlControl"></span>
+                            </div>
+                            <div class="col-xs-12 col-lg-3">
+                                <span class="label  col-xs-12 ">Total Payment</span>
+                                <span class="label-value col-xs-12" controlId="lblTotalPayment" control="salesOrder.htmlControl"></span>
+                            </div>
+                            <div class="col-xs-12 col-lg-3">
+                                <span class="label  col-xs-12 ">Total Returns</span>
+                                <span class="label-value col-xs-12" controlId="lblTotalReturns" control="salesOrder.htmlControl"></span>
+                            </div>
+                            <div class="col-xs-12 col-lg-3">
+                                <span class="label  col-xs-12 ">Total Returns Payment</span>
+                                <span class="label-value col-xs-12" controlId="lblTotalReturnsPayment" control="salesOrder.htmlControl"></span>
+                            </div>
+                            <div class="col-xs-12 col-lg-3">
+                                <span class="label  col-xs-12 ">Pending Payment</span>
+                                <span class="label-value col-xs-12" controlId="lblPendingPayment" control="salesOrder.htmlControl"></span>
+                            </div>
+                            <div class="col-xs-12 col-lg-3">
+                                <span class="label  col-xs-12 ">Sales Executive</span>
+                                <select control="salesOrder.dropDownList" controlid="ddlDeliveryBy" class="col-xs-12"></select>
+                            </div>
+                            <div class="col-xs-12 col-lg-3">
+                                <span class="label  col-xs-12 ">GST No</span>
+                                <input class="col-xs-12" type="text" controlId="txtGst" control="salesOrder.textBox">
+                            </div>
+                            <div control="salesOrder.htmlControl" controlId="pnlBillSummary">
+                                <div class="col-xs-12" style="margin-top:20px">
+                                    <span class="header-label"><b>Bill Summary</b></span>
+                                </div>
+                                <div class="col-xs-12 col-lg-3">
+                                    <span class="label  col-xs-12 ">Sub Total</span>
+                                    <span class="col-xs-12 " control="salesOrder.labelValue" controlId="lblSubTotal">0</span>
+                                </div>
+                                <div class="col-xs-12 col-lg-3 ">
+                                    <span class="label col-xs-12  ">Total</span>
+                                    <span class="col-xs-12 " control="salesOrder.labelValue" controlId="lblTotal">0</span>
+                                </div>
+                                <div class="col-xs-12 col-lg-3">
+                                    <span class="label  col-xs-12">Returns</span>
+                                    <span class="label-value col-xs-12 " controlId="lblReturns" control="salesOrder.htmlControl"></span>
+                                </div>
+                                <div class="col-xs-12 col-lg-3">
+                                    <span class="label  col-xs-12">  &nbsp;</span>
+                                    <span class="label-value col-xs-12 " style="visibility:hidden">  &nbsp;</span>
+                                </div>
+                                <div class="col-xs-12 col-lg-3 ">
+                                    <span class="col-xs-12 " control="salesOrder.label" controlId="lblDiscountLabel" event="click:lblDiscountLabel_click">Total Discount(-)</span>
+                                    <span class="col-xs-12 " control="salesOrder.labelValue" controlId="lblDiscount">0</span>
+                                </div>
+                                <div class="col-xs-12 col-lg-3">
+                                    <span class="label col-xs-12 ">Amount Paid</span>
+                                    <span class="label-value col-xs-12 " controlId="lblTotalAmtPaid" control="salesOrder.labelValue"></span>
+
+                                </div>
+                                <div class="col-xs-12 col-lg-3">
+                                    <span class="label  col-xs-12 ">Returns Paid</span>
+                                    <span class="label-value col-xs-12 " controlId="lblReturnsPaid" control="salesOrder.labelValue"></span>
+                                </div>
+                                <div class="col-xs-12 col-lg-3">
+                                    <span class="label  col-xs-12">  &nbsp;</span>
+                                    <span class="label-value col-xs-12 " style="visibility:hidden">  &nbsp;</span>
+                                </div>
+                                <div class="col-xs-12 col-lg-3 ">
+                                    <span class="col-xs-12 " control="salesOrder.label" controlId="lblTaxLabel" event="click:lblTaxLabel_click">Total Tax(+)</span>
+                                    <span class="col-xs-12 " control="salesOrder.labelValue" controlId="lblTax">0</span>
+                                </div>
+
+                                <div class="col-xs-12 col-lg-3">
+                                    <span class="label col-xs-12  ">Balance</span>
+                                    <span class="label-value col-xs-12 " controlId="lblTotalAmtRemaining" control="salesOrder.labelValue"></span>
+
+                                </div>
+                                <div class="col-xs-12 col-lg-3">
+                                    <span class="label  col-xs-12 ">Returns Balance</span>
+                                    <span class="label-value col-xs-12 " controlId="lblReturnsBalance" control="salesOrder.labelValue"></span>
+                                </div>
+                                <div class="col-xs-12 col-lg-3">
+                                    <span class="label  col-xs-12">  &nbsp;</span>
+                                    <span class="label-value col-xs-12 " style="visibility:hidden">  &nbsp;</span>
+
+                                </div>
+                                <div class="col-xs-12 col-lg-3">
+                                    <span class="label  col-xs-12 ">Round Off</span>
+                                    <span class="label-value col-xs-12 " controlId="lblRndOff" control="salesOrder.labelValue"></span>
+                                </div>
+                                <div class="col-xs-12 col-lg-3" controlId="pnlExpenseName" control="salesOrder.htmlControl">
+                                    <span class="label  col-xs-12">Expense Name</span>
+                                    <input class="label-value col-xs-12" placeholder="Expense Name" controlId="txtExpenseName" control="salesOrder.textBox" />
+                                </div>
+                                <div class="col-xs-12 col-lg-3" controlId="pnlExpenses" control="salesOrder.htmlControl">
+                                    <span class="label  col-xs-12">Expense Amount</span>
+                                    <input class="label-value col-xs-12" placeholder="Expense Amount" controlId="txtExpense" control="salesOrder.textBox" />
+                                </div>
+                            </div>
+
+
+                            <div class="col-xs-12" style="margin-top:20px">
+                                <span class="header-label"><b>Order Tracking Details</b></span>
+                            </div>
+
+
+                            <div class="col-xs-12 col-lg-3">
+                                <span class="label  col-xs-12">Ordered Date</span>
+                                <input class="col-xs-12" type="text" controlId="lblSOOrderedDate" control="salesOrder.dateSelector" />
+                            </div>
+                            <div class="col-xs-12 col-lg-3">
+                                <span class="label  col-xs-12">Confirmed Date</span>
+                                <input class="col-xs-12" type="text" controlId="lblSOConfirmedDate" control="salesOrder.dateSelector" />
+                            </div>
+                            <div class="col-xs-12 col-lg-3">
+                                <span class="label  col-xs-12">Fulfilled Date</span>
+                                <input class="col-xs-12" type="text" controlId="lblSOFulfilledDate" control="salesOrder.dateSelector" />
+                            </div>
+                            <div class="col-xs-12 col-lg-3 ">
+                                <span class="label  col-xs-12">Delivered Date</span>
+                                <input class="col-xs-12" type="text" controlId="lblSODeliveredDate" control="salesOrder.dateSelector">
+                            </div>
+
+                            <div class="col-xs-12 col-lg-3">
+                                <span class="label  col-xs-12">Invoice Paid Date</span>
+                                <input class="col-xs-12" type="text" controlId="lblSOInvoiceDate" control="salesOrder.dateSelector" />
+                            </div>
+                            <div class="col-xs-12 col-lg-3">
+                                <span class="label  col-xs-12 ">Cancelled Date</span>
+                                <span class="label-value col-xs-12 " controlId="lblSOReturnedDate" control="salesOrder.htmlControl"></span>
+                            </div>
+                            <div style="display:none">
+                                <span class="label  col-xs-12 ">Completed Date</span>
+                                <span class="label-value class=" col-xs-12 col-lg-7"" controlId="lblSOCompletedDate" control="salesOrder.htmlControl"></span>
+                            </div>
+
+
+
+                            <!--
+                            <div class="col-xs-12" style="margin-top:20px">
+                                <span class="header-label"><b>Bill Summary</b></span>
+                            </div>
+                            <div class="col-xs-12 col-lg-6">
+                                <span class="label col-xs-6  ">Amount Remaining</span>
+                                <span class="label-value col-xs-6 " controlId="lblTotalAmtRemaining" control="salesOrder.labelValue"></span>
+
+                            </div>
+                            <div class="col-xs-12 col-lg-6">
+                                <span class="label  col-xs-6 ">Sub Total</span>
+                                <span class="col-xs-6 " control="salesOrder.labelValue" controlId="lblSubTotal">0</span>
+                            </div>
+                            <div class="col-xs-12 col-lg-6">
+                                <span class="label col-xs-6 ">Total Paid Amount</span>
+                                <span class="label-value col-xs-6 " controlId="lblTotalAmtPaid" control="salesOrder.labelValue"></span>
+
+                            </div>
+                            <div class="col-xs-12 col-lg-6 ">
+                                <span class="col-xs-6 " control="salesOrder.label" controlId="lblDiscountLabel" event="click:lblDiscountLabel_click">Discount</span>
+                                <span class="col-xs-6 " control="salesOrder.labelValue" controlId="lblDiscount">0</span>
+                            </div>
+                            <div class="col-xs-12 col-lg-6 ">
+                                <span class="label col-xs-6  ">Pending Amount</span>
+                                <span class="label-value col-xs-6 " controlId="lblPendingAmount" control="salesOrder.labelValue"></span>
+
+                            </div>
+                            <div class="col-xs-12 col-lg-6 ">
+                                <span class="col-xs-6 " control="salesOrder.label" controlId="lblTaxLabel" event="click:lblTaxLabel_click">Tax</span>
+                                <span class="col-xs-6 " control="salesOrder.labelValue" controlId="lblTax">0</span>
+                            </div>
+                            <div class="col-xs-12 col-lg-6 "></div>
+                                <div class="col-xs-12 col-lg-6 ">
+                                    <span class="label col-xs-6  ">Total</span>
+                                    <span class="col-xs-6 " control="salesOrder.labelValue" controlId="lblTotal">0</span>
+                                </div>
+
+                            -->
+
+                            <div class="col-xs-12" style="margin-top:20px">
+                                <span class="header-label"><b>My Payments</b></span>
+                            </div>
+                            <div class="col-xs-12">
+                                <div style="width:100%; overflow-x:auto; overflow-y:hidden;margin-top:10px">
+                                    <div control="salesOrder.grid" controlid="grdTransactions"></div>
+                                </div>
+                            </div>
+                            <div control="salesOrder.htmlControl" controlId="pnlBillTransaction">
+                                <div class="col-xs-12" style="margin-top:20px">
+                                    <span class="header-label"><b>Bill Transactions</b></span>
+                                </div>
+                                <div class="col-xs-12" style="margin-top:10px">
+                                    <div class="itemGrid" control="salesOrder.grid" controlid="grdBillTransactions"></div>
+                                </div>
+                            </div>
+
+                        </div>
+
+
+
+
+
+                        <br /><br />
+
+
+
+                        <div class="basic-panel">
+                            <div style="margin-top: 20px;display:none" controlid="pnlContainerPage" control="salesOrder.htmlControl">
+                                <div controlId="pnlPrintingPopup" control="salesOrder.popup" style="display:none">
+                                    <div class="row col-sm-12">
+                                        &nbsp;
+                                    </div>
+                                    <div class="row col-sm-12">
+                                        <span class="col-sm-4">Export Type</span>
+                                        <select style="margin-left:15px;" class="col-sm-4" control="salesOrder.dropDownList" controlid="ddlExportType">
+                                            <option>PDF</option>
+                                            <option>EXCEL</option>
+                                            <option>WORD</option>
+                                            <option>PPT</option>
+                                            <option>CSV</option>
+                                            <option>HTML</option>
+                                        </select>
+                                        <input class="col-xs-12 col-lg-2" style="float:right;" value="Go" controlId="btnPrintJasperBill" control="salesOrder.primaryReadButton" event="click:btnPrintJasperBill_click" />
+                                    </div>
+
+                                </div>
+                                <div controlId="pnlPrintingInvoicePopup" control="salesOrder.popup" style="display:none">
+                                    <div class="row col-sm-12">
+                                        &nbsp;
+                                    </div>
+                                    <div class="row col-sm-12">
+                                        <span class="col-sm-4">Export Type</span>
+                                        <select style="margin-left:15px;" class="col-sm-4" control="salesOrder.dropDownList" controlid="ddlInvoiceExportType">
+                                            <option>PDF</option>
+                                            <option>EXCEL</option>
+                                            <option>WORD</option>
+                                            <option>PPT</option>
+                                            <option>CSV</option>
+                                            <option>HTML</option>
+                                        </select>
+                                        <input class="col-xs-12 col-lg-2" style="float:right;" value="Go" controlId="btnInvoicePrintJasperBill" control="salesOrder.primaryReadButton" event="click:btnInvoicePrintJasperBill_click" />
+                                    </div>
+
+                                </div>
+                                <div controlId="pnlAdvSearchItemPopup" control="salesOrder.popup" style="display:none">
+                                    <div class="top-panel row col-lg-12" style="margin-left: 0.5%;padding-left: 2.5%;">
+                                        <span class="label"> Item Search </span>
+                                        <input controlId="txtAdvItemSearch" control="salesOrder.textBox" type="text" value="" placeholder="Search by Item No, Item Name, Item Code, Vendor, Manufacturer, Tax" style="width:65%;">
+                                        <input value="Search" controlid="btnAdvaSearchItem" control="salesOrder.primaryReadButton" event="click:btnAdvaSearchItem_click">
+                                        <input value="Add" controlid="btnAddAdvaSearchItem" control="salesOrder.primaryReadButton" event="click:btnAddAdvaSearchItem_click">
+                                        <input value="Touch" controlid="btnTouchAdvaSearchItem" control="salesOrder.primaryReadButton" event="click:btnTouchAdvaSearchItem_click">
+                                        <div controlId="grdAdvSearchItem" style="margin-top:2%;" control="salesOrder.grid"> </div>
+                                    </div>
+                                    <div class="touch row col-lg-12" style="display:none">
+                                        <div class="left-panel col-lg-4" style="">
+                                            <div class="col-lg-12">
+                                                <div class="col-lg-4"><span class="label"> Vendor </span></div>
+                                                <div class="col-lg-8"><input controlId="txtAdvVendor" control="salesOrder.textBox" type="text" value="" placeholder="Enter Vendor Name"></div>
+                                            </div>
+                                            <div class="col-lg-12" style="padding-top: 2%;">
+                                                <div class="col-lg-4"><span class="label"> Manufacturer </span></div>
+                                                <div class="col-lg-8"><input controlId="txtAdvManufacturer" control="salesOrder.textBox" type="text" value="" placeholder="Enter Manufacturer Name"></div>
+                                            </div>
+                                        </div>
+                                        <div class="right-panel col-lg-8">
+                                            <div controlId="grdTouchAdvSearchItem" control="salesOrder.grid"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div controlId="pnlItemDiscountPopup" control="salesOrder.popup">
+                                    <span>Select a Discount </span>
+                                    <!--<input controlId="txtItemDiscountValue" control="salesOrder.textBox" />-->
+                                    <select controlId="ddlItemDiscount" control="salesOrder.dropDownList" />
+                                    <!-- <input type="button" value="Save SO" control="salesOrder.primaryReadButton" controlId="btnSaveSO" event="click:btnSaveSO_click">-->
+                                    <input type="button" value="Add Discount" controlId="btnItemDiscountOK" control="salesOrder.primaryReadButton" event="click:btnItemDiscountOK_click">
+                                    <input type="button" value="Remove" controlId="btnItemDiscountRemove" control="salesOrder.primaryReadButton" event="click:btnItemDiscountRemove_click">
+                                    <div controlId="grdItemDiscount" control="salesOrder.grid"> </div>
+                                </div>
+
+                                <div controlId="pnlDiscountPopup" control="salesOrder.popup" style="display:none">
+                                    <span>Select the discount</span>
+                                    <select controlId="ddlDiscount" control="salesOrder.dropDownList" />
+                                    <input value="Add Discount" controlId="btnDiscountOK" control="salesOrder.primaryReadButton" event="click:btnDiscountOK_click" />
+                                    <input value="Remove" controlId="btnDiscountRemove" control="salesOrder.primaryReadButton" event="click:btnDiscountRemove_click" />
+                                    <div controlId="grdDiscount" control="salesOrder.grid"> </div>
+                                </div>
+
+                                <!--<div controlId="pnlTaxPopup" control="salesOrder.popup" style="display:none">
+                                    <span>Enter Tax  </span>
+                                    <select controlId="ddlSalesTax" control="salesOrder.dropDownList" />
+
+                                    <input value="OK" controlId="btnTaxOK" control="salesOrder.primaryReadButton" event="click:btnTaxOK_click" />
+                                </div>-->
+                                <!--Tax popup-->
+                                <div controlId="pnlTaxPopup" control="salesOrder.popup" style="display:none">
+                                    <div>
+                                        <span class="col-lg-3">Select Tax  </span>
+                                        <select class="col-lg-6" controlId="ddlSalesTax" control="salesOrder.dropDownList" />
+                                        <input style="float:right" value="Add Tax" controlId="btnTaxOK" control="salesOrder.primaryReadButton" event="click:btnTaxOK_click" />
+                                        <!--<input class="col-lg-3" value="Remove" controlId="btnTaxRemove" control="salesOrder.primaryReadButton" event="click:btnTaxRemove_click" />
+                                        <div class="col-lg-12" controlId="grdTax" control="salesOrder.grid" style="margin-top:15px;"> </div>-->
+                                    </div>
+                                </div>
+
+
+                                <div controlId="pnlItemSelectionPopup" control="salesOrder.popup" style="display:none">
+                                    <div controlId="pnlItemSelection" control="salesOrder.itemSelection">
+
+                                        <div style="display:inline-block;width:100%">
+                                            <span style="float:left; margin-right: 5px;">Item Search</span>
+                                            <input style="float:left; width: 170px;" type="text" controlId="txtItemSearch" placeholder="Search Item by No, desc" control="itemSelection.textBox" />
+                                            <input style="float:right" value="Add" type="button" controlId="txtItemSelAdd" control="itemSelection.htmlControl" event="click:txtItemSelAdd_click" />
+                                        </div>
+                                        <div style="margin-top:10px">
+                                            <div style="float:left" controlId="grdItemFilter" control="itemSelection.grid"></div>
+                                            <div style="float:left;" controlId="grdItemSelected" control="itemSelection.grid"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div>
+
+
+
+
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <div controlId="pnlNewSOPopup" control="salesOrder.popup" style="display:none">
+                <div style="width:100%;margin-bottom:10px;display: inline-block;">
+                    <input value="Save" style="float:right;" controlId="btnAddSOOK" control="salesOrder.primaryReadButton" event="click:btnAddSOOK_click" />
+                </div>
+
+                <div class="detail-basic detail-full ">
+                    <div>
+                        <span class="label">Customer Name  </span>
+                        <select controlId="ddlCustomerName" control="salesOrder.dropDownList"></select>
+                    </div>
+                    <div>
+                        <span class="label">Expected Date  </span>
+                        <input controlId="dsExpectedDate" control="salesOrder.dateSelector" />
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div controlId="pnlBillPayPopup" control="salesOrder.popup" style="display:none">
+                <div style="width:100%;margin-bottom:10px;display: inline-block;">
+                    <input value="Save" style="float:right;" controlId="btnBillPaySOOK" control="salesOrder.primaryReadButton" event="click:btnBillPaySOOK_click" />
+                </div>
+
+                <div class="detail-basic detail-full ">
+                    <div>
+                        <span class="label">Collector Name  *</span>
+                        <select controlId="ddlCollectorName" control="salesOrder.dropDownList"></select>
+                    </div>
+                    <div style="">
+                        <span class="label">Payment Description </span>
+                        <input type="text" controlId="txtPayDesc" control="salesOrder.textBox">
+
+                    </div>
+                    <div style="">
+                        <span class="label">Pay For </span>
+                        <select control="salesOrder.dropDownList" controlid="ddlPayFor">
+                            <option>Current SalesOrder</option>
+                            <option>All Pending Payments</option>
+
+                        </select>
+
+                    </div>
+                    <div style="">
+                        <span class="label">Payment Amount *</span>
+                        <input type="text" controlId="txtPayAmount" control="salesOrder.textBox">
+
+                    </div>
+                    <div>
+                        <span class="label">Payment Date *</span>
+                        <input controlId="dsBillPayDate" control="salesOrder.dateSelector" />
+                    </div>
+
+                    <div style="display:none">
+                        <span class="label">Payment Type </span>
+
+                        <select control="salesOrder.dropDownList" controlid="ddlPayType">
+                            <option>Sales</option>
+                            <option>Other</option>
+
+                        </select>
+                    </div>
+                </div>
+
+            </div>
+            <div controlId="pnlReturnBillPayPopup" control="salesOrder.popup" style="display:none">
+                <div style="width:100%;margin-bottom:10px;display: inline-block;">
+                    <input value="Save" style="float:right;" controlId="btnReturnBillPaySOOK" control="salesOrder.primaryReadButton" event="click:btnReturnBillPaySOOK_click" />
+                </div>
+                <div class="detail-basic detail-full ">
+                    <div>
+                        <span class="label">Bill No  *</span>
+                        <select controlId="ddlReturnBillNo" control="salesOrder.dropDownList"></select>
+                    </div>
+                    <div>
+                        <span class="label">Collector Name  *</span>
+                        <select controlId="ddlReturnCollectorName" control="salesOrder.dropDownList"></select>
+                    </div>
+                    <div style="">
+                        <span class="label">Payment Description </span>
+                        <input type="text" controlId="txtReturnPayDesc" control="salesOrder.textBox">
+                    </div>
+                    <div style="">
+                        <span class="label">Pay For </span>
+                        <select control="salesOrder.dropDownList" controlid="ddlReturnPayFor">
+                            <option>Current SalesOrder</option>
+
+                        </select>
+                    </div>
+                    <div style="">
+                        <span class="label">Bill Amount *</span>
+                        <input type="text" controlId="txtReturnBillAmount" control="salesOrder.textBox">
+
+                    </div>
+                    <div style="">
+                        <span class="label">Payment Amount *</span>
+                        <input type="text" controlId="txtReturnPayAmount" control="salesOrder.textBox">
+
+                    </div>
+                    <div>
+                        <span class="label">Payment Date *</span>
+                        <input controlId="dsReturnBillPayDate" control="salesOrder.dateSelector" />
+                    </div>
+
+                    <div style="display:none">
+                        <span class="label">Payment Type </span>
+
+                        <select control="salesOrder.dropDownList" controlid="ddlReturnPayType">
+                            <option>Return</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+            <div controlId="pnlReturnDeliveryPopup" control="salesOrder.popup" style="display:none">
+                <div style="width:100%;margin-bottom:10px;display: inline-block;">
+                    <input value="Save" style="float:right;" controlId="btnReturnDeliverySOPopup" control="salesOrder.primaryReadButton" event="click:btnReturnDeliverySOPopup_click" />
+                </div>
+                <div class="col-xs-12">
+                    <div controlId="grdReturnDeliverySOItems" control="salesOrder.grid">
+                    </div>
+                </div>
+
+            </div>
+
+
+            <div controlId="pnlReturnSOPopup" control="salesOrder.popup" style="display:none">
+                <div style="width:100%;margin-bottom:10px;display: inline-block;">
+                    <div class="col-xs-12">
+                        <span class="label col-lg-2">Returned By</span>
+                        <select control="salesOrder.dropDownList" controlid="ddlReturnedBy" class="col-lg-3"></select>
+                        <span class="col-lg-2">Bill Date</span>
+                        <input controlId="txtSOIReturnBillDate" control="salesOrder.dateSelector" class="col-lg-2" />
+                        <input value="Return" style="float:right;" controlId="btnReturnSOItemPopup" control="salesOrder.primaryReadButton" event="click:btnReturnSOItemPopup_click" />
+                    </div>
+                </div>
+                <div class="col-xs-12">
+                    <div style="width:100%; overflow-x:auto; overflow-y:hidden;margin-top:10px">
+
+                        <div controlId="grdReturnSOItems" control="salesOrder.grid">
+                        </div>
+                    </div>
+
+                </div>
+                <div class="col-xs-12">
+                    <span class="label"></span>
+                    <div controlId="grdReturnedSOItems" control="salesOrder.grid">
+                    </div>
+                </div>
+
+            </div>
+
+            <div controlId="pnlInvoiceSOPopup" control="salesOrder.popup" style="display:none">
+                <div style="width:100%;margin-bottom:10px;display: inline-block;">
+                    <input value="Print" style="float:right;" controlId="btnPrintSO" control="salesOrder.primaryReadButton" event="click:btnPrintSO_click" />
+                </div>
+                <div style="width:100%;margin-bottom:10px;display: inline-block;">
+                    <input value="Send SMS" style="float:right;" controlId="btnSendsms" control="salesOrder.primaryReadButton" event="click:btnSendsms_click" />
+                </div>
+                <div style="width:100%;margin-bottom:10px;display: inline-block;">
+                    <input value="Send Email" style="float:right;" controlId="btnSendEmail" control="salesOrder.primaryReadButton" event="click:btnSendMail_click" />
+                </div>
+            </div>
+            <div id="dialog-form" style="display:none">
+                <form>
+                    <label for="name">Enter Manual Discount</label>
+                    <input type="text" name="manualDiscount" id="manualDiscount" class="text ui-widget-content ui-corner-all" />
+                </form>
+            </div>
+            <div controlId="pnlViewer" control="salesOrder.popup" style="display:none">
+                <div control="salesOrder.billViewer" controlid="ucbillViewer"> </div>
+            </div>
+
+            <div controlId="pnlPayPending" control="salesOrder.popup" style="display:none">
+                <div class="col-xs-12 col-lg-12 " style="margin-top:10px;">
+                    <div class="col-xs-12 col-lg-4 ">
+                        <span class="label  col-xs-12 col-lg-6">Customer</span>
+                        <select style="margin-left:0px;" class="col-sm-6" control="salesOrder.dropDownList" controlid="ddlCustName"></select>
+                    </div>
+                    <div class="col-xs-12 col-lg-4 ">
+                        <span class="label  col-xs-12 col-lg-6" style="margin-left:0px;">Bill Type</span>
+                        <select style="margin-left:0px;" class="col-sm-6" control="salesOrder.dropDownList" controlid="ddlPayBillType">
+                            <option>Select</option>
+                            <option>Sale</option>
+                            <option>SaleReturn</option>
+                        </select>
+                    </div>
+                    <div class="col-xs-12 col-lg-4 " default-button="btnSearchOrder" style="display:none;">
+                        <input class="col-xs-12 col-lg-9" placeholder="Enter Order No" type="text" controlId="txtSearchBillNo" control="salesOrder.textBox">
+                        <input style="float:right;" value="Search" controlId="btnSearchOrder" control="salesOrder.secondaryButton" event="click:btnbtnSearchOrder_click" />
+                    </div>
+                </div>
+                <div class="col-xs-12 col-lg-12 " style="margin-top:10px;">
+                    <div class="col-xs-12 col-lg-4 ">
+                        <span class="label  col-xs-12 col-lg-6">Pay Mode</span>
+                        <select class="col-sm-6" control="salesOrder.dropDownList" controlid="ddlPayMode">
+                            <option>Cash</option>
+                            <option>Card</option>
+                        </select>
+                    </div>
+                    <div class="col-xs-12 col-lg-4 ">
+                        <span class="label  col-xs-12 col-lg-6">Description</span>
+                        <input class="col-xs-12 col-lg-6" type="text" controlId="txtPendingPayDesc" control="salesOrder.textBox">
+                    </div>
+                    <div class="col-xs-12 col-lg-4 ">
+                        <span class="label  col-xs-12 col-lg-6">Date</span>
+                        <input class="col-xs-12 col-lg-6" controlId="dsPendingPayDate" control="salesOrder.dateSelector" />
+                    </div>
+                </div><br />
+                <div class="col-xs-12 col-lg-12 " style="margin-top:10px;">
+                    <div class="col-xs-12 col-lg-4 " controlId="pnlCardType" control="salesOrder.htmlControl">
+                        <span class="label  col-xs-12 col-lg-6">Card Type</span>
+                        <select class="col-lg-6" control="salesOrder.dropDownList" controlid="ddlCardType">
+                            <option>Credit</option>
+                            <option>Debit</option>
+                        </select>
+                    </div>
+                    <div class="col-xs-12 col-lg-4 " controlId="pnlCardNo" control="salesOrder.htmlControl">
+                        <span class="label  col-xs-12 col-lg-6">Card No <span style="color:red;">*</span></span>
+                        <input class="col-xs-12 col-lg-6" type="text" controlId="txtCardNo" control="salesOrder.textBox" placeholder="Card No">
+                    </div>
+                    <div class="col-xs-12 col-lg-4 " controlId="pnlCouponNo" control="salesOrder.htmlControl">
+                        <span class="label  col-xs-12 col-lg-6">Coupon No <span style="color:red;">*</span></span>
+                        <input class="col-xs-12 col-lg-6" type="text" controlId="txtCouponNo" control="salesOrder.textBox" placeholder="Coupon No ">
+                    </div>
+                </div>
+                <div class="col-xs-12 col-lg-12 " style="margin-top:10px;">
+                    <div class="col-xs-12 col-lg-4 " controlId="pnlPendingPaidAmount" control="salesOrder.htmlControl">
+                        <span class="label  col-xs-12 col-lg-6">Total Amount</span>
+                        <span class="label-value col-xs-12 col-lg-6" controlId="lblTotalAmount" control="salesOrder.labelValue"></span>
+                    </div>
+                    <div class="col-xs-12 col-lg-4 " controlId="pnlPendingReceivedAmount" control="salesOrder.htmlControl">
+                        <span class="label  col-xs-12 col-lg-6">Received Amount</span>
+                        <input class="col-xs-12 col-lg-6" type="text" controlId="txtReceivedAmount" control="salesOrder.textBox" placeholder="Received Amount">
+                    </div>
+                    <div class="col-xs-12 col-lg-4" style="float:right;" controlId="pnlPendingPayButton" control="salesOrder.htmlControl">
+                        <input style="float:right;" value="Pay" controlId="btnPayPending" control="salesOrder.primaryReadButton" event="click:btnPayPending_click" />
+                    </div>
+                </div>
+                <div class="col-xs-12 col-lg-12 " style="margin-top:10px;">
+                    <div class="col-xs-12 col-lg-4 ">
+                        <span class="label  col-xs-12 col-lg-6"><b>Bill Details :</b></span>
+                        <select class="col-xs-12 col-lg-6" control="salesOrder.dropDownList" controlid="ddlBillView" style="width:150px">
+                            <option>Bill View</option>
+                            <option>Payment View</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="col-xs-12 col-lg-12 " style="margin-top:10px;">
+                    <div class="col-xs-12 col-lg-12 "> <hr /> </div>
+                    <div controlId="grdPendingPayment" control="salesOrder.grid">
+                    </div>
+                </div>
+            </div>
+            <div controlId="pnlQrScan" control="salesOrder.popup" style="display:none">
+                <video id="preview" controlId="preview" control="salesOrder.htmlControl"></video>
+            </div>
+        </div>
+    </div>
+    <br /><br />
+
+
+</body>
+
+</html>

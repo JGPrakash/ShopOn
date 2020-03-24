@@ -1,0 +1,219 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+
+    <script src="/config/config.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        document.write('<script src="/' + appConfig.root + '/core/master.js" type="text/javascript" > <\/script> ');
+
+        document.write('<link href="/' + appConfig.root + '/shopon/view/item-discount/item-discount.css" rel="stylesheet" />');
+        document.write('<script src="/' + appConfig.root + '/shopon/view/item-discount/item-discount.js"><\/script>');
+        document.write('<script src="/' + appConfig.root + '/shopon/service/discount/discount-api.js"><\/script>');
+        document.write('<script src="/' + appConfig.root + '/shopon/service/product/item-api.js"><\/script>');
+        document.write('<script src="/' + appConfig.root + '/shopon/service/discount/discount-item-api.js"><\/script>');
+
+        document.write('<script src="/' + appConfig.root + '/shopon/service/w3data/w3data.js"><\/script>');
+    </script>
+
+</head>
+
+
+<body control="page.itemDiscount" controlId="itemDiscount">
+
+
+
+
+    <div control="itemDiscount.masterPage" controlId="masterPage"></div>
+
+    <div style="margin-top:40px">
+
+        <!--Load Content Area-->
+        <div class="container-fluid">
+
+            <div class="content-area row">
+                <div control="itemDiscount.messagePanel" controlid="msgPanel" class="message-panel" style="display:none">
+                </div>
+                <div class="search-panel col-sm-4" default-button="btnSearch">
+
+
+                    <div class="search-action">
+                        <hr>
+                        <input type="button" value="Search" rlabel="Search" control="itemDiscount.primaryReadButton" controlId="btnSearch" event="click:btnSearch_click" class="" role="button">
+
+                    </div>
+                    <div class="search-filter">
+                        <div>
+                           
+                            <input type="text" class="textBox" controlId="txtDiscountSearch" control="itemDiscount.textBox" placeholder="Enter Discount No or Name">
+                        </div>
+
+
+                    </div>
+                    <div class="search-result">
+                        <div control="itemDiscount.grid" controlid="grdDiscountResult"></div>
+                    </div>
+                    <div class="col-sm-12" style="height:50px;padding-left:0px;">
+                        <span class="label" rlabel="F1 - New"> F1 - New </span>
+                        <span class="label" rlabel="F2 - Save"> F2 - Save </span>
+                        <span class="label" rlabel="Ctrl + R - Remove"> Ctrl + R - Remove </span>
+                    </div>
+                </div>
+                <div class="detail-panel col-sm-8">
+
+                    <div class="detail-action">
+
+                        <input type="button" value="New" rlabel="New" control="itemDiscount.primaryWriteButton" controlId="btnNewDiscount" event="click:btnNewDiscount_click">
+                        <input type="button" value="Save" rlabel="Save" control="itemDiscount.primaryWriteButton" controlId="btnSaveDiscount" event="click:btnSaveDiscount_click">
+                        <input type="button" value="Remove" rlabel="Remove" control="itemDiscount.secondaryButton" controlid="btnRemoveDiscount" event="click:btnBeforeRemoveDiscount_click">
+                        <!--<span style="padding-left: 5px;padding-right: 5px; margin-top: 5px;float:left" id="dremove"> |</span>-->
+                    </div>
+                    
+                    <div class="detail-info container-fluid" style="display:none">
+
+                        <div class="detail-basic row">
+                            <span class="label col-sm-12" style="font-weight:bold;" rlabel="Manage Discount for Items"><b>Manage Discount for Items</b></span>
+                            <div class="col-sm-12">
+                                <div class="col-sm-6" style="display:none;">
+                                    <span class="label col-sm-4" rlabel="Disc No">Disc No</span>
+                                    <span class="label-value col-sm-8" controlId="lblDiscNo" control="itemDiscount.htmlControl"></span>
+                                </div>
+                             </div>
+                            <div class="col-sm-6 disc-panel">
+                                <span class="label col-sm-4" rlabel="Disc Name">Disc Name <span style="color:red;">*</span></span>
+                                <input class="col-sm-8" type="text" controlId="txtDiscountName" control="itemDiscount.textBox">
+                            </div>
+                            <div class="col-sm-6 disc-panel">
+                                <span class="label col-sm-4" rlabel="Discount Value">Discount Value<span style="color:red;">*</span></span>
+                                <input class="col-sm-8" type="text" controlId="txtDiscountValue" control="itemDiscount.textBox">
+                            </div>
+                            <div class="col-sm-6 disc-panel">
+                                <span class="label col-sm-4" rlabel="Discount Type">Discount Type</span>
+                                <select class="col-sm-8" control="itemDiscount.dropDownList" controlid="itemDiscountType">
+                                    <option>Fixed</option>
+                                    <option>Percent</option>
+                                </select>
+                            </div>
+                            <div class="col-sm-6 disc-panel">
+                                <span class="label col-sm-4" rlabel="Discount Level">Discount Level</span>
+                                <select class="col-sm-8" control="itemDiscount.dropDownList" controlid="itemDiscountLevel">
+                                    <option>Item</option>
+                                    <!--<option>Bill</option>-->
+                                </select>
+                            </div>
+                            <div class='date col-sm-6 disc-panel' id='startDate'>
+                                <span class="label col-sm-4" rlabel="Start Date">Start Date <span style="color:red;">*</span></span>
+                                <input class="col-sm-8" type='text' id="txtStartDate" controlId="txtStartDate" control="itemDiscount.dateTimePicker" />
+                            </div>
+                            <div class='date col-sm-6 disc-panel' id='endDate'>
+                                <span class="label col-sm-4" rlabel="End Date">End Date</span>
+                                <input class="col-sm-8" type='text' id='txtEndDate' controlId="txtEndDate" control="itemDiscount.dateTimePicker" />
+                            </div>
+                            <span class="col-xs-12" style="height:10px;">&nbsp;</span>
+                            <span class="label col-sm-6" id="itemLabel" style="font-weight:bold;" rlabel="Item Details"><b>Item Details</b></span>
+                            <div class="col-sm-6" style="text-align:right">
+                                <input type="button" value="Add" rlabel="Add" control="itemDiscount.secondaryButton" controlId="btnAddTransaction" event="click:btnAddTransaction_click">
+                                <span style="padding-left:5px;display:none;">|</span>
+                                <input type="button" style="display:none;" value="Apply All Items" rlabel="Apply All Items" control="itemDiscount.secondaryButton" controlId="btnApplyDiscountToAllItems" event="click:btnApplyDiscountToAllItems_click">
+                            </div>
+                            <div class="col-sm-12">
+                                <div class="itemGrid" id="grdTransactions" control="itemDiscount.grid" controlid="grdTransactions"></div>
+                            </div>
+                            <!--<div class="col-sm-12"></div>
+                            <div class="col-sm-12"></div>
+                            <div class="col-sm-12"></div>
+                            <div class="col-sm-12"></div>-->
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div controlId="pnlCustomerViewPopup" control="itemDiscount.popup" style="display:none">
+                <div class="itemGrid" control="itemDiscount.grid" controlid="grdCustView"></div>
+            </div>
+            <div controlId="pnlNewDiscountPopup" control="itemDiscount.popup" style="display:none">
+                <div style="width:100%; margin-bottom:10px;display: inline-block;">
+                    <input value="Save" rlabel="Save" style="float:right;" controlId="btnAddDiscountOK" control="itemDiscount.primaryWriteButton" event="click:btnAddDiscountOK_click" />
+                </div>
+
+                <div class="detail-basic detail-full ">
+                    <div style="">
+                        <span class="label" rlabel="Disc Name">Discount Name<span style="color:red;">*</span></span>
+                        <input type="text" controlId="txtDiscName" control="itemDiscount.textBox">
+                    </div>
+                    <div style="">
+                        <span class="label" rlabel="Discount Value">Discount Value<span style="color:red;">*</span></span>
+                        <input type="text" controlId="txtDiscValue" control="itemDiscount.textBox">
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div controlId="pnlItemDiscountPopup" control="itemDiscount.popup" style="display:none">
+                <div style="width:100%;margin-bottom:0px;display: inline-block;">
+                    <input value="Save" rlabel="Save" style="float:right;" controlId="btnDiscountItemOK" control="itemDiscount.primaryWriteButton" event="click:btnDiscountItemOK_click" />
+                </div>
+
+                <div class="detail-full">
+
+                    <div>
+                        <span class="label" controlId="lblItem" control="itemDiscount.htmlControl" rlabel="Item">Item </span>
+                        <!--<select type="text" autofocus controlId="ddlItem" control="itemDiscount.dropDownList"></select>-->
+                        <input rlabel="Item" tabindex="18" controlId="ddlItem" control="itemDiscount.autoCompleteList" />
+                    </div>
+
+                    <div>
+                        <span class="label" rlabel="Transaction Date">Transaction Date<span style="color:red;">*</span></span>
+                        <input controlId="dsBillPayDate" control="itemDiscount.dateSelector" />
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <div controlId="pnlRemoveAlertPopup" control="itemDiscount.popup" style="display:none">
+            <div class="row col-sm-12">
+                <input style="float:right;" value="Close" controlId="btnRemoveAlertPopupClose" control="itemDiscount.primaryReadButton" event="click:btnRemoveAlertPopupClose_click" />
+            </div>
+            <span class="col-xs-12">&nbsp;</span>
+            <div class="row col-sm-12">
+                <img src="../../../ui/ui/images/alert.png" width="100%" class="col-xs-3" style="margin-top: -13px;" />
+                <span class="label-value col-xs-9" style="background:transparent;border:none;" controlId="lblAtert" control="itemDiscount.htmlControl"></span>
+            </div>
+        </div>
+
+        <div controlId="pnlRemoveConfirmPopup" control="itemDiscount.popup" style="display:none">
+            <div class="row col-sm-12">
+                <input style="float:right;" value="Cancel" controlId="btnRemoveConfirmPopupClose" control="itemDiscount.primaryReadButton" event="click:btnRemoveConfirmPopupClose_click" />
+                <input style="float:right;padding-right:10px;" value="Ok" controlId="btnRemoveAlertPopupSave" control="itemDiscount.secondaryButton" event="click:btnRemoveDiscount_click" />
+            </div>
+            <span class="col-xs-12">&nbsp;</span>
+            <div class="row col-sm-12">
+                <img src="../../../ui/ui/images/alert.png" width="100%" class="col-xs-3" style="margin-top: -13px;" />
+                <span class="label-value col-xs-9" style="background:transparent;border:none;">If You Delete This Discount It Can Be Affected On Items</span>
+            </div>
+        </div>
+
+        <div controlId="pnlRemove1ConfirmPopup" control="itemDiscount.popup" style="display:none">
+            <div class="row col-sm-12">
+                <input style="float:right;" value="Cancel" controlId="btnRemove1ConfirmPopupClose" control="itemDiscount.primaryReadButton" event="click:btnRemove1ConfirmPopupClose_click" />
+                <input style="float:right;padding-right:10px;" value="Ok" controlId="btnRemove1AlertPopupSave" control="itemDiscount.secondaryButton" event="click:btnRemove1Tray_click" />
+            </div>
+            <span class="col-xs-12">&nbsp;</span>
+            <div class="row col-sm-12">
+                <img src="../../../ui/ui/images/alert.png" width="100%" class="col-xs-3" style="margin-top: -13px;" />
+                <span class="label-value col-xs-9" style="background:transparent;border:none;">Are You Sure want To Delete This Discount Transaction</span>
+            </div>
+        </div>
+
+    </div>
+
+</body>
+
+</html>

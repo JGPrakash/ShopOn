@@ -1,0 +1,39 @@
+﻿<!doctype html>
+<html>
+
+<head>
+    <base href="/ShopOn/">
+    <script src="/config/config.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        document.write('<script src="/' + appConfig.root + '/core/master.js" type="text/javascript" > <\/script> ');
+        document.write('<script src="/' + appConfig.root + '/shopon/service/w3data/w3data.js"><\/script>');
+        document.write('<link href="/' + appConfig.root + '/user/users-config/users/users.css" rel="stylesheet" />');
+        document.write('<script src="/' + appConfig.root + '/user/users-config/users/users.js"><\/script>');
+        document.write('<script src="/' + appConfig.root + '/login/service/user/user-service.js"><\/script>');
+        document.write('<link href="/' + appConfig.root + '/shopon/view/simple-entity-manage/simple-entity-manage.css" rel="stylesheet" />');
+        document.write('<script src="/' + appConfig.root + '/shopon/view/simple-entity-manage/simple-entity-manage.js"><\/script>');
+    </script>
+
+</head>
+
+<body control="page.userManagePage" controlId="userManagePage">
+
+    <!--Master Page-->
+    <div control="userManagePage.masterPage" controlId="masterPage"></div>
+
+    <div class="content-panel" style="margin-top: 60px; margin-left: 70px; margin-right: 20px;">
+        <div style="margin-left: 70px; height: 30px">
+        <input type="button" value="Group Management" controlid="btnGroupManagement" control="userManagePage.primaryWriteButton" event="click:btnGroupManagement_click"/> |
+        <input type="button" value="User-Group Configuration" controlid="btnUserGroupConfiguration" control="userManagePage.primaryWriteButton" event="click:btnUserGroupConfiguration_click"/> |
+        <input type="button" value="Permission Management" controlid="btnPermissionManagement" control="userManagePage.primaryWriteButton" event="click:btnPermissionManagement_click"/> |
+        <input type="button" value="Object Configuration" controlid="btnObjectConfiguration" control="userManagePage.primaryWriteButton" event="click:btnObjectConfiguration_click"/> |
+        <input type="button" value="User, Object & Permission Management" controlid="btnUserObjectPermission" control="userManagePage.primaryWriteButton" event="click:btnUserObjectPermission_click"/>
+        </div>
+        <span><b>User Management</b></span>
+        <div control="userManagePage.simpleEntityManage" controlId="ucSimpleEntityManage"></div>
+    </div>
+
+
+</body>
+
+</html>

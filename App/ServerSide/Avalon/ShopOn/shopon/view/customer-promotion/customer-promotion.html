@@ -1,0 +1,168 @@
+<!doctype html>
+<html>
+
+<head>
+
+    <script src="/config/config.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        document.write('<script src="/' + appConfig.root + '/core/master.js" type="text/javascript" > <\/script> ');
+
+        document.write('<script src="/' + appConfig.root + '/shopon/service/Promotion/promotion-service.js"><\/script>');
+
+        document.write('<link href="/' + appConfig.root + '/shopon/view/customer-promotion/customer-promotion.css" rel="stylesheet" />');
+        document.write('<script src="/' + appConfig.root + '/shopon/view/customer-promotion/customer-promotion.js"><\/script>');
+
+    </script>
+    <script>
+      function countCharEmail(val) {
+        var len = val.value.length;
+        /*if (len >= 500) {
+          val.value = val.value.substring(0, 500);
+        } else {*/
+        $('#charNum').text(len +" Characters");
+        //}
+      };
+
+      function countCharSMS(val) {
+          var len = val.value.length;
+          /*if (len >= 500) {
+            val.value = val.value.substring(0, 500);
+          } else {*/
+          $('#charNum1').text(len + " Characters");
+          //}
+      };
+    </script>
+</head>
+
+
+<body control="page.manageCustomerPromotion" controlId="manageCustomerPromotion">
+
+    <div control="manageCustomerPromotion.masterPage" controlId="masterPage"></div>
+
+    <div style="margin-top:40px">
+
+        <!--Load Content Area-->
+        <div class="container-fluid">
+            <div class="content-area row">
+                <div control="manageCustomerPromotion.messagePanel" controlid="msgPanel" class="message-panel" style="display:none">
+                </div><br /><br />
+                <div class="col-xs-12 col-lg-6">
+                    <div class="col-xs-6 col-lg-4">
+                        <span class="label  col-xs-4 col-lg-4">Communication Type<span style="color:red;">*</span></span><br /><br />
+                    </div>
+                    <div class="col-xs-6 col-lg-8 ">
+                        <select class="col-lg-6 col-xs-12" control="manageCustomerPromotion.dropDownList" controlid="ddlcommunicationtype">
+                            <option id="1" value="SMS">SMS</option>
+                            <option id="2" value="EMAIL">EMAIL</option>
+                        </select><br /><br />
+                    </div>
+                </div>
+                <div class="detail-panel  col-sm-12 col-lg-12">
+                    <div class="detail-info">
+                        <div class="basic-info row col-xs-12">
+                            <div class="search-panel col-xs-12 col-lg-7" default-button="btnSearch" controlid="pnlsearch" style="display:none" control="manageCustomerPromotion.panel">
+                                <div class="search-action">
+                                    <hr>
+
+                                </div>
+                                <div control="manageCustomerPromotion.messagePanel" controlid="msgPanel" class="message-panel" style="display:none">
+                                </div>
+                                <div class="search-filter">
+                                    <div>
+                                        <!--<span>Customer</span>-->
+                                        <input type="text" controlid="aclMobileSearch" placeholder="No Customer Selected" control="manageCustomerPromotion.autoCompleteList">
+                                    </div>
+                                </div>
+                                <div class="search-result">
+                                    <div control="manageCustomerPromotion.grid" controlid="grdSenderDetails"></div>
+                                </div>
+                            </div><br /><br />
+                            <div class="col-xs-12 col-lg-5" control="manageCustomerPromotion.panel" controlid="pnlsms" style="display:none">
+                                <div class="col-xs-12 col-lg-12 ">
+                                    <div class="col-xs-12 col-lg-12 ">
+                                        <span class="label col-xs-12 col-lg-12"><b>Customer Promotion Details</b></span>
+                                        <div class="col-lg-12 col-xs-12">
+                                            <span class="label col-lg-5 col-xs-12">Reward Plans</span>
+                                            <select class="col-xs-12 col-lg-7" control="manageCustomerPromotion.dropDownList" controlid="ddlmyrewardplan"></select><br /><br />
+                                        </div><br />
+                                        <div class="col-lg-12 col-xs-12">
+                                            <span class="label col-lg-5 col-xs-12">Sender Number</span>
+                                            <input class="col-xs-12 col-lg-7" placeholder="Sender Number" controlId="txtSenderNumber" control="manageCustomerPromotion.textBox" /><br /><br />
+                                        </div><br />
+                                        <div class="col-lg-12 col-xs-12">
+                                            <span class="label col-lg-5 col-xs-12">Receiver Number</span>
+                                            <input class="col-xs-12 col-lg-7" placeholder="Receiver Number" controlId="txtReceiverNumber" control="manageCustomerPromotion.textBox" /><br /><br />
+                                        </div><br />
+                                        <div class="col-lg-12 col-xs-12">
+                                            <span class="label col-lg-5 col-xs-12">Message</span>
+                                            <textarea rows="8" cols="50" class="col-xs-12 col-lg-7" placeholder="Message" controlId="txtMessage" control="manageCustomerPromotion.textArea" id="field"  onkeyup="countCharSMS(this)"></textarea>
+                                            <div id="charNum1" style="margin-left:170px;"></div>
+                                        </div><br />
+                                        <br />
+                                        <div class="col-lg-12 col-xs-12">
+                                            <br><br>
+                                            <input type="button" style="margin-left:170px;" value="Send SMS" control="manageCustomerPromotion.primaryWriteButton" controlid="btnSendSMS" event="click:btnSendSMS_click">
+                                            <input type="button" style="margin-left:20px;" value="Clear" control="manageCustomerPromotion.primaryWriteButton" controlid="btnClear" event="click:btnClear_click">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="detail-panel  col-sm-12 col-lg-12">
+                    <div class="detail-info">
+                        <div class="basic-info row col-xs-12">
+                            <div class="search-panel col-xs-12 col-lg-7" default-button="btnSearch" controlid="pnlsearchE" style="display:none" control="manageCustomerPromotion.panel">
+                                <div class="search-action">
+                                    <hr>
+
+                                </div>
+                                <div control="manageCustomerPromotion.messagePanel" controlid="msgPanel" class="message-panel" style="display:none">
+                                </div>
+                                <div class="search-filter">
+                                    <div>
+                                        <!--<span>Customer</span>-->
+                                        <input type="text" controlid="aclEmailSearch" placeholder="No Customer Selected" control="manageCustomerPromotion.autoCompleteList">
+                                    </div>
+                                </div>
+                                <div class="search-result">
+                                    <div control="manageCustomerPromotion.grid" controlid="grdEmailDetails"></div>
+                                </div>
+                            </div><br /><br />
+                            <div class="col-xs-12 col-lg-5" control="manageCustomerPromotion.panel" controlid="pnlemail" style="display:none">
+                                <span class="label col-xs-12" style="margin-bottom: 5px; margin-left:20px;" id="lblCustomerPromotion"><b>Customer Promotion Details</b></span>
+                                <div class="col-xs-12 col-lg-12 ">
+                                    <div class="col-lg-12 col-xs-12">
+                                        <span class="label col-lg-5 col-xs-12">Reward Plans</span>
+                                        <select class="col-xs-12 col-lg-7" control="manageCustomerPromotion.dropDownList" controlid="ddlmyrewardplans"></select><br /><br />
+                                    </div><br />
+                                    <div class="col-lg-12 col-xs-12">
+                                        <span class="label col-lg-5 col-xs-12">Email</span>
+                                        <input class="col-xs-12 col-lg-7" placeholder="Email" controlId="txtMEmail" control="manageCustomerPromotion.textBox" /><br /><br />
+                                    </div><br />
+                                    <div class="col-lg-12 col-xs-12">
+                                        <span class="label col-lg-5 col-xs-12">Subject</span>
+                                        <input class="col-xs-12 col-lg-7" placeholder="Subject" controlId="txtMSubject" control="manageCustomerPromotion.textBox" /><br /><br />
+                                    </div><br />
+                                    <div class="col-lg-12 col-xs-12">
+                                        <span class="label col-lg-5 col-xs-12">Message</span>
+                                        <textarea rows="8" cols="50" class="col-xs-12 col-lg-7" placeholder="Message" controlId="txtMMessage" control="manageCustomerPromotion.textArea" id="field"  onkeyup="countCharEmail(this)"></textarea>
+                                        <div id="charNum" style="margin-left:180px;"></div>
+                                    </div><br />
+                                    <div class="col-xs-12 col-lg-12">
+                                        <br><br>
+                                        <input type="button" class="col-xs-12 col-lg-6" style="margin-left:200px;" value="Send Mail" control="manageCustomerPromotion.primaryWriteButton" controlid="btnSendMail" event="click:btnSendMail_click">
+                                        <input type="button" style="margin-left:20px;" value="Clear" control="manageCustomerPromotion.primaryWriteButton" controlid="btnClearM" event="click:btnClearM_click">
+                                    </div>
+                                </div><br />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                </div> 
+        </div> 
+    </div>
+</body>
+
+</html>

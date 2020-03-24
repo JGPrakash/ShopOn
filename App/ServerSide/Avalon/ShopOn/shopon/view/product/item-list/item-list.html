@@ -1,0 +1,519 @@
+<!doctype html>
+<html>
+
+<head>
+
+    <script src="/config/config.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        document.write('<script src="/' + appConfig.root + '/shopon/service/stock-api.js"><\/script>');
+        document.write('<script src="/' + appConfig.root + '/shopon/service/product/item-api.js"><\/script>');
+        document.write('<script src="/' + appConfig.root + '/shopon/service/setting-api.js"><\/script>');
+
+        document.write('<script src="/' + appConfig.root + '/core/master.js" type="text/javascript" > <\/script> ');
+        document.write('<script src="/' + appConfig.root + '/login/service/user/user-service.js"><\/script>');
+
+        document.write('<link href="/' + appConfig.root + '/shopon/view/product/item-list/item-list.css" rel="stylesheet" />');
+        document.write('<script src="/' + appConfig.root + '/shopon/view/product/item-list/item-list.js"><\/script>');
+
+        document.write('<script src="/' + appConfig.root + '/shopon/service/sales/customer-service.js"><\/script>');
+        document.write('<script src="/' + appConfig.root + '/shopon/service/product/item-service.js"><\/script>');
+        document.write('<script src="/' + appConfig.root + '/shopon/service/inventory/inventory-service.js"><\/script>');
+        document.write('<script src="/' + appConfig.root + '/shopon/service/inventory/stock-service.js"><\/script>');
+        document.write('<script src="/' + appConfig.root + '/shopon/service/inventory/stock-service.js"><\/script>');
+        document.write('<script src="/' + appConfig.root + '/shopon/service/purchase/purchase-service.js"><\/script>');
+        document.write('<script src="/' + appConfig.root + '/shopon/service/sales/tray-service.js"><\/script>');
+        document.write('<script src="/' + appConfig.root + '/shopon/view/product/item-list/item-invent/item-invent.js"><\/script>');
+        document.write('<script src="/' + appConfig.root + '/shopon/view/product/item-list/item-price/item-price.js"><\/script>');
+        document.write('<script src="/' + appConfig.root + '/shopon/view/product/item-list/item-language/item-language.js"><\/script>');
+        document.write('<script src="/' + appConfig.root + '/shopon/view/product/item-list/item-package/item-package.js"><\/script>');
+        document.write('<script src="/' + appConfig.root + '/shopon/view/product/item-list/item-property/item-property.js"><\/script>');
+        document.write('<script src="/' + appConfig.root + '/shopon/view/product/item-list/item-image/item-image.js"><\/script>');
+        document.write('<script src="/' + appConfig.root + '/shopon/view/product/item-list/item-add/item-add.js"><\/script>');
+        document.write('<script src="/' + appConfig.root + '/shopon/service/upload/upload-api.js"><\/script>');
+        document.write('<script src="/' + appConfig.root + '/shopon/service/vendor/vendor-api.js"><\/script>');
+
+        document.write('<script src="/' + appConfig.root + '/finfacts/service/account/finfacts-entry-service.js"><\/script>');
+        document.write('<script src="/' + appConfig.root + '/finfacts/service/account/accounting-service.js"><\/script>');
+        document.write('<script src="/' + appConfig.root + '/shopon/service/product/main-product-type-api.js"><\/script>');
+        document.write('<script src="/' + appConfig.root + '/shopon/service/product/product-type-api.js"><\/script>');
+        document.write('<script src="/' + appConfig.root + '/shopon/service/manufacture/manufacture-api.js"><\/script>');
+        document.write('<script src="/' + appConfig.root + '/shopon/service/tax/taxclass-api.js"><\/script>');
+        document.write('<script src="/' + appConfig.root + '/shopon/service/sales/tray-api.js"><\/script>');
+        document.write('<script src="/' + appConfig.root + '/shopon/service/tray/item-tray-api.js"><\/script>');
+        document.write('<script src="/' + appConfig.root + '/shopon/service/translate/translate-api.js"><\/script>');
+        document.write('<script src="/' + appConfig.root + '/shopon/service/maximum-id-api.js"><\/script>');
+        document.write('<script src="/' + appConfig.root + '/shopon/service/item-hierarchy/itemAttributeAPI.js"><\/script>');
+        //QR Code Scanner
+        document.write('<script src="/' + appConfig.root + '/core/qrcodegen-demo.js"><\/script>');
+        document.write('<script src="/' + appConfig.root + '/core/qrcodegen.js"><\/script>');
+        document.write('<script src="/' + appConfig.root + '/finfacts/service/account/finfacts-entry-rest-api.js"><\/script>');
+
+        //Tamil Language
+        document.write('<script src="/' + appConfig.root + '/core/tamil-common.js" type="text/javascript" > <\/script> ');
+        document.write('<script src="/' + appConfig.root + '/core/tamil.js" type="text/javascript" > <\/script> ');
+
+        document.write('<script src="/' + appConfig.root + '/shopon/view/barcode-print/barcode-print.js"><\/script>');
+        document.write('<script src="/' + appConfig.root + '/shopon/service/report/stock-report-api.js"><\/script>');
+        document.write('<script src="/' + appConfig.root + '/shopon/service/inventory/variation-api.js"><\/script>');
+        document.write('<script src="/' + appConfig.root + '/shopon/service/inventory/itemVariationAPI.js"><\/script>');
+        document.write('<script src="/' + appConfig.root + '/shopon/service/inventory/itemSKUAPI.js"><\/script>');
+        document.write('<script src="/' + appConfig.root + '/shopon/service/product/itemPriceAPI.js"><\/script>');
+        document.write('<script src="/' + appConfig.root + '/shopon/service/FileAPI.js"><\/script>');
+        document.write('<script src="/' + appConfig.root + '/shopon/service/item-hierarchy/itemAttrCacheAPI.js"><\/script>');
+
+        document.write('<script src="/' + appConfig.root + '/shopon/view/vendor/vendor-edit/vendor-edit.js"><\/script>');
+        document.write('<script src="/' + appConfig.root + '/shopon/service/vendor/vendor-service.js"><\/script>');
+        document.write('<script src="/' + appConfig.root + '/shopon/service/vendor/vendor-api.js"><\/script>');
+        document.write('<script src="/' + appConfig.root + '/shopon/service/sales/customer-service.js"><\/script>');
+        document.write('<script src="/' + appConfig.root + '/shopon/service/sales/city-api.js"><\/script>');
+        document.write('<script src="/' + appConfig.root + '/shopon/service/sales/citystate-api.js"><\/script>');
+        document.write('<script src="/' + appConfig.root + '/shopon/view/manufacture/manufacture-edit/manufacture-edit.js"><\/script>');
+        document.write('<script src="/' + appConfig.root + '/shopon/service/sales/customer-api.js?version=' + appConfig.app_version + '" type="text/javascript"><\/script>');
+
+        document.write('<script src="/' + appConfig.root + '/shopon/service/product/item-property-api.js"><\/script>');
+        document.write('<script src="/' + appConfig.root + '/shopon/service/property-api.js"><\/script>');
+
+        document.write('<script src="/' + appConfig.root + '/shopon/service/item-hierarchy/itemCategoryAPI.js"><\/script>');
+        
+    </script>
+
+
+    
+    <!--<base href="/ShopOn/">
+    <script src="core/master.js" type="text/javascript"></script>
+
+    Services Layyer
+    <script src="service/sales/customer-service.js"></script>
+    
+    <script src="service/product/item-service.js"></script>
+    <script src="service/inventory/inventory-service.js"></script>
+    <script src="service/purchase/purchase-service.js"></script>
+   
+
+
+    <script src="view/product/item-list/item-invent/item-invent.js"></script>
+    <script src="view/product/item-list/item-price/item-price.js"></script>
+
+    <link href="view/product/item-list/item-list.css" rel="stylesheet">
+    <script src="view/product/item-list/item-list.js"></script>
+
+    <script src="view/product/item-list/item-add/item-add.js"></script>-->
+
+
+</head>
+
+
+<body control="page.itemList" controlid="itemList">
+
+    <!-- Master Page-->
+    <div control="itemList.masterPage" controlId="masterPage"></div>
+
+
+    <div style="margin-top:40px">
+       
+        <!--Load Content Area-->
+        <div class="container-fluid">
+            <div class="content-area">
+                <div control="itemList.messagePanel" controlid="msgPanel" class="message-panel" style="display:none">
+                </div>
+                <div class="search-panel   col-sm-4" default-button="btnSearch">
+
+                    <div class="search-action">
+                        <hr>
+                        <input value="Advance Search" rlabel="Advance Search" control="itemList.secondaryButton" controlid="btnAdvanceSearch" event="click:btnAdvanceSearch_click" style="padding-left:20px;">
+                        <input value="Search" rlabel="Search" control="itemList.primaryReadButton" controlid="btnSearch" event="click:btnSearch_click">
+                    </div>
+                    <div class="search-filter">
+
+                        <div>
+                            <input controlid="txtItemSearch" control="itemList.textBox" rlabel="Enter item no or Item name" placeholder="Enter item no or Item name">
+                        </div>
+                        <select controlId="ddlProductType" control="itemList.dropDownList"></select>
+                        
+                    </div>
+                    <div class="search-result">
+                        <div control="itemList.grid" controlid="grdItemResult"></div>
+                    </div>
+                    <div class="col-sm-12" style="height:50px;">
+                        <span class="label" rlabel="F1 - New"> F1 - New </span>
+                        <span class="label" rlabel="F2 - Save"> F2 - Save </span>
+                        <span class="label" rlabel="Ctrl + R - Remove"> Ctrl + R - Remove </span>
+                    </div>
+                </div>
+                <div class="detail-panel col-sm-8">
+
+                    <div class="detail-action">
+                        <input value="New" rlabel="New" control="itemList.primaryWriteButton" controlId="btnNewItem" event="click:btnNewItem_click">
+                        <input value="Save" rlabel="Save" control="itemList.primaryWriteButton" controlid="btnSaveItem" event="click:btnSaveItem_click">
+                        <input value="Remove" rlabel="Remove" control="itemList.secondaryButton" controlId="btnRemove" event="click:btnRemove_click">
+                        <span style="padding-left: 5px;padding-right: 5px; margin-top: 5px;float:left;margin-right: 5px;margin-left: 5px;" id="iremove"> |</span>
+                        <input value="Print Barcode" rlabel="Print Barcode" control="itemList.secondaryButton" controlId="btnPrintBarcode" event="click:btnBeforeBarcode_click" style="display:none;">
+                        <input value="Print Barcode" rlabel="Print Barcode" control="itemList.secondaryButton" controlId="btnPrintNewBarcode" event="click:btnPrintNewBarcode_click">
+                        <span style="padding-left: 5px;padding-right: 5px; margin-top: 5px;float:left;margin-right: 5px;margin-left: 5px;" id="iremove1"> |</span>
+                        <input value="Print QR Code" rlabel="Print QR Code" control="itemList.secondaryButton" controlId="btnPrintQRcode" event="click:btnBeforeQRcode_click">
+                        <span style="padding-left: 5px;padding-right: 5px; margin-top: 5px;float:left;margin-right: 5px;margin-left: 5px;" id="iexpiry"> |</span>
+                        <input value="Set Expiry Alert" rlabel="Set Expiry Alert" control="itemList.secondaryButton" controlId="btnExpiryAlert" event="click:btnExpiryAlert_click">
+                        <span style="padding-left: 5px;padding-right: 5px; margin-top: 5px;float:left;margin-right: 5px;margin-left: 5px;" id="iupdate"> |</span>
+                        <input value="Upload From Excel" rlabel="Upload From Excel" control="itemList.secondaryButton" controlId="btnUpdateExcel" event="click:btnUpdateExcelVariation_click">
+                        <!--<span style="padding-left: 5px;padding-right: 5px; margin-top: 5px;float:left;margin-right: 5px;margin-left: 5px;" id="idownloadeShopon"> |</span>
+                        <input value="Download From eShopon" rlabel="Download From eShopon" control="itemList.secondaryButton" controlId="btnDownloadEshopon" event="click:btnDownloadEshopon_click">-->
+                        <span style="padding-left: 5px;padding-right: 5px; margin-top: 5px;float:left;margin-right: 5px;margin-left: 5px;" id="iuploadEShopon"> |</span>
+                        <input value="Upload From Shopon" rlabel="Sync eShopOn" control="itemList.secondaryButton" controlId="btnUploadEshopon" event="click:btnUploadEshopon_click">
+                    </div>
+                    
+
+                    <div class="detail-info row">
+                        
+                        <div class="detail-tab-action col-sm-12">
+                            <input value="Details" rlabel="Details" control="itemList.actionButton" controlId="btnDetails" event="click:btnDetails_click">
+                            <input value="Inventory" rlabel="Inventory" control="itemList.actionButton" controlId="btnInventory" event="click:btnInventory_click">
+                            <input value="Price" rlabel="Price" control="itemList.actionButton" controlid="btnPrice" event="click:btnPrice_click">
+                            <input value="Language" rlabel="Language" control="itemList.actionButton" controlid="btnLanguage" event="click:btnLanguage_click">
+                            <input value="Package" rlabel="Package" control="itemList.actionButton" controlid="btnPackage" event="click:btnPackage_click">
+                            <input value="Category" control="itemList.actionButton" controlid="btnProperty" event="click:btnProperty_click">
+                            <input value="Image" control="itemList.actionButton" controlid="btnImage" event="click:btnImage_click">
+                        </div>
+
+                        <div class="col-sm-12" style="height:75vh;overflow-x:hidden;overflow-y:scroll;" controlid="pnlContainerPage" control="itemList.htmlControl">
+                            <div>
+                            </div>
+                        </div>
+
+                        <div control="itemList.popup" controlId="itemAddDialog" style="display:none">
+                            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12" style="width:100%;padding:0px;margin-bottom:10px;display: inline-block;margin-top:20px;">
+                                <input controlid="btnAddItem" control="itemList.primaryWriteButton" event="click:btnAddItem_click" value="Add" rlabel="Add" style="float:right;margin-bottom:10px" />
+                            </div>
+                            <div class="col-lg-12">
+                                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 margin-top" control="itemList.htmlControl" controlId="pnlItemNo">
+                                    <span class="label col-xs-12 col-sm-12 col-md-4 col-lg-4" rlabel="Item No"><b>Item No</b></span>
+                                    <span class="label-value col-xs-12 col-sm-12 col-md-8 col-lg-8" controlId="lblAddItemNo" control="itemList.label"></span>
+                                </div>
+                                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 margin-top" control="itemList.htmlControl" controlId="pnlItemCode">
+                                    <span class="label col-xs-12 col-sm-12 col-md-4 col-lg-4" rlabel="Item Code"><b>Item Code</b></span>
+                                    <input class="col-xs-12 col-sm-12 col-md-8 col-lg-8" type="text" controlid="txtAddItemCode" control="itemList.textBox">
+                                </div>
+                                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 margin-top">
+                                    <span class="label col-xs-12 col-sm-12 col-md-4 col-lg-4" rlabel="Item Name"><b>Item Name</b></span>
+                                    <input class="col-xs-12 col-sm-12 col-md-8 col-lg-8" type="text" controlid="txtAddItemName" control="itemList.textBox">
+                                </div>
+                                <div class="col-xs-12 col-lg-12  margin-top" control="itemList.htmlControl" controlid="pnlNewItemMainPrd">
+                                    <span class="label col-xs-12 col-sm-12 col-md-4 col-lg-3" rlabel="Main Product Type">Main Product Type</span><input value="+" control="itemList.secondaryButton" controlId="btnNewMainProductType" style="margin-left:8px;" event="click:btnNewMainProductType_click" />
+                                    <select class="col-xs-12 col-lg-8" control="itemList.dropDownList" controlid="ddlMainPrdType" style="float:right;"></select>
+                                 </div>
+                                <div class="col-xs-12 col-lg-12  margin-top" control="itemList.htmlControl" controlid="pnlNewItemPrd">
+                                    <span class="label col-xs-12 col-sm-12 col-md-4 col-lg-3" rlabel="Product Type">Product Type</span><input value="+" control="itemList.secondaryButton" controlId="btnNewProductType" style="margin-left:8px;" event="click:btnNewProductType_click" />
+                                    <select class="col-xs-12 col-lg-8" control="itemList.dropDownList" controlid="ddlPrdType" style="float:right;"></select>
+                                </div>
+
+                                        <div class="col-xs-12 col-lg-12  margin-top">
+                                            <span class="label col-xs-12 col-sm-12 col-md-4 col-lg-4" rlabel="Unit">Unit</span>
+                                            <select class="col-xs-12 col-lg-8" control="itemList.dropDownList" controlid="itemNewUnit">
+                                                <option>No unit</option>
+                                                <option>KGs</option>
+                                                <option>gm</option>
+                                                <option>Lt</option>
+                                                <option>ml</option>
+                                                <option>M</option>
+                                                <option>Mm</option>
+                                                <option>Pcs</option>
+                                                <option>No</option>
+                                                <option>Tray</option>
+                                                <option>Box</option>
+                                                <option>Pack</option>
+                                                <option>Cu</option>
+                                                <option>Plates</option>
+                                                <option>Others</option>
+                                            </select>
+                                        </div>
+                                        <div class="col-xs-12 col-lg-12 margin-top" control="itemList.htmlControl" controlId="pnlAlternativeUnit" style="margin-top:5px;">
+                                            <span class="label  col-xs-12 col-lg-4" rlabel="Alternate Unit" control="itemList.label" controlId="Alternate Unit">Alternate Unit</span>
+                                            <!--<input type="text" class="col-xs-12 col-lg-8" controlid="txtAlterUnit" control="itemList.textBox">-->
+                                            <select class="col-xs-12 col-lg-8" control="itemList.dropDownList" controlid="txtAlterUnit">
+                                                <option>No unit</option>
+                                                <option>KGs</option>
+                                                <option>gm</option>
+                                                <option>Lt</option>
+                                                <option>ml</option>
+                                                <option>M</option>
+                                                <option>Mm</option>
+                                                <option>Pcs</option>
+                                                <option>No</option>
+                                                <option>Tray</option>
+                                                <option>Box</option>
+                                                <option>Pack</option>
+                                                <option>Cu</option>
+                                                <option>Plates</option>
+                                                <option>Others</option>
+                                            </select>
+                                        </div>
+                                        <div class="col-xs-12 col-lg-12 margin-top" control="itemList.htmlControl" controlId="pnlAlternativeUnitFactor" style="margin-top:5px;">
+                                            <span class="label  col-xs-12 col-lg-4" rlabel="Alternate Unit Factor" control="itemList.label" controlId="Alternate Unit Factor">Alternate Unit Factor</span>
+                                            <input type="text" class="col-xs-12 col-lg-8" controlid="txtAlterUnitFact" control="itemList.textBox">
+                                        </div>
+                                        <div class="col-xs-12 col-lg-12  margin-top" control="itemList.htmlControl" controlId="pnlBarCode">
+                                            <span class="label col-xs-12 col-sm-12 col-md-4 col-lg-4">Barcode</span>
+                                            <input type="text" class="col-xs-12 col-sm-12 col-md-8 col-lg-8" controlid="txtNewBarcode" control="itemList.textBox">
+                                        </div>
+                                        <div class="col-xs-12 col-lg-12 margin-top" control="itemList.htmlControl" controlId="pnlTax">
+                                            <span class="label col-xs-12 col-sm-12 col-md-4 col-lg-4">Tax</span>
+                                            <select class="col-xs-12 col-sm-12 col-md-8 col-lg-8" controlId="ddlNewTax" control="itemList.dropDownList" id="ddlNewTax"></select>
+                                        </div>
+                                        <div class="col-xs-12 col-lg-12 margin-top" control="itemList.htmlControl" controlId="pnlTaxMode">
+                                            <span class="label  col-xs-12 col-sm-12 col-md-4 col-lg-4">Tax Apply Mode</span>
+                                            <span class="label col-xs-12 col-sm-12 col-md-8 col-lg-8" style="margin-top:-8px;"><input type="checkbox" tabindex="10" controlId="chkNewInclusive" control="itemList.chkBox" name="tax_inclusive"><span class="label col-xs-11" style="float:right;margin-top:6px;">Tax Inclusive</span></span>
+                                        </div>
+
+                                        <div class="col-xs-12 col-lg-12 margin-top">
+                                            <span class="label  col-xs-12 col-sm-12 col-md-4 col-lg-4"  rlabel="Stock">Stock</span>
+                                            <span class="label col-xs-12 col-sm-12 col-md-8 col-lg-8" style="margin-top:-8px;"><input type="checkbox" tabindex="11" controlId="chkStock" control="itemList.chkBox" name="item_stock"><span class="label col-xs-11" style="float:right;margin-top:6px;" rlabel="No Stock">No Stock</span></span>
+                                        </div>
+                                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 margin-top" style="display:none" control="itemList.htmlControl" controlId="itemPrice">
+                                    <span class="label col-xs-12 col-sm-12 col-md-4 col-lg-4" style="margin-top: 5px;" rlabel="Selling Price"><b>Selling Price</b></span>
+                                    <input class="col-xs-12 col-sm-12 col-md-8 col-lg-8" type="text" controlid="txtItemPrice" control="itemList.textBox">
+                                </div>
+                                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 margin-top" style="display:none" control="itemList.htmlControl" controlId="itemAlterPrice1">
+                                    <span class="label col-xs-12 col-sm-12 col-md-4 col-lg-4" style="margin-top: 5px;" rlabel="Selling Price1"><b>Selling Price1</b></span>
+                                    <input class="col-xs-12 col-sm-12 col-md-8 col-lg-8" type="text" controlid="txtItemAlterPrice1" control="itemList.textBox">
+                                </div>
+                                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 margin-top" style="display:none" control="itemList.htmlControl" controlId="itemAlterPrice2">
+                                    <span class="label col-xs-12 col-sm-12 col-md-4 col-lg-4" style="margin-top: 5px;" rlabel="Selling Price2"><b>Selling Price2</b></span>
+                                    <input class="col-xs-12 col-sm-12 col-md-8 col-lg-8" type="text" controlid="txtItemAlterPrice2" control="itemList.textBox">
+                                </div>
+                                </div>
+                            <div class="col-xs-6">
+               
+                                <!--<div  control="itemList.htmlControl" controlId="itemSetVariation">
+                                    <div class="col-xs-6">
+                                        <span class="header-label">Item Variation</span>
+                                        <div style="width:100%; overflow-x:auto; overflow-y:hidden;">
+                                            <div controlId="grdItemVariation" control="itemList.grid"></div>
+                                        </div>
+                                    </div>
+                                    <div class="col-xs-6">
+                                        <span class="header-label">Item Stock Variation</span>
+                                        <div style="width:100%; overflow-x:auto; overflow-y:hidden;">
+                                            <div controlId="grdItemStockVariation" control="itemList.grid"></div>
+                                        </div>
+                                    </div>
+                                </div>-->
+                            </div>
+                            </div>
+                        <div id="dialog-form" style="display:none">
+                            <form>
+                                <label for="name">Enter the no of rows</label>
+                                <input type="text" name="manualcount" id="manualcount" class="text ui-widget-content ui-corner-all" />
+                                <!--<label for="name">Variation</label>
+                                <select controlId="ddlItemVariation" control="itemList.dropDownList" ></select><br />
+                                <label for="name">MRP</label>
+                                <input type="text" name="manualmrp" id="manualmrp" class="text ui-widget-content ui-corner-all" />-->
+                            </form>
+                        </div>
+
+                        <div control="itemList.popup" controlId="itemPrintBarcode" style="display:none">
+
+                            <div style="width:100%;margin-bottom:10px;display: inline-block;margin-top:25px;">
+                                <input controlid="btnPrint" control="itemList.primaryWriteButton" event="click:btnPrintBarcode_click" value="Print" rlabel="Print" style="float:right;margin-bottom:10px;" />
+                            </div>
+                            <div class="detail-basic">
+                                <div class="col-xs-12 margin-top" controlid="pnlDynamicBarcode" control="itemList.htmlControl">
+                                    <span class="label col-xs-6">Rows</span>
+                                    <select class="col-xs-6" controlid="ddlBarcodePrint" control="itemList.dropDownList">
+                                        <option value="2">2 Per Row</option>
+                                        <option value="3">3 Per Row</option>
+                                        <option value="4">4 Per Row</option>
+                                    </select>
+                                </div>
+                                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 margin-top">
+                                    <span class="label col-xs-12 col-sm-12 col-md-6 col-lg-6"  rlabel="Number Of Rows"><b>Number Of Rows</b></span>
+                                    <input type="text" class="col-xs-12 col-sm-12 col-md-6 col-lg-6" controlid="txtPrintRow" control="itemList.textBox">
+                                </div>
+                                <div controlId="pnlBillDate" control="itemList.htmlControl" class="col-xs-12 margin-top">
+                                    <span class="label col-xs-12 col-sm-12 col-md-6 col-lg-6"  rlabel="PKD Date"><b>PKD Date</b></span>
+                                    <input controlId="txtBillDate" control="itemList.dateSelector" class="col-xs-12 col-sm-12 col-md-6 col-lg-6" />
+                                </div>
+                                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 margin-top" control="itemList.htmlControl" controlid="pnlSellingRate">
+                                    <span class="label col-xs-12 col-sm-12 col-md-6 col-lg-6" rlabel="Choose Selling Rate"><b>Choose Selling Rate</b></span>
+                                    <select controlId="ddlItemVariation" class="col-xs-12 col-sm-12 col-md-6 col-lg-6" control="itemList.dropDownList"></select><br />
+                                    <select controlId="ddlItemVariationCost" class="col-xs-12 col-sm-12 col-md-6 col-lg-6" control="itemList.dropDownList" style="display:none;"></select><br />
+                                </div>
+                                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 margin-top" style="display:none;">
+                                    <span class="label" rlabel="Selling Rate"><b>Selling Rate</b></span>
+                                    <span class="label-value col-xs-12 col-sm-12 col-md-12 col-lg-12" controlId="lblVariationMrp" control="itemList.label"></span>
+                                </div>
+                                <div class="col-xs-12  col-lg-12 margin-top">
+                                    <span class="label col-xs-12 col-lg-5" rlabel="Show Selling Price">Show Selling Price</span>
+                                    <span class="col-xs-12 col-lg-7"><input type="checkbox" controlId="chkShowSellingPrice" control="itemList.chkBox" name="show_selling_rate"><span class="label" style="margin-top:-22px;margin-left:5px;" rlabel="Show Selling Price">Show Selling Price</span></span>
+                                </div>
+                            </div>
+                        </div>
+                        <div controlId="pnlPrintNewBarcodePopup" control="itemList.popup" style="display:none">
+                            <div control="itemList.barcodePrint" controlid="ucBarcodePrint"> </div>
+                        </div>
+                        <div control="itemList.popup" controlId="itemPrintQRcode" style="display:none">
+
+                            <div style="width:100%;margin-bottom:10px;display: inline-block;">
+                                <input controlid="btnQrPrint" control="itemList.primaryWriteButton" event="click:btnPrintQRcode_click" value="Print" rlabel="Print" style="float:right;margin-bottom:10px" />
+                            </div>
+                            <div class="detail-basic detail-full">
+                                <div>
+                                    <span class="label" rlabel="Number Of Print"><b>Number Of Print</b></span>
+                                    <input type="text" controlid="txtQRPrintRow" control="itemList.textBox">
+                                </div>
+                                <div>
+                                    <span class="label" rlabel="Choose Selling Rate"><b>Choose Selling Rate</b></span>
+                                    <select controlId="ddlQRItemVariation" control="itemList.dropDownList"></select><br />
+                                    <select controlId="ddlQRItemVariationCost" control="itemList.dropDownList" style="display:none;"></select><br />
+                                </div>
+                                <div  style="display:none;">
+                                    <span class="label" rlabel="Selling Rate"><b>Selling Rate</b></span>
+                                    <span class="label-value" controlId="lblQRVariationMrp" control="itemList.label"></span>
+                                </div>
+                            </div>
+                        </div>
+                        <div controlId="pnlManualDiscountPopUp" control="itemList.popup" style="display:none">
+                            <div class="detail-basic">
+                                <label for="name" class="label" rlabel="Enter Manual Alert Days">Enter Manual Alert Days</label>
+                                <input controlId="txtManualAlertDays" class="text ui-widget-content ui-corner-all" control="itemList.textBox" type="text" value="" placeholder="">
+                                <hr />
+                                <input value="Cancel"  rlabel="Cancel" style="float:right;" controlId="btnManualDiscountCancel" control="itemList.primaryReadButton" event="click:btnManualAlertDaysCancel_click" />
+                                <input value="Ok"  rlabel="Ok" style="float:right;margin-right: 10px;" controlId="btnManualDiscountOK" control="itemList.primaryReadButton" event="click:btnManualAlertDaysOK_click" />
+                            </div>
+                        </div>
+                        <!--Update Excel Panel-->
+                        <div controlId="pnlUpdateExcelPopup" control="itemList.popup" style="display:none">
+                            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12" style="margin-top:5%;">
+                                <label for="fileUpload" class="col-xs-12 col-sm-5 col-md-6 col-lg-6" rlabel="Select File to Upload:">
+                                    Select File to Upload:
+                                </label>
+                                <input type="file" id="fileUpload" class="col-xs-12 col-sm-7 col-md-6 col-lg-6">
+                                <br />
+                                <div class="col-xs-10 col-sm-5 col-md-5 col-lg-5 col-xs-offset-2 col-sm-offset-7 col-md-offset-7 col-lg-offset-7 margin-top">
+                                    <input id="btnUploadFile" class="btn btn-sm btn-success" control="itemList.primaryReadButton" type="button" value="Upload Data" rlabel="Upload Data" controlid="btnUploadFile" event="click:btnUploadFile_click" />
+                                </div>
+                            </div>
+                            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                                <span class="label col-xs-12 col-sm-12 col-md-12 col-lg-12" rlabel="Notes"><b>Notes</b></span>
+                                <span class="label col-xs-12 col-sm-12 col-md-12 col-lg-12">1. This Can Support .xls format file only</span>
+                                <span class="label col-xs-12 col-sm-12 col-md-12 col-lg-12" controlId="upload_path" control="itemList.htmlControl">2. Your File Must Present C drive</span>
+                            </div>
+                            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                                <span class="label col-xs-12 col-sm-12 col-md-12 col-lg-12" rlabel="Condition"><b>Condition</b></span>
+                                <span class="col-xs-12 col-sm-12 col-md-12 col-lg-12">1. Data Presented In Sheet1</span>
+                                <span class="col-xs-12 col-sm-12 col-md-12 col-lg-12">2. Item No, Item Code, Item Name Format Only</span>
+                            </div>
+                        </div>
+
+                        <!--Update Excel Panel-->
+                        <div controlId="pnlUpdateExcelVariationPopup" control="itemList.popup" style="display:none">
+                            <div class="col-xs-12">
+                                <span class="col-xs-12"><b>Notes</b></span>
+                                <span class="col-xs-12">1. This Can Support .xls format file only</span>
+                                <span class="col-xs-12" controlId="upload_path_variation" control="itemList.htmlControl">2. Your File Must Present C drive</span>
+                            </div>
+                            <div class="col-xs-12">
+                                <span class="col-xs-12"><b>Condition</b></span>
+                                <span class="col-xs-12">1. Data Presented In Sheet1</span>
+                                <span class="col-xs-12">2. Item No, Item Code, Item Name, Cost, MRP, Rate A, Rate B, Rate C Format Only</span>
+                                <span class="col-xs-12">&nbsp;</span>
+                                <span class="col-xs-6">Need Sample Document?</span>
+                                <a class="col-xs-4" controlId="lblSampleDocument" control="itemList.htmlControl">Click Here</a>
+                            </div>
+                            <div class="col-xs-12" style="margin-top:3%;">
+                                <span class="col-xs-12"><b>Settings</b></span><br />
+                                <span class="col-xs-6">Delete Previous Item</span>
+                                <select class="col-xs-6" controlId="ddlFormatVariation" control="itemList.dropDownList">
+                                    <option>False</option>
+                                    <option>True</option>
+                                </select>
+                            </div>
+                            <dic class="col-xs-12" style="margin-top:2%;">
+                                <span class="col-xs-6">Start Row</span>
+                                <input type="number" class="col-xs-6" control="itemList.textBox" controlid="txtStartRow" />
+                            </dic>
+                            <dic class="col-xs-12" style="margin-top:2%;">
+                                <span class="col-xs-6">End Row</span>
+                                <input type="number" class="col-xs-6" control="itemList.textBox" controlid="txtEndRow" />
+                            </dic>
+                            <div class="col-xs-12" style="margin-top:2%;">
+                                <label for="fileUpload">
+                                    Select File to Upload:
+                                </label>
+
+                                <input type="file" id="fileUploadVariation">
+                                <br />
+                                <input id="btnUploadFileVariation" class="btn btn-sm btn-success" control="itemList.primaryReadButton" type="button" value="Upload Data" controlid="btnUploadFileVariation" event="click:btnUploadFileVariation_click" />
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+
+        <div class="basic-info" style="display:none" controlId="pnlNewMainProductType" control="itemList.popup">
+            <div style="float:right;">
+                <input style="float:right;margin-top:2px" type="button" event="click:btnNewMainProductTypeSave_click" control="itemList.primaryReadButton" controlid="btnNewMainProductTypeSave" value="Save" rlabel="Save">
+            </div>
+            <div class="col-xs-12" style="min-height:35px;margin-bottom:5px">
+                <span class="label  col-xs-12 col-lg-5" rlabel="Main Product Name" control="itemList.label" controlId="Main Product_name">Main Product Name<span style="color:red;">*</span></span>
+                <input class="col-xs-12 col-lg-7 label-value" type="text" controlid="txtNewMainProductTypeName" control="itemList.textBox">
+            </div>
+        </div>
+
+        <div class="basic-info" style="display:none" controlId="pnlNewProductType" control="itemList.popup">
+            <div style="float:right;">
+                <input style="float:right;margin-top:2px" type="button" event="click:btnNewProductTypeSave_click" control="itemList.primaryReadButton" controlid="btnNewProductTypeSave" value="Save" rlabel="Save">
+            </div>
+            <div class="col-xs-12" style="min-height:35px;margin-bottom:5px">
+                <span class="label  col-xs-12 col-lg-5" rlabel="Product Type Name" control="itemList.label" controlId="Product_name">Product Type Name<span style="color:red;">*</span></span>
+                <input class="col-xs-12 col-lg-7 label-value" type="text" controlid="txtNewProductTypeName" control="itemList.textBox">
+            </div>
+            <div class="col-xs-12">
+                <span class="label  col-xs-12 col-lg-5" rlabel="Main Product Name">Main Product Name<span style="color:red;">*</span></span>
+                <select class="col-xs-12 col-lg-7 label-value" control="itemList.dropDownList" controlid="ddlmymainproduct"></select>
+            </div>
+        </div>
+
+        <div class="basic-info" style="display:none" controlId="pnlAdvanceSearch" control="itemList.popup">
+            <div style="float:right;">
+                <input style="float:right;margin-top:2px" type="button" event="click:btnSearchAdvance_click" control="itemList.primaryReadButton" controlid="btnSearchAdvance" value="Search" rlabel="Search">
+            </div>
+            <div class="col-xs-12 col-lg-12">
+                <span class="label col-xs-12" rlabel="Main Product Type">Main Product Type</span>
+                <select class="col-xs-12" control="itemList.dropDownList" controlid="ddlAdvMainPrdType" style="float:right;"></select>
+            </div>
+            <div class="col-xs-12 col-lg-12">
+                <span class="label col-xs-12" rlabel="Product Type">Product Type</span>
+                <select class="col-xs-12" control="itemList.dropDownList" controlid="ddlAdvPrdType" style="float:right;"></select>
+            </div>
+        </div>
+
+        <div controlId="pnlRemoveAlertPopup" control="itemList.popup" style="display:none">
+            <div class="row col-sm-12">
+                <input style="float:right;" value="Close" controlId="btnRemoveAlertPopupClose" control="itemList.primaryReadButton" event="click:btnRemoveAlertPopupClose_click" />
+            </div>
+            <span class="col-xs-12">&nbsp;</span>
+            <div class="row col-sm-12">
+                <img src="../../../../ui/ui/images/alert.png" width="100%" class="col-xs-3" style="margin-top: -13px;" />
+                <span class="label-value col-xs-9" style="background:transparent;border:none;">Sorry This Product Have Used For Purchase Or Sales, So It Is Not Deleted</span>
+            </div>
+        </div>
+
+        <div controlId="pnlRemoveConfirmPopup" control="itemList.popup" style="display:none">
+            <div class="row col-sm-12">
+                <input style="float:right;" value="Cancel" controlId="btnRemoveConfirmPopupClose" control="itemList.primaryReadButton" event="click:btnRemoveConfirmPopupClose_click" />
+                <input style="float:right;padding-right:10px;" value="Ok" controlId="btnRemoveConfirmPopupSave" control="itemList.secondaryButton" event="click:btnRemoveConfirm_click" />
+            </div>
+            <span class="col-xs-12">&nbsp;</span>
+            <div class="row col-sm-12">
+                <img src="../../../../ui/ui/images/alert.png" width="100%" class="col-xs-3" style="margin-top: -13px;" />
+                <span class="label-value col-xs-9" style="background:transparent;border:none;">If You Delete This Products It Can Be Affected On Bills And Report</span>
+            </div>
+        </div>
+        
+    </div>
+</body>
+
+</html>

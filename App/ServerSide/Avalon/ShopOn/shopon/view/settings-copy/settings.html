@@ -1,0 +1,929 @@
+﻿<!doctype html>
+<html>
+
+<head>
+    <base href="/ShopOn/">
+    <script src="/config/config.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        document.write('<script src="/' + appConfig.root + '/core/master.js" type="text/javascript" > <\/script> ');
+        document.write('<script src="/' + appConfig.root + '/shopon/service/w3data/w3data.js"><\/script>');
+        //document.write('<link href="/' + appConfig.root + '/user/users-config/users/users.css" rel="stylesheet" />');
+        //document.write('<script src="/' + appConfig.root + '/user/users-config/users/users.js"><\/script>');
+        //document.write('<script src="/' + appConfig.root + '/shopon/service/user/user-service.js"><\/script>');
+        document.write('<link href="/' + appConfig.root + '/shopon/view/settings/settings.css" rel="stylesheet" />');
+        document.write('<script src="/' + appConfig.root + '/shopon/view/settings/settings.js"><\/script>');
+        document.write('<script src="/' + appConfig.root + '/shopon/service/setting-service.js"><\/script>');
+        document.write('<script src="/' + appConfig.root + '/finfacts/service/revenue-service.js"><\/script>');
+        document.write('<script src="/' + appConfig.root + '/finfacts/service/accaccount-service.js"><\/script>');
+        document.write('<script src="/' + appConfig.root + '/shopon/service/tax/salestax-service.js"><\/script>');
+        document.write('<script src="/' + appConfig.root + '/finfacts/service/user/company-service.js"><\/script>');
+    </script>
+
+</head>
+
+<body control="page.settingsPage" controlId="settingsPage">
+
+    <!--Master Page-->
+    <div control="settingsPage.masterPage" controlId="masterPage"></div>
+
+    <div style="margin-top:40px">
+
+        <!--Load Content Area-->
+        <div class="container-fluid">
+            <div class="row" style="background: whitesmoke;">
+                <div control="settingsPage.messagePanel" controlid="msgPanel" class="message-panel" style="display:none"></div>
+                <div class="row col-xs-12 col-sm-12 col-md-3 col-lg-3" style="height:1200px;background:gray;padding: 0px;">
+                    <input value="General" control="settingsPage.primaryReadButton" class="col-xs-12 col-sm-12 col-md-12 col-lg-12" id="mysettbutton" controlid="btnGeneral" event="click:btnGeneral_click">
+                    <input value="Finfacts" control="settingsPage.primaryReadButton" controlid="btnFinfacts" class="col-xs-12 col-sm-12 col-md-12 col-lg-12" id="mysettbutton" event="click:btnFinfacts_click">
+                    <input value="Purchase" control="settingsPage.primaryReadButton" controlid="btnPurchase" class="col-xs-12 col-sm-12 col-md-12 col-lg-12" id="mysettbutton" event="click:btnPurchase_click">
+                    <input value="Sales" control="settingsPage.primaryReadButton" controlid="btnSales" class="col-xs-12 col-sm-12 col-md-12 col-lg-12" id="mysettbutton" event="click:btnSales_click">
+                    <input value="Inventory" control="settingsPage.primaryReadButton" controlid="btnInventory" class="col-xs-12 col-sm-12 col-md-12 col-lg-12" id="mysettbutton" event="click:btnInventory_click">
+                    <input value="Modules" control="settingsPage.primaryReadButton" controlid="btnModules" class="col-xs-12 col-sm-12 col-md-12 col-lg-12" id="mysettbutton" event="click:btnModules_click">
+                    <input value="Communication" control="settingsPage.primaryReadButton" controlid="btnCommunication" class="col-xs-12 col-sm-12 col-md-12 col-lg-12" id="mysettbutton" event="click:btnCommunication_click">
+                    <input value="Layout and Themes" control="settingsPage.primaryReadButton" controlid="btnLayout" class="col-xs-12 col-sm-12 col-md-12 col-lg-12" id="mysettbutton" event="click:btnLayout_click">
+                </div>
+                <div control="settingsPage.htmlControl" class="row col-xs-12 col-sm-12 col-md-8 col-lg-8" controlId="pnlGeneral" style="/*margin-top:2%;*/margin-bottom:2%;margin-left: 2%;">
+                    <input value="Apply" control="settingsPage.primaryReadButton" controlid="btnSaveGen" event="click:btnSaveGen_click" style="margin-top:1%;float:right;">
+                    <h3>General</h3>
+                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12" style="background-color:white; border-radius:20px; padding:10px;">
+                        <span class="label col-xs-12 col-sm-12 col-md-12 col-lg-12" style="margin-bottom: 5px"><b>Profile</b></span>
+                        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12" style="margin-top:1%">
+                            <span class="label col-xs-12 col-sm-12 col-md-4 col-lg-4">Company Name</span>
+                            <input type="text" class="col-xs-12 col-sm-12 col-md-8 col-lg-8" title="COMPANY_NAME" control="settingsPage.textBox" controlId="txtCompanyGen" placeholder="Enter company name">
+                        </div>
+                        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12" style="margin-top:1%">
+                            <span class="label col-xs-12 col-sm-12 col-md-4 col-lg-4">Owner Name</span>
+                            <input type="text" class="col-xs-12 col-sm-12 col-md-8 col-lg-8" title="COMPANY_OWNER_NAME" control="settingsPage.textBox" controlId="txtOwnerGen" placeholder="Enter owner name">
+                        </div>
+                        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12" style="margin-top:1%">
+                            <span class="label col-xs-12 col-sm-12 col-md-4 col-lg-4" style="display:block">Landline No</span>
+                            <input class="col-xs-12 col-sm-12 col-md-8 col-lg-8" title="COMPANY_LANDLINE_NO" control="settingsPage.textBox" controlId="txtCmpnyLandlineNo" placeholder="Enter Company Landline No">
+                        </div>
+                        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12" style="margin-top:1%">
+                            <span class="label col-xs-12 col-sm-12 col-md-4 col-lg-4">Mobile No</span>
+                            <input type="text" class="col-xs-12 col-sm-12 col-md-8 col-lg-8" title="COMPANY_PHONE_NO" control="settingsPage.textBox" controlId="txtPhoneNo" maxlength="10" placeholder="Enter Mobile no">
+                        </div>
+                        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12" style="margin-top:1%">
+                            <span class="label col-xs-12 col-sm-12 col-md-4 col-lg-4">Alternative Mobile No</span>
+                            <input type="text" class="col-xs-12 col-sm-12 col-md-8 col-lg-8" title="COMPANY_ALTER_PHONE_NO" control="settingsPage.textBox" controlId="txtAlterPhoneNo" maxlength="10" placeholder="Enter Alter Mobile no">
+                        </div>
+                        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12" style="margin-top:1%">
+                            <span class="label col-xs-12 col-sm-12 col-md-4 col-lg-4">E-mail</span>
+                            <input type="text" class="col-xs-12 col-sm-12 col-md-8 col-lg-8" title="COMPANY_EMAIL" control="settingsPage.textBox" controlId="txtEmail" placeholder="Enter email address">
+                        </div>
+                        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12" style="margin-top:1%">
+                            <span class="label col-xs-12 col-sm-12 col-md-4 col-lg-4">Web Address</span>
+                            <input type="text" class="col-xs-12 col-sm-12 col-md-8 col-lg-8" title="COMPANY_WEB_ADDRESS" control="settingsPage.textBox" controlId="txtWebAddress" placeholder="Enter web address">
+                        </div>
+                        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12" style="margin-top:1%">
+                            <span class="label col-xs-12 col-sm-12 col-md-4 col-lg-4" style="display:block">Company GST No</span>
+                            <input class="col-xs-12 col-sm-12 col-md-8 col-lg-8" title="COMPANY_GST_NO" control="settingsPage.textBox" controlId="txtCmpnyGSTNo" placeholder="Enter Company GST No">
+                        </div>
+                        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12" style="margin-top:1%">
+                            <span class="label col-xs-12 col-sm-12 col-md-4 col-lg-4" style="display:block">Company DL No</span>
+                            <input class="col-xs-12 col-sm-12 col-md-8 col-lg-8" title="COMPANY_DL_NO" control="settingsPage.textBox" controlId="txtCmpnyDLNo" placeholder="Enter Company DL No">
+                        </div>
+                        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12" style="margin-top:1%">
+                            <span class="label col-xs-12 col-sm-12 col-md-4 col-lg-4" style="display:block">Company TIN No</span>
+                            <input class="col-xs-12 col-sm-12 col-md-8 col-lg-8" title="COMPANY_TIN_NO" control="settingsPage.textBox" controlId="txtCmpnyTINNo" placeholder="Enter Company TIN No">
+                        </div>
+                        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12" style="margin-top:1%">
+                            <span class="label col-xs-12 col-sm-12 col-md-4 col-lg-4" style="display:block">Company Address Line1</span>
+                            <textarea rows="3" class="col-xs-12 col-sm-12 col-md-8 col-lg-8" title="COMPANY_ADDRESS_LINE1" cols="30" style="display:block;height:100px" control="settingsPage.textarea" controlId="txtCmpnyAddGen" placeholder="Enter Address"></textarea>
+                        </div>
+                        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12" style="margin-top:1%">
+                            <span class="label col-xs-12 col-sm-12 col-md-4 col-lg-4" style="display:block">Company Address Line2</span>
+                            <textarea rows="3" class="col-xs-12 col-sm-12 col-md-8 col-lg-8" title="COMPANY_ADDRESS_LINE2" cols="30" style="display:block;height:100px" control="settingsPage.textarea" controlId="txtCmpnyAddGen1" placeholder="Enter Address"></textarea>
+                        </div>
+                    </div>
+
+                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12" style="margin-top:1%;background-color:white; border-radius:20px; padding:10px;">
+                        <span class="label col-xs-12 col-sm-12 col-md-12 col-lg-12" style="margin-bottom: 5px"><b>Profile Logo</b></span>
+                        <span class="label col-xs-12 col-sm-12 col-md-4 col-lg-4">Logo Name</span>
+                        <input type="text" class="col-xs-12 col-sm-12 col-md-8 col-lg-8" title="LogoName" control="settingsPage.textBox" controlId="txtLogoName" placeholder="Enter logo name">
+                        <div class="image-panel col-xs-12 col-sm-12 col-md-6 col-lg-6" align="center" controlId="pnlImg" control="settingsPage.htmlControl" style="margin-top:1%;height:100%;">
+                            <!--<div class="container">
+                            <div class="row">-->
+                            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                                <img id="output" style="max-width:150px; max-height:150px;" />
+                                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                                    <div>
+                                        <label for="fileUpload">
+                                            Select File to Upload:
+                                        </label>
+                                        <input type="file" id="fileUpload" accept="image/*" onchange="loadFile(event)">
+                                        <br />
+                                        <input id="btnUploadFile" class="btn btn-sm btn-success" control="settingsPage.primaryReadButton" type="button" value="Upload File" controlid="btnUploadImage" event="click:btnUploadImage_click" />
+                                    </div>
+                                    <script>
+                    var loadFile = function (event) {
+                        var output = document.getElementById('output');
+                        output.src = URL.createObjectURL(event.target.files[0]);
+                    };
+                                    </script>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12" style="background-color:white; border-radius:20px; padding:10px;margin-top:1%;">
+                        <span class="label col-xs-12" style="margin-bottom: 5px"><b>Tax</b></span>
+                        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                            <span class="label col-xs-12 col-sm-12 col-md-4 col-lg-4">Default Sales Tax</span>
+                            <select class="col-xs-12 col-sm-12 col-md-8 col-lg-8" title="DEFAULT_SALES_TAX" control="settingsPage.dropDownList" controlid="ddlDefaultTax"></select>
+                        </div>
+                    </div>
+                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12" style="background-color:white; border-radius:20px; padding:10px;margin-top:1%;">
+                        <span class="label col-xs-12" style="margin-bottom: 5px"><b>Store Details</b></span>
+                        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                            <span class="label col-xs-12 col-sm-12 col-md-4 col-lg-4">Current Store</span>
+                            <select class="col-xs-12 col-sm-12 col-md-8 col-lg-8" title="USER_DEFAULT_STORE" control="settingsPage.dropDownList" controlid="ddlCurrentStore"></select>
+                        </div>
+                        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                            <span class="label col-xs-12 col-sm-12 col-md-4 col-lg-4">Current Register</span>
+                            <select class="col-xs-12 col-sm-12 col-md-8 col-lg-8" title="USER_DEFAULT_REGISTER" control="settingsPage.dropDownList" controlid="ddlCurrentRegister"></select>
+                        </div>
+                    </div>
+                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12" style="background-color:white; border-radius:20px; padding:10px;margin-top:1%;">
+                        <span class="label col-xs-12" style="margin-bottom: 5px"><b>Variation</b></span>
+                        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                            <span class="label col-xs-12 col-sm-12 col-md-4 col-lg-4">Include Vendor</span>
+                            <span class="col-xs-12 col-sm-12 col-md-8 col-lg-8" title="ENABLE_VARIATION_VENDOR"><input type="checkbox" controlId="chkVendor" control="settingsPage.chkBox" style="height: 25px;width: 25px;" name="Vendor"></span>
+                        </div>
+                        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                            <span class="label col-xs-12 col-sm-12 col-md-4 col-lg-4">Include MRP</span>
+                            <span class="col-xs-12 col-sm-12 col-md-8 col-lg-8" title="ENABLE_VARIATION_MRP"><input type="checkbox" controlId="chkMRP" control="settingsPage.chkBox" style="height: 25px;width: 25px;" name="MRP"></span>
+                        </div>
+                        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                            <span class="label col-xs-12 col-sm-12 col-md-4 col-lg-4">include Manufacturer Date</span>
+                            <span class="col-xs-12 col-sm-12 col-md-8 col-lg-8" title="ENABLE_VARIATION_MAN_DATE"><input type="checkbox" controlId="chkManDate" control="settingsPage.chkBox" style="height: 25px;width: 25px;" name="ManDate"></span>
+                        </div>
+                        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                            <span class="label col-xs-12 col-sm-12 col-md-4 col-lg-4">Include Expiry Date</span>
+                            <span class="col-xs-12 col-sm-12 col-md-8 col-lg-8" title="ENABLE_VARIATION_EXP_DATE"><input type="checkbox" controlId="chkExpDate" control="settingsPage.chkBox" style="height: 25px;width: 25px;" name="ExpDate"></span>
+                        </div>
+                        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                            <span class="label col-xs-12 col-sm-12 col-md-4 col-lg-4">Include Batch No</span>
+                            <span class="col-xs-12 col-sm-12 col-md-8 col-lg-8" title="ENABLE_VARIATION_BATCH"><input type="checkbox" controlId="chkBatchNo" control="settingsPage.chkBox" style="height: 25px;width: 25px;" name="BatchNo"></span>
+                        </div>
+                    </div>
+                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12" style="background-color:white; border-radius:20px; padding:10px;margin-top:1%;">
+                        <span class="label col-xs-12" style="margin-bottom: 5px"><b>Free Modules</b></span>
+                        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                            <span class="label col-xs-12 col-sm-12 col-md-4 col-lg-4">Free Mode</span>
+                            <select class="col-xs-12 col-sm-12 col-md-8 col-lg-8" title="ENABLE_FREE_MODULE/ENABLE_FREE_VARIATION" control="settingsPage.dropDownList" controlid="ddlFreeMode">
+                                <option>No Free</option>
+                                <option>Free Qty With Separate Free Variation</option>
+                                <option>Free Qty with average Buying Cost</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div control="settingsPage.htmlControl" class="row col-xs-12 col-sm-12 col-md-8 col-lg-8" controlId="pnlCommunication" style="/*margin-top:2%;*/margin-bottom:2%;margin-left: 2%;background: whitesmoke;">
+                    <input value="Apply" control="settingsPage.primaryReadButton" controlid="btnSaveComm" event="click:btnSaveComm_click" style="margin-top:1%;float:right;">
+                    <h3>Communication</h3>
+                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12" style="background-color:white; border-radius:20px; padding:10px;">
+                        <span class="label col-xs-12" style="margin-bottom: 5px"><b>Communication</b></span>
+                        <div class="row">
+                            <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+                                <span class="label col-xs-12 col-sm-12 col-md-7 col-lg-7">Receipt</span>
+                                <span class="col-xs-12 col-sm-12 col-md-4 col-lg-4" title="ENABLE_RECEIPT_PRINT"><input type="checkbox" controlId="chkReceipt" control="settingsPage.chkBox" style="height: 25px;width: 25px;" name="Receipt"></span>
+                            </div>
+                            <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+                                <span class="label col-xs-12 col-sm-12 col-md-7 col-lg-7">Invoice</span>
+                                <span class="col-xs-12 col-sm-12 col-md-4 col-lg-4" title="ENABLE_INVOICE_PRINT"><input type="checkbox" controlId="chkInvoice" control="settingsPage.chkBox" style="height: 25px;width: 25px;" name="Invoice"></span>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+                                <span class="label col-xs-12 col-sm-12 col-md-7 col-lg-7">SMS</span>
+                                <span class="col-xs-12 col-sm-12 col-md-4 col-lg-4" title="ENABLE_INVOCE_SMS"><input type="checkbox" controlId="chkSMS" control="settingsPage.chkBox" style="height: 25px;width: 25px;" name="SMS"></span>
+                            </div>
+                            <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+                                <span class="label col-xs-12 col-sm-12 col-md-7 col-lg-7">Email</span>
+                                <span class="col-xs-12 col-sm-12 col-md-4 col-lg-4" title="ENABLE_EMAIL"><input type="checkbox" controlId="chkEmail" control="settingsPage.chkBox" style="height: 25px;width: 25px;" name="mobile_comm"></span>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+                                <span class="label col-xs-12 col-sm-12 col-md-7 col-lg-7">Jasper</span>
+                                <span class="col-xs-12 col-sm-12 col-md-4 col-lg-4" title="ENABLE_JASPER"><input type="checkbox" controlId="chkJasper" control="settingsPage.chkBox" style="height: 25px;width: 25px;" name="Jasper"></span>
+                            </div>
+                            <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+                                <span class="label col-xs-12 col-sm-12 col-md-7 col-lg-7">Image</span>
+                                <span class="col-xs-12 col-sm-12 col-md-4 col-lg-4" title="ENABLE_IMAGE"><input type="checkbox" controlId="chkImage" control="settingsPage.chkBox" style="height: 25px;width: 25px;" name="Image"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12" style="background-color:white; border-radius:20px; padding:10px;margin-top:1%;">
+                        <span class="label col-xs-12 col-sm-12 col-md-12 col-lg-12" style="margin-bottom: 5px"><b>Receipt Printer</b></span>
+                        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                            <span class="label col-xs-12 col-sm-12 col-md-4 col-lg-4">Template</span>
+                            <select class="col-xs-12 col-sm-12 col-md-8 col-lg-8" title="RECEIPT_TEMPLATE" control="settingsPage.dropDownList" controlid="ddlReciptTemplate">
+                                <option>Template1</option>
+                                <option>Template2</option>
+                                <option>Template3</option>
+                                <option>Template4</option>
+                                <option>Template5</option>
+                                <option>Template6</option>
+                                <option>Template7</option>
+                                <option>Template8</option>
+                                <option>Template9</option>
+                                <option>Template10</option>
+                                <option>Template11</option>
+                            </select>
+                        </div>
+                        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                            <span class="label col-xs-12 col-sm-12 col-md-4 col-lg-4">Printer</span>
+                            <input class="col-xs-12 col-sm-12 col-md-8 col-lg-8" title="RECEIPT_PRINTER" placeholder="Enter Receipt Printer" controlId="txtReciptPrinter" control="settingsPage.textBox" />
+                        </div>
+                        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                            <span class="label col-xs-12 col-sm-12 col-md-4 col-lg-4">Printer Name</span>
+                            <input class="col-xs-12 col-sm-12 col-md-8 col-lg-8" title="RECEIPT_PRINTER_NAME" placeholder="Enter Receipt Printer Name" controlId="txtReciptPrinterName" control="settingsPage.textBox" />
+                        </div>
+                    </div>
+                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12" style="background-color:white; border-radius:20px; padding:10px;margin-top:1%;">
+                        <span class="label col-xs-12 col-sm-12 col-md-12 col-lg-12" style="margin-bottom: 5px"><b>Barcode Printer</b></span>
+                        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                            <span class="label col-xs-12 col-sm-12 col-md-4 col-lg-4">Template</span>
+                            <select class="col-xs-12 col-sm-12 col-md-8 col-lg-8" title="BARCODE_TEMPLATE" control="settingsPage.dropDownList" controlid="ddlBarcodeTemplate">
+                                <option>Template1</option>
+                                <option>Template2</option>
+                                <option>Template3</option>
+                                <option>Template4</option>
+                                <option>Template5</option>
+                            </select>
+                        </div>
+                        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                            <span class="label col-xs-12 col-sm-12 col-md-4 col-lg-4">Printer</span>
+                            <input class="col-xs-12 col-sm-12 col-md-8 col-lg-8" title="BARCODE_PRINTER" placeholder="Enter Barcode Printer" controlId="txtBarcodePrinter" control="settingsPage.textBox" />
+                        </div>
+                        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                            <span class="label col-xs-12 col-sm-12 col-md-4 col-lg-4">Printer Name</span>
+                            <input class="col-xs-12 col-sm-12 col-md-8 col-lg-8" title="BARCODE_PRINTER_NAME" placeholder="Enter Barcode Printer Name" controlId="txtBarcodePrinterName" control="settingsPage.textBox" />
+                        </div>
+                    </div>
+                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12" style="background-color:white; border-radius:20px; padding:10px;margin-top:1%;">
+                        <span class="label col-xs-12 col-sm-12 col-md-12 col-lg-12" style="margin-bottom: 5px"><b>Invoice Printer</b></span>
+                        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                            <span class="label col-xs-12 col-sm-12 col-md-4 col-lg-4">Template</span>
+                            <select class="col-xs-12 col-sm-12 col-md-8 col-lg-8" title="INVOICE_TEMPLATE" control="settingsPage.dropDownList" controlid="ddlInvoiceTemplate">
+                                <option>Template1</option>
+                                <option>Template2</option>
+                                <option>Template3</option>
+                                <option>Template4</option>
+                                <option>Template5</option>
+                                <option>Template6</option>
+                                <option>Template7</option>
+                                <option>Template8</option>
+                            </select>
+                        </div>
+                        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                            <span class="label col-xs-12 col-sm-12 col-md-4 col-lg-4">Printer</span>
+                            <input class="col-xs-12 col-sm-12 col-md-8 col-lg-8" title="INVOICE_PRINTER_URL" placeholder="Enter Invoice Printer" controlId="txtInvoicePrinter" control="settingsPage.textBox" />
+                        </div>
+                    </div>
+                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12" style="background-color:white; border-radius:20px; padding:10px;margin-top:1%;">
+                        <span class="label col-xs-12 col-sm-12 col-md-12 col-lg-12" style="margin-bottom: 5px"><b>SMS</b></span>
+                        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                            <span class="label col-xs-12 col-sm-12 col-md-4 col-lg-4">GateWay</span>
+                            <input class="col-xs-12 col-sm-12 col-md-8 col-lg-8" title="SMS_GATEWAY" placeholder="Enter GateWay" controlId="txtSGateWay" control="settingsPage.textBox" />
+                        </div>
+                        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                            <span class="label col-xs-12 col-sm-12 col-md-4 col-lg-4">User Id</span>
+                            <input class="col-xs-12 col-sm-12 col-md-8 col-lg-8" title="SMS_USERID" placeholder="Enter User Id" controlId="txtSUserId" control="settingsPage.textBox" />
+                        </div>
+                        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                            <span class="label col-xs-12 col-sm-12 col-md-4 col-lg-4">Password</span>
+                            <input class="col-xs-12 col-sm-12 col-md-8 col-lg-8" title="SMS_PASSWORD" placeholder="Enter Password" controlId="txtSPassword" control="settingsPage.textBox" />
+                        </div>
+                        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                            <span class="label col-xs-12 col-sm-12 col-md-4 col-lg-4">SMS URL</span>
+                            <input class="col-xs-12 col-sm-12 col-md-8 col-lg-8" title="ENABLE_SMS_URL" placeholder="Enter SMS URL" controlId="txtSSMSURL" control="settingsPage.textBox" />
+                        </div>
+                        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                            <span class="label col-xs-12 col-sm-12 col-md-4 col-lg-4">SMS COMPANY ID</span>
+                            <input class="col-xs-12 col-sm-12 col-md-8 col-lg-8" title="SMS_COMPANY_ID" placeholder="Enter SMS COMPANY ID" controlId="txtSSMSCOMPID" control="settingsPage.textBox" />
+                        </div>
+                        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                            <span class="label col-xs-12 col-sm-12 col-md-4 col-lg-4">SMS SENDER NO</span>
+                            <input class="col-xs-12 col-sm-12 col-md-8 col-lg-8" title="SMS_SENDER_NO" placeholder="Enter SMS SENDER NO" controlId="txtSSMSSENDERNO" control="settingsPage.textBox" />
+                        </div>
+                    </div>
+                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12" style="background-color:white; border-radius:20px; padding:10px;margin-top:1%;">
+                        <span class="label col-xs-12 col-sm-12 col-md-12 col-lg-12" style="margin-bottom: 5px"><b>Email</b></span>
+                        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                            <span class="label col-xs-12 col-sm-12 col-md-4 col-lg-4">GateWay</span>
+                            <input class="col-xs-12 col-sm-12 col-md-8 col-lg-8" title="EMAIL_GATEWAY" placeholder="Enter GateWay" controlId="txtEGateWay" control="settingsPage.textBox" />
+                        </div>
+                        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                            <span class="label col-xs-12 col-sm-12 col-md-4 col-lg-4">User Id</span>
+                            <input class="col-xs-12 col-sm-12 col-md-8 col-lg-8" title="EMAIL_USER_ID" placeholder="Enter User Id" controlId="txtEUserId" control="settingsPage.textBox" />
+                        </div>
+                        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                            <span class="label col-xs-12 col-sm-12 col-md-4 col-lg-4">Password</span>
+                            <input class="col-xs-12 col-sm-12 col-md-8 col-lg-8" title="EMAIL_PASSWORD" placeholder="Enter Password" controlId="txtEPassword" control="settingsPage.textBox" />
+                        </div>
+                        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                            <span class="label col-xs-12 col-sm-12 col-md-4 col-lg-4">Email URL</span>
+                            <input class="col-xs-12 col-sm-12 col-md-8 col-lg-8" title="ENABLE_EMAIL_URL" placeholder="Enter EMAIL URL" controlId="txtEEMAILURL" control="settingsPage.textBox" />
+                        </div>
+                    </div>
+                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12" style="background-color:white; border-radius:20px; padding:10px;margin-top:1%;">
+                        <span class="label col-xs-12 col-sm-12 col-md-12 col-lg-12" style="margin-bottom: 5px"><b>Image</b></span>
+                        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                            <span class="label col-xs-12 col-sm-12 col-md-4 col-lg-4">Image Upload URL</span>
+                            <input class="col-xs-12 col-sm-12 col-md-8 col-lg-8" title="ENABLE_IMAGE_UPLOAD_URL" placeholder="Enter Image Upload URL" controlId="txtImgUpdURL" control="settingsPage.textBox" />
+                        </div>
+                        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                            <span class="label col-xs-12 col-sm-12 col-md-4 col-lg-4">Image File Path</span>
+                            <input class="col-xs-12 col-sm-12 col-md-8 col-lg-8" title="ENABLE_IMAGE_FILE_PATH" placeholder="Enter Image File Path" controlId="txtImgFilPath" control="settingsPage.textBox" />
+                        </div>
+                        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                            <span class="label col-xs-12 col-sm-12 col-md-4 col-lg-4">Image Download URL</span>
+                            <input class="col-xs-12 col-sm-12 col-md-8 col-lg-8" title="ENABLE_IMAGE_DOWNLOAD_URL" placeholder="Enter Image Download URL" controlId="txtImgDnldURL" control="settingsPage.textBox" />
+                        </div>
+                        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                            <span class="label col-xs-12 col-sm-12 col-md-4 col-lg-4">Image Download Path</span>
+                            <input class="col-xs-12 col-sm-12 col-md-8 col-lg-8" title="ENABLE_IMAGE_DOWNLOAD_PATH" placeholder="Enter Image Download Path" controlId="txtImgDnldPath" control="settingsPage.textBox" />
+                        </div>
+                    </div>
+                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12" style="background-color:white; border-radius:20px; padding:10px;margin-top:1%;">
+                        <span class="label col-xs-12 col-sm-12 col-md-12 col-lg-12" style="margin-bottom: 5px"><b>Report</b></span>
+                        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                            <span class="label col-xs-12 col-sm-12 col-md-4 col-lg-4">Report Path</span>
+                            <input class="col-xs-12 col-sm-12 col-md-8 col-lg-8" title="REPORT_PATH" placeholder="Enter Report Path" controlId="txtReportPath" control="settingsPage.textBox" />
+                        </div>
+                        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                            <span class="label col-xs-12 col-sm-12 col-md-4 col-lg-4">Print Paper Size</span>
+                            <input class="col-xs-12 col-sm-12 col-md-8 col-lg-8" title="PRINT_PAPER_SIZE" placeholder="Enter Print Paper Size" controlId="txtPrintPaperSize" control="settingsPage.textBox" />
+                        </div>
+                        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                            <span class="label col-xs-12 col-sm-12 col-md-4 col-lg-4">Jasper Company Name</span>
+                            <input class="col-xs-12 col-sm-12 col-md-8 col-lg-8" title="JASPER_COMPANY_NAME" placeholder="Enter Jasper Company Name" controlId="txtJaspCompName" control="settingsPage.textBox" />
+                        </div>
+                    </div>
+                </div>
+                <div control="settingsPage.htmlControl" class="row col-xs-12 col-sm-12 col-md-8 col-lg-8" controlId="pnlModules" style="margin-top:2%;margin-bottom:2%;margin-left: 2%;">
+                    <input value="Apply" control="settingsPage.primaryReadButton" controlid="btnSaveMod" event="click:btnSaveMod_click" style="margin-top:1%;float:right;">
+                    <h3>Modules</h3>
+                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12" style="background-color:white; border-radius:20px; padding:10px;">
+                        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+                            <span class="label col-xs-12 col-sm-12 col-md-5 col-lg-5">Inventory</span>
+                            <span class="col-xs-12 col-sm-12 col-md-4 col-lg-4" title="ENABLE_INVENTORY_MODULE"><input type="checkbox" controlId="chkInventory" control="settingsPage.chkBox" style="height: 25px;width: 25px;" name="Inventory"></span>
+                        </div>
+                        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+                            <span class="label col-xs-12 col-sm-12 col-md-5 col-lg-5">Tax</span>
+                            <span class="col-xs-12 col-sm-12 col-md-4 col-lg-4" title="ENABLE_TAX_MODULE"><input type="checkbox" controlId="chkTax" control="settingsPage.chkBox" style="height: 25px;width: 25px;" name="Tax"></span>
+                        </div>
+                        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+                            <span class="label col-xs-12 col-sm-12 col-md-5 col-lg-5">Discount</span>
+                            <span class="col-xs-12 col-sm-12 col-md-4 col-lg-4" title="ENABLE_DISCOUNT_MODULE"><input type="checkbox" controlId="chkDiscount" control="settingsPage.chkBox" style="height: 25px;width: 25px;" name="Discount"></span>
+                        </div>
+                        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+                            <span class="label col-xs-12 col-sm-12 col-md-5 col-lg-5">Rewards</span>
+                            <span class="col-xs-12 col-sm-12 col-md-4 col-lg-4" title="ENABLE_REWARD_MODULE"><input type="checkbox" controlId="chkRewards" control="settingsPage.chkBox" style="height: 25px;width: 25px;" name="Rewards"></span>
+                        </div>
+                        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+                            <span class="label col-xs-12 col-sm-12 col-md-5 col-lg-5">Coupons</span>
+                            <span class="col-xs-12 col-sm-12 col-md-4 col-lg-4" title="ENABLE_COUPON_MODULE"><input type="checkbox" controlId="chkCoupons" control="settingsPage.chkBox" style="height: 25px;width: 25px;" name="Coupons"></span>
+                        </div>
+                        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+                            <span class="label col-xs-12 col-sm-12 col-md-5 col-lg-5">Packaging</span>
+                            <span class="col-xs-12 col-sm-12 col-md-4 col-lg-4" title="ENABLE_PACKAGING_MODULE"><input type="checkbox" controlId="chkPackaging" control="settingsPage.chkBox" style="height: 25px;width: 25px;" name="Packaging"></span>
+                        </div>
+                        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+                            <span class="label col-xs-12 col-sm-12 col-md-5 col-lg-5">Touch POS</span>
+                            <span class="col-xs-12 col-sm-12 col-md-4 col-lg-4" title="ENABLE_TOUCH_POS_MODULE"><input type="checkbox" controlId="chkTouchPOS" control="settingsPage.chkBox" style="height: 25px;width: 25px;" name="Touch_POS"></span>
+                        </div>
+                        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+                            <span class="label col-xs-12 col-sm-12 col-md-5 col-lg-5">Orders</span>
+                            <span class="col-xs-12 col-sm-12 col-md-4 col-lg-4" title="ENABLE_ORDER_MODULE"><input type="checkbox" controlId="chkOrders" control="settingsPage.chkBox" style="height: 25px;width: 25px;" name="Orders"></span>
+                        </div>
+                        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+                            <span class="label col-xs-12 col-sm-12 col-md-5 col-lg-5">Marketing</span>
+                            <span class="col-xs-12 col-sm-12 col-md-4 col-lg-4" title="ENABLE_MARKETING_MODULE"><input type="checkbox" controlId="chkMarketing" control="settingsPage.chkBox" style="height: 25px;width: 25px;" name="Marketing"></span>
+                        </div>
+                        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+                            <span class="label col-xs-12 col-sm-12 col-md-5 col-lg-5">Multi Language</span>
+                            <span class="col-xs-12 col-sm-12 col-md-4 col-lg-4" title="ENABLE_MULTI_LANG_MODULE"><input type="checkbox" controlId="chkMultiLanguage" control="settingsPage.chkBox" style="height: 25px;width: 25px;" name="Multi_Language"></span>
+                        </div>
+                        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+                            <span class="label col-xs-12 col-sm-12 col-md-5 col-lg-5">Vehicle No</span>
+                            <span class="col-xs-12 col-sm-12 col-md-4 col-lg-4" title="ENABLE_VEHICLE_NO"><input type="checkbox" controlId="chkVehicleNo" control="settingsPage.chkBox" style="height: 25px;width: 25px;" name="Vehicle_No"></span>
+                        </div>
+                        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+                            <span class="label col-xs-12 col-sm-12 col-md-5 col-lg-5">Date Format(MM-YYY)</span>
+                            <span class="col-xs-12 col-sm-12 col-md-4 col-lg-4" title="ENABLE_DATE_FORMAT"><input type="checkbox" controlId="chkDateFormat" control="settingsPage.chkBox" style="height: 25px;width: 25px;" name="Date_Format"></span>
+                        </div>
+                    </div>
+                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12" style="background-color:white; border-radius:20px; padding:10px;margin-top:2%;">
+                        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+                            <span class="label col-xs-12 col-sm-12 col-md-5 col-lg-5">Show MRP</span>
+                            <span class="col-xs-12 col-sm-12 col-md-4 col-lg-4" title="ENABLE_MRP"><input type="checkbox" controlId="chkShowMRP" control="settingsPage.chkBox" style="height: 25px;width: 25px;" name="Show_Mrp"></span>
+                        </div>
+                        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+                            <span class="label col-xs-12 col-sm-12 col-md-5 col-lg-5">Show Manufacturer Date</span>
+                            <span class="col-xs-12 col-sm-12 col-md-4 col-lg-4" title="ENABLE_MAN_DATE"><input type="checkbox" controlId="chkShowmanDate" control="settingsPage.chkBox" style="height: 25px;width: 25px;" name="Show_Man_Date"></span>
+                        </div>
+                        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+                            <span class="label col-xs-12 col-sm-12 col-md-5 col-lg-5">Show Expiry Date</span>
+                            <span class="col-xs-12 col-sm-12 col-md-4 col-lg-4" title="ENABLE_EXP_DATE"><input type="checkbox" controlId="chkShowExpDate" control="settingsPage.chkBox" style="height: 25px;width: 25px;" name="Show_Exp_Date"></span>
+                        </div>
+                        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+                            <span class="label col-xs-12 col-sm-12 col-md-5 col-lg-5">Show Batch No</span>
+                            <span class="col-xs-12 col-sm-12 col-md-4 col-lg-4" title="ENABLE_BAT_NO"><input type="checkbox" controlId="chkShowBatchNo" control="settingsPage.chkBox" style="height: 25px;width: 25px;" name="Show_Bat_No"></span>
+                        </div>
+                        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+                            <span class="label col-xs-12 col-sm-12 col-md-5 col-lg-5">Show Reorder Level</span>
+                            <span class="col-xs-12 col-sm-12 col-md-4 col-lg-4" title="ENABLE_REORDER_LEVEL"><input type="checkbox" controlId="chkShowReorLel" control="settingsPage.chkBox" style="height: 25px;width: 25px;" name="Show_Reorder_Level"></span>
+                        </div>
+                        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+                            <span class="label col-xs-12 col-sm-12 col-md-5 col-lg-5">Show Reorder Qty</span>
+                            <span class="col-xs-12 col-sm-12 col-md-4 col-lg-4" title="ENABLE_REORDER_QTY"><input type="checkbox" controlId="chkShowReorQty" control="settingsPage.chkBox" style="height: 25px;width: 25px;" name="Show_Reorder_Qty"></span>
+                        </div>
+                        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+                            <span class="label col-xs-12 col-sm-12 col-md-5 col-lg-5">Market ShopOn</span>
+                            <span class="col-xs-12 col-sm-12 col-md-4 col-lg-4" title="ENABLE_MARKET_SHOPON"><input type="checkbox" controlId="chkMarketShopOn" control="settingsPage.chkBox" style="height: 25px;width: 25px;" name="Market_ShopOn"></span>
+                        </div>
+                        <!---->
+                        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+                            <span class="label col-xs-12 col-sm-12 col-md-5 col-lg-5">Tax Changes Dynamically</span>
+                            <span class="col-xs-12 col-sm-12 col-md-4 col-lg-4" title="ENABLE_TAX_CHANGES"><input type="checkbox" controlId="chkTaxChangesDynamically" control="settingsPage.chkBox" style="height: 25px;width: 25px;" name="Enable_Tax_Changes_Dynamically"></span>
+                        </div>
+                        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+                            <span class="label col-xs-12 col-sm-12 col-md-5 col-lg-5">Show Advance Search</span>
+                            <span class="col-xs-12 col-sm-12 col-md-4 col-lg-4" title="ENABLE_ADVANCE_SEARCH"><input type="checkbox" controlId="chkshowAdvanceSearch" control="settingsPage.chkBox" style="height: 25px;width: 25px;" name="Show_Advance_Search"></span>
+                        </div>
+                        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+                            <span class="label col-xs-12 col-sm-12 col-md-5 col-lg-5">Module Tray</span>
+                            <span class="col-xs-12 col-sm-12 col-md-4 col-lg-4" title="ENABLE_MODULE_TRAY"><input type="checkbox" controlId="chkModuleTray" control="settingsPage.chkBox" style="height: 25px;width: 25px;" name="Module_Tray"></span>
+                        </div>
+                        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+                            <span class="label col-xs-12 col-sm-12 col-md-5 col-lg-5">Expiry Days Modules</span>
+                            <span class="col-xs-12 col-sm-12 col-md-4 col-lg-4" title="ENABLE_EXP_DAYS_MODE"><input type="checkbox" controlId="chkExpiryDaysModules" control="settingsPage.chkBox" style="height: 25px;width: 25px;" name="Enable_Expiry_Days_Modules"></span>
+                        </div>
+                        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+                            <span class="label col-xs-12 col-sm-12 col-md-5 col-lg-5">Customer GST</span>
+                            <span class="col-xs-12 col-sm-12 col-md-4 col-lg-4" title="ENABLE_CUST_GST"><input type="checkbox" controlId="chkCustGST" control="settingsPage.chkBox" style="height: 25px;width: 25px;" name="Enable_Cust_GST"></span>
+                        </div>
+                        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+                            <span class="label col-xs-12 col-sm-12 col-md-5 col-lg-5">Tax Inclusive</span>
+                            <span class="col-xs-12 col-sm-12 col-md-4 col-lg-4" title="ENABLE_TAX_INCLUSIVE"><input type="checkbox" controlId="chkEnableTaxInsive" control="settingsPage.chkBox" style="height: 25px;width: 25px;" name="Enable_Tax_Inclusive"></span>
+                        </div>
+                        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+                            <span class="label col-xs-12 col-sm-12 col-md-5 col-lg-5">Expiry Alert</span>
+                            <span class="col-xs-12 col-sm-12 col-md-4 col-lg-4" title="ENABLE_EXP_ALERT"><input type="checkbox" controlId="chkExpiryAlert" control="settingsPage.chkBox" style="height: 25px;width: 25px;" name="Enable_Expiry_Alert"></span>
+                        </div>
+                    </div>
+                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12" style="background-color:white; border-radius:20px; padding:10px;margin-top:2%;">
+                        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+                            <span class="label col-xs-12 col-sm-12 col-md-5 col-lg-5">Bill Adjustment</span>
+                            <span class="col-xs-12 col-sm-12 col-md-4 col-lg-4" title="ENABLE_BILL_ADJUSTMENT"><input type="checkbox" controlId="chkBillAdjustment" control="settingsPage.chkBox" style="height: 25px;width: 25px;" name="Enable_Bill_Adjustment"></span>
+                        </div>
+                        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+                            <span class="label col-xs-12 col-sm-12 col-md-5 col-lg-5">Enable Product Type</span>
+                            <span class="col-xs-12 col-sm-12 col-md-4 col-lg-4" title="ENABLE_PRODUCT_TYPE"><input type="checkbox" controlId="chkProductType" control="settingsPage.chkBox" style="height: 25px;width: 25px;" name="Enable_Product_type"></span>
+                        </div>
+                        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+                            <span class="label col-xs-12 col-sm-12 col-md-5 col-lg-5">Enable Manufacture</span>
+                            <span class="col-xs-12 col-sm-12 col-md-4 col-lg-4" title="ENABLE_MANUFACTURE"><input type="checkbox" controlId="chkEnableManufacture" control="settingsPage.chkBox" style="height: 25px;width: 25px;" name="Enable_Manufacture"></span>
+                        </div>
+                        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+                            <span class="label col-xs-12 col-sm-12 col-md-5 col-lg-5">Enable Alternate Unit</span>
+                            <span class="col-xs-12 col-sm-12 col-md-4 col-lg-4" title="ENABLE_ALTER_UNIT"><input type="checkbox" controlId="chkAlternateUnit" control="settingsPage.chkBox" style="height: 25px;width: 25px;" name="Enable_Alternate_Unit"></span>
+                        </div>
+                        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+                            <span class="label col-xs-12 col-sm-12 col-md-5 col-lg-5">Stock Maintainence</span>
+                            <span class="col-xs-12 col-sm-12 col-md-4 col-lg-4" title="ENABLE_STOCK_MAINTAINENCE"><input type="checkbox" controlId="chkStockMaintainence" control="settingsPage.chkBox" style="height: 25px;width: 25px;" name="Enable_Stock_Maintainence"></span>
+                        </div>
+                        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+                            <span class="label col-xs-12 col-sm-12 col-md-5 col-lg-5">Selling Price Edit</span>
+                            <span class="col-xs-12 col-sm-12 col-md-4 col-lg-4" title="SELLING_PRICE_EDITABLE"><input type="checkbox" controlId="chkSellingPriceEdit" control="settingsPage.chkBox" style="height: 25px;width: 25px;" name="Enable_Stock_Maintainence"></span>
+                        </div>
+                        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+                            <span class="label col-xs-12 col-sm-12 col-md-5 col-lg-5">Enable Free</span>
+                            <span class="col-xs-12 col-sm-12 col-md-4 col-lg-4" title="SHOW_FREE"><input type="checkbox" controlId="chkEnableFree" control="settingsPage.chkBox" style="height: 25px;width: 25px;" name="Enable_Stock_Maintainence"></span>
+                        </div>
+                        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+                            <span class="label col-xs-12 col-sm-12 col-md-5 col-lg-5">Enable Rack</span>
+                            <span class="col-xs-12 col-sm-12 col-md-4 col-lg-4" title="ENABLE_RACK"><input type="checkbox" controlId="chkEnableRack" control="settingsPage.chkBox" style="height: 25px;width: 25px;" name="Enable_Rack"></span>
+                        </div>
+                        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+                            <span class="label col-xs-12 col-sm-12 col-md-5 col-lg-5">Second Bill</span>
+                            <span class="col-xs-12 col-sm-12 col-md-4 col-lg-4" title="ENABLE_SECOND_BILL"><input type="checkbox" controlId="chkEnableSecondBill" control="settingsPage.chkBox" style="height: 25px;width: 25px;" name="Enable_Rack"></span>
+                        </div>
+                        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+                            <span class="label col-xs-12 col-sm-12 col-md-5 col-lg-5">Variation</span>
+                            <span class="col-xs-12 col-sm-12 col-md-4 col-lg-4" title="ENABLE_VARIATION"><input type="checkbox" controlId="chkEnableVariation" control="settingsPage.chkBox" style="height: 25px;width: 25px;" name="Enable_Rack"></span>
+                        </div>
+                        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+                            <span class="label col-xs-12 col-sm-12 col-md-5 col-lg-5">Sales Executive</span>
+                            <span class="col-xs-12 col-sm-12 col-md-4 col-lg-4" title="ENABLE_SALES_EXECUTIVE"><input type="checkbox" controlId="chkEnableSalesExecutive" control="settingsPage.chkBox" style="height: 25px;width: 25px;" name="Enable_Sales_Executive"></span>
+                        </div>
+                        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+                            <span class="label col-xs-12 col-sm-12 col-md-5 col-lg-5">HSN Code</span>
+                            <span class="col-xs-12 col-sm-12 col-md-4 col-lg-4" title="ENABLE_HSN_CODE"><input type="checkbox" controlId="chkEnableHsnCode" control="settingsPage.chkBox" style="height: 25px;width: 25px;" name="Enable_HSN_Code"></span>
+                        </div>
+                        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+                            <span class="label col-xs-12 col-sm-12 col-md-5 col-lg-5">Bar Code</span>
+                            <span class="col-xs-12 col-sm-12 col-md-4 col-lg-4" title="SHOW_BARCODE"><input type="checkbox" controlId="chkShowBarCode" control="settingsPage.chkBox" style="height: 25px;width: 25px;" name="Show_Barcode"></span>
+                        </div>
+                        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+                            <span class="label col-xs-12 col-sm-12 col-md-5 col-lg-5">POWise Report</span>
+                            <span class="col-xs-12 col-sm-12 col-md-4 col-lg-4" title="ENABLE_POWISE_REPORT"><input type="checkbox" controlId="chkPowiseReport" control="settingsPage.chkBox" style="height: 25px;width: 25px;" name="Show_Barcode"></span>
+                        </div>
+                        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+                            <span class="label col-xs-12 col-sm-12 col-md-5 col-lg-5">SOWise Report</span>
+                            <span class="col-xs-12 col-sm-12 col-md-4 col-lg-4" title="ENABLE_SOWISE_REPORT"><input type="checkbox" controlId="chkSowiseReport" control="settingsPage.chkBox" style="height: 25px;width: 25px;" name="Show_Barcode"></span>
+                        </div>
+                        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+                            <span class="label col-xs-12 col-sm-12 col-md-5 col-lg-5">Stock Alert</span>
+                            <span class="col-xs-12 col-sm-12 col-md-4 col-lg-4" title="ENABLE_STOCK_ALERT"><input type="checkbox" controlId="chkEnableStockAlert" control="settingsPage.chkBox" style="height: 25px;width: 25px;" name="Enable_Rack"></span>
+                        </div>
+                    </div>
+                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12" style="background-color:white; border-radius:20px; padding:10px;margin-top:2%;">
+                        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+                            <span class="label col-xs-12 col-sm-12 col-md-5 col-lg-5">Cancel Bill</span>
+                            <span class="col-xs-12 col-sm-12 col-md-4 col-lg-4" title="ENABLE_CANCEL_BILL"><input type="checkbox" controlId="chkCancelBill" control="settingsPage.chkBox" style="height: 25px;width: 25px;" name="Cancel Bill"></span>
+                        </div>
+                        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+                            <span class="label col-xs-12 col-sm-12 col-md-5 col-lg-5">Cashier Bill</span>
+                            <span class="col-xs-12 col-sm-12 col-md-4 col-lg-4" title="ENABLE_CASHIER_BILL"><input type="checkbox" controlId="chkCashBill" control="settingsPage.chkBox" style="height: 25px;width: 25px;" name="Cancel Bill"></span>
+                        </div>
+                        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+                            <span class="label col-xs-12 col-sm-12 col-md-5 col-lg-5">Item Description</span>
+                            <span class="col-xs-12 col-sm-12 col-md-4 col-lg-4" title="ENABLE_ITEM_DESCRIPTION"><input type="checkbox" controlId="chkItemDescription" control="settingsPage.chkBox" style="height: 25px;width: 25px;" name="Item Description"></span>
+                        </div>
+                        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+                            <span class="label col-xs-12 col-sm-12 col-md-5 col-lg-5">Inventory Details</span>
+                            <span class="col-xs-12 col-sm-12 col-md-4 col-lg-4" title="ENABLE_INVENTORY_DETAILS"><input type="checkbox" controlId="chkInventoryDetails" control="settingsPage.chkBox" style="height: 25px;width: 25px;" name="Inventory Details"></span>
+                        </div>
+                        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+                            <span class="label col-xs-12 col-sm-12 col-md-5 col-lg-5">Sale Executive Rewards</span>
+                            <span class="col-xs-12 col-sm-12 col-md-4 col-lg-4" title="ENABLE_SALES_EXECUTIVE_REWARD"><input type="checkbox" controlId="chkSalesExecutiveRewards" control="settingsPage.chkBox" style="height: 25px;width: 25px;" name="Sales Executive Rewards"></span>
+                        </div>
+                        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+                            <span class="label col-xs-12 col-sm-12 col-md-5 col-lg-5">Pincode Mapping</span>
+                            <span class="col-xs-12 col-sm-12 col-md-4 col-lg-4" title="ENABLE_PINCODE_MAPPING"><input type="checkbox" controlId="chkPincodeMapping" control="settingsPage.chkBox" style="height: 25px;width: 25px;" name="Pincode Mapping"></span>
+                        </div>
+                    </div>
+                </div>
+                <div control="settingsPage.htmlControl" class="row col-xs-12 col-sm-12 col-md-8 col-lg-8" controlId="pnlFinfacts" style="margin-top:2%;margin-bottom:2%;margin-left: 2%;">
+                    <input value="Apply" control="settingsPage.primaryReadButton" controlid="btnSaveFin" event="click:btnSaveFin_click" style="margin-top:1%;float:right;">
+                    <h3>Finfacts</h3>
+                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12" style="background-color:white; border-radius:20px; padding:10px;">
+                        <span class="label col-xs-12" style="margin-bottom: 5px"><b>Current Company</b></span>
+                        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                            <span class="label col-xs-12 col-sm-12 col-md-4 col-lg-4">Company</span>
+                            <select class="col-xs-12 col-sm-12 col-md-8 col-lg-8" title="FINFACTS_COMPANY" control="settingsPage.dropDownList" controlid="ddlCompany"></select>
+                        </div>
+                    </div>
+                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12" style="background-color:white; border-radius:20px; padding:10px; margin-top:1%">
+                        <span class="label col-xs-12" style="margin-bottom: 5px"><b>Current Financial Year</b></span>
+                        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                            <span class="label col-xs-12 col-sm-12 col-md-4 col-lg-4">Current Period</span>
+                            <select class="col-xs-12 col-sm-12 col-md-8 col-lg-8" title="FINFACTS_CURRENT_PERIOD" control="settingsPage.dropDownList" controlid="ddlPeriod"></select>
+                        </div>
+                    </div>
+                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12" style="background-color:white; border-radius:20px; padding:10px; margin-top:1%">
+                        <span class="label col-xs-12" style="margin-bottom: 5px"><b>ShopOn Mappings</b></span>
+                        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                            <span class="label col-xs-12 col-sm-12 col-md-4 col-lg-4">Sales Account (Cash)</span>
+                            <select class="col-xs-12 col-sm-12 col-md-8 col-lg-8" title="FINFACTS_SALES_DEF_CASH_ACCOUNT" control="settingsPage.dropDownList" controlid="ddlSalesAccount"></select>
+                        </div>
+                        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                            <span class="label col-xs-12 col-sm-12 col-md-4 col-lg-4">Purchase Account (Cash)</span>
+                            <select class="col-xs-12 col-sm-12 col-md-8 col-lg-8" title="FINFACTS_PURCHASE_DEF_CASH_ACCOUNT" control="settingsPage.dropDownList" controlid="ddlPurchaseAccount"></select>
+                        </div>
+                        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                            <span class="label col-xs-12 col-sm-12 col-md-4 col-lg-4">Sales Account (Bank)</span>
+                            <select class="col-xs-12 col-sm-12 col-md-8 col-lg-8" title="FINFACTS_SALES_DEF_BANK_ACCOUNT" control="settingsPage.dropDownList" controlid="ddlSalesAccountBank"></select>
+                        </div>
+                        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                            <span class="label col-xs-12 col-sm-12 col-md-4 col-lg-4">Purchase Account (Bank)</span>
+                            <select class="col-xs-12 col-sm-12 col-md-8 col-lg-8" title="FINFACTS_PURCHASE_DEF_BANK_ACCOUNT" control="settingsPage.dropDownList" controlid="ddlPurchaseAccountBank"></select>
+                        </div>
+                        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                            <span class="label col-xs-12 col-sm-12 col-md-4 col-lg-4">Sales Account (Reward)</span>
+                            <select class="col-xs-12 col-sm-12 col-md-8 col-lg-8" title="FINFACTS_SALES_DEF_REWARD_ACCOUNT" control="settingsPage.dropDownList" controlid="ddlSalesAccountReward"></select>
+                        </div>
+                        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                            <span class="label col-xs-12 col-sm-12 col-md-4 col-lg-4">Purchase Account (Reward)</span>
+                            <select class="col-xs-12 col-sm-12 col-md-8 col-lg-8" title="FINFACTS_PURCHASE_DEF_REWARD_ACCOUNT" control="settingsPage.dropDownList" controlid="ddlPurchaseAccountReward"></select>
+                        </div>
+                        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                            <span class="label col-xs-12 col-sm-12 col-md-4 col-lg-4">Sales Account (Coupon)</span>
+                            <select class="col-xs-12 col-sm-12 col-md-8 col-lg-8" title="FINFACTS_SALES_DEF_COUPON_ACCOUNT" control="settingsPage.dropDownList" controlid="ddlSalesAccountCoupon"></select>
+                        </div>
+                        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                            <span class="label col-xs-12 col-sm-12 col-md-4 col-lg-4">Purchase Account (Coupon)</span>
+                            <select class="col-xs-12 col-sm-12 col-md-8 col-lg-8" title="FINFACTS_PURCHASE_DEF_COUPON_ACCOUNT" control="settingsPage.dropDownList" controlid="ddlPurchaseAccountCoupon"></select>
+                        </div>
+                    </div>
+                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12" style="background-color:white; border-radius:20px; padding:10px; margin-top:1%">
+                        <span class="label col-xs-12" style="margin-bottom: 5px"><b>Bill Expense</b></span>
+                        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                            <span class="label col-xs-12 col-sm-12 col-md-4 col-lg-4">Bill Expense Account</span>
+                            <select class="col-xs-12 col-sm-12 col-md-8 col-lg-8" title="FINFACTS_BILL_EXPENSE_ACCOUNT" control="settingsPage.dropDownList" controlid="ddlBillExpAccount"></select>
+                        </div>
+                        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                            <span class="label col-xs-12 col-sm-12 col-md-4 col-lg-4">Bill Expense Category</span>
+                            <select class="col-xs-12 col-sm-12 col-md-8 col-lg-8" title="FINFACTS_BILL_EXPENSE_CATEGORY" control="settingsPage.dropDownList" controlid="ddlBillExpCategory"></select>
+                        </div>
+                        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                            <span class="label col-xs-12 col-sm-12 col-md-4 col-lg-4">Bill Expense Sundry Debtor Account</span>
+                            <select class="col-xs-12 col-sm-12 col-md-8 col-lg-8" title="FINFACTS_BILL_EXPENSE_ACCOUNT_DEPTOR" control="settingsPage.dropDownList" controlid="ddlBillExpDeAccount"></select>
+                        </div>
+                        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                            <span class="label col-xs-12 col-sm-12 col-md-4 col-lg-4">Bill Expense Sundry Creditor Account</span>
+                            <select class="col-xs-12 col-sm-12 col-md-8 col-lg-8" title="FINFACTS_BILL_EXPENSE_ACCOUNT_CREDITOR" control="settingsPage.dropDownList" controlid="ddlBillExpCreAccount"></select>
+                        </div>
+                    </div>
+                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12" style="background-color:white; border-radius:20px; padding:10px; margin-top:1%">
+                        <span class="label col-xs-12 col-sm-12 col-md-12 col-lg-12" style="margin-bottom: 5px"><b>Modules</b></span>
+                        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                            <span class="label col-xs-12 col-sm-12 col-md-4 col-lg-4">Finfacts Modules</span>
+                            <span class="col-xs-12 col-sm-12 col-md-8 col-lg-8" title="ENABLE_FINFACTS_MODULES"><input type="checkbox" controlId="chkFinfactsModules" control="settingsPage.chkBox" style="height: 25px;width: 25px;" name="Finfacts_Modules"></span>
+                        </div>
+                        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                            <span class="label col-xs-12 col-sm-12 col-md-4 col-lg-4">Bill Expense Modules</span>
+                            <span class="col-xs-12 col-sm-12 col-md-8 col-lg-8" title="ENABLE_BILL_EXPENSE_MODULES"><input type="checkbox" controlId="chkBillExpModules" control="settingsPage.chkBox" style="height: 25px;width: 25px;" name="Finfacts_Modules"></span>
+                        </div>
+                    </div>
+                </div>
+                <div control="settingsPage.htmlControl" class="row col-xs-12 col-sm-12 col-md-8 col-lg-8" controlId="pnlPurchase" style="margin-top:2%;margin-bottom:2%;margin-left: 2%;">
+                    <input value="Apply" control="settingsPage.primaryReadButton" controlid="btnSavePurchase" event="click:btnSavePurchase_click" style="margin-top:1%;float:right;">
+                    <h3>Purchase</h3>
+                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12" style="background-color:white; border-radius:20px; padding:10px;">
+                        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6" style="margin-top:1%">
+                            <span class="label col-xs-12 col-sm-12 col-md-4 col-lg-4">Jasper Print</span>
+                            <span class="col-xs-12 col-sm-12 col-md-8 col-lg-8" title="ENABLE_PURCHASE_JASPER"><input type="checkbox" controlId="chkPurchaseJasper" control="settingsPage.chkBox" style="height: 25px;width: 25px;" name="Purchase Jasper"></span>
+                        </div>
+                        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6" style="margin-top:1%">
+                            <span class="label col-xs-12 col-sm-12 col-md-4 col-lg-4">Purchase Email</span>
+                            <span class="col-xs-12 col-sm-12 col-md-8 col-lg-8" title="ENABLE_PURCHASE_EMAIL"><input type="checkbox" controlId="chkPurchaseEmail" control="settingsPage.chkBox" style="height: 25px;width: 25px;" name="Purchase Email"></span>
+                        </div>
+                        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6" style="margin-top:1%">
+                            <span class="label col-xs-12 col-sm-12 col-md-4 col-lg-4">Purchase Expense</span>
+                            <span class="col-xs-12 col-sm-12 col-md-8 col-lg-8" title="ENABLE_PURCHASE_EXPENSE"><input type="checkbox" controlId="chkPurchaseExpense" control="settingsPage.chkBox" style="height: 25px;width: 25px;" name="Purchase Expense"></span>
+                        </div>
+                        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                            <span class="label col-xs-12 col-sm-12 col-md-4 col-lg-4">Default Payment</span>
+                            <select class="col-xs-12 col-sm-12 col-md-8 col-lg-8" title="PURCHASE_BILL_PAY_MODE" control="settingsPage.dropDownList" controlid="ddlPurchasePayMode">
+                                <option>Cash</option>
+                                <option>Card</option>
+                                <option>Mixed</option>
+                                <option>Loan</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div control="settingsPage.htmlControl" class="row col-xs-12 col-sm-12 col-md-8 col-lg-8" controlId="pnlSales" style="margin-top:2%;margin-bottom:2%;margin-left: 2%;">
+                    <input value="Apply" control="settingsPage.primaryReadButton" controlid="btnSaveSales" event="click:btnSaveSales_click" style="margin-top:1%;float:right;">
+                    <h3>Sales</h3>
+                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12" style="background-color:white; border-radius:20px; padding:10px;">
+                        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6" style="margin-top:1%">
+                            <span class="label col-xs-12 col-sm-12 col-md-4 col-lg-4">Show Stock</span>
+                            <span class="col-xs-12 col-sm-12 col-md-8 col-lg-8" title="SHOW_STOCK_COLUMN"><input type="checkbox" controlId="chkSalesStock" control="settingsPage.chkBox" style="height: 25px;width: 25px;" name="Show Stock"></span>
+                        </div>
+                        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6" style="margin-top:1%">
+                            <span class="label col-xs-12 col-sm-12 col-md-4 col-lg-4">Show GST</span>
+                            <span class="col-xs-12 col-sm-12 col-md-8 col-lg-8" title="SHOW_GST_COLUMN"><input type="checkbox" controlId="chkSalesGst" control="settingsPage.chkBox" style="height: 25px;width: 25px;" name="Show GST"></span>
+                        </div>
+                        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6" style="margin-top:1%">
+                            <span class="label col-xs-12 col-sm-12 col-md-4 col-lg-4">Show Free</span>
+                            <span class="col-xs-12 col-sm-12 col-md-8 col-lg-8" title="SHOW_FREE_COLUMN"><input type="checkbox" controlId="chkSalesFree" control="settingsPage.chkBox" style="height: 25px;width: 25px;" name="Show Free"></span>
+                        </div>
+                        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6" style="margin-top:1%">
+                            <span class="label col-xs-12 col-sm-12 col-md-4 col-lg-4">Email</span>
+                            <span class="col-xs-12 col-sm-12 col-md-8 col-lg-8" title="ENABLE_SALES_EMAIL"><input type="checkbox" controlId="chkSalesEmail" control="settingsPage.chkBox" style="height: 25px;width: 25px;" name="Sales Email"></span>
+                        </div>
+                        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12" style="margin-top:1%">
+                            <span class="label col-xs-12 col-sm-12 col-md-4 col-lg-4" style="display:block">Email URL</span>
+                            <input class="col-xs-12 col-sm-12 col-md-8 col-lg-8" title="SALES_EMAIL_URL" control="settingsPage.textBox" controlId="txtSaleEmailUrl" placeholder="Email Url">
+                        </div>
+                        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                            <span class="label col-xs-12 col-sm-12 col-md-4 col-lg-4">Default Payment</span>
+                            <select class="col-xs-12 col-sm-12 col-md-8 col-lg-8" title="SALES_BILL_PAY_MODE" control="settingsPage.dropDownList" controlid="ddlSalesPayMode">
+                                <option>Cash</option>
+                                <option>Card</option>
+                                <option>Points</option>
+                                <option>Coupon</option>
+                                <option>Mixed</option>
+                                <option>Loan</option>
+                            </select>
+                        </div>
+                        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12" style="margin-top:1%">
+                            <span class="label col-xs-12 col-sm-12 col-md-4 col-lg-4" style="display:block">Sales Executive Label Name</span>
+                            <input class="col-xs-12 col-sm-12 col-md-8 col-lg-8" title="SALES_EXECUTIVE_LABEL_NAME" control="settingsPage.textBox" controlId="txtSaleExecutiveLabelName" placeholder="Sales Executive Label Name">
+                        </div>
+                        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6" style="margin-top:1%">
+                            <span class="label col-xs-12 col-sm-12 col-md-4 col-lg-4">Buying Cost</span>
+                            <span class="col-xs-12 col-sm-12 col-md-8 col-lg-8" title="ENABLE_SALES_BUYING_COST"><input type="checkbox" controlId="chkSalesBuyingCost" control="settingsPage.chkBox" style="height: 25px;width: 25px;" name="Sales Buying Cost"></span>
+                        </div>
+                        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6" style="margin-top:1%">
+                            <span class="label col-xs-12 col-sm-12 col-md-4 col-lg-4">Fright Charge</span>
+                            <span class="col-xs-12 col-sm-12 col-md-8 col-lg-8" title="ENABLE_SALES_FRIGHT_CHARGE"><input type="checkbox" controlId="chkSalesFrightCharge" control="settingsPage.chkBox" style="height: 25px;width: 25px;" name="Sales Fright Charge"></span>
+                        </div>
+                        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6" style="margin-top:1%">
+                            <span class="label col-xs-12 col-sm-12 col-md-4 col-lg-4">Receipt</span>
+                            <span class="col-xs-12 col-sm-12 col-md-8 col-lg-8" title="ENABLE_SALES_RECEIPT"><input type="checkbox" controlId="chkSalesReceipt" control="settingsPage.chkBox" style="height: 25px;width: 25px;" name="Sales Receipt"></span>
+                        </div>
+                        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6" style="margin-top:1%">
+                            <span class="label col-xs-12 col-sm-12 col-md-4 col-lg-4">Sales Executive Reward</span>
+                            <span class="col-xs-12 col-sm-12 col-md-8 col-lg-8" title="ENABLE_SALES_EXECUTIVE_REWARD"><input type="checkbox" controlId="chkSalesExecutiveReward" control="settingsPage.chkBox" style="height: 25px;width: 25px;" name="Sales Executive Reward"></span>
+                        </div>
+                        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6" style="margin-top:1%">
+                            <span class="label col-xs-12 col-sm-12 col-md-4 col-lg-4">Discount Inclusion</span>
+                            <span class="col-xs-12 col-sm-12 col-md-8 col-lg-8" title="ENABLE_DISCOUNT_INCLUSION"><input type="checkbox" controlId="chkDiscountInclusion" control="settingsPage.chkBox" style="height: 25px;width: 25px;" name="Sales Discount Inclusion"></span>
+                        </div>
+                        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6" style="margin-top:1%">
+                            <span class="label col-xs-12 col-sm-12 col-md-4 col-lg-4">Bill Advance</span>
+                            <span class="col-xs-12 col-sm-12 col-md-8 col-lg-8" title="ENABLE_BILL_ADVANCE"><input type="checkbox" controlId="chkBillAdvance" control="settingsPage.chkBox" style="height: 25px;width: 25px;" name="Bill Advance Pay"></span>
+                        </div>
+                        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12" style="margin-top:1%">
+                            <span class="label col-xs-12 col-sm-12 col-md-4 col-lg-4" style="display:block">Sales Price Label Name</span>
+                            <input class="col-xs-12 col-sm-12 col-md-8 col-lg-8" title="SALE_PRICE_NAME" control="settingsPage.textBox" controlId="txtSalePriceLabelName" placeholder="Sales Price Label Name">
+                        </div>
+                        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6" style="margin-top:1%">
+                            <span class="label col-xs-12 col-sm-12 col-md-4 col-lg-4">Sales Executive Barcode</span>
+                            <span class="col-xs-12 col-sm-12 col-md-8 col-lg-8" title="ENABLE_SALES_EXECUTIVE_BARCODE"><input type="checkbox" controlId="chkSalesExecutiveBarcode" control="settingsPage.chkBox" style="height: 25px;width: 25px;" name="Sales Executive Barcode"></span>
+                        </div>
+                        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6" style="margin-top:1%">
+                            <span class="label col-xs-12 col-sm-12 col-md-4 col-lg-4">Return Bill</span>
+                            <span class="col-xs-12 col-sm-12 col-md-8 col-lg-8" title="ENABLE_SALE_RETURN_BILL"><input type="checkbox" controlId="chkSaleReturnBill" control="settingsPage.chkBox" style="height: 25px;width: 25px;" name="Sales Return Bill"></span>
+                        </div>
+                    </div>
+                    <div control="settingsPage.grid" controlid="grdSales"></div>
+                </div>
+                
+                <div control="settingsPage.htmlControl" class="col-xs-12 col-sm-12 col-md-8 col-lg-8" controlId="pnlLayout" style="margin-top:2%;margin-bottom:2%;margin-left: 2%;">
+                    <input value="Apply" control="settingsPage.primaryReadButton" controlid="btnSaveLayout" event="click:btnSaveLayout_click" style="margin-top:1%;float:right;">
+                    <h3>Layout and Themes</h3>
+                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12" style="background-color:white; border-radius:20px; padding:10px;">
+                        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12" style="margin-top:1%">
+                            <span class="label col-xs-12 col-sm-12 col-md-4 col-lg-4">Grid Header Font size</span>
+                            <input class="col-xs-12 col-sm-12 col-md-8 col-lg-8" title="GRID_HEADER_FONT" placeholder="Grid Header Font size" controlId="txtGridHeaderFontsize" control="settingsPage.textBox" />
+                        </div>
+                        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12" style="margin-top:1%">
+                            <span class="label col-xs-12 col-sm-12 col-md-4 col-lg-4">Font size</span>
+                            <input class="col-xs-12 col-sm-12 col-md-8 col-lg-8" title="FONT_SIZE" placeholder="Font size" controlId="txtFontsize" control="settingsPage.textBox" />
+                        </div>
+                        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12" style="margin-top:1%">
+                            <span class="label col-xs-12 col-sm-12 col-md-4 col-lg-4">Input Font size</span>
+                            <input class="col-xs-12 col-sm-12 col-md-8 col-lg-8" title="INPUT_FONT" placeholder="Input Font size" controlId="txtInputFontsize" control="settingsPage.textBox" />
+                        </div>
+                        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12" style="margin-top:1%">
+                            <span class="label col-xs-12 col-sm-12 col-md-4 col-lg-4">Grid Row Font size</span>
+                            <input class="col-xs-12 col-sm-12 col-md-8 col-lg-8" title="GRID_ROW_FONT" placeholder="Grid Row Font size" controlId="txtGridRowFontsize" control="settingsPage.textBox" />
+                        </div>
+                        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12" style="margin-top:1%">
+                            <span class="label col-xs-12 col-sm-12 col-md-4 col-lg-4">Tab Header Font</span>
+                            <input class="col-xs-12 col-sm-12 col-md-8 col-lg-8" title="TAB_HEADER_FONT" placeholder="Tab Header Font size" controlId="txtTabHeadFontsize" control="settingsPage.textBox" />
+                        </div>
+                        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12" style="margin-top:1%">
+                            <span class="label col-xs-12 col-sm-12 col-md-4 col-lg-4">Label Font size</span>
+                            <input class="col-xs-12 col-sm-12 col-md-8 col-lg-8" title="LABEL_FONT" placeholder="Label Font size" controlId="txtLabelFontsize" control="settingsPage.textBox" />
+                        </div>
+                        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12" style="margin-top:1%">
+                            <span class="label col-xs-12 col-sm-12 col-md-4 col-lg-4">Label Header Font size</span>
+                            <input class="col-xs-12 col-sm-12 col-md-8 col-lg-8" title="LABEL_HEADER_FONT" placeholder="Label Header Font size" controlId="txtLabelHeadFontsize" control="settingsPage.textBox" />
+                        </div>
+                    </div>
+                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12" style="background-color:white; border-radius:20px; padding:10px;margin-top:1%;">
+                        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6" style="margin-top:1%">
+                            <span class="label col-xs-12 col-sm-12 col-md-8 col-lg-8">Heading Color</span>
+                            <input type="color" title="GRD_HEADER_COLOR" id="Headcolor" name="Headcolor" value="#ff0000" style="margin-left: 3%;">
+                        </div>
+                        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6" style="margin-top:1%">
+                            <span class="label col-xs-12 col-sm-12 col-md-8 col-lg-8">Label Background Color</span>
+                            <input type="color" title="LABEL_COLOR" id="LabBackcolor" name="LabBackcolor" value="#ff0000" style="margin-left: 3%;">
+                        </div>
+                        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6" style="margin-top:1%">
+                            <span class="label col-xs-12 col-sm-12 col-md-8 col-lg-8">PrimaryButton Background Color</span>
+                            <input type="color" title="PRIMARY_READ_BUTTON" id="PrimaryButtBGcolor" name="PrimaryButtBGcolor" value="#ff0000" style="margin-left: 3%;">
+                        </div>
+                        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6" style="margin-top:1%">
+                            <span class="label col-xs-12 col-sm-12 col-md-8 col-lg-8">SecondaryButton BG color</span>
+                            <input type="color" title="SECONDARY_BUTTON" id="SecButtBGcolor" name="SecButtBGcolor" value="#ff0000" style="margin-left: 3%;">
+                        </div>
+                        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6" style="margin-top:1%">
+                            <span class="label col-xs-12 col-sm-12 col-md-8 col-lg-8">Grid Color</span>
+                            <input type="color" title="GRID_COLOR" id="Gridcolor" name="Gridcolor" value="#ff0000" style="margin-left: 3%;">
+                        </div>
+                        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6" style="margin-top:1%">
+                            <span class="label col-xs-12 col-sm-12 col-md-8 col-lg-8">Text Color</span>
+                            <input type="color" title="TEXT_COLOR" id="Textcolor" name="Textcolor" value="#ff0000" style="margin-left: 3%;">
+                        </div>
+                        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6" style="margin-top:1%">
+                            <span class="label col-xs-12 col-sm-12 col-md-8 col-lg-8">Input Color <!--#303030--></span>
+                            <input type="color" title="INPUT_COLOR" id="Inputcolor" name="Inputcolor" value="#ff0000" style="margin-left: 3%;">
+                        </div>
+                        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6" style="margin-top:1%">
+                            <span class="label col-xs-12 col-sm-12 col-md-8 col-lg-8">Input ButtonRead Color</span>
+                            <input type="color" title="INPUT_BUTTON_READ_COLOR" id="InButReadcolor" name="InButReadcolor" value="#ff0000" style="margin-left: 3%;">
+                        </div>
+                        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6" style="margin-top:1%">
+                            <span class="label col-xs-12 col-sm-12 col-md-8 col-lg-8">Input Button BackGround Color</span>
+                            <input type="color" title="INPUT_BUTTON_READ_BG_COLOR" id="InButBackcolor" name="InButBackcolor" value="#ff0000" style="margin-left: 3%;">
+                        </div>
+                        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6" style="margin-top:1%">
+                            <span class="label col-xs-12 col-sm-12 col-md-8 col-lg-8">Input Button ReadHover Color</span>
+                            <input type="color" title="INPUT_BUTTON_READ_HOVER_COLOR" id="InButReadHovercolor" name="InButReadHovercolor" value="#ff0000" style="margin-left: 3%;">
+                        </div>
+                        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6" style="margin-top:1%">
+                            <span class="label col-xs-12 col-sm-12 col-md-8 col-lg-8">Input ButtonWrite Color</span>
+                            <input type="color" title="INPUT_BUTTON_WRITE_COLOR" id="InButWritecolor" name="InButWritecolor" value="#ff0000" style="margin-left: 3%;">
+                        </div>
+                        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6" style="margin-top:1%">
+                            <span class="label col-xs-12 col-sm-12 col-md-8 col-lg-8">Input ButtonWrite Back Color</span>
+                            <input type="color" title="INPUT_BUTTON_WRITE_BACK_COLOR" id="InButWriteBackcolor" name="InButWriteBackcolor" value="#ff0000" style="margin-left: 3%;">
+                        </div>
+                        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6" style="margin-top:1%">
+                            <span class="label col-xs-12 col-sm-12 col-md-8 col-lg-8">Input ButtonWrite Hover Color</span>
+                            <input type="color" title="INPUT_BUTTON_WRITE_HOVER_COLOR" id="InButHovercolor" name="InButHovercolor" value="#ff0000" style="margin-left: 3%;">
+                        </div>
+                        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6" style="margin-top:1%">
+                            <span class="label col-xs-12 col-sm-12 col-md-8 col-lg-8">Input Button Sec Color</span>
+                            <input type="color" title="INPUT_BUTTON_SEC_COLOR" id="InButSeccolor" name="InButSeccolor" value="#ff0000" style="margin-left: 3%;">
+                        </div>
+                        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6" style="margin-top:1%">
+                            <span class="label col-xs-12 col-sm-12 col-md-8 col-lg-8">Input Button Sec Back Color</span>
+                            <input type="color" title="INPUT_BUTTON_SEC_BACK_COLOR" id="InButSecBackcolor" name="InButSecBackcolor" value="#ff0000" style="margin-left: 3%;">
+                        </div>
+                    </div>
+                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12" style="background-color:white; border-radius:20px; padding:10px;margin-top:1%;">
+                        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6" style="margin-top:1%">
+                            <span class="label col-xs-12 col-sm-12 col-md-8 col-lg-8">Button Color</span>
+                            <input type="color" title="BUTTON_COLOR" id="Buttoncolor" name="Buttoncolor" value="#ff0000">
+                        </div>
+                        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6" style="margin-top:1%">
+                            <span class="label col-xs-12 col-sm-12 col-md-8 col-lg-8">Tab Back Color</span>
+                            <input type="color" title="TAB_BACK_COLOR" id="TabBackcolor" name="TabBackcolor" value="#ff0000">
+                        </div>
+                        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6" style="margin-top:1%">
+                            <span class="label col-xs-12 col-sm-12 col-md-8 col-lg-8">Selected Tab Color</span>
+                            <input type="color" title="TAB_SEL_COLOR" id="SelectTabcolor" name="SelectTabcolor" value="#ff0000">
+                        </div>
+                        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6" style="margin-top:1%">
+                            <span class="label col-xs-12 col-sm-12 col-md-8 col-lg-8">Tab Color</span>
+                            <input type="color" title="TAB_COLOR" id="Tabcolor" name="Tabcolor" value="#ff0000">
+                        </div>
+                        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6" style="margin-top:1%">
+                            <span class="label col-xs-12 col-sm-12 col-md-8 col-lg-8">Label Header Color</span>
+                            <input type="color" title="LABEL_HEADER_COLOR" id="LabelHeadcolor" name="LabelHeadcolor" value="#ff0000">
+                        </div>
+                        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6" style="margin-top:1%">
+                            <span class="label col-xs-12 col-sm-12 col-md-8 col-lg-8">Message Panel Back Color</span>
+                            <input type="color" title="MSG_PANEL_COLOR" id="MessagePanelcolor" name="MessagePanelcolor" value="#ff0000">
+                        </div>
+                        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6" style="margin-top:1%">
+                            <span class="label col-xs-12 col-sm-12 col-md-8 col-lg-8">Grid Background Color</span>
+                            <input type="color" title="GRD_BACK_COLOR" id="GridBackcolor" name="GridBackcolor" value="#ff0000">
+                        </div>
+                        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6" style="margin-top:1%">
+                            <span class="label col-xs-12 col-sm-12 col-md-8 col-lg-8">Grid Header Color</span>
+                            <input type="color" title="GRD_HEADER_COLOR" id="GridHeadcolor" name="GridHeadcolor" value="#ff0000">
+                        </div>
+                        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6" style="margin-top:1%">
+                            <span class="label col-xs-12 col-sm-12 col-md-8 col-lg-8">Detail Screen Back Color</span>
+                            <input type="color" title="DETAIL_BACK_COLOR" id="DetailScreencolor" name="DetailScreencolor" value="#ff0000">
+                        </div>
+                        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6" style="margin-top:1%">
+                            <span class="label col-xs-12 col-sm-12 col-md-8 col-lg-8">Action Screen Back Color</span>
+                            <input type="color" title="ACTION_BACK_COLOR" id="ActScreenBackcolor" name="ActScreenBackcolor" value="#ff0000">
+                        </div>
+                        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6" style="margin-top:1%">
+                            <span class="label col-xs-12 col-sm-12 col-md-8 col-lg-8">Secondary Button Color</span>
+                            <input type="color" title="S_BUTTON_COLOR" id="SecButtoncolor" name="SecButtoncolor" value="#ff0000">
+                        </div>
+                        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6" style="margin-top:1%">
+                            <span class="label col-xs-12 col-sm-12 col-md-8 col-lg-8">Grid Odd Row Color</span>
+                            <input type="color" title="GRD_ODD_ROW_COLOR" id="GridOddRowcolor" name="GridOddRowcolor" value="#ff0000">
+                        </div>
+                        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6" style="margin-top:1%">
+                            <span class="label col-xs-12 col-sm-12 col-md-8 col-lg-8">Grid Even Row Color</span>
+                            <input type="color" title="GRD_EVEN_ROW_COLOR" id="GridEvenRowcolor" name="GridEvenRowcolor" value="#ff0000">
+                        </div>
+                        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6" style="margin-top:1%">
+                            <span class="label col-xs-12 col-sm-12 col-md-8 col-lg-8">Background</span>
+                            <input type="color" title="BACK_GROUND" id="Backgroundcolor" name="Backgroundcolor" value="#ff0000">
+                        </div>
+                        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6" style="margin-top:1%">
+                            <span class="label col-xs-12 col-sm-12 col-md-8 col-lg-8">SearchPanel BG Color</span>
+                            <input type="color" title="SEARCH_COLOR" id="SearchPanelcolor" name="SearchPanelcolor" value="#ff0000">
+                        </div>
+                        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6" style="margin-top:1%">
+                            <span class="label col-xs-12 col-sm-12 col-md-8 col-lg-8">Search Grid Height(px)</span>
+                            <input class="col-xs-4" title="SEARCH_GRID_HEIGHT" control="settingsPage.textBox" controlId="txtSearchGridHeight" placeholder="Search Grid Height">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>

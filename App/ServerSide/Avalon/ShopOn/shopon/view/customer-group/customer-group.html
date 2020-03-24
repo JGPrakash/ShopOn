@@ -1,0 +1,157 @@
+﻿
+<!doctype html>
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+
+    <script src="/config/config.js" type="text/javascript"></script>
+    <script type="text/javascript"> 
+
+        document.write('<script src="/' + appConfig.root + '/core/master.js" type="text/javascript" > <\/script> ');
+        document.write('<link href="/' + appConfig.root + '/shopon/view/customer-group/customer-group.css" rel="stylesheet" />');
+        document.write('<script src="/' + appConfig.root + '/shopon/view/customer-group/customer-group.js"><\/script>');
+        document.write('<script src="/' + appConfig.root + '/shopon/service/Promotion/member-promotion-service.js"><\/script>');
+        document.write('<script src="/' + appConfig.root + '/shopon/service/Promotion/customer-group-service.js"><\/script>');
+        document.write('<script src="/' + appConfig.root + '/shopon/service/Promotion/customer-group-api.js"><\/script>');
+        document.write('<script src="/' + appConfig.root + '/shopon/service/sales/customer-reward-api.js"><\/script>');
+        document.write('<script src="/' + appConfig.root + '/shopon/service/sales/customer-api.js"><\/script>');
+        document.write('<script src="/' + appConfig.root + '/shopon/service/Promotion/group-api.js"><\/script>');
+     </script>
+
+</head>
+
+
+<body control="page.customerGroup" controlId="customerGroup">
+
+
+
+
+    <div control="customerGroup.masterPage" controlId="masterPage"></div>
+
+    <div style="margin-top:40px">
+
+        <!--Load Content Area-->
+        <div class="container-fluid">
+
+            <div class="content-area row">
+                <div control="customerGroup.messagePanel" controlid="msgPanel" class="message-panel" style="display:none">
+                </div>
+                <div class="search-panel col-sm-4" default-button="btnSearch">
+                    <div class="search-action">
+                        <hr>
+                        <input type="button" tabindex="7" value="Search" control="customerGroup.primaryReadButton" controlId="btnSearch" event="click:btnSearch_click" class="" role="button">
+                    </div>
+                    
+                    <div class="search-filter">
+                            <input type="text" tabindex="6" class="textBox" controlId="txtGroupSearch" control="customerGroup.textBox" placeholder="Enter Group id or Group Name">
+                    </div>
+                    <div class="search-result">
+                        <div control="customerGroup.grid" controlid="grdGroupResult"></div>
+                    </div>
+                    <div class="col-sm-12 padding-left-zero" style="">
+                        <span class="label"> F1 - New </span>
+                        <span class="label"> F2 - Save </span>
+                        <span class="label"> Ctrl + R - Remove </span>
+                    </div>
+                </div>
+                <div class="detail-panel  col-sm-8">
+                    <div class="detail-action">
+                        <input type="button" tabindex="5"value="New" control="customerGroup.primaryWriteButton" controlId="btnNewGroup" event="click:btnNewGroup_click">
+                        <input type="button" tabindex="2" value="Save" control="customerGroup.primaryWriteButton" controlId="btnSaveGroup" event="click:btnSaveGroup_click">
+                        <input type="button" tabindex="3" value="Remove" control="customerGroup.secondaryButton" controlid="btnRemoveGroup" event="click:btnRemoveGroup_click">
+                    </div>
+                    
+                    <div class="detail-info container-fluid" >
+                        
+                        <div class="detail-basic row">
+                            <span class="label col-sm-12"><b>Customer Group Details</b></span>
+                            <div class="col-sm-6">
+                                <span class="label col-sm-4">Group id</span>
+                                <span class="col-sm-8 label-value" controlId="lblGroupNo" control="customerGroup.labelValue"></span>
+                            </div>
+
+                            <div class="col-sm-6">
+                                <span class="label col-sm-4">Group Name<span style="color:red;">*</span></span>
+                                <input class="col-sm-8" type="text" tabindex="1" controlId="txtGroupName" control="customerGroup.textBox" placeholder="Group Name">
+                            </div>
+
+                            <div class="col-sm-12">
+
+                                <input type="button" value="Remove" control="customerGroup.secondaryButton" controlid="btnRemove" event="click:btnRemove_click" style="float:right; display:none;">
+
+                                <input type="button" tabindex="4" value="Add"  control="customerGroup.secondaryButton" controlid="btnAdd" event="click:btnAdd_click" style="float:right;">
+                                <div class="itemGrid" control="customerGroup.grid" controlid="grdGroupTrans"></div>
+
+                            </div>
+                        </div>
+                        <div controlId="pnlAddGroup" control="customerGroup.popup" style="display:none">
+                            <div style="width:100%;display: inline-block;">
+                                <input  value="Save" style="float:right;" controlid="btnAddG"
+                                       control="customerGroup.primaryWriteButton" event="click:btnAddG_click" />
+                            </div>
+
+                            <br>
+
+                            <div style="width:100%">
+                                <span style="width:110px;">Group Name</span>
+                                <input type="text" value="" control="customerGroup.textBox"
+                                       controlid="txtAddGroupName" style="width:170px;" />
+                            </div>
+                        </div>
+                    </div>
+
+                    <div controlId="pnlAdd" control="customerGroup.popup" style="display:none">
+                        <div style="width:100%;display: inline-block;">
+                            <input value="Add"  style="float:right;" control="customerGroup.primaryWriteButton" controlId="btnAddM" event="click:btnAddM_click"/>
+                        </div>
+                       
+                            <br>
+                           
+                          
+                            <div style="width:100%">
+                                <span style="width:110px;">Customer Name<span style="color:red;">*</span></span>
+                                <input type="text" control="customerGroup.autoCompleteList" controlid="aclMem" />
+                                <!--<input type="text" value="" control="customerGroup.textBox" controlid="txtCustomerName" style="width:170px;" />-->
+                            </div>
+                        </div>
+                 <!--    <div controlId="pnlAddM" control="customerGroup.popup" style="display:none">
+                        <div style="width:100%;display: inline-block;">
+                            <input value="Add" style="float:right;" control="customerGroup.primaryWriteButton" controlId="btnUpdateM" event="click:btnUpdateM_click" />
+                        </div>
+
+                        <br>
+
+
+                       <div style="width:100%">
+                            <span style="width:110px;">Customer Name</span>
+                            <input type="text" control="customerGroup.autoCompleteList" controlid="aclMemb" />-->
+                            <!--<input type="text" value="" control="customerGroup.textBox" controlid="txtCustomerName" style="width:170px;" />-->
+                     <!--   </div>
+                    </div>
+                    </div>-->
+
+              
+                   
+
+
+               
+
+            </div>
+        </div>
+
+       
+
+
+
+
+    </div>
+
+            </div>
+
+    
+
+</body>
+
+</html>

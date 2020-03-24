@@ -1,0 +1,39 @@
+﻿<!--<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <meta charset="utf-8" />
+    <link href="../../../ui/print.css" rel="stylesheet" />
+</head>
+<body>-->
+<div>
+    <div>
+        <span class="label">PO No</span>
+        <span class="labelValue">{data.po_no}</span>
+    </div>
+    <div>
+        <span class="label">PO No</span>
+        <span class="labelValue">{data.po_no}</span>
+    </div>
+    <div>
+        <span class="label">PO No</span>
+        <span class="labelValue">{data.po_no}</span>
+    </div>
+
+    <div class="list">
+        <div>
+            <span>Item No</span>
+            <span>Qty</span>
+            <span>Price</span>
+        </div>
+        <div repeater="data.poItems">
+            <div>
+                <span>{data.poItems.item_no}</span>
+                <span>{data.poItems.qty}</span>
+                <span>{data.poItems.price}</span>
+            </div>
+        </div>
+    </div>
+</div>
+<!--</body>
+</html>-->

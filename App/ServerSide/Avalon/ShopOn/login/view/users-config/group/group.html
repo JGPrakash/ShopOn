@@ -1,0 +1,39 @@
+﻿<!doctype html>
+<html>
+<head>
+    <base href="/ShopOn/">
+    <script src="core/master.js" type="text/javascript"></script>
+
+    <link href="view/user/users-config/group/group.css" rel="stylesheet" />
+    <script src="view/user/users-config/group/group.js"></script>
+
+    <link href="view/pages/simple-entity-manage/simple-entity-manage.css" rel="stylesheet" />
+    <script src="view/pages/simple-entity-manage/simple-entity-manage.js"></script>
+
+
+    <script src="service/w3data/w3data.js"></script>
+
+
+</head>
+
+<div w3-include-html="view/user/users-config/users-config.html"></div>
+
+
+<body control="page.groupPage" controlId="groupPage">
+<!--Master Page-->
+
+<script>
+    w3IncludeHTML();
+</script>
+
+
+<div control="groupPage.masterPage" controlId="masterPage"></div>
+
+<div class="content-panel" style="margin-top: 60px; margin-left: 20px; margin-right: 20px;">
+    <span><b>Group Management</b></span>
+    <div control="groupPage.simpleEntityManage" controlId="ucSimpleEntityManage"></div>
+</div>
+
+
+</body>
+</html>
