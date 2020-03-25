@@ -100,7 +100,7 @@ var ACACHE = {
 };
 
 
-window.instanceURL = "localhost:8080";
+window.instanceURL = "13.232.186.15:8080";
 window.instanceShopOnDataService = "HRWebService";
 window.instanceShopOnRestApi = "HRShopOnRestAPI";
 window.instancePropOnRestApi = "PropOnShopOn4DevAPI";
