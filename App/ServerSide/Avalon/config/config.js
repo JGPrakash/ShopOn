@@ -9,4 +9,4 @@
 };
 
 var androidApp = false;
-var androidDev = false;
+var androidDev = true
