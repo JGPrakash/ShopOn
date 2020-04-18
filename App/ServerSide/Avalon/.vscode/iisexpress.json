@@ -1,6 +1,6 @@
 {
-  "port": 29369,
-  "path": "d:\\Project\\ShopOn\\Source1\\ShopOn\\ShopOn\\ShopOn",
+  "port": 8991,
+  "path": "e:\\Project\\SampleProject\\App\\ServerSide\\Avalon",
   "clr": "v4.0",
   "protocol": "http"
 }
